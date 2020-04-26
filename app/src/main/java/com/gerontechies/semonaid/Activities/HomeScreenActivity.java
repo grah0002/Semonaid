@@ -2,6 +2,7 @@ package com.gerontechies.semonaid.Activities;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
@@ -12,13 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.gerontechies.semonaid.Activities.Budgeting.BudgetInfoActivity;
-import com.gerontechies.semonaid.Activities.Budgeting.TipsMenuActivity;
+import com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity;
+import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
+import com.gerontechies.semonaid.Activities.Budget.Tips.TipsMenuActivity;
+import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.R;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
-    Button budget_btn, saving_btn;
+    CardView budget_btn, saving_btn, service_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +29,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         setTitle("Semonaid");
 
-        budget_btn = (Button) findViewById(R.id.button);
+        budget_btn = (CardView) findViewById(R.id.budget_calculator);
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
-               budget_btn.setTypeface(font);
 
         budget_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,8 +40,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
 
-        saving_btn = (Button) findViewById(R.id.button2);
-        saving_btn.setTypeface(font);
+        saving_btn = (CardView) findViewById(R.id.savings);
 
         saving_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,17 @@ public class HomeScreenActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        service_btn = (CardView) findViewById(R.id.assistance);
+        service_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeScreenActivity.this, ServiceInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
 
