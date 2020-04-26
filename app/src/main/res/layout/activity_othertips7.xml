@@ -1,0 +1,51 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Budgeting.OtherTips7Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
+
+
+        <ImageView
+            android:id="@+id/iv_othertips7"
+            android:layout_width="match_parent"
+            android:layout_height="273dp"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/nosmoke" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Smoking DRAINS the wallet!"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="QUIT Smoking  - it is injurious to health"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Quitting smoking can save you up to $5000 a year"
+            android:textColor="#131F61" />
+
+    </LinearLayout>
+</ScrollView>

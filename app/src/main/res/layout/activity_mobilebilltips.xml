@@ -1,0 +1,51 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Budgeting.MobileBillTipsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
+
+
+        <ImageView
+            android:id="@+id/iv_mobilebilltips"
+            android:layout_width="match_parent"
+            android:layout_height="273dp"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/mobilebill" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Match your Cell Phone Plan to your Usage"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text=" Look at switching Service Providers"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="You can use your current phone with a better suited plan"
+            android:textColor="#131F61" />
+
+    </LinearLayout>
+</ScrollView>

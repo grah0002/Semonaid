@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.Budgeting.ElecBillTipsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText_elecbilltips1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:text="Efficient Lighting"
+            android:textAllCaps="true"
+            android:textColor="#162265"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_elecbilltips1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/elecbilltnail"
+            android:text="Efficient Lighting"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText_elecbilltips2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:text="Cold Wash"
+            android:textAllCaps="true"
+            android:textColor="#132378"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_elecbilltips2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/elecbilltnail"
+            android:text="Cold Wash"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText_elecbilltips3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:text="Switches"
+            android:textAllCaps="true"
+            android:textColor="#132378"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_elecbilltips3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/elecbilltnail"
+            android:text="Switches"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText_elecbilltips4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:text="Insulation"
+            android:textAllCaps="true"
+            android:textColor="#132378"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_elecbilltips4"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/elecbilltnail"
+            android:text="Insulation"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText_elecbilltips5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:text="Electricity Providers"
+            android:textAllCaps="true"
+            android:textColor="#132378"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_elecbilltips5"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/elecbilltnail"
+            android:text="Electricity Providers"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

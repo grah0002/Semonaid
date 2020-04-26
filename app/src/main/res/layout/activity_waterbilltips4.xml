@@ -1,0 +1,51 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Budgeting.WaterBillTips4Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
+
+
+        <ImageView
+            android:id="@+id/iv_waterbilltips4"
+            android:layout_width="match_parent"
+            android:layout_height="267dp"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/washing" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Run full loads of Dishes in the Dishwasher"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Run a full load in the Washing Machine"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Saves water as well as the number of times the machine has to run"
+            android:textColor="#131F61" />
+
+    </LinearLayout>
+</ScrollView>

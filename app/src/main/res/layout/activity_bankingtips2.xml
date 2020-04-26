@@ -1,0 +1,60 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Budgeting.BankingTips2Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
+
+
+        <ImageView
+            android:id="@+id/iv_bankingtips2"
+            android:layout_width="match_parent"
+            android:layout_height="273dp"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/checkingacct" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Does your checking account charge maintenance and annual fees?"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text=" If so, it’s time to make a SWITCH!"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Banks online-only and offer completely free checking accounts!"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="There’s no reason you should be paying maintenance and annual fees for a checking account"
+            android:textColor="#131F61" />
+
+    </LinearLayout>
+</ScrollView>

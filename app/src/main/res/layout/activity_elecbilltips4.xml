@@ -1,0 +1,51 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Budgeting.ElecBillTips4Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
+
+
+        <ImageView
+            android:id="@+id/iv_elecbilltips4"
+            android:layout_width="match_parent"
+            android:layout_height="273dp"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/insulate" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Insulate your home - cost effective"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Reduces cooling/heating costs - Helps maintain a comfortable natural temperature"
+            android:textColor="#131F61" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="As per Victorian government, savings can be up to 40-50% per year"
+            android:textColor="#131F61" />
+
+    </LinearLayout>
+</ScrollView>

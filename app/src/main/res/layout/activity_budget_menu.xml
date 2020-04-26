@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.Budgeting.BudgetMainMenuActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_income"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            app:cardMaxElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_income"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/income"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <ImageView
+                    android:id="@+id/iv_add_income"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/plus_icon" />
+
+                <TextView
+                    android:id="@+id/txt_total_income"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/total"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_housing_exp"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            app:cardMaxElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_household_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/housing_exp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <ImageView
+                    android:id="@+id/iv_add_housing_exp"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/plus_icon" />
+
+                <TextView
+                    android:id="@+id/txt_total_housing_exp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/total"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_utilities"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            app:cardMaxElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_utilities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/Bills"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <ImageView
+                    android:id="@+id/iv_add_utilities"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/plus_icon" />
+
+                <TextView
+                    android:id="@+id/txt_total_utilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/total"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_personal"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            app:cardMaxElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_personal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/personal"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <ImageView
+                    android:id="@+id/iv_add_personal"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/plus_icon" />
+
+                <TextView
+                    android:id="@+id/txt_total_personal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/total"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_transport"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            app:cardMaxElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_transport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/transport"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <ImageView
+                    android:id="@+id/iv_add_transport"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/plus_icon" />
+
+                <TextView
+                    android:id="@+id/txt_total_transport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/total"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@android:style/Widget.Button.Toggle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_weight="0"
+            android:background="@drawable/ovalbtn"
+            android:gravity="center"
+            android:text="@string/btn_next"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
+</ScrollView>

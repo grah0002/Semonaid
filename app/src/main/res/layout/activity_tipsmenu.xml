@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.Budgeting.TipsMenuActivity">
+
+
+    <Button
+        android:id="@+id/btn_generaltips"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0"
+        android:background="@drawable/ovalbtn"
+        android:gravity="center"
+        android:text="Saving 101"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/btn_billstips"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0"
+        android:background="@drawable/ovalbtn"
+        android:gravity="center"
+        android:text="Save on Bills"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/btn_bankingtips"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0"
+        android:background="@drawable/ovalbtn"
+        android:gravity="center"
+        android:text="Banking Tips"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/btn_traveltips"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0"
+        android:background="@drawable/ovalbtn"
+        android:gravity="center"
+        android:text="Stay Travel Smart"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/btn_othertips"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="228dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0"
+        android:background="@drawable/ovalbtn"
+        android:gravity="center"
+        android:text="Other Measures"
+        android:textColor="#FFF" />
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Semonaid</string>
+
+
+    <!--  Menu items  -->
+    <string name="menu_budgeting">Budgeting</string>
+
+    <!-- Budget   -->
+    <string name="budget">Budget</string>
+    <string name="total">Total : $</string>
+    <string name="save_my_earnings">Save My Earnings</string>
+    <string name="budget_calculator">Budget Calculator</string>
+
+    <string name="income">Income</string>
+    <string name="housing_exp">Household Expenses</string>
+    <string name="utilities">Utilities</string>
+
+    <string name="frequency">Frequency</string>
+    <string-array name="frequency_array">
+        <item>Weekly</item>
+        <item>Fortnightly </item>
+        <item>Monthly</item>
+        <item>Yearly</item>
+    </string-array>
+
+    <string name="income_details">Income Details</string>
+    <string name="income_govt">Government Benifits</string>
+    <string name="income_other">Other Income</string>
+    
+    <string name="household_rent">Rent</string>
+    <string name="household_groceries">Groceries</string>
+    <string name="household_other">Other Expenses</string>
+
+    <string name="Bills">Bills</string>
+    <string name="bills_gas">Gas bill</string>
+    <string name="bills_water">Water bill</string>
+    <string name="bills_electricity">Electricity bill</string>
+    <string name="bills_phone">Phone bills</string>
+    <string name="bills_internet">Internet bills</string>
+    <string name="bills_insurance">Insurance</string>
+    <string name="bills_loans">Loans</string>
+    <string name="bills_other">Other Bills</string>
+    
+    
+    <string name="personal_clothing">Clothing</string>
+    <string name="personal_doctor">Doctors and Medicine</string>
+    <string name="personal_other">Other</string>
+    <string name="personal_entertainment">Entertainment</string>
+    <string name="personal_pet">Pet care</string>
+
+
+
+    <string name="transport_licence">Rego and licence</string>
+    <string name="transport_public">Public Transport</string>
+    <string name="transport_other">Other</string>
+
+    <!-- Info-->
+    <string name="budget_info_1">Welcome user!</string>
+    <string name="budget_info_2">We would be asking you a series of questions to determine how much of your income you spend on expenses.</string>
+
+    <string name="personal">Personal Expenses</string>
+    <string name="transport">Transport and Auto</string>
+
+
+    <!-- Summary -->
+    <string name="summary">Summary</string>
+    <string name="expense">Expenses</string>
+
+
+    <!--  Content Desc  -->
+    <string name="logo">Logo</string>
+
+    <!-- Button Text-->
+    <string name="btn_next">Next</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_save_gallery">Save to Gallery</string>
+
+
+</resources>
