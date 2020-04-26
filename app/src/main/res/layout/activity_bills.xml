@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Budgeting.BillsActivity">
+    tools:context=".Activities.Budget.Calculator.BillsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

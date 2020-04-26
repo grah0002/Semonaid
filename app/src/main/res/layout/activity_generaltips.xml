@@ -5,60 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.Budgeting.GeneralTipsActivity">
+    tools:context=".Activities.Budget.Tips.GeneralTipsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText_generaltips1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Written Budget"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/btn_generaltips1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/writebudgettnail"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
             android:text="Written Budget"
             android:textAllCaps="false"
-            android:textColor="#132378"
-            android:textSize="36sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editText_generaltips2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Pay On Time"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="#FBFBFB"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_generaltips2"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/payontimetnail"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
             android:text="Pay On Time"
             android:textAllCaps="false"
-            android:textColor="#132378"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="normal" />
 
     </LinearLayout>
 </ScrollView>
