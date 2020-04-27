@@ -12,172 +12,102 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText_othertips1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Cable TV vs Streaming"
-            android:textAllCaps="true"
-            android:textColor="#162265"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/btn_othertips1"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/otherbilltnail"
-            android:text="Cable TV vs Streaming"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_othertips2"
+
+            android:text="Cable TV vs Streaming"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Gym Membership"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btn_othertips2"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/otherbilltnail"
-            android:text="Gym Membership"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_othertips3"
+
+            android:text="Gym Membership"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Haircut"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btn_othertips3"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/otherbilltnail"
-            android:text="Haircut"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_othertips4"
+
+            android:text="Haircut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Eating Out"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btn_othertips4"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/otherbilltnail"
-            android:text="Eating Out"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_othertips5"
+
+            android:text="Eating Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Shopping"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btn_othertips5"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/otherbilltnail"
-            android:text="Shopping"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_othertips6"
+
+            android:text="Shopping"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Gumtree"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btn_othertips6"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/otherbilltnail"
-            android:text="Gumtree"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_othertips7"
+
+            android:text="Gumtree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Smoking"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btn_othertips7"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/otherbilltnail"
+
+
             android:text="Smoking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
             android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
     </LinearLayout>
 </ScrollView>

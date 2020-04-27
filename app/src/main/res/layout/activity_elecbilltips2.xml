@@ -9,8 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="vertical"
-        android:paddingBottom="30dp">
+        android:paddingBottom="20dp">
 
 
         <ImageView
@@ -20,32 +22,50 @@
             android:layout_weight="0"
             app:srcCompat="@drawable/coldwash" />
 
-        <TextView
-            android:id="@+id/textView"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:layout_weight="0"
-            android:gravity="center"
-            android:text="Perform all machine washes with COLD water"
-            android:textColor="#131F61" />
+            app:cardCornerRadius="20dp">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:text="Higher the water Temperature, higher the bill"
-            android:textColor="#131F61" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                android:padding="20dp">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text="Perform all machine washes with COLD water"
+                    android:textColor="#FFFFFF"
+                    app:fontFamily="@font/montserrat" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:text="Look at ECO settings, load size settings for efficient power usage"
-            android:textColor="#131F61" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text="Higher the water Temperature, higher the bill"
+                    android:textColor="#FFFFFF"
+                    app:fontFamily="@font/montserrat" />
 
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:text="Look at ECO settings, load size settings for efficient power usage"
+                    android:textColor="#FFFFFF"
+                    app:fontFamily="@font/montserrat" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </ScrollView>

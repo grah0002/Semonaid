@@ -12,53 +12,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText_traveltips1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Car Wash"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/btn_traveltips1"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/washcartnail"
-            android:text="Car Wash"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_traveltips2"
+
+            android:text="Car Wash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:text="Fuel Consumption"
-            android:textAllCaps="true"
-            android:textColor="#132378"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btn_traveltips2"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/walktnail"
-            android:text="Fuel Consumption"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="36sp"
-            android:textStyle="bold" />
 
+
+            android:text="Fuel Consumption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textColor="#FBFBFB"
+            android:textSize="18sp"/>
     </LinearLayout>
 </ScrollView>
