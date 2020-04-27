@@ -59,7 +59,7 @@ public class ServiceItemActivity extends AppCompatActivity {
         name = (TextView) findViewById(R.id.txt_service_name);
         what = (TextView) findViewById(R.id.txt_service_what);
         who =  (TextView) findViewById(R.id.txt_service_who);
-        //address = (TextView) findViewById(R.id.);
+        address = (TextView) findViewById(R.id.txt_cost);
 //        suburb = (TextView) findViewById(R.id.);
 //        phone = (TextView) findViewById(R.id.);
 //        email = (TextView) findViewById(R.id.);
@@ -121,13 +121,37 @@ public class ServiceItemActivity extends AppCompatActivity {
             String c3 = item.getCategory_3();
             String c4 = item.getCategory_4();
 
+            String price = item.getCost();
+
 
             String train1 = item.getNearest_train();
             String tram1 = item.getTram_routes();
-            String place = item.getAddress_1() +", " + item.getAddress_2() +", " + item.getSuburb();
+            String a1 = item.getAddress_1();
+            String a2 = item.getAddress_2();
+            String a3 = item.getSuburb();
+            String place ="";
+            if(!a1.equals("n/a")){
+                 place = a1 +", ";
+            }
+
+            if(!a2.equals("n/a")){
+                place = place +a2  +", ";
+            }
+
+            if(!a3.equals("n/a")){
+                place = place + a3  ;
+            }
+
+
 
 
            name.setText(item.getService_name());
+
+            if(price.equals("n/a")){
+                address.setVisibility(View.GONE);
+            } else{
+                address.setText("Cost: "+item.getCost());
+            }
 
             if(whoTxt.equals("n/a")){
                 who.setVisibility(View.GONE);

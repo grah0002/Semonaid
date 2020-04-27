@@ -26,8 +26,11 @@ public class ElecBillTipsActivity extends AppCompatActivity {
         setTitle("Electricity Bill Savings");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
+
         btn_elecbilltips1 = (Button) findViewById(R.id.btn_elecbilltips1);
 
+        btn_elecbilltips1.setTypeface(font);
         btn_elecbilltips1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +40,7 @@ public class ElecBillTipsActivity extends AppCompatActivity {
         });
 
         btn_elecbilltips2 = (Button) findViewById(R.id.btn_elecbilltips2);
+        btn_elecbilltips2.setTypeface(font);
 
         btn_elecbilltips2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +51,8 @@ public class ElecBillTipsActivity extends AppCompatActivity {
         });
         btn_elecbilltips3 = (Button) findViewById(R.id.btn_elecbilltips3);
 
+        btn_elecbilltips3.setTypeface(font);
+
         btn_elecbilltips3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +62,8 @@ public class ElecBillTipsActivity extends AppCompatActivity {
         });
         btn_elecbilltips4 = (Button) findViewById(R.id.btn_elecbilltips4);
 
+        btn_elecbilltips4.setTypeface(font);
+
         btn_elecbilltips4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +72,8 @@ public class ElecBillTipsActivity extends AppCompatActivity {
             }
         });
         btn_elecbilltips5 = (Button) findViewById(R.id.btn_elecbilltips5);
+
+        btn_elecbilltips5.setTypeface(font);
 
         btn_elecbilltips5.setOnClickListener(new View.OnClickListener() {
             @Override

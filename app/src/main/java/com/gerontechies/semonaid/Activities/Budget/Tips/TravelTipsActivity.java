@@ -26,8 +26,11 @@ public class TravelTipsActivity extends AppCompatActivity {
         setTitle("Travel Tips");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
+
         btn_traveltips1 = (Button) findViewById(R.id.btn_traveltips1);
 
+        btn_traveltips1.setTypeface(font);
         btn_traveltips1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +40,7 @@ public class TravelTipsActivity extends AppCompatActivity {
         });
 
         btn_traveltips2 = (Button) findViewById(R.id.btn_traveltips2);
-
+        btn_traveltips2.setTypeface(font);
         btn_traveltips2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

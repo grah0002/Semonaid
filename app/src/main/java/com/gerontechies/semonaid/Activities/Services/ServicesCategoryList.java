@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -91,7 +92,7 @@ public class ServicesCategoryList extends AppCompatActivity  {
         protected void onPostExecute(String details) {
 
             if(allItemList.size()>1){
-               // Log.d("ITEM", String.valueOf(allItemList.size()));
+                 Log.d("ITEM", String.valueOf(allItemList.size()));
                  mAdapter = new ServicesAdapter(ServicesCategoryList.this,  allItemList);
 
                 RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(ServicesCategoryList.this, LinearLayoutManager.VERTICAL, false);

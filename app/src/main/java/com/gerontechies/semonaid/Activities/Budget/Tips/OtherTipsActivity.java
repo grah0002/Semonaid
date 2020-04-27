@@ -26,8 +26,10 @@ public class OtherTipsActivity extends AppCompatActivity {
         setTitle("Other Tips");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btn_othertips1 = (Button) findViewById(R.id.btn_othertips1);
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
+        btn_othertips1 = (Button) findViewById(R.id.btn_othertips1);
+        btn_othertips1.setTypeface(font);
         btn_othertips1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +39,7 @@ public class OtherTipsActivity extends AppCompatActivity {
         });
 
         btn_othertips2 = (Button) findViewById(R.id.btn_othertips2);
-
+        btn_othertips2.setTypeface(font);
         btn_othertips2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +48,7 @@ public class OtherTipsActivity extends AppCompatActivity {
             }
         });
         btn_othertips3 = (Button) findViewById(R.id.btn_othertips3);
-
+        btn_othertips3.setTypeface(font);
         btn_othertips3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +57,7 @@ public class OtherTipsActivity extends AppCompatActivity {
             }
         });
         btn_othertips4 = (Button) findViewById(R.id.btn_othertips4);
-
+        btn_othertips4.setTypeface(font);
         btn_othertips4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +66,7 @@ public class OtherTipsActivity extends AppCompatActivity {
             }
         });
         btn_othertips5 = (Button) findViewById(R.id.btn_othertips5);
-
+        btn_othertips5.setTypeface(font);
         btn_othertips5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +76,7 @@ public class OtherTipsActivity extends AppCompatActivity {
         });
         btn_othertips6 = (Button) findViewById(R.id.btn_othertips6);
 
+        btn_othertips6.setTypeface(font);
         btn_othertips6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +86,7 @@ public class OtherTipsActivity extends AppCompatActivity {
         });
         btn_othertips7 = (Button) findViewById(R.id.btn_othertips7);
 
+        btn_othertips7.setTypeface(font);
         btn_othertips7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

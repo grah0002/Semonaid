@@ -29,7 +29,7 @@ public class TipsMenuActivity extends AppCompatActivity {
 
 
         btn_generaltips = (CardView) findViewById(R.id.saving_1);
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
+
         btn_generaltips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

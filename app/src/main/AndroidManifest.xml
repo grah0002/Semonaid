@@ -12,10 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Services.ServiceItemActivity"></activity>
+        <activity android:name=".Activities.PasswordActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.Services.ServiceItemActivity" />
         <activity android:name=".Activities.Services.ServiceCategoryActivity" />
         <activity android:name=".Activities.Services.ServicesCategoryList" />
-
         <activity android:name=".Activities.Services.ServicesAllActivity" />
         <activity android:name=".Activities.Services.ServiceInfoActivity" />
         <activity android:name=".Activities.Budget.Calculator.SummaryActivity" />
@@ -63,11 +69,7 @@
         <activity android:name=".Activities.Budget.Tips.TipsMenuActivity" />
         <activity android:name=".Activities.HomeScreenActivity" />
         <activity android:name=".Activities.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

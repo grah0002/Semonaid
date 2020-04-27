@@ -100,37 +100,37 @@ public class ServiceItem {
 
     public ServiceItem(){}
 
-    public ServiceItem(int id, String service_name, String what, String who, String address_1, String address_2, String suburb, String phone_number, String free_line, String email, String website, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, String public_holodays, String cost, String tram_routes,  String nearest_train, String category_1, String category_2, String category_4, String category_3, double latitude, double longitude, String geocoded_location) {
-        this.id = id;
-        this.service_name = service_name;
-        this.what = what;
-        this.who = who;
-        this.address_1 = address_1;
-        this.address_2 = address_2;
-        this.suburb = suburb;
-        this.phone_number = phone_number;
-        this.free_line = free_line;
-        this.email = email;
-        this.website = website;
-        this.monday = monday;
-        this.tuesday = tuesday;
-        this.wednesday = wednesday;
-        this.thursday = thursday;
-        this.friday = friday;
-        this.saturday = saturday;
-        this.sunday = sunday;
-        this.public_holodays = public_holodays;
-        this.cost = cost;
-        this.tram_routes = tram_routes;
-        this.nearest_train = nearest_train;
-        this.category_1 = category_1;
-        this.category_2 = category_2;
-        this.category_4 = category_4;
-        this.category_3 = category_3;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.geocoded_location = geocoded_location;
-    }
+//    public ServiceItem(int id, String service_name, String what, String who, String address_1, String address_2, String suburb, String phone_number, String free_line, String email, String website, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, String public_holodays, String cost, String tram_routes,  String nearest_train, String category_1, String category_2, String category_4, String category_3, double latitude, double longitude, String geocoded_location) {
+//        this.id = id;
+//        this.service_name = service_name;
+//        this.what = what;
+//        this.who = who;
+//        this.address_1 = address_1;
+//        this.address_2 = address_2;
+//        this.suburb = suburb;
+//        this.phone_number = phone_number;
+//        this.free_line = free_line;
+//        this.email = email;
+//        this.website = website;
+//        this.monday = monday;
+//        this.tuesday = tuesday;
+//        this.wednesday = wednesday;
+//        this.thursday = thursday;
+//        this.friday = friday;
+//        this.saturday = saturday;
+//        this.sunday = sunday;
+//        this.public_holodays = public_holodays;
+//        this.cost = cost;
+//        this.tram_routes = tram_routes;
+//        this.nearest_train = nearest_train;
+//        this.category_1 = category_1;
+//        this.category_2 = category_2;
+//        this.category_4 = category_4;
+//        this.category_3 = category_3;
+//        this.latitude = latitude;
+//        this.longitude = longitude;
+//        this.geocoded_location = geocoded_location;
+//    }
 
     public int getId() {
         return id;

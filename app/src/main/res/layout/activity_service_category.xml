@@ -335,86 +335,7 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_drug"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView39"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="10dp"
-                        app:srcCompat="@drawable/booze" />
-
-                    <TextView
-                        android:id="@+id/textView129"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:gravity="center"
-                        android:text="Drug and Alcohol"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        app:fontFamily="@font/montserrat" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_travel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView331"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        app:srcCompat="@drawable/trav" />
-
-                    <TextView
-                        android:id="@+id/textView1231"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:gravity="center"
-                        android:text="Travel Assistance"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        app:fontFamily="@font/montserrat" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -489,6 +410,87 @@
                         android:layout_margin="10dp"
                         android:gravity="center"
                         android:text="Helpline"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/montserrat" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:id="@+id/card_drug"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="20dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                app:cardBackgroundColor="@color/colorPrimary"-->
+            <!--                app:cardCornerRadius="20dp">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="vertical">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/imageView39"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="center"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        app:srcCompat="@drawable/booze" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/textView129"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="Drug and Alcohol"-->
+            <!--                        android:textColor="#FFFFFF"-->
+            <!--                        android:textSize="18sp"-->
+            <!--                        app:fontFamily="@font/montserrat" />-->
+            <!--                </LinearLayout>-->
+
+            <!--            </androidx.cardview.widget.CardView>-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_travel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView331"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        app:srcCompat="@drawable/trav" />
+
+                    <TextView
+                        android:id="@+id/textView1231"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:text="Travel Assistance"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp"
                         app:fontFamily="@font/montserrat" />

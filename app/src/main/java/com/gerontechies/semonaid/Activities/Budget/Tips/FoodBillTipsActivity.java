@@ -26,8 +26,11 @@ public class FoodBillTipsActivity extends AppCompatActivity {
         setTitle("Food/Grocery Bill Savings");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
+
         btn_foodbilltips1 = (Button) findViewById(R.id.btn_foodbilltips1);
 
+        btn_foodbilltips1.setTypeface(font);
         btn_foodbilltips1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +40,7 @@ public class FoodBillTipsActivity extends AppCompatActivity {
         });
 
         btn_foodbilltips2 = (Button) findViewById(R.id.btn_foodbilltips2);
+        btn_foodbilltips2.setTypeface(font);
 
         btn_foodbilltips2.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -28,6 +28,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         setTitle("Semonaid");
+        getSupportActionBar().hide();
 
         budget_btn = (CardView) findViewById(R.id.budget_calculator);
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);

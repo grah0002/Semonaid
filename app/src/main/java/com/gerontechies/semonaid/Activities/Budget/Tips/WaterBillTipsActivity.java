@@ -25,9 +25,10 @@ public class WaterBillTipsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_waterbilltips);
         setTitle("Water Bill Savings");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
         btn_waterbilltips1 = (Button) findViewById(R.id.btn_waterbilltips1);
-
+        btn_waterbilltips1.setTypeface(font);
         btn_waterbilltips1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +38,7 @@ public class WaterBillTipsActivity extends AppCompatActivity {
         });
 
         btn_waterbilltips2 = (Button) findViewById(R.id.btn_waterbilltips2);
-
+        btn_waterbilltips2.setTypeface(font);
         btn_waterbilltips2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +47,7 @@ public class WaterBillTipsActivity extends AppCompatActivity {
             }
         });
         btn_waterbilltips3 = (Button) findViewById(R.id.btn_waterbilltips3);
-
+        btn_waterbilltips3.setTypeface(font);
         btn_waterbilltips3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +56,7 @@ public class WaterBillTipsActivity extends AppCompatActivity {
             }
         });
         btn_waterbilltips4 = (Button) findViewById(R.id.btn_waterbilltips4);
-
+        btn_waterbilltips4.setTypeface(font);
         btn_waterbilltips4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
