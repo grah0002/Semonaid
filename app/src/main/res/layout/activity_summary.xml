@@ -177,19 +177,69 @@
                 <!--                    android:layout_margin="20dp" />-->
 
 
-                <Button
-                    android:id="@+id/btn_save"
-                    style="@android:style/Widget.Button.Toggle"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                    android:layout_gravity="center"
-                    android:layout_marginTop="50dp"
-                    android:layout_weight="0"
-                    android:background="@drawable/ovalbtn"
-                    android:gravity="center"
-                    android:text="Share"
-                    android:textColor="#FFF" />
+                        <TextView
+                            android:id="@+id/maxExpenseInfoTxt"
+                            android:layout_width="190dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="Category spent most on:"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/montserrat" />
+
+                        <TextView
+                            android:id="@+id/maxExpenseCategoryTxt"
+                            android:layout_width="129dp"
+                            android:layout_height="74dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/heroCategory"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/montserrat" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_gosave"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="210dp"
+                            android:layout_height="wrap_content"
+
+                            android:layout_gravity="left"
+                            android:layout_marginTop="50dp"
+                            android:layout_weight="0"
+                            android:background="@drawable/ovalbtn"
+                            android:gravity="center"
+                            android:textColor="#FFF" />
+
+                        <Button
+                            android:id="@+id/btn_goservice"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_gravity="right"
+                            android:layout_marginTop="50dp"
+                            android:layout_weight="0"
+                            android:background="@drawable/ovalbtn"
+                            android:gravity="center"
+                            android:textColor="#FFF" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_next"
@@ -197,13 +247,14 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
 
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal|top"
                     android:layout_marginTop="50dp"
                     android:layout_weight="0"
                     android:background="@drawable/ovalbtn"
                     android:gravity="center"
                     android:text="Return to Menu"
                     android:textColor="#FFF" />
+
         </LinearLayout>
 
 

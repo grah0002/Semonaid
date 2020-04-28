@@ -149,15 +149,15 @@ public class TransportActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(rego)){
                 if(rego_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Rego and licence",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(rego_sp);
                 BudgetItem budgetItem = new BudgetItem("Rego and licence",Double.parseDouble(rego),frequency,TYPE,CATEGORY);
                 if(rego_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(rego_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -166,16 +166,16 @@ public class TransportActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(public_transport)){
                 if(public_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Public Transport",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
 
             } else {
                 int frequency = getFrequency(public_sp);
                 BudgetItem budgetItem = new BudgetItem("Public Transport",Double.parseDouble(public_transport),frequency,TYPE,CATEGORY);
                 if(public_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(public_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -185,15 +185,15 @@ public class TransportActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(other)){
                 if(other_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Other Transport Expenses",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Transport Expenses",Double.parseDouble(other),frequency,TYPE,CATEGORY);
                 if(other_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -220,7 +220,7 @@ public class TransportActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.BudgetDAO().getCategoryItems(CATEGORY);
+            item = db.budgetDAO().getCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 

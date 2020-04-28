@@ -178,16 +178,16 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(gas)){
                 if(gas_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Gas Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 incomeTotal = incomeTotal + Double.parseDouble(gas);
                 int frequency = getFrequency(gas_sp);
                 BudgetItem budgetItem = new BudgetItem("Gas Bill",Double.parseDouble(gas),frequency,TYPE,CATEGORY);
                 if(gas_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(gas_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -196,7 +196,7 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(water)){
                 if(water_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Water Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
 
             } else {
@@ -204,9 +204,9 @@ public class BillsActivity extends AppCompatActivity {
                 int frequency = getFrequency(water_sp);
                 BudgetItem budgetItem = new BudgetItem("Water Bill",Double.parseDouble(water),frequency,TYPE,CATEGORY);
                 if(water_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(water_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -217,16 +217,16 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(electricity)){
                 if(electricity_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Electricity Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 incomeTotal = incomeTotal + Double.parseDouble(electricity);
                 int frequency = getFrequency(electricity_sp);
                 BudgetItem budgetItem = new BudgetItem("Electricity Bill",Double.parseDouble(electricity),frequency,TYPE,CATEGORY);
                 if(electricity_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(electricity_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -235,15 +235,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(phone)){
                 if(phone_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Phone Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(phone_sp);
                 BudgetItem budgetItem = new BudgetItem("Phone Bill",Double.parseDouble(phone),frequency,TYPE,CATEGORY);
                 if(phone_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(phone_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -252,15 +252,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(internet)){
                 if(internet_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Internet Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(internet_sp);
                 BudgetItem budgetItem = new BudgetItem("Internet Bill",Double.parseDouble(internet),frequency,TYPE,CATEGORY);
                 if(internet_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(internet_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -269,15 +269,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(insurance)){
                 if(insurance_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Insurance Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(insurance_sp);
                 BudgetItem budgetItem = new BudgetItem("Insurance Bill",Double.parseDouble(insurance),frequency,TYPE,CATEGORY);
                 if(insurance_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(insurance_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -286,15 +286,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(loans)){
                 if(loans_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Loans",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(loans_sp);
                 BudgetItem budgetItem = new BudgetItem("Loans",Double.parseDouble(loans),frequency,TYPE,CATEGORY);
                 if(loans_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(loans_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -303,15 +303,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(loans)){
                 if(other_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Other Bills",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Bills",Double.parseDouble(other),frequency,TYPE,CATEGORY);
                 if(other_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -338,7 +338,7 @@ public class BillsActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.BudgetDAO().getCategoryItems(CATEGORY);
+            item = db.budgetDAO().getCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 
