@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     tools:context=".Activities.Services.ServicesCategoryList">
-    >
+
+    <Button
+        android:id="@+id/map_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/ovalbtn"
+        android:text="View in Map"
+        android:textColor="#EFE9E9" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
         android:id="@+id/recycle_categories"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp" />
 </LinearLayout>

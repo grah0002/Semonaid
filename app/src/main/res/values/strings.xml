@@ -85,6 +85,7 @@
     <string name="service_categories">Services by Categories</string>
 
     <string name="tips_1">To get started, please the category you would like to view tips on:</string>
+    <string name="title_activity_services_map">Map</string>
 
 
 </resources>

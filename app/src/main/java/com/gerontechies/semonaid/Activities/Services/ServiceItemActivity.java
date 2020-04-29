@@ -28,7 +28,8 @@ public class ServiceItemActivity extends AppCompatActivity {
     TextView cost, tram, train, category1, category2, category3, category4, addressTxt;
     ServiceDatabase db = null;
     ServiceItem item;
-    String id;
+    String id, route, serviceName;
+    boolean isMap=false;
 
 
     @Override
@@ -47,14 +48,26 @@ public class ServiceItemActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
 
-        ReadDatabase rd = new ReadDatabase();
-        rd.execute();
 
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
              id = intent.getStringExtra(Intent.EXTRA_TEXT);
 
+//             route = getIntent().getStringExtra("route");
+//             if(route.equals("map")){
+//                 serviceName = getIntent().getStringExtra("service_name");
+//                 Log.d("NAME", "n"+ serviceName);
+//                 isMap = true;
+//             }
+//             else{
+//                 isMap = false;
+//             }
+
+
         }
+
+        ReadDatabase rd = new ReadDatabase();
+        rd.execute();
 
         name = (TextView) findViewById(R.id.txt_service_name);
         what = (TextView) findViewById(R.id.txt_service_what);
@@ -91,7 +104,13 @@ public class ServiceItemActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
+
             String status = "";
+            if(isMap){
+                //item = db.ServiceDAO().findByName(serviceName);
+            } else{
+             //   item = db.ServiceDAO().findByID(Integer.parseInt(id));
+            }
             item = db.ServiceDAO().findByID(Integer.parseInt(id));
             return  status;
         }

@@ -10,6 +10,7 @@ import androidx.room.Room;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,7 +21,9 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -51,6 +54,7 @@ public class ServicesAllActivity extends AppCompatActivity  {
     List<ServiceItem> item;
 
     ServicesAdapter mAdapter;
+    Button map_btn, filter_btn;
 
     ServiceDatabase db = null;
 
@@ -73,6 +77,27 @@ public class ServicesAllActivity extends AppCompatActivity  {
         rd.execute();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_all_services);
+
+        map_btn = (Button) findViewById(R.id.map_btn);
+
+        map_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServicesAllActivity.this, ServicesMapActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, "none");
+
+                startActivity(intent);
+            }
+        });
+
+//        filter_btn = (Button) findViewById(R.id.filter_btn);
+//        filter_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ServicesAllActivity.this, ServicesFilterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 

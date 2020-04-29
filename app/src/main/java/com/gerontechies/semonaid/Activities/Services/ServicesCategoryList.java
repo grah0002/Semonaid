@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -37,6 +39,8 @@ public class ServicesCategoryList extends AppCompatActivity  {
     ServiceDatabase db = null;
     String category;
 
+    Button map_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,15 @@ public class ServicesCategoryList extends AppCompatActivity  {
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
 
+        map_btn = (Button) findViewById(R.id.map_btn);
+        map_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 =new Intent(ServicesCategoryList.this, ServicesMapActivity.class);
+                intent1.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent1);
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.recycle_categories);
 
