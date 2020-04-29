@@ -214,31 +214,33 @@
                     android:layout_height="100dp"
                     android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/btn_gosave"
-                            style="@android:style/Widget.Button.Toggle"
-                            android:layout_width="210dp"
-                            android:layout_height="wrap_content"
+                    <Button
+                        android:id="@+id/btn_gosave"
+                        style="@android:style/Widget.Button.Toggle"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
 
-                            android:layout_gravity="left"
-                            android:layout_marginTop="50dp"
-                            android:layout_weight="0"
-                            android:background="@drawable/ovalbtn"
-                            android:gravity="center"
-                            android:textColor="#FFF" />
+                        android:layout_gravity="left"
+                        android:layout_marginTop="50dp"
+                        android:layout_weight="0"
+                        android:background="@drawable/ovalbtn"
+                        android:gravity="center"
+                        android:text="@string/go_save"
+                        android:textColor="#FFF" />
 
-                        <Button
-                            android:id="@+id/btn_goservice"
-                            style="@android:style/Widget.Button.Toggle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                    <Button
+                        android:id="@+id/btn_goservice"
+                        style="@android:style/Widget.Button.Toggle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                            android:layout_gravity="right"
-                            android:layout_marginTop="50dp"
-                            android:layout_weight="0"
-                            android:background="@drawable/ovalbtn"
-                            android:gravity="center"
-                            android:textColor="#FFF" />
+                        android:layout_gravity="right"
+                        android:layout_marginTop="50dp"
+                        android:layout_weight="0"
+                        android:background="@drawable/ovalbtn"
+                        android:gravity="center"
+                        android:textColor="#FFF"
+                        tools:text="@string/go_service" />
                 </LinearLayout>
 
                 <Button

@@ -74,9 +74,9 @@ public class SummaryActivity extends AppCompatActivity implements
 
     BudgetDatabase db = null;
     String CATEGORY = "bills";
-    String heroCategory = getString(R.string.heroCategory);
-    String gosave = getString(R.string.go_save);
-    String goservice = getString(R.string.go_service);
+    String heroCategory = "NONE: Is that a trick?";
+    String gosave = "Go To Saving Tips";
+    String goservice = "Go To Servies";
     Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
     List<BudgetItem> allItemList = new ArrayList<>();
@@ -183,13 +183,15 @@ public class SummaryActivity extends AppCompatActivity implements
         btn_goservice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SummaryActivity.this, TipsMenuActivity.class);
-                if(heroRedirectToken == 1) {
+                Intent intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
+/*                if(heroRedirectToken == 1) {
                     intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
                 }
                 if(heroRedirectToken == 2) {
                     intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
                 }
+
+ */
                 if(heroRedirectToken == 3) {
                     goservice = getString(R.string.go_service_category);
                     String category = "Travel Assistance";
