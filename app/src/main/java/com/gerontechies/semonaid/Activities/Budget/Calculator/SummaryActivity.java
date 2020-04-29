@@ -76,7 +76,7 @@ public class SummaryActivity extends AppCompatActivity implements
     String CATEGORY = "bills";
     String heroCategory = "NONE: Is that a trick?";
     String gosave = "Go To Saving Tips";
-    String goservice = "Go To Servies";
+    String goservice = "Go To Services";
     Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
     List<BudgetItem> allItemList = new ArrayList<>();
@@ -160,15 +160,12 @@ public class SummaryActivity extends AppCompatActivity implements
             public void onClick(View view) {
                 Intent intent = new Intent(SummaryActivity.this, TipsMenuActivity.class);
                 if(heroRedirectToken == 1) {
-                    gosave = getString(R.string.go_save_category);
                     intent = new Intent(SummaryActivity.this, BillsTipsMenuActivity.class);
                 }
                 if(heroRedirectToken == 2) {
-                    gosave = getString(R.string.go_save_category);
                     intent = new Intent(SummaryActivity.this, OtherTipsActivity.class);
                 }
                 if(heroRedirectToken == 3) {
-                    gosave = getString(R.string.go_save_category);
                     intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
                 }
 
@@ -176,7 +173,6 @@ public class SummaryActivity extends AppCompatActivity implements
                 finish();
             }
         });
-        btn_gosave.setText(gosave);
         btn_gosave.setTypeface(font);
 
         Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
@@ -193,7 +189,6 @@ public class SummaryActivity extends AppCompatActivity implements
 
  */
                 if(heroRedirectToken == 3) {
-                    goservice = getString(R.string.go_service_category);
                     String category = "Travel Assistance";
                     intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
                     intent.putExtra(Intent.EXTRA_TEXT, category);
@@ -474,6 +469,7 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = household;
                     heroRedirectToken = 1;
                     heroCategory = "Household";
+                    gosave = getString(R.string.go_save_category);
                 }
             }
 
@@ -483,6 +479,7 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = personal;
                     heroRedirectToken = 2;
                     heroCategory = "Personal";
+                    gosave = getString(R.string.go_save_category);
                 }
             }
 
@@ -492,6 +489,8 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = transport;
                     heroRedirectToken = 3;
                     heroCategory = "Transport";
+                    gosave = getString(R.string.go_save_category);
+                    goservice = getString(R.string.go_service_category);
                 }
             }
 
@@ -501,6 +500,7 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = bills;
                     heroRedirectToken = 1;
                     heroCategory = "Bills";
+                    gosave = getString(R.string.go_save_category);
                 }
             }
 
@@ -518,6 +518,7 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = household;
                     heroRedirectToken = 1;
                     heroCategory = "Household";
+                    gosave = getString(R.string.go_save_category);
                 }
             }
 
@@ -528,6 +529,7 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = personal;
                     heroRedirectToken = 2;
                     heroCategory = "Personal";
+                    gosave = getString(R.string.go_save_category);
                 }
             }
 
@@ -538,6 +540,7 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = bills;
                     heroRedirectToken = 1;
                     heroCategory = "Bills";
+                    gosave = getString(R.string.go_save_category);
                 }
             }
 
@@ -548,6 +551,8 @@ public class SummaryActivity extends AppCompatActivity implements
                     maxExpense = transport;
                     heroRedirectToken = 3;
                     heroCategory = "Transport";
+                    gosave = getString(R.string.go_save_category);
+                    goservice = getString(R.string.go_service_category);
                 }
             }
 
@@ -557,6 +562,12 @@ public class SummaryActivity extends AppCompatActivity implements
 
             TextView maxExpenseCategoryTxt = (TextView)findViewById(R.id.maxExpenseCategoryTxt);
             maxExpenseCategoryTxt.setText(heroCategory);
+
+            Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
+            btn_gosave.setText(gosave);
+
+            Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
+            btn_goservice.setText(goservice);
         }
 
 
