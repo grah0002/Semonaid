@@ -160,15 +160,15 @@ public class PersonalActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(clothing)){
                 if(clothing_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Clothing",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(clothing_sp);
                 BudgetItem budgetItem = new BudgetItem("Clothing",Double.parseDouble(clothing),frequency,TYPE,CATEGORY);
                 if(clothing_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(clothing_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -177,16 +177,16 @@ public class PersonalActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(doctor)){
                 if(doctor_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Doctor and Medicines",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
 
             } else {
                 int frequency = getFrequency(doctor_sp);
                 BudgetItem budgetItem = new BudgetItem("Doctor and Medicines",Double.parseDouble(doctor),frequency,TYPE,CATEGORY);
                 if(doctor_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(doctor_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -197,15 +197,15 @@ public class PersonalActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(entertainment)){
                 if(entertainment_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Entertainment",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(entertainment_sp);
                 BudgetItem budgetItem = new BudgetItem("Entertainment",Double.parseDouble(entertainment),frequency,TYPE,CATEGORY);
                 if(entertainment_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(entertainment_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -214,15 +214,15 @@ public class PersonalActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(pets)){
                 if(pets_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Pets",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(pets_sp);
                 BudgetItem budgetItem = new BudgetItem("Pets",Double.parseDouble(pets),frequency,TYPE,CATEGORY);
                 if(pets_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(pets_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -233,15 +233,15 @@ public class PersonalActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(other)){
                 if(other_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Other Personal Bills",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Personal Expenses",Double.parseDouble(other),frequency,TYPE,CATEGORY);
                 if(other_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -268,7 +268,7 @@ public class PersonalActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.BudgetDAO().getCategoryItems(CATEGORY);
+            item = db.budgetDAO().getCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 

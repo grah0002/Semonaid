@@ -23,7 +23,6 @@ import com.gerontechies.semonaid.Activities.Budget.Calculator.IncomeActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.PersonalActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.SummaryActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.TransportActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
 import com.gerontechies.semonaid.R;
@@ -32,6 +31,8 @@ import java.util.List;
 
 public class BudgetMainMenuActivity extends AppCompatActivity {
 
+    int cat1;
+    int cat2;
     ImageView iv_income, iv_add_utilities;
     CardView card_income, card_house_exp, card_bills, card_personal, card_transport;
     Button btn_next;
@@ -133,7 +134,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.BudgetDAO().getAll();
+            item = db.budgetDAO().getAll();
             if (!(item.isEmpty() || item == null)) {
                 for (BudgetItem temp : item) {
 

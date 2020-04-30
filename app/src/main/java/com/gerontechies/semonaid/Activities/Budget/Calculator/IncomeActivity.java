@@ -151,16 +151,16 @@ public class IncomeActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(income)){
                 if(income_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Income-item",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(income_sp);
 
                 BudgetItem budgetItem = new BudgetItem("Income-item",(Double.parseDouble(income)),frequency,TYPE,CATEGORY);
                 if(income_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(income_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -170,16 +170,16 @@ public class IncomeActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(other_income)){
                 if(other_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Other Income",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
 
             } else {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Income",Double.parseDouble(other_income),frequency,TYPE,CATEGORY);
                 if(other_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -189,15 +189,15 @@ public class IncomeActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(govt_income)){
                 if(govt_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Govt Income",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(govt_sp);
                 BudgetItem budgetItem = new BudgetItem("Govt Income",Double.parseDouble(govt_income),frequency,TYPE,CATEGORY);
                 if(govt_flag==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(govt_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -224,7 +224,7 @@ public class IncomeActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-           item = db.BudgetDAO().getCategoryItems(CATEGORY);
+           item = db.budgetDAO().getCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 
