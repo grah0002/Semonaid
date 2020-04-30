@@ -17,8 +17,9 @@
         android:background="@drawable/ovalbtn"
         android:padding="20dp"
         android:text="Back to List"
+        android:textAllCaps="false"
         android:textColor="#FFFBFB"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"

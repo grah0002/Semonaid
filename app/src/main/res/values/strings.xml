@@ -31,7 +31,7 @@
     </string-array>
 
     <string name="income_details">Income Details</string>
-    <string name="income_govt">Government Benifits</string>
+    <string name="income_govt">Government Benefits</string>
     <string name="income_other">Other Income</string>
 
     <string name="household_rent">Rent</string>
@@ -93,7 +93,7 @@
     <string name="title_activity_services_map">Map</string>
 
     <!--Get Started -->
-    <string name="get_started">Amazing!\n Your journey to improve your Financial and Mental well-being starts now!</string>
+    <string name="get_started">Get Ready!\n Your journey to improve your Financial and Mental well-being starts now!</string>
     <string name="get_started2">To begin, please select an option</string>
     <string name="get_started3">I want to improve my :</string>
     <string name="get_started4">Financial Well-being</string>

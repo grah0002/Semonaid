@@ -23,8 +23,9 @@
         android:layout_margin="20dp"
         android:background="@drawable/ovalbtn"
         android:text="View in Map"
+        android:textAllCaps="false"
         android:textColor="#EFEAEA"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_all_services"

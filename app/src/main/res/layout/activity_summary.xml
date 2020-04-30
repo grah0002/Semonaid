@@ -209,53 +209,53 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/btn_goservice"
+                    style="@android:style/Widget.Button.Toggle"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
 
-                    <Button
-                        android:id="@+id/btn_gosave"
-                        style="@android:style/Widget.Button.Toggle"
-                        android:layout_width="210dp"
-                        android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="20dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/ovalbtn"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:textColor="#FFF"
+                    android:textSize="24sp"
+                    tools:text="@string/go_service" />
 
-                        android:layout_gravity="left"
-                        android:layout_marginTop="50dp"
-                        android:layout_weight="0"
-                        android:background="@drawable/ovalbtn"
-                        android:gravity="center"
-                        android:text="@string/go_save"
-                        android:textColor="#FFF" />
+                <Button
+                    android:id="@+id/btn_gosave"
+                    style="@android:style/Widget.Button.Toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                    <Button
-                        android:id="@+id/btn_goservice"
-                        style="@android:style/Widget.Button.Toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:layout_gravity="right"
-                        android:layout_marginTop="50dp"
-                        android:layout_weight="0"
-                        android:background="@drawable/ovalbtn"
-                        android:gravity="center"
-                        android:textColor="#FFF"
-                        tools:text="@string/go_service" />
-                </LinearLayout>
+                    android:layout_gravity="left"
+                    android:layout_margin="20dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/ovalbtn"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="@string/go_save"
+                    android:textColor="#FFF"
+                    android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/btn_next"
                     style="@android:style/Widget.Button.Toggle"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
                     android:layout_gravity="center_horizontal|top"
-                    android:layout_marginTop="50dp"
+                    android:layout_margin="20dp"
                     android:layout_weight="0"
                     android:background="@drawable/ovalbtn"
                     android:gravity="center"
+                    android:padding="20dp"
                     android:text="Return to Menu"
-                    android:textColor="#FFF" />
+                    android:textColor="#FFF"
+                    android:textSize="24sp" />
 
         </LinearLayout>
 

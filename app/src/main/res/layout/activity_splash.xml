@@ -22,7 +22,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="397dp"
+        android:layout_marginTop="376dp"
         android:text="@string/tagline"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

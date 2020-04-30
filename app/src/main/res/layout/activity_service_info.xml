@@ -55,7 +55,7 @@
                 android:padding="30dp"
                 android:text="@string/service_all"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 app:fontFamily="@font/montserrat" />
         </androidx.cardview.widget.CardView>
 
@@ -80,7 +80,7 @@
                 android:padding="30dp"
                 android:text="@string/service_categories"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 app:fontFamily="@font/montserrat" />
         </androidx.cardview.widget.CardView>
 

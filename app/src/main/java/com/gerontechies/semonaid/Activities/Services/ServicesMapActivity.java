@@ -1,6 +1,7 @@
 package com.gerontechies.semonaid.Activities.Services;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -56,6 +58,8 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         mapFragment.getMapAsync(this);
 
         Button list_btn = (Button) findViewById(R.id.list_btn) ;
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        list_btn.setTypeface(font);
         list_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

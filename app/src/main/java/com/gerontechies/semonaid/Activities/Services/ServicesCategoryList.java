@@ -65,6 +65,8 @@ public class ServicesCategoryList extends AppCompatActivity  {
         rd.execute();
 
         map_btn = (Button) findViewById(R.id.map_btn);
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        map_btn.setTypeface(font);
         map_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

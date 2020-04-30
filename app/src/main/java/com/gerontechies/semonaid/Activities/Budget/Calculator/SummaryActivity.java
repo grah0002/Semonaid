@@ -74,7 +74,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
     BudgetDatabase db = null;
     String CATEGORY = "bills";
-    String heroCategory = "NONE: Is that a trick?";
+    String heroCategory = "None, you're Golden!";
     String gosave = "Go To Saving Tips";
     String goservice = "Go To Services";
     Bundle BudgetCalculator = new Bundle();
@@ -305,7 +305,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
 
         chart.animateY(1400, Easing.EaseInOutQuad);
-         chart.spin(2000, 0, 360, Easing.EaseInBack);
+        chart.spin(2000, 0, 360, Easing.EaseInBack);
 
 
 
@@ -320,7 +320,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
         // entry label styling
         chart.setEntryLabelColor(Color.BLACK);
-         chart.setEntryLabelTypeface(font);
+        chart.setEntryLabelTypeface(font);
         chart.setEntryLabelTextSize(12f);
     }
 
@@ -334,13 +334,13 @@ public class SummaryActivity extends AppCompatActivity implements
     private SpannableString generateCenterSpannableText(String title) {
 
         SpannableString s = new SpannableString(title);
-      //  s.setSpan(new StyleSpan(Typeface.create(font,Typeface.NORMAL)));
-     //  s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
-     //   s.setSpan(new StyleSpan(Typeface.), 14, s.length() - 15, 0);
+        //  s.setSpan(new StyleSpan(Typeface.create(font,Typeface.NORMAL)));
+        //  s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
+        //   s.setSpan(new StyleSpan(Typeface.), 14, s.length() - 15, 0);
 //        s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
-  //      s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
+        //      s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
         //s.setSpan(new StyleSpan(Typeface.create(font), s.length() - 14, s.length(), 0);
-       // s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
+        // s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
         return s;
     }
 
@@ -411,7 +411,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
         @Override
         protected void onPostExecute(String details) {
-         // displaySummaryItems(details);
+            // displaySummaryItems(details);
 
             expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
             incomeTotalTxt.setText("$ "+String.valueOf(incomeTotal));
@@ -429,7 +429,7 @@ public class SummaryActivity extends AppCompatActivity implements
         double household = 0, personal = 0, bills = 0, transport=0;
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
 
-
+        maxExpense = 0;
         for(int i = 0; i<expenseItemList.size(); i++){
 
             BudgetItem b = expenseItemList.get(i);
@@ -559,17 +559,16 @@ public class SummaryActivity extends AppCompatActivity implements
             double diff = (incomeTotal - expenseTotal)/incomeTotal * 100;
             pieEntries.add(new PieEntry((float) diff, "Surplus"));
             title = df.format(diff) + "% of Income Spent";
-
-            TextView maxExpenseCategoryTxt = (TextView)findViewById(R.id.maxExpenseCategoryTxt);
-            maxExpenseCategoryTxt.setText(heroCategory);
-
-            Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
-            btn_gosave.setText(gosave);
-
-            Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
-            btn_goservice.setText(goservice);
         }
 
+        TextView maxExpenseCategoryTxt = (TextView)findViewById(R.id.maxExpenseCategoryTxt);
+        maxExpenseCategoryTxt.setText(heroCategory);
+
+        Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
+        btn_gosave.setText(gosave);
+
+        Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
+        btn_goservice.setText(goservice);
 
         PieDataSet dataSet = new PieDataSet(pieEntries, " ");
 
@@ -668,7 +667,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
             expenseList.setItemAnimator(new DefaultItemAnimator());
             expenseList.setAdapter(expAdapter);
-           // expenseList.setNestedScrollingEnabled(false);
+            // expenseList.setNestedScrollingEnabled(false);
 
 
             expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
