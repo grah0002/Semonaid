@@ -74,7 +74,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
     BudgetDatabase db = null;
     String CATEGORY = "bills";
-    String heroCategory = "NONE: Is that a trick?";
+    String heroCategory = "None, you're Golden!";
     String gosave = "Go To Saving Tips";
     String goservice = "Go To Services";
     Bundle BudgetCalculator = new Bundle();
@@ -429,7 +429,7 @@ public class SummaryActivity extends AppCompatActivity implements
         double household = 0, personal = 0, bills = 0, transport=0;
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
 
-
+        maxExpense = 0;
         for(int i = 0; i<expenseItemList.size(); i++){
 
             BudgetItem b = expenseItemList.get(i);
@@ -559,17 +559,16 @@ public class SummaryActivity extends AppCompatActivity implements
             double diff = (incomeTotal - expenseTotal)/incomeTotal * 100;
             pieEntries.add(new PieEntry((float) diff, "Surplus"));
             title = df.format(diff) + "% of Income Spent";
-
-            TextView maxExpenseCategoryTxt = (TextView)findViewById(R.id.maxExpenseCategoryTxt);
-            maxExpenseCategoryTxt.setText(heroCategory);
-
-            Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
-            btn_gosave.setText(gosave);
-
-            Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
-            btn_goservice.setText(goservice);
         }
 
+        TextView maxExpenseCategoryTxt = (TextView)findViewById(R.id.maxExpenseCategoryTxt);
+        maxExpenseCategoryTxt.setText(heroCategory);
+
+        Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
+        btn_gosave.setText(gosave);
+
+        Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
+        btn_goservice.setText(goservice);
 
         PieDataSet dataSet = new PieDataSet(pieEntries, " ");
 

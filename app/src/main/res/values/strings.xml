@@ -14,7 +14,7 @@
     <string name="services">Get Assistance</string>
 
     <string name="income">Income</string>
-    <string name="heroCategory">NONE: Is that a trick?</string>
+    <string name="heroCategory">None, you\'re Golden!</string>
     <string name="housing_exp">Household Expenses</string>
     <string name="go_save">Go to Saving Tips</string>
     <string name="go_save_category">Saving Tips for Category</string>
