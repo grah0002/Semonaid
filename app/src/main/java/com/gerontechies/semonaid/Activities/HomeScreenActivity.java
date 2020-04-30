@@ -30,32 +30,42 @@ public class HomeScreenActivity extends AppCompatActivity {
         setTitle("Semonaid");
         getSupportActionBar().hide();
 
-        budget_btn = (CardView) findViewById(R.id.budget_calculator);
+       // budget_btn = (CardView) findViewById(R.id.budget_calculator);
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
 
-        budget_btn.setOnClickListener(new View.OnClickListener() {
+//        budget_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HomeScreenActivity.this, BudgetInfoActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        saving_btn = (CardView) findViewById(R.id.savings);
+//
+//        saving_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HomeScreenActivity.this, TipsMenuActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        service_btn = (CardView) findViewById(R.id.assistance);
+//        service_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HomeScreenActivity.this, ServiceInfoActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
+        CardView getStarted = (CardView) findViewById(R.id.get_started);
+        getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeScreenActivity.this, BudgetInfoActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        saving_btn = (CardView) findViewById(R.id.savings);
-
-        saving_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeScreenActivity.this, TipsMenuActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        service_btn = (CardView) findViewById(R.id.assistance);
-        service_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeScreenActivity.this, ServiceInfoActivity.class);
+                Intent intent = new Intent(HomeScreenActivity.this, GetStartedActivity.class);
                 startActivity(intent);
             }
         });

@@ -92,5 +92,12 @@
     <string name="tips_1">To get started, please the category you would like to view tips on:</string>
     <string name="title_activity_services_map">Map</string>
 
+    <!--Get Started -->
+    <string name="get_started">Amazing!\n Your journey to improve your Financial and Mental well-being starts now!</string>
+    <string name="get_started2">To begin, please select an option</string>
+    <string name="get_started3">I want to improve my :</string>
+    <string name="get_started4">Financial Well-being</string>
+    <string name="get_started5">Mental Well-being</string>
+
 
 </resources>
