@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="30dp"
-                android:text="@string/service_all"
+                android:text="View on Map"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 app:fontFamily="@font/montserrat" />
@@ -78,7 +78,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:padding="30dp"
-                android:text="@string/service_categories"
+                android:text="View by Categories"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 app:fontFamily="@font/montserrat" />

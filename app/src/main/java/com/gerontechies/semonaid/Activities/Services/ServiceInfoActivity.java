@@ -72,7 +72,8 @@ public class ServiceInfoActivity extends AppCompatActivity {
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ServiceInfoActivity.this, ServicesAllActivity.class);
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesMapActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, "none");
                 startActivity(intent);
             }
         });

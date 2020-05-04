@@ -50,10 +50,12 @@ public class ServiceItemActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
+        id = getIntent().getStringExtra("id");
+        Log.d("ID", id);
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
              id = intent.getStringExtra(Intent.EXTRA_TEXT);
 
-//             route = getIntent().getStringExtra("route");
+
 //             if(route.equals("map")){
 //                 serviceName = getIntent().getStringExtra("service_name");
 //                 Log.d("NAME", "n"+ serviceName);

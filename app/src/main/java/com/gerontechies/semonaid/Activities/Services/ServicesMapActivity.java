@@ -12,8 +12,10 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
@@ -33,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
     List<ServiceItem> allItemList = new ArrayList<>();
@@ -113,6 +115,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
           //add markers
 
             for(int i = 0; i<allItemList.size(); i++){
+                 Marker marker;
 
                 ServiceItem serviceItem = allItemList.get(i);
 
@@ -124,7 +127,13 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
                 else {
                     if(serviceItem.getCategory_1().equals(category) || serviceItem.getCategory_2().equals(category) || serviceItem.getCategory_3().equals(category) || serviceItem.getCategory_4().equals(category)){
                         LatLng item  = new LatLng(serviceItem.getLatitude(),serviceItem.getLongitude());
-                        mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
+                       marker =  mMap.addMarker(new MarkerOptions()
+                                .position(item)
+                                .title(serviceItem.getService_name())
+                                .snippet(serviceItem.getCategory_1())
+
+                        );
+                        marker.setTag(serviceItem.getId());
                     }
                 }
               // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(item, 15f));
@@ -145,21 +154,28 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f));
 
-//        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-//            @Override
-//            public boolean onMarkerClick(Marker marker) {
-//                String venueID = mMarkerMap.get(marker.getId());
-//                String venueName = marker.getTitle();
-//                Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
-//                intent.putExtra("service_name", venueName);
-//                intent.putExtra("route", "map");
-//                startActivity(intent);
-//
-//                return false;
-//            }
-//        });
+        mMap.setOnInfoWindowClickListener(this);
+
 
     }
 
 
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Log.d("CLICL", "Cli");
+        Toast.makeText(this, "Info window clicked",
+                Toast.LENGTH_SHORT).show();
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                String venueID = mMarkerMap.get(marker.getId());
+                String venueName = marker.getTitle();
+                Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
+                intent.putExtra("id", marker.getTag().toString());
+           //     intent.putExtra("route", "map");
+                startActivity(intent);
+            }
+        });
+
+    }
 }

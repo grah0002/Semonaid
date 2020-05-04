@@ -91,7 +91,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, ServiceItemActivity.class);
-                intent.putExtra(Intent.EXTRA_TEXT, String.valueOf(id));
+                intent.putExtra("id", String.valueOf(id));
 
                 mContext.startActivity(intent);
             }

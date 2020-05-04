@@ -56,17 +56,17 @@
             android:textColor="#FDFDFD"
             android:textSize="24sp" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_mental"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="20dp"-->
-<!--            android:background="@drawable/ovalbtn"-->
-<!--            android:padding="20dp"-->
-<!--            android:text="@string/get_started5"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textColor="#FDFDFD"-->
-<!--            android:textSize="24sp" />-->
+        <Button
+            android:id="@+id/btn_mental"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/ovalbtn"
+            android:padding="20dp"
+            android:text="@string/get_started5"
+            android:textAllCaps="false"
+            android:textColor="#FDFDFD"
+            android:textSize="24sp" />
 
     </LinearLayout>
 </ScrollView>
