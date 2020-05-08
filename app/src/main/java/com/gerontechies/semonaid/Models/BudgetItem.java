@@ -10,9 +10,8 @@ import androidx.room.PrimaryKey;
 public class BudgetItem {
 
 
-
-
-    @PrimaryKey @NonNull
+    @PrimaryKey
+    @NonNull
     @ColumnInfo(name = "itemName")
     public String itemName;
 
@@ -30,7 +29,7 @@ public class BudgetItem {
     @ColumnInfo(name = "category")
     public String category;
 
-    public BudgetItem( String itemName, double amount, int frequency, int type, String category) {
+    public BudgetItem(String itemName, double amount, int frequency, int type, String category) {
         this.itemName = itemName;
         this.amount = amount;
         this.frequency = frequency;
@@ -78,3 +77,4 @@ public class BudgetItem {
         this.type = type;
     }
 }
+

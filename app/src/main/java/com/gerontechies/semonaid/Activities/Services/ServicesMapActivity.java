@@ -162,20 +162,20 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        Log.d("CLICL", "Cli");
-        Toast.makeText(this, "Info window clicked",
-                Toast.LENGTH_SHORT).show();
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                String venueID = mMarkerMap.get(marker.getId());
-                String venueName = marker.getTitle();
-                Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
-                intent.putExtra("id", marker.getTag().toString());
-           //     intent.putExtra("route", "map");
-                startActivity(intent);
-            }
-        });
+       // Toast.makeText(this, "Info window clicked",
+         //       Toast.LENGTH_SHORT).show();
+        String venueID = mMarkerMap.get(marker.getId());
+        String venueName = marker.getTitle();
+        Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
+        intent.putExtra("id", marker.getTag().toString());
+        //     intent.putExtra("route", "map");
+        startActivity(intent);
+//        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//            @Override
+//            public void onInfoWindowClick(Marker marker) {
+//
+//            }
+//        });
 
     }
 }

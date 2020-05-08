@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#283891</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#FFFFFF</color>
+    <color name="gradient_start">#1e3c72</color>
+    <color name="gradient_end">#2a5298</color>
+
 </resources>

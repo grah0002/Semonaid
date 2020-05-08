@@ -268,12 +268,12 @@ public class BillsActivity extends AppCompatActivity {
             //insurance
             if(TextUtils.isEmpty(insurance)){
                 if(insurance_flag ==99){
-                    BudgetItem budgetItem = new BudgetItem("Insurance Bill",0,1,TYPE,CATEGORY);
+                    BudgetItem budgetItem = new BudgetItem("Insurance",0,1,TYPE,CATEGORY);
                     db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(insurance_sp);
-                BudgetItem budgetItem = new BudgetItem("Insurance Bill",Double.parseDouble(insurance),frequency,TYPE,CATEGORY);
+                BudgetItem budgetItem = new BudgetItem("Insurance",Double.parseDouble(insurance),frequency,TYPE,CATEGORY);
                 if(insurance_flag ==99){
                     db.budgetDAO().updateItem(budgetItem);
                 } else if(insurance_flag == 0){
@@ -377,7 +377,7 @@ public class BillsActivity extends AppCompatActivity {
                     internet_flag = 99;
                     internet_edit_txt.setText(String.valueOf(budgetItem.amount));
                     internet_spinner.setSelection(budgetItem.frequency-1);
-                } else if(budgetItem.itemName.equals("Insurance Bill")){
+                } else if(budgetItem.itemName.equals("Insurance")){
                     insurance_flag = 99;
                     insurance_edit_txt.setText(String.valueOf(budgetItem.amount));
                     insurance_spinner.setSelection(budgetItem.frequency-1);

@@ -37,6 +37,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.gerontechies.semonaid.Activities.Budget.Tips.BillsTipsMenuActivity;
 import com.gerontechies.semonaid.Activities.Budget.Tips.OtherTipsActivity;
 import com.gerontechies.semonaid.Activities.Budget.Tips.TipsMenuActivity;
@@ -45,28 +46,35 @@ import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceCategoryActivity;
 import com.gerontechies.semonaid.Activities.Services.ServicesCategoryList;
 import com.gerontechies.semonaid.Adapters.SummaryItemAdapter;
+import com.gerontechies.semonaid.Adapters.TopCategoriesAdapter;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
 import com.gerontechies.semonaid.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 
 
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SummaryActivity extends AppCompatActivity implements
@@ -84,7 +92,8 @@ public class SummaryActivity extends AppCompatActivity implements
     List<BudgetItem> expenseItemList = new ArrayList<>();
     String category_bills = "Utility Bills", category_personal = "Personal Expenses", category_transport = "Transport Expenses", category_household = "Household Expenses", categotry_income = "Income";
 
-    RecyclerView incomeList, expenseList;
+    List<BudgetItem> top3 = new ArrayList<>();
+    RecyclerView incomeList, expenseList, topList;
 
     double incomeTotal, expenseTotal, maxExpense = 0;
     int heroRedirectToken = 4;
@@ -122,6 +131,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
         incomeTotalTxt = (TextView) findViewById(R.id.income_amt);
         expenseTotalTxt = (TextView) findViewById(R.id.exp_amt);
+        topList = (RecyclerView) findViewById(R.id.list_top);
 
 
 /*
@@ -143,67 +153,68 @@ public class SummaryActivity extends AppCompatActivity implements
         });
         btn_save.setTypeface(font);
 */
-        Button btn_home = (Button) findViewById(R.id.btn_next);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SummaryActivity.this, HomeScreenActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        btn_home.setTypeface(font);
-
-        Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
-        btn_gosave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SummaryActivity.this, TipsMenuActivity.class);
-                if(heroRedirectToken == 1) {
-                    intent = new Intent(SummaryActivity.this, BillsTipsMenuActivity.class);
-                }
-                if(heroRedirectToken == 2) {
-                    intent = new Intent(SummaryActivity.this, OtherTipsActivity.class);
-                }
-                if(heroRedirectToken == 3) {
-                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
-                }
-
-                startActivity(intent);
-                finish();
-            }
-        });
-        btn_gosave.setTypeface(font);
-
-        Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
-        btn_goservice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
-/*                if(heroRedirectToken == 1) {
-                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
-                }
-                if(heroRedirectToken == 2) {
-                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
-                }
-
- */
-                if(heroRedirectToken == 3) {
-                    String category = "Travel Assistance";
-                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
-                    intent.putExtra(Intent.EXTRA_TEXT, category);
-                }
-
-                startActivity(intent);
-                finish();
-
-            }
-        });
-        btn_goservice.setText(goservice);
-        btn_goservice.setTypeface(font);
+//        Button btn_home = (Button) findViewById(R.id.btn_next);
+//        btn_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SummaryActivity.this, HomeScreenActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        btn_home.setTypeface(font);
+//
+//        Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
+//        btn_gosave.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SummaryActivity.this, TipsMenuActivity.class);
+//                if(heroRedirectToken == 1) {
+//                    intent = new Intent(SummaryActivity.this, BillsTipsMenuActivity.class);
+//                }
+//                if(heroRedirectToken == 2) {
+//                    intent = new Intent(SummaryActivity.this, OtherTipsActivity.class);
+//                }
+//                if(heroRedirectToken == 3) {
+//                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
+//                }
+//
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        btn_gosave.setTypeface(font);
+//
+//        Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
+//        btn_goservice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
+///*                if(heroRedirectToken == 1) {
+//                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
+//                }
+//                if(heroRedirectToken == 2) {
+//                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
+//                }
+//
+// */
+//                if(heroRedirectToken == 3) {
+//                    String category = "Travel Assistance";
+//                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
+//                    intent.putExtra(Intent.EXTRA_TEXT, category);
+//                }
+//
+//                startActivity(intent);
+//                finish();
+//
+//            }
+//        });
+//        btn_goservice.setText(goservice);
+//        btn_goservice.setTypeface(font);
 
         chart = findViewById(R.id.chart1);
         initilizePieData();
+
 
 
     }
@@ -271,6 +282,8 @@ public class SummaryActivity extends AppCompatActivity implements
         AlertDialog alert = alertBuilder.create();
         alert.show();
     }
+
+    //initilizes the chart with the ui elements
     public  void initilizePieData(){
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
@@ -309,14 +322,16 @@ public class SummaryActivity extends AppCompatActivity implements
 
 
 
-//        Legend l = chart.getLegend();
-//        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-//        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-//        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-//        l.setDrawInside(false);
-//        l.setXEntrySpace(7f);
-//        l.setYEntrySpace(0f);
-//        l.setYOffset(0f);
+        Legend l = chart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setDrawInside(true);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+        l.setTextSize(15f);
+        l.setTypeface(font);
 
         // entry label styling
         chart.setEntryLabelColor(Color.BLACK);
@@ -325,12 +340,7 @@ public class SummaryActivity extends AppCompatActivity implements
     }
 
 
-
-
-
-
-
-
+    //sets the center string
     private SpannableString generateCenterSpannableText(String title) {
 
         SpannableString s = new SpannableString(title);
@@ -354,6 +364,25 @@ public class SummaryActivity extends AppCompatActivity implements
                         + ", DataSet index: " + h.getDataSetIndex());
     }
 
+    class dataGraph extends ValueFormatter  {
+        private DecimalFormat percentageFormat;
+        dataGraph() {
+            percentageFormat = new DecimalFormat("###,###,##0");
+        }
+
+        public DecimalFormat getPercentageFormat() {
+            return percentageFormat;
+        }
+
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            return percentageFormat.format(value) + " %";
+        }
+    }
+
+
+
+
 
 
     @Override
@@ -363,6 +392,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
 
 
+    //gets the data from the SQL db
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
         @Override
@@ -417,9 +447,45 @@ public class SummaryActivity extends AppCompatActivity implements
             incomeTotalTxt.setText("$ "+String.valueOf(incomeTotal));
 
             budggetGraph();
+            categories();
 
 
         }
+
+    }
+
+
+    //calculate the top 3 categories
+    public void categories(){
+
+        //sorting the arraylist expenseItemList based on the amount
+        Collections.sort(expenseItemList, new Comparator<BudgetItem>() {
+            @Override
+            public int compare(BudgetItem o1, BudgetItem o2) {
+                return Double.compare(o1.getAmount(), o2.getAmount());
+            }
+        });
+
+        //sorts in decending order
+        Collections.reverse(expenseItemList);
+
+       // gets the top 3 categories
+        for(int i=0; i<3; i++){
+            BudgetItem item = expenseItemList.get(i);
+            Log.d("CAT", item.itemName + "----"+ item.getAmount());
+             top3.add(item);
+        }
+
+        TopCategoriesAdapter adapter = new TopCategoriesAdapter(this,  top3);
+        RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        topList.setLayoutManager(mLayoutManagerIncome);
+
+        topList.setItemAnimator(new DefaultItemAnimator());
+        topList.setAdapter(adapter);
+        topList.setNestedScrollingEnabled(false);
+
+
+
 
     }
 
@@ -446,7 +512,7 @@ public class SummaryActivity extends AppCompatActivity implements
             }
 
             if(b.category.equals(category_household)){
-                household = household + b.amount*multiplier;
+                household =  household + b.amount*multiplier;
             } else if(b.category.equals(category_personal)){
                 personal = personal + b.amount*multiplier;
             } else if (b.category.equals(category_bills)){
@@ -457,51 +523,25 @@ public class SummaryActivity extends AppCompatActivity implements
 
         }
 
-
-
-
         //expense is more and there is no money left. So we need to show the breakdown of expense
         if(expenseTotal > incomeTotal){
 
             if(household > 0){
                 pieEntries.add(new PieEntry((float) household,  "Household"));
-                if(household > maxExpense){
-                    maxExpense = household;
-                    heroRedirectToken = 1;
-                    heroCategory = "Household";
-                    gosave = getString(R.string.go_save_category);
-                }
             }
 
             if(personal > 0){
                 pieEntries.add(new PieEntry((float) personal,  "Personal"));
-                if(personal > maxExpense){
-                    maxExpense = personal;
-                    heroRedirectToken = 2;
-                    heroCategory = "Personal";
-                    gosave = getString(R.string.go_save_category);
-                }
+
             }
 
             if(transport > 0){
                 pieEntries.add(new PieEntry((float) transport,  "Transport"));
-                if(transport > maxExpense){
-                    maxExpense = transport;
-                    heroRedirectToken = 3;
-                    heroCategory = "Transport";
-                    gosave = getString(R.string.go_save_category);
-                    goservice = getString(R.string.go_service_category);
-                }
+
             }
 
             if(bills > 0){
-                pieEntries.add(new PieEntry((float) bills,  "Utility"));
-                if(bills > maxExpense){
-                    maxExpense = bills;
-                    heroRedirectToken = 1;
-                    heroCategory = "Bills";
-                    gosave = getString(R.string.go_save_category);
-                }
+
             }
 
             double diff = (expenseTotal - incomeTotal)/expenseTotal * 100;
@@ -512,48 +552,27 @@ public class SummaryActivity extends AppCompatActivity implements
         } else if(expenseTotal<incomeTotal){
 
             if(household > 0){
-                double hPercentage = household/incomeTotal * 100;
+                int hPercentage = (int)household/(int)incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) hPercentage,  "Household"));
-                if(household > maxExpense){
-                    maxExpense = household;
-                    heroRedirectToken = 1;
-                    heroCategory = "Household";
-                    gosave = getString(R.string.go_save_category);
-                }
+
             }
 
             if(personal > 0){
-                double pPercentage = personal/incomeTotal * 100;
+                int pPercentage = (int)personal/(int)incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) pPercentage,  "Personal"));
-                if(personal > maxExpense){
-                    maxExpense = personal;
-                    heroRedirectToken = 2;
-                    heroCategory = "Personal";
-                    gosave = getString(R.string.go_save_category);
-                }
+
             }
 
             if(bills > 0){
-                double uPercentage = bills/incomeTotal * 100;
+                int uPercentage = (int)bills/ (int)incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) uPercentage,  "Utility"));
-                if(bills > maxExpense){
-                    maxExpense = bills;
-                    heroRedirectToken = 1;
-                    heroCategory = "Bills";
-                    gosave = getString(R.string.go_save_category);
-                }
+
             }
 
             if(transport > 0){
-                double tPercentage = transport/incomeTotal * 100;
+                int tPercentage = (int) transport/ (int) incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) tPercentage,  "Transport"));
-                if(transport > maxExpense){
-                    maxExpense = transport;
-                    heroRedirectToken = 3;
-                    heroCategory = "Transport";
-                    gosave = getString(R.string.go_save_category);
-                    goservice = getString(R.string.go_service_category);
-                }
+
             }
 
             double diff = (incomeTotal - expenseTotal)/incomeTotal * 100;
@@ -561,18 +580,14 @@ public class SummaryActivity extends AppCompatActivity implements
             title = df.format(diff) + "% of Income Spent";
         }
 
-        TextView maxExpenseCategoryTxt = (TextView)findViewById(R.id.maxExpenseCategoryTxt);
-        maxExpenseCategoryTxt.setText(heroCategory);
-
-        Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
-        btn_gosave.setText(gosave);
-
-        Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
-        btn_goservice.setText(goservice);
 
         PieDataSet dataSet = new PieDataSet(pieEntries, " ");
 
         dataSet.setDrawIcons(false);
+        dataSet.setValueTextSize(10f);
+        dataSet.setValueFormatter(new dataGraph());
+
+
 
         dataSet.setSliceSpace(3f);
         dataSet.setIconsOffset(new MPPointF(0, 40));

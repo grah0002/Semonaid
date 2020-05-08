@@ -26,12 +26,12 @@ public class GetStartedActivity extends AppCompatActivity {
         setTitle("Get Started");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Button financial = (Button) findViewById(R.id.btn_financial);
-        Button mental = (Button) findViewById(R.id.btn_mental);
+//        Button mental = (Button) findViewById(R.id.btn_mental);
 
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
 
         financial.setTypeface(font);
-        mental.setTypeface(font);
+     //   mental.setTypeface(font);
 
         financial.setOnClickListener(new View.OnClickListener() {
             @Override

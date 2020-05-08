@@ -50,6 +50,10 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.3.1'
 
+    //Expandable text view
+    implementation 'com.ms-square:expandableTextView:0.1.4'
+
+
 
     // Room
     implementation "android.arch.persistence.room:runtime:1.0.0"
