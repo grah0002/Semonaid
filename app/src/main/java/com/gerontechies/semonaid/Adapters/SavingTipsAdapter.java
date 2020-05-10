@@ -39,16 +39,24 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
 
         ExpandableTextView expTv1, expTv2;
         TextView title1, title2;
+        TextView text1, text2;
+        CardView card_tip1, card_tip2;
 
 
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            expTv1 = (ExpandableTextView)  itemView.findViewById(R.id.expand_text_view1);
-            expTv2 = (ExpandableTextView)  itemView.findViewById(R.id.expand_text_view2);
+
             title1 = (TextView) itemView.findViewById(R.id.title1);
             title2 = (TextView) itemView.findViewById(R.id.title2);
+
+            text1 = (TextView) itemView.findViewById(R.id.text1);
+            text2 = (TextView) itemView.findViewById(R.id.text2);
+
+            card_tip1 = (CardView) itemView.findViewById(R.id.tip1);
+            card_tip2 = (CardView) itemView.findViewById(R.id.tip2);
+
 
 
 
@@ -66,14 +74,38 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         TipItem item = tipItem.get(position);
 
-        holder.expTv1.setText(item.getTips_1());
-        holder.expTv2.setText(item.getTips_2());
         holder.title1.setText(item.getTitle_1());
         holder.title2.setText(item.getTitle_2());
+
+        holder.text1.setText(item.getTips_1());
+
+        holder.text2.setText(item.getTips_2());
+
+        holder.card_tip1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(holder.text1.getVisibility() == View.GONE){
+                    holder.text1.setVisibility(View.VISIBLE);
+                } else if(holder.text1.getVisibility() == View.VISIBLE){
+                    holder.text1.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        holder.card_tip2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(holder.text2.getVisibility() == View.GONE){
+                    holder.text2.setVisibility(View.VISIBLE);
+                } else if(holder.text2.getVisibility() == View.VISIBLE){
+                    holder.text2.setVisibility(View.GONE);
+                }
+            }
+        });
 
 
 

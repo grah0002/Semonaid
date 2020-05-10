@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/scrollbar_shape_style"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -38,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="40dp"
-                    android:text="@string/income"
+                    android:text="@string/menu_income"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     app:fontFamily="@font/montserrat" />
@@ -87,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="40dp"
-                    android:text="@string/housing_exp"
+                    android:text="@string/menu_household"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     app:fontFamily="@font/montserrat" />
@@ -136,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="40dp"
-                    android:text="@string/Bills"
+                    android:text="@string/menu_bills"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     app:fontFamily="@font/montserrat" />
@@ -185,7 +186,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="40dp"
-                    android:text="@string/personal"
+                    android:text="@string/menu_personal"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     app:fontFamily="@font/montserrat" />
@@ -234,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="40dp"
-                    android:text="@string/transport"
+                    android:text="@string/menu_transport"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     app:fontFamily="@font/montserrat" />
@@ -271,7 +272,7 @@
             android:layout_weight="0"
             android:background="@drawable/ovalbtn"
             android:gravity="center"
-            android:text="@string/btn_next"
+            android:text="Calculate"
             android:textColor="#FFF"
             android:textSize="24sp" />
     </LinearLayout>

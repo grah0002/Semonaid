@@ -291,7 +291,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
         chart.setDragDecelerationFrictionCoef(0.95f);
 
-        // chart.setCenterTextTypeface(tfLight);
+         chart.setCenterTextTypeface(font);
 
         chart.setDrawHoleEnabled(true);
         chart.setHoleColor(Color.WHITE);
@@ -309,8 +309,7 @@ public class SummaryActivity extends AppCompatActivity implements
         chart.setRotationEnabled(true);
         chart.setHighlightPerTapEnabled(true);
 
-        // chart.setUnit(" €");
-        // chart.setDrawUnitsInChart(true);
+
 
         // add a selection listener
         chart.setOnChartValueSelectedListener(this);
@@ -323,14 +322,14 @@ public class SummaryActivity extends AppCompatActivity implements
 
 
         Legend l = chart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
         l.setDrawInside(true);
         l.setXEntrySpace(7f);
         l.setYEntrySpace(0f);
         l.setYOffset(0f);
-        l.setTextSize(15f);
+        l.setTextSize(13f);
         l.setTypeface(font);
 
         // entry label styling
@@ -364,27 +363,16 @@ public class SummaryActivity extends AppCompatActivity implements
                         + ", DataSet index: " + h.getDataSetIndex());
     }
 
-    class dataGraph extends ValueFormatter  {
-        private DecimalFormat percentageFormat;
-        dataGraph() {
-            percentageFormat = new DecimalFormat("###,###,##0");
-        }
-
-        public DecimalFormat getPercentageFormat() {
-            return percentageFormat;
-        }
-
-        @Override
-        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
-            return percentageFormat.format(value) + " %";
-        }
-    }
 
 
 
 
-
-
+//    ValueFormatter formatter = new ValueFormatter() {
+//        @Override
+//        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+//            return (Math.round(value)) + "%" ;
+//        }
+//    };
     @Override
     public void onNothingSelected() {
         Log.i("PieChart", "nothing selected");
@@ -527,57 +515,62 @@ public class SummaryActivity extends AppCompatActivity implements
         if(expenseTotal > incomeTotal){
 
             if(household > 0){
-                pieEntries.add(new PieEntry((float) household,  "Household"));
+                int val =  (int) Math.round(household);
+                pieEntries.add(new PieEntry((float) val,  "Household Exp"));
             }
 
             if(personal > 0){
-                pieEntries.add(new PieEntry((float) personal,  "Personal"));
+                int val =  (int) Math.round(personal);
+                pieEntries.add(new PieEntry((float) val,  "Personal"));
 
             }
 
             if(transport > 0){
-                pieEntries.add(new PieEntry((float) transport,  "Transport"));
+                int val =  (int) Math.round(transport);
+                pieEntries.add(new PieEntry((float) val,  "Transport"));
 
             }
 
             if(bills > 0){
-
+                int val =  (int) Math.round(bills);
+                Log.d("VAL", String.valueOf(val));
+                pieEntries.add(new PieEntry((float) val,  "Bills"));
             }
 
             double diff = (expenseTotal - incomeTotal)/expenseTotal * 100;
-            title =  df.format(diff) +"% Overhead";
+            title = "Your expenses are "+ df.format(diff) +"% over your Income";
 
 
 
         } else if(expenseTotal<incomeTotal){
 
             if(household > 0){
-                int hPercentage = (int)household/(int)incomeTotal * 100;
+                double hPercentage = household/incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) hPercentage,  "Household"));
 
             }
 
             if(personal > 0){
-                int pPercentage = (int)personal/(int)incomeTotal * 100;
+                double pPercentage = personal/incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) pPercentage,  "Personal"));
 
             }
 
             if(bills > 0){
-                int uPercentage = (int)bills/ (int)incomeTotal * 100;
+                double uPercentage = bills/ incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) uPercentage,  "Utility"));
 
             }
 
             if(transport > 0){
-                int tPercentage = (int) transport/ (int) incomeTotal * 100;
+                double tPercentage = transport/  incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) tPercentage,  "Transport"));
 
             }
 
             double diff = (incomeTotal - expenseTotal)/incomeTotal * 100;
             pieEntries.add(new PieEntry((float) diff, "Surplus"));
-            title = df.format(diff) + "% of Income Spent";
+            title = "You have "+df.format(diff) + "% of Income left!";
         }
 
 
@@ -585,9 +578,6 @@ public class SummaryActivity extends AppCompatActivity implements
 
         dataSet.setDrawIcons(false);
         dataSet.setValueTextSize(10f);
-        dataSet.setValueFormatter(new dataGraph());
-
-
 
         dataSet.setSliceSpace(3f);
         dataSet.setIconsOffset(new MPPointF(0, 40));
@@ -622,6 +612,10 @@ public class SummaryActivity extends AppCompatActivity implements
         data.setValueTextSize(15f);
         data.setValueTextColor(Color.BLACK);
         data.setValueTypeface(font);
+      //  dataSet.setValueFormatter(formatter);
+      //  dataSet.setValueFormatter(new MyValueFormatter());
+
+
         chart.setDrawSliceText(false);
         chart.setCenterText(generateCenterSpannableText(title));
 
@@ -660,40 +654,22 @@ public class SummaryActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    public  void displaySummaryItems(String details){
-        if(details.equals("full"))
-        {
+    public class MyValueFormatter extends ValueFormatter implements IValueFormatter {
 
-            Log.d("ITEM", String.valueOf(expenseItemList.size()));
+        private DecimalFormat mFormat;
 
-
-            Log.d("ITEM", String.valueOf(expenseItemList.size()));
-            SummaryItemAdapter incomeAdapter = new SummaryItemAdapter(this,  incomeItemList);
-            RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-            incomeList.setLayoutManager(mLayoutManagerIncome);
-
-            incomeList.setItemAnimator(new DefaultItemAnimator());
-            incomeList.setAdapter(incomeAdapter);
-            incomeList.setNestedScrollingEnabled(false);
-
-            SummaryItemAdapter expAdapter = new SummaryItemAdapter(this,  expenseItemList);
-            RecyclerView.LayoutManager mLayoutManagerExpense = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-            expenseList.setLayoutManager(mLayoutManagerExpense);
-
-            expenseList.setItemAnimator(new DefaultItemAnimator());
-            expenseList.setAdapter(expAdapter);
-            // expenseList.setNestedScrollingEnabled(false);
-
-
-            expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
-            incomeTotalTxt.setText("$ " + String.valueOf(incomeTotal));
-
-        } else{
-            Log.d("ITEM", "No item");
-
+        public MyValueFormatter() {
+            mFormat = new DecimalFormat("###,###,##0.0"); // use one decimal
         }
 
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            // write your logic here
+            Log.d("VAL", "INNN");
+            return mFormat.format(value) + " %"; // e.g. append a dollar-sign
+        }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

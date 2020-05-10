@@ -10,7 +10,7 @@
     <string name="budget">Budget</string>
     <string name="total">Total : $</string>
     <string name="save_my_earnings">Save My Earnings</string>
-    <string name="budget_calculator">Budget \nCalculator</string>
+    <string name="budget_calculator">Budget Calculator</string>
     <string name="services">Get Assistance</string>
 
     <string name="income">Income</string>
@@ -60,9 +60,17 @@
     <string name="transport_public">Public Transport</string>
     <string name="transport_other">Other</string>
 
+    <!-- Budget Menu -->
+    <string name="menu_income">Yearly Income</string>
+    <string name="menu_household">Yearly Household Expenses </string>
+    <string name="menu_bills">Yearly Bills</string>
+    <string name="menu_personal">Yearly Personal Expenses</string>
+    <string name="menu_transport">Yearly Transport Expenses</string>
+
     <!-- Info-->
     <string name="budget_info_1">Welcome user!</string>
-    <string name="budget_info_2">We would be asking you a series of questions to determine how much of your income you spend on expenses.</string>
+<!--   TODO: update the text-->
+    <string name="budget_info_2">Text about this screen would be displayed.</string>
 
     <string name="personal">Personal Expenses</string>
     <string name="transport">Transport and Auto</string>
