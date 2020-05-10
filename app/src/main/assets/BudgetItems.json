@@ -1,200 +1,250 @@
 [
   {
     "id": 1,
-    "category": "Income",
-    "name": "Income",
-    "title_1": "tbd",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "General",
+    "name": "General",
+    "title": "Written Budget",
+    "details": "If you haven’t set up a budget for yourself,\nNOW IS THE TIME TO DO SO!\nA Little goes a LONG way. Writing a budget helps you measure your progress and keep a record",
+    "details__1": "If You Haven’T Set Up A Budget For Yourself,\nNow Is The Time To Do So!\nA Little Goes A Long Way. Writing A Budget Helps You Measure Your Progress And Keep A Record"
   },
   {
     "id": 2,
-    "category": "Income",
-    "name": "Govt Benifits",
-    "title_1": "tbd",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "General",
+    "name": "General",
+    "title": "Pay On Time",
+    "details": "How many times have you been just a few hours late on a credit card payment and kissed $40 goodbye? \nJust three late payments a year could cost more than $100!\nDelay on payments affects your CREDIT SCORE! PAY ALL DUES ON TIME!",
+    "details__1": "How Many Times Have You Been Just A Few Hours Late On A Credit Card Payment And Kissed $40 Goodbye? \nJust Three Late Payments A Year Could Cost More Than $100!\nDelay On Payments Affects Your Credit Score! Pay All Dues On Time!"
   },
   {
     "id": 3,
-    "category": "Income",
-    "name": "Other Income",
-    "title_1": "tbd",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Bills",
+    "name": "Electricity Bill",
+    "title": "Efficient Lighting",
+    "details": "Energy Efficient Light Bulbs\nReduces the bill, lasts longer\nVictorian Government Initiative:\nhttps://www.esc.vic.gov.au/victorian-energy-upgrades/about-victorian-energy-upgrades-program",
+    "details__1": "Energy Efficient Light Bulbs\nReduces The Bill, Lasts Longer\nVictorian Government Initiative:\nHttps://Www.Esc.Vic.Gov.Au/Victorian-Energy-Upgrades/About-Victorian-Energy-Upgrades-Program"
   },
   {
     "id": 4,
-    "category": "Hosehold Expenses",
-    "name": "Rent",
-    "title_1": "Shop Discount Days",
-    "tips_1": "Commit to a longer lease\nIf you find the perfect little flat and you can see yourself living there for a while, it might be worth negotiating a 24-month lease with the landlord, in return for a slight reduction in rent.\n\nFinding suitable tenants can be an arduous process for landlords. It takes time and costs them money, as vacancies mean lost rent. So committing to a two-year lease could encourage them to knock $10 off your weekly expenditure.",
-    "title_2": "CHOOSE YOUR STORE",
-    "tips_2": "5. Live in the suburbs\nGenerally speaking, the further away from the centre of the city you get, the cheaper the rents will be. Think about your lifestyle, travel habits and social life. And then choose a cost-effective suburb that allows you to maintain as much as your current way of life as possible.\n\nDon’t rule out any suburbs until you’ve thoroughly researched them, either. The housing market is constantly changing and suburbs are being transformed with new builds. It might pay to revisit suburbs you ruled out a few years ago to see if they now fit your requirements."
+    "category": "Bills",
+    "name": "Electricity Bill",
+    "title": "Cold Wash",
+    "details": "Perform all machine washes with COLD water\nHigher the water Temperature, higher the bill\nLook at ECO settings, load size settings for efficient power usage",
+    "details__1": "Perform All Machine Washes With Cold Water\nHigher The Water Temperature, Higher The Bill\nLook At Eco Settings, Load Size Settings For Efficient Power Usage"
   },
   {
     "id": 5,
-    "category": "Hosehold Expenses",
-    "name": "Groceries",
-    "title_1": "Shop Discount Days",
-    "tips_1": "In addition to delivery services, many grocery stores offer senior discount days with 10-20 percent off your total grocery bill. Ask at the customer service desk to find the best day to do your shopping.",
-    "title_2": "CHOOSE YOUR STORE",
-    "tips_2": "A larger chain store is more likely to offer discounts, manager specials, and accept more coupons than smaller stores. As an added bonus, their aisles are wider and they have more staff available to help you. All stores are different, however, so consider your preferences and select a store that caters to your needs."
+    "category": "Bills",
+    "name": "Electricity Bill",
+    "title": "Switches",
+    "details": "Switch OFF all lights and appliances at the WALL\nTVs, microwaves, dishwashers and phone chargers consume electricity even in standby mode\nSmart power board can be used to optimize usage",
+    "details__1": "Switch Off All Lights And Appliances At The Wall\nTvs, Microwaves, Dishwashers And Phone Chargers Consume Electricity Even In Standby Mode\nSmart Power Board Can Be Used To Optimize Usage"
   },
   {
     "id": 6,
-    "category": "Hosehold Expenses",
-    "name": "Other Expense",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Bills",
+    "name": "Electricity Bill",
+    "title": "Insulation",
+    "details": "Insulate your home - cost effective\nReduces cooling/heating costs - Helps maintain a comfortable natural temperature\nAs per Victorian government, savings can be up to 40-50% per year",
+    "details__1": "Insulate Your Home - Cost Effective\nReduces Cooling/Heating Costs - Helps Maintain A Comfortable Natural Temperature\nAs Per Victorian Government, Savings Can Be Up To 40-50% Per Year"
   },
   {
     "id": 7,
     "category": "Bills",
-    "name": "Gas Bill",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Electricity Bill",
+    "title": "Electricity Providers",
+    "details": "Compare electricity providers\nLook for prices as well as customer satisfaction review\nMonitor for better deals and offers",
+    "details__1": "Compare Electricity Providers\nLook For Prices As Well As Customer Satisfaction Review\nMonitor For Better Deals And Offers"
   },
   {
     "id": 8,
     "category": "Bills",
     "name": "Water Bill",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "title": "Cold Water Storage",
+    "details": "Store cold water in the fridge\nKeep enough bottles for the whole day\nOn hot days, this will save water, instead of opening the tap and letting the water flow till it is cold!",
+    "details__1": "Store Cold Water In The Fridge\nKeep Enough Bottles For The Whole Day\nOn Hot Days, This Will Save Water, Instead Of Opening The Tap And Letting The Water Flow Till It Is Cold!"
   },
   {
     "id": 9,
     "category": "Bills",
-    "name": "Phone Bill",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Water Bill",
+    "title": "Showers",
+    "details": "Take SHORTER SHOWERS\nBy reducing the time you shower by just four minutes, you can save almost 4,000 gallons of water per year, equivalent to $100 per year\nInstalling a low-flow shower head can reduce the amount of water you use while showering by as much as 50%, saving you as much on bills",
+    "details__1": "Take Shorter Showers\nBy Reducing The Time You Shower By Just Four Minutes, You Can Save Almost 4,000 Gallons Of Water Per Year, Equivalent To $100 Per Year\nInstalling A Low-Flow Shower Head Can Reduce The Amount Of Water You Use While Showering By As Much As 50%, Saving You As Much On Bills"
   },
   {
     "id": 10,
     "category": "Bills",
-    "name": "Electricity Bill",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Water Bill",
+    "title": "Running Water",
+    "details": "Turn OFF all unused taps / faucets\nDon't let the water run when shaving or brushing your teeth\nUse cups filled with tap water wherever possible, rather than letting the water RUN",
+    "details__1": "Turn Off All Unused Taps / Faucets\nDon'T Let The Water Run When Shaving Or Brushing Your Teeth\nUse Cups Filled With Tap Water Wherever Possible, Rather Than Letting The Water Run"
   },
   {
     "id": 11,
     "category": "Bills",
-    "name": "Internet Bill",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Water Bill",
+    "title": "Washing",
+    "details": "Run full loads of Dishes in the Dishwasher\nRun a full load in the Washing Machine\nSaves water as well as the number of times the machine has to run",
+    "details__1": "Run Full Loads Of Dishes In The Dishwasher\nRun A Full Load In The Washing Machine\nSaves Water As Well As The Number Of Times The Machine Has To Run"
   },
   {
     "id": 12,
     "category": "Bills",
-    "name": "Insurance",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Gas Bill",
+    "title": "Gas Bill Tips",
+    "details": "Easiest and most effective measure:\nTURN THE THERMOSTAT DOWN\nBringing the thermostat down by 7 - 10 degrees for eight hours a day can reduce your bill by up to 10%.",
+    "details__1": "Easiest And Most Effective Measure:\nTurn The Thermostat Down\nBringing The Thermostat Down By 7 - 10 Degrees For Eight Hours A Day Can Reduce Your Bill By Up To 10%."
   },
   {
     "id": 13,
     "category": "Bills",
-    "name": "Loans",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Groceries",
+    "title": "Meal Plan",
+    "details": "Plan Your Dinners for the Week and make a list\nDiligently perform grocery shopping - missing ingredients will result in takeout\nOpt for \"Grocery Home Delivery",
+    "details__1": "Plan Your Dinners For The Week And Make A List\nDiligently Perform Grocery Shopping - Missing Ingredients Will Result In Takeout\nOpt For \"Grocery Home Delivery"
   },
   {
     "id": 14,
     "category": "Bills",
-    "name": "Other Expense",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Groceries",
+    "title": "Prepare Ahead",
+    "details": "Prepare Lunch the Night Before\nLack of time/energy will result in eating poorly or eating out\nPreparing ahead can ensure you eat well and in a controlled budget",
+    "details__1": "Prepare Lunch The Night Before\nLack Of Time/Energy Will Result In Eating Poorly Or Eating Out\nPreparing Ahead Can Ensure You Eat Well And In A Controlled Budget"
   },
   {
     "id": 15,
-    "category": "Personal",
-    "name": "Clothing",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Bills",
+    "name": "Groceries",
+    "title": "Drink Water",
+    "details": "Instead of drinking alcohol and soft drinks\nSwitch to the healthier and cheaper option\nWater tends to be a free option in most restaurants and stores",
+    "details__1": "Instead Of Drinking Alcohol And Soft Drinks\nSwitch To The Healthier And Cheaper Option\nWater Tends To Be A Free Option In Most Restaurants And Stores"
   },
   {
     "id": 16,
-    "category": "Personal",
-    "name": "Doctor and Medicines",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Bills",
+    "name": "Phone Bill",
+    "title": "Mobile Bill Tips",
+    "details": "Match your Cell Phone Plan to your Usage.\nLook at switching Service Providers.\nYou can use your current phone with a better suited plan.",
+    "details__1": "Match Your Cell Phone Plan To Your Usage.\nLook At Switching Service Providers.\nYou Can Use Your Current Phone With A Better Suited Plan."
   },
   {
     "id": 17,
-    "category": "Personal",
-    "name": "Entertainment",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Banking",
+    "name": "Banking",
+    "title": "Lower Interest Rates",
+    "details": "Been a long-term loyal customer with your credit card company?\nYour credit card company may be able to get you Lower Intereset Rates on your Credit Card!\nThere’s no official process – just call up and ask what can be done\nIf you don't succeed, maybe you should consider changing companies",
+    "details__1": "Been A Long-Term Loyal Customer With Your Credit Card Company?\nYour Credit Card Company May Be Able To Get You Lower Intereset Rates On Your Credit Card!\nThere’S No Official Process – Just Call Up And Ask What Can Be Done\nIf You Don'T Succeed, Maybe You Should Consider Changing Companies"
   },
   {
     "id": 18,
-    "category": "Personal",
-    "name": "Pets",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Banking",
+    "name": "Banking",
+    "title": "Free Checking Account",
+    "details": "Does your checking account charge maintenance and annual fees?\nThere’s no reason you should be paying maintenance and annual fees for a checking account\nBanks online-only and offer completely free checking accounts!\nIf so, it’s time to make a SWITCH!",
+    "details__1": "Does Your Checking Account Charge Maintenance And Annual Fees?\nThere’S No Reason You Should Be Paying Maintenance And Annual Fees For A Checking Account\nBanks Online-Only And Offer Completely Free Checking Accounts!\nIf So, It’S Time To Make A Switch!"
   },
   {
     "id": 19,
     "category": "Personal",
-    "name": "Other Personal Bills",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "name": "Entertainment",
+    "title": "Cable TV vs Streaming",
+    "details": "Do you still pay for cable every month?\nCUT the CORD! STREAMING is NOW!\nYou can get a Roku or Apple TV for an upfront cost of between $25 and $70, depending on the model you choose",
+    "details__1": "Do You Still Pay For Cable Every Month?\nCut The Cord! Streaming Is Now!\nYou Can Get A Roku Or Apple Tv For An Upfront Cost Of Between $25 And $70, Depending On The Model You Choose"
+  },
+  {
+    "id": "",
+    "category": "Personal",
+    "name": "Entertainment",
+    "title": "Library",
+    "details": "Go to the public library closest to you to read books\nThere is no need to buy books or magazines to past the time\nThere are plenty of reading material you can use for free in a public library",
+    "details__1": "Go To The Public Library Closest To You To Read Books\nThere Is No Need To Buy Books Or Magazines To Past The Time\nThere Are Plenty Of Reading Material You Can Use For Free In A Public Library"
+  },
+  {
+    "id": "",
+    "category": "Personal",
+    "name": "Entertainment",
+    "title": "Festivals",
+    "details": "Volunteer at festivals you are interested in!!\nCultural festivals and events often provide free admission to event volunteers\nContact the organizers for your favorite events to find out the opportunities and benefits!!",
+    "details__1": "Volunteer At Festivals You Are Interested In!!\nCultural Festivals And Events Often Provide Free Admission To Event Volunteers\nContact The Organizers For Your Favorite Events To Find Out The Opportunities And Benefits!!"
   },
   {
     "id": 20,
-    "category": "Transport",
-    "name": "Rego and licence",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Personal",
+    "name": "Personal",
+    "title": "Gym Membership",
+    "details": "Dump the Gym Membership\nIf you’re going to the gym at least twice a week, then you’re probably getting your money’s worth\nJogging around the neighborhood, riding a bike, or doing a workout video are alternatives to staying fit\nFitness apps have access to different fitness routines for free or very low cost",
+    "details__1": "Dump The Gym Membership\nIf You’Re Going To The Gym At Least Twice A Week, Then You’Re Probably Getting Your Money’S Worth\nJogging Around The Neighborhood, Riding A Bike, Or Doing A Workout Video Are Alternatives To Staying Fit\nFitness Apps Have Access To Different Fitness Routines For Free Or Very Low Cost"
   },
   {
     "id": 21,
-    "category": "Transport",
-    "name": "Public transport",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Personal",
+    "name": "Personal",
+    "title": "Haircut",
+    "details": "Do it yourself or ask a MATE!\nShort hair - Invest in a decent set of clippers (around $20)\nLong hair - Invest in a pair of scissors",
+    "details__1": "Do It Yourself Or Ask A Mate!\nShort Hair - Invest In A Decent Set Of Clippers (Around $20)\nLong Hair - Invest In A Pair Of Scissors"
   },
   {
     "id": 22,
-    "category": "Transport",
-    "name": "Other Transport Expenses",
-    "title_1": "",
-    "tips_1": "tbd",
-    "title_2": "tbd",
-    "tips_2": "tbd"
+    "category": "Personal",
+    "name": "Personal",
+    "title": "Eating Out",
+    "details": "Eat Before You Go Out\nCarry snacks on you where possible\nIf you desire to eat out - Share a Meal with a Mate",
+    "details__1": "Eat Before You Go Out\nCarry Snacks On You Where Possible\nIf You Desire To Eat Out - Share A Meal With A Mate"
+  },
+  {
+    "id": 23,
+    "category": "Personal",
+    "name": "Clothing",
+    "title": "Cheaper Options",
+    "details": "Buy Clothes at Consignment or Thrift Stores\nLook for discounts and offers!\nBuy Electronics and Computer Peripherals Online - cheaper option",
+    "details__1": "Buy Clothes At Consignment Or Thrift Stores\nLook For Discounts And Offers!\nBuy Electronics And Computer Peripherals Online - Cheaper Option"
+  },
+  {
+    "id": "",
+    "category": "Personal",
+    "name": "Clothing",
+    "title": "Think Twice on Sales",
+    "details": "While sales do help you save money, it does not cost less than not buying the item\nAsk yourself whether you really need the item before buying",
+    "details__1": "While Sales Do Help You Save Money, It Does Not Cost Less Than Not Buying The Item\nAsk Yourself Whether You Really Need The Item Before Buying"
+  },
+  {
+    "id": "",
+    "category": "Personal",
+    "name": "Clothing",
+    "title": "Online Shopping",
+    "details": "Make it difficult to shop online\nTry not to save your billing information on retailer websites you often visit\nHaving to input your address and billing details make it less prone to impulse buying",
+    "details__1": "Make It Difficult To Shop Online\nTry Not To Save Your Billing Information On Retailer Websites You Often Visit\nHaving To Input Your Address And Billing Details Make It Less Prone To Impulse Buying"
+  },
+  {
+    "id": 24,
+    "category": "Personal",
+    "name": "Personal",
+    "title": "Gumtree",
+    "details": "Check Gumtree for Used Furniture, Cars, and Electronics\nBargain offers, sometimes FREE\nTransation guidelines - meet in a public place, in the daytime\nWherever possible, take a MATE",
+    "details__1": "Check Gumtree For Used Furniture, Cars, And Electronics\nBargain Offers, Sometimes Free\nTransation Guidelines - Meet In A Public Place, In The Daytime\nWherever Possible, Take A Mate"
+  },
+  {
+    "id": 25,
+    "category": "Personal",
+    "name": "Personal",
+    "title": "Smoking",
+    "details": "Smoking DRAINS the wallet!\nQUIT Smoking - it is injurious to health\nQuitting smoking can save you up to $5000 a year",
+    "details__1": "Smoking Drains The Wallet!\nQuit Smoking - It Is Injurious To Health\nQuitting Smoking Can Save You Up To $5000 A Year"
+  },
+  {
+    "id": 26,
+    "category": "Travel",
+    "name": "Registration and licence",
+    "title": "Car Wash",
+    "details": "Have soap, a bucket, and some old rags?\nWASH YOUR CAR YOURSELF!\nA hand-car wash can SAVE you up to $200!",
+    "details__1": "Have Soap, A Bucket, And Some Old Rags?\nWash Your Car Yourself!\nA Hand-Car Wash Can Save You Up To $200!"
+  },
+  {
+    "id": 27,
+    "category": "Travel",
+    "name": "Registration and licence",
+    "title": "Fuel Consumption",
+    "details": "Choose to WALK / CYCLE wherever possible\nOr Carpool with a friend or neighbour if you can\nNOT driving 1km to and from a location daily will save you about $2000 every year",
+    "details__1": "Choose To Walk / Cycle Wherever Possible\nOr Carpool With A Friend Or Neighbour If You Can\nNot Driving 1Km To And From A Location Daily Will Save You About $2000 Every Year"
   }
 ]

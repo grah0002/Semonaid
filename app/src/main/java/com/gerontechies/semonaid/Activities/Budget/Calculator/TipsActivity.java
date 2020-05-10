@@ -8,19 +8,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
 import com.gerontechies.semonaid.Adapters.TopCategoriesAdapter;
+import com.gerontechies.semonaid.Models.BudgetItem;
 import com.gerontechies.semonaid.Models.ServiceDatabase;
 import com.gerontechies.semonaid.Models.ServiceItem;
 import com.gerontechies.semonaid.Models.TipDatabase;
@@ -34,12 +39,16 @@ public class TipsActivity extends AppCompatActivity {
 
     RecyclerView tipsRV;
     TipDatabase db = null;
-    ArrayList<TipItem> item = new ArrayList<>();
+    List<TipItem> item ;
     String tipName;
     String name;
 
     ImageView imgIcon;
     String uri;
+    List<TipItem> allIatemList = new ArrayList<>();
+
+    ImageView noRes;
+    TextView searchTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +68,8 @@ public class TipsActivity extends AppCompatActivity {
         TextView name = (TextView) findViewById(R.id.txt_category_name);
         TextView amt = (TextView) findViewById(R.id.txt_amt);
         imgIcon = (ImageView) findViewById(R.id.img_icon);
+        searchTxt = (TextView) findViewById(R.id.txtSavings);
+        noRes = (ImageView) findViewById(R.id.noRes);
 
         tipName = getIntent().getStringExtra("name");
         String amtVal = getIntent().getStringExtra("amt");
@@ -143,8 +154,13 @@ public class TipsActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            TipItem item1 = db.TipDAO().getItem(tipName);
-            item.add(item1);
+            item = db.TipDAO().getName(tipName);
+            if (!(item.isEmpty() || item == null) ) {
+                for (TipItem temp : item) {
+                    allIatemList.add(temp);
+                }
+
+            }
             return  status;
         }
 
@@ -152,20 +168,41 @@ public class TipsActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String details) {
 
-            SavingTipsAdapter adapter = new SavingTipsAdapter(TipsActivity.this,  item);
-            RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(TipsActivity.this, LinearLayoutManager.VERTICAL, false);
-            tipsRV.setLayoutManager(mLayoutManagerIncome);
+            if(allIatemList != null){
 
-            tipsRV.setItemAnimator(new DefaultItemAnimator());
-            tipsRV.setAdapter(adapter);
-            tipsRV.setNestedScrollingEnabled(false);
+                if(allIatemList.size()>0){
+                    SavingTipsAdapter adapter = new SavingTipsAdapter(TipsActivity.this,  allIatemList);
+                    RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(TipsActivity.this, LinearLayoutManager.VERTICAL, false);
+                    tipsRV.setLayoutManager(mLayoutManagerIncome);
 
+                    tipsRV.setItemAnimator(new DefaultItemAnimator());
+                    tipsRV.setAdapter(adapter);
+                    tipsRV.setNestedScrollingEnabled(false);
 
+                }
+               else if(allIatemList.size()<=0 ){
+
+                   noRes.setVisibility(View.VISIBLE);
+                   searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
+                }
+            }
+            else if(allIatemList.size()<=0 ){
+
+                noRes.setVisibility(View.VISIBLE);
+                searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
+            }
 
 
 
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -179,6 +216,11 @@ public class TipsActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

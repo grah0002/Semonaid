@@ -13,12 +13,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.Tips.TipsMenuActivity;
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Models.ServiceDatabase;
 import com.gerontechies.semonaid.Models.ServiceItem;
@@ -50,22 +52,9 @@ public class BudgetInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget_info);
-        setTitle("Budget Calculator");
+        setTitle("Learn to Save");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
-//
-//        btn_next = (Button) findViewById(R.id.btn_next);
-//        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
-//        btn_next.setTypeface(font);
-//        btn_next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(BudgetInfoActivity.this, BudgetMainMenuActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         db = Room.databaseBuilder(this,
                 TipDatabase.class, "tips_database")
@@ -84,6 +73,7 @@ public class BudgetInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetInfoActivity.this, BudgetMainMenuActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -143,21 +133,15 @@ public class BudgetInfoActivity extends AppCompatActivity {
                     int id = object.getInt("id");
                     String name = object.getString("name");
                     String category = object.getString("category");
-                    String tips_1 = object.getString("tips_1");
-                    String tips_2 = object.getString("tips_2");
-                    String title1 = object.getString("title_1");
-                    String title2 = object.getString("title_2");
+                    String tip = object.getString("details");
+                    String title = object.getString("title");
 
 
                     item.setId(id);
                     item.setCategory(category);
                     item.setName(name);
-                    item.setTips_1(tips_1);
-                    item.setTips_2(tips_2);
-                    item.setTitle_1(title1);
-                    item.setTitle_2(title2);
-
-
+                    item.setTip(tip);
+                    item.setTitle(title);
 
                     db.TipDAO().insert(item);
 
@@ -173,8 +157,6 @@ public class BudgetInfoActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
-            //itemCount = 100;
-
 
         }
 
@@ -188,9 +170,6 @@ public class BudgetInfoActivity extends AppCompatActivity {
             item = db.TipDAO().getAll();
             if (!(item.isEmpty() || item == null) ){
                 for (TipItem temp : item) {
-
-
-
 
                     allItemList.add(temp);
 
@@ -222,6 +201,13 @@ public class BudgetInfoActivity extends AppCompatActivity {
 
     }
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -232,6 +218,11 @@ public class BudgetInfoActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

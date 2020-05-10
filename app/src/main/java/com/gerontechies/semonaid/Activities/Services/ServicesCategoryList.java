@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Models.ServiceDatabase;
 import com.gerontechies.semonaid.Models.ServiceItem;
@@ -59,6 +61,8 @@ public class ServicesCategoryList extends AppCompatActivity  {
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
+            setTitle(category);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         }
         ReadDatabase rd = new ReadDatabase();
@@ -125,7 +129,12 @@ public class ServicesCategoryList extends AppCompatActivity  {
     }
 
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -139,10 +148,16 @@ public class ServicesCategoryList extends AppCompatActivity  {
             // finish the activity
             onBackPressed();
             return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     public void setTitle(String title){

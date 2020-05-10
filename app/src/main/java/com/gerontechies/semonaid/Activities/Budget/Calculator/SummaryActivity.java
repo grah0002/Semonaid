@@ -30,6 +30,7 @@ import android.provider.MediaStore;
 import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -669,6 +670,12 @@ public class SummaryActivity extends AppCompatActivity implements
             return mFormat.format(value) + " %"; // e.g. append a dollar-sign
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -681,6 +688,11 @@ public class SummaryActivity extends AppCompatActivity implements
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

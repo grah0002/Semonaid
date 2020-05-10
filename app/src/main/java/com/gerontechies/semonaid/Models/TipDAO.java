@@ -17,11 +17,11 @@ public interface TipDAO {
     @Query("SELECT * FROM tipitem")
     List<TipItem> getAll();
 
-    @Query("SELECT * FROM tipitem WHERE name LIKE :name LIMIT 1")
-    TipItem getItem(String name);
+    @Query("SELECT * FROM tipitem WHERE name LIKE :name")
+    List<TipItem> getName(String name);
 
-//    @Query("SELECT * FROM steps WHERE stepsId = :stepsId LIMIT 1")
-//    Steps findByID(int stepsId);
+    @Query("SELECT * FROM tipitem WHERE category LIKE :category")
+    List<TipItem> getCategory(String category);
 
     @Insert
     void insertAll(TipItem... tipitems);

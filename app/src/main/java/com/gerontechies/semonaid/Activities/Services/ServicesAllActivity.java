@@ -29,6 +29,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Adapters.SummaryItemAdapter;
 import com.gerontechies.semonaid.Models.BudgetItem;
@@ -147,7 +148,12 @@ public class ServicesAllActivity extends AppCompatActivity  {
     }
 
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -161,10 +167,16 @@ public class ServicesAllActivity extends AppCompatActivity  {
             // finish the activity
             onBackPressed();
             return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     public void setTitle(String title){

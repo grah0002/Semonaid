@@ -22,50 +22,22 @@ public class TipItem {
     @ColumnInfo(name = "category")
     public String category;
 
-    @ColumnInfo(name = "tips_1")
-    public String tips_1;
-
-    @ColumnInfo(name = "tips_2")
-    public String tips_2;
+    @ColumnInfo(name = "tip")
+    public String tip;
 
 
-    @ColumnInfo(name = "title_1")
-    public String title_1;
+    @ColumnInfo(name = "title")
+    public String title;
 
-    @ColumnInfo(name = "title_2")
-    public String title_2;
+
 
     public TipItem(){}
 
-    public String getTitle_1() {
-        return title_1;
-    }
-
-    public void setTitle_1(String title_1) {
-        this.title_1 = title_1;
-    }
-
-    public String getTitle_2() {
-        return title_2;
-    }
-
-    public void setTitle_2(String title_2) {
-        this.title_2 = title_2;
-    }
-//    public TipItem(@NonNull int id, String name, String category, String tips_1, String tips_2) {
-//        this.id = id;
-//        this.name = name;
-//        this.category = category;
-//        this.tips_1 = tips_1;
-//        this.tips_2 = tips_2;
-//    }
-
-    @NonNull
     public int getId() {
         return id;
     }
 
-    public void setId(@NonNull int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -85,20 +57,20 @@ public class TipItem {
         this.category = category;
     }
 
-    public String getTips_1() {
-        return tips_1;
+    public String getTip() {
+        return tip;
     }
 
-    public void setTips_1(String tips_1) {
-        this.tips_1 = tips_1;
+    public void setTip(String tip) {
+        this.tip = tip;
     }
 
-    public String getTips_2() {
-        return tips_2;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTips_2(String tips_2) {
-        this.tips_2 = tips_2;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
 

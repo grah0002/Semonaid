@@ -14,14 +14,14 @@
 
         android:layout_margin="20dp"
         android:background="#FFFFFF"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
-        app:cardElevation="20dp">
+        app:cardElevation="20dp"
+        app:contentPadding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -31,7 +31,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 app:fontFamily="@font/montserrat" />
 
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 app:fontFamily="@font/montserrat" />
 
@@ -53,7 +53,7 @@
                 android:layout_marginRight="20dp"
                 android:gravity="end"
                 android:text="View Saving Tips"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 android:textStyle="italic"
                 app:fontFamily="@font/montserrat" />

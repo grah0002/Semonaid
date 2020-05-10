@@ -207,6 +207,7 @@
                 android:background="@drawable/ovalbtn"
                 android:gravity="center"
                 android:text="@string/btn_save"
+                android:textSize="18sp"
                 android:textColor="#FFF" />
         </LinearLayout>
     </LinearLayout>
