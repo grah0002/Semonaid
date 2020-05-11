@@ -3,6 +3,7 @@ package com.gerontechies.semonaid.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.Filterable;
 
 import android.widget.TextView;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gerontechies.semonaid.Activities.Services.ServiceItemActivity;
@@ -49,6 +51,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
             item_name = (TextView) itemView.findViewById(R.id.txt_service_item);
             item_suburb = (TextView) itemView.findViewById(R.id.txt_service_suburb);
             button = (Button) itemView.findViewById(R.id.btn_view_details);
+            Typeface font = ResourcesCompat.getFont(itemView.getContext(),R.font.montserrat);
+            button.setTypeface(font);
 //            item_category_1 = (TextView) itemView.findViewById(R.id.txt_category1);
 //            item_category_2 = (TextView) itemView.findViewById(R.id.txt_category2);
 //            item_category_3 = (TextView) itemView.findViewById(R.id.txt_category3);
@@ -87,7 +91,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, ServiceItemActivity.class);
-                intent.putExtra(Intent.EXTRA_TEXT, String.valueOf(id));
+                intent.putExtra("id", String.valueOf(id));
 
                 mContext.startActivity(intent);
             }

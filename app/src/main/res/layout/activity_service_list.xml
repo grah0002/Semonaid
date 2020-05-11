@@ -9,7 +9,23 @@
     tools:context=".Activities.Services.ServicesAllActivity">
 
 
+<!--    <Button-->
+<!--        android:id="@+id/filter_btn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Filter"-->
+<!--        tools:visibility="gone" />-->
 
+    <Button
+        android:id="@+id/map_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/ovalbtn"
+        android:text="View in Map"
+        android:textAllCaps="false"
+        android:textColor="#EFEAEA"
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_all_services"

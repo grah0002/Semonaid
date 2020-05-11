@@ -9,10 +9,12 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.R;
 
 public class ServiceCategoryActivity extends AppCompatActivity {
@@ -166,6 +168,12 @@ public class ServiceCategoryActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -177,10 +185,16 @@ public class ServiceCategoryActivity extends AppCompatActivity {
             // finish the activity
             onBackPressed();
             return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     public void setTitle(String title){

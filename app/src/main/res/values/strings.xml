@@ -14,7 +14,12 @@
     <string name="services">Get Assistance</string>
 
     <string name="income">Income</string>
+    <string name="heroCategory">NONE: Is that a trick?</string>
     <string name="housing_exp">Household Expenses</string>
+    <string name="go_save">Go to Saving Tips</string>
+    <string name="go_save_category">Saving Tips for Category</string>
+    <string name="go_service">Go To Services</string>
+    <string name="go_service_category">Services for Category</string>
     <string name="utilities">Utilities</string>
 
     <string name="frequency">Frequency</string>
@@ -26,7 +31,7 @@
     </string-array>
 
     <string name="income_details">Income Details</string>
-    <string name="income_govt">Government Benifits</string>
+    <string name="income_govt">Government Benefits</string>
     <string name="income_other">Other Income</string>
 
     <string name="household_rent">Rent</string>
@@ -55,9 +60,17 @@
     <string name="transport_public">Public Transport</string>
     <string name="transport_other">Other</string>
 
+    <!-- Budget Menu -->
+    <string name="menu_income">Yearly Income</string>
+    <string name="menu_household">Yearly Household Expenses </string>
+    <string name="menu_bills">Yearly Bills</string>
+    <string name="menu_personal">Yearly Personal Expenses</string>
+    <string name="menu_transport">Yearly Transport Expenses</string>
+
     <!-- Info-->
     <string name="budget_info_1">Welcome user!</string>
-    <string name="budget_info_2">We would be asking you a series of questions to determine how much of your income you spend on expenses.</string>
+    <!--   TODO: update the text-->
+    <string name="budget_info_2">Text about this screen would be displayed.</string>
 
     <string name="personal">Personal Expenses</string>
     <string name="transport">Transport and Auto</string>
@@ -85,6 +98,27 @@
     <string name="service_categories">Services by Categories</string>
 
     <string name="tips_1">To get started, please the category you would like to view tips on:</string>
+    <string name="title_activity_services_map">Map</string>
+
+    <!--Get Started -->
+    <string name="get_started">Get Ready!\n Your journey to improve your Financial and Mental well-being starts now!</string>
+    <string name="get_started2">To begin, please select an option</string>
+    <string name="get_started3">I want to improve my :</string>
+    <string name="get_started4">Financial Well-being</string>
+    <string name="get_started5">Mental Well-being</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
 
 
 </resources>

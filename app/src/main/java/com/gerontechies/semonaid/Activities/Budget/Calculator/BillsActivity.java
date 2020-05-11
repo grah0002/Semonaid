@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
 import com.gerontechies.semonaid.R;
@@ -178,16 +180,16 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(gas)){
                 if(gas_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Gas Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 incomeTotal = incomeTotal + Double.parseDouble(gas);
                 int frequency = getFrequency(gas_sp);
                 BudgetItem budgetItem = new BudgetItem("Gas Bill",Double.parseDouble(gas),frequency,TYPE,CATEGORY);
                 if(gas_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(gas_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -196,7 +198,7 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(water)){
                 if(water_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Water Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
 
             } else {
@@ -204,9 +206,9 @@ public class BillsActivity extends AppCompatActivity {
                 int frequency = getFrequency(water_sp);
                 BudgetItem budgetItem = new BudgetItem("Water Bill",Double.parseDouble(water),frequency,TYPE,CATEGORY);
                 if(water_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(water_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -217,16 +219,16 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(electricity)){
                 if(electricity_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Electricity Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 incomeTotal = incomeTotal + Double.parseDouble(electricity);
                 int frequency = getFrequency(electricity_sp);
                 BudgetItem budgetItem = new BudgetItem("Electricity Bill",Double.parseDouble(electricity),frequency,TYPE,CATEGORY);
                 if(electricity_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(electricity_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -235,15 +237,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(phone)){
                 if(phone_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Phone Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(phone_sp);
                 BudgetItem budgetItem = new BudgetItem("Phone Bill",Double.parseDouble(phone),frequency,TYPE,CATEGORY);
                 if(phone_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(phone_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -252,15 +254,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(internet)){
                 if(internet_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Internet Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(internet_sp);
                 BudgetItem budgetItem = new BudgetItem("Internet Bill",Double.parseDouble(internet),frequency,TYPE,CATEGORY);
                 if(internet_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(internet_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -268,16 +270,16 @@ public class BillsActivity extends AppCompatActivity {
             //insurance
             if(TextUtils.isEmpty(insurance)){
                 if(insurance_flag ==99){
-                    BudgetItem budgetItem = new BudgetItem("Insurance Bill",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    BudgetItem budgetItem = new BudgetItem("Insurance",0,1,TYPE,CATEGORY);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(insurance_sp);
-                BudgetItem budgetItem = new BudgetItem("Insurance Bill",Double.parseDouble(insurance),frequency,TYPE,CATEGORY);
+                BudgetItem budgetItem = new BudgetItem("Insurance",Double.parseDouble(insurance),frequency,TYPE,CATEGORY);
                 if(insurance_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(insurance_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -286,15 +288,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(loans)){
                 if(loans_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Loans",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(loans_sp);
                 BudgetItem budgetItem = new BudgetItem("Loans",Double.parseDouble(loans),frequency,TYPE,CATEGORY);
                 if(loans_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(loans_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -303,15 +305,15 @@ public class BillsActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(loans)){
                 if(other_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Other Bills",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Bills",Double.parseDouble(other),frequency,TYPE,CATEGORY);
                 if(other_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -338,7 +340,7 @@ public class BillsActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.BudgetDAO().getCategoryItems(CATEGORY);
+            item = db.budgetDAO().getCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 
@@ -377,7 +379,7 @@ public class BillsActivity extends AppCompatActivity {
                     internet_flag = 99;
                     internet_edit_txt.setText(String.valueOf(budgetItem.amount));
                     internet_spinner.setSelection(budgetItem.frequency-1);
-                } else if(budgetItem.itemName.equals("Insurance Bill")){
+                } else if(budgetItem.itemName.equals("Insurance")){
                     insurance_flag = 99;
                     insurance_edit_txt.setText(String.valueOf(budgetItem.amount));
                     insurance_spinner.setSelection(budgetItem.frequency-1);
@@ -413,6 +415,12 @@ public class BillsActivity extends AppCompatActivity {
 
         return freq;
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -425,6 +433,11 @@ public class BillsActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

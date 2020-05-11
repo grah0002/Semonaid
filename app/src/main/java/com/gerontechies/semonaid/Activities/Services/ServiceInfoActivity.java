@@ -15,12 +15,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.Calculator.SummaryActivity;
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
@@ -46,8 +48,12 @@ public class ServiceInfoActivity extends AppCompatActivity {
 
     boolean isLoaded = false;
 
+
     List<ServiceItem> allItemList = new ArrayList<>();
     ServiceDatabase db = null;
+
+    CardView clothes, showers, accom, health, food, advise, counselling, drug, travel, jobs, helpline;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,16 @@ public class ServiceInfoActivity extends AppCompatActivity {
         setTitle("Get Assistance");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        clothes = (CardView) findViewById(R.id.card_blankets);
+        showers =  (CardView) findViewById(R.id.card_shower);
+        accom = (CardView) findViewById(R.id.card_accom);
+        health = (CardView) findViewById(R.id.card_health);
+        food = (CardView) findViewById(R.id.card_food);
+        advise = (CardView) findViewById(R.id.card_legal);
+        counselling = (CardView) findViewById(R.id.card_mental);
+        travel = (CardView) findViewById(R.id.card_travel);
+        jobs = (CardView) findViewById(R.id.card_emp);
+        helpline = (CardView) findViewById(R.id.card_helpline);
 
         db = Room.databaseBuilder(this,
                 ServiceDatabase.class, "service_database")
@@ -67,22 +83,117 @@ public class ServiceInfoActivity extends AppCompatActivity {
 
 
 
-
-        all = (CardView) findViewById(R.id.card_all);
-        all.setOnClickListener(new View.OnClickListener() {
+        clothes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ServiceInfoActivity.this, ServicesAllActivity.class);
+                String category = "Clothes and Blankets";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        showers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Showers / Laundry";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        accom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Accommodation";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        helpline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Helpline";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        health.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Health Services / Pharmacy";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Food";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
                 startActivity(intent);
             }
         });
 
 
-        categories = (CardView) findViewById(R.id.card_categories);
-        categories.setOnClickListener(new View.OnClickListener() {
+
+        advise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ServiceInfoActivity.this, ServiceCategoryActivity.class);
+                String category = "Legal / Financial Advice";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        counselling.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Counselling and Psychiatric Services";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        all = (CardView) findViewById(R.id.card_all);
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesMapActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, "none");
+                startActivity(intent);
+            }
+        });
+
+
+
+
+        travel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Travel Assistance";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
+                startActivity(intent);
+            }
+        });
+
+        jobs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String category = "Employment Assistance";
+                Intent intent = new Intent(ServiceInfoActivity.this, ServicesCategoryList.class);
+                intent.putExtra(Intent.EXTRA_TEXT, category);
                 startActivity(intent);
             }
         });
@@ -247,6 +358,13 @@ public class ServiceInfoActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -258,6 +376,11 @@ public class ServiceInfoActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

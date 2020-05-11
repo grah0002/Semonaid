@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,6 +22,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
 import com.gerontechies.semonaid.R;
@@ -148,16 +150,16 @@ public class HousingExpensesActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(rent)){
                 if(rent_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Rent",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 expenseTotal = expenseTotal + Double.parseDouble(rent);
                 int frequency = getFrequency(rent_sp);
                 BudgetItem budgetItem = new BudgetItem("Rent",Double.parseDouble(rent),frequency,TYPE,CATEGORY);
                 if(rent_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(rent_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -167,7 +169,7 @@ public class HousingExpensesActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(other_expense)){
                 if(other_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Other Expense",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
 
             } else {
@@ -175,9 +177,9 @@ public class HousingExpensesActivity extends AppCompatActivity {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Expense",Double.parseDouble(other_expense),frequency,TYPE,CATEGORY);
                 if(other_flag == 99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -187,16 +189,16 @@ public class HousingExpensesActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(groceries)){
                 if(groceries_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Groceries",0,1,TYPE,CATEGORY);
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 }
             } else {
                 expenseTotal = expenseTotal + Double.parseDouble(groceries);
                 int frequency = getFrequency(groceries_sp);
                 BudgetItem budgetItem = new BudgetItem("Groceries",Double.parseDouble(groceries),frequency,TYPE,CATEGORY);
                 if(groceries_flag ==99){
-                    db.BudgetDAO().updateItem(budgetItem);
+                    db.budgetDAO().updateItem(budgetItem);
                 } else if(groceries_flag == 0){
-                    db.BudgetDAO().insert(budgetItem);
+                    db.budgetDAO().insert(budgetItem);
                 }
 
             }
@@ -221,7 +223,7 @@ public class HousingExpensesActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.BudgetDAO().getCategoryItems(CATEGORY);
+            item = db.budgetDAO().getCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 
@@ -278,6 +280,12 @@ public class HousingExpensesActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -288,6 +296,11 @@ public class HousingExpensesActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

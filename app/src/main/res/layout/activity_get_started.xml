@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.GetStartedActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/get_started"
+            android:textColor="#0C0C0C"
+            android:textSize="20sp"
+            app:fontFamily="@font/montserrat" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/get_started2"
+            android:textColor="#0C0C0C"
+            android:textSize="20sp"
+            app:fontFamily="@font/montserrat" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/get_started3"
+            android:textColor="#0C0C0C"
+            android:textSize="20sp"
+            app:fontFamily="@font/montserrat" />
+
+        <Button
+            android:id="@+id/btn_financial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/ovalbtn"
+            android:padding="20dp"
+            android:text="@string/get_started4"
+            android:textAllCaps="false"
+            android:textColor="#FDFDFD"
+            android:textSize="24sp" />
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_mental"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:background="@drawable/ovalbtn"-->
+<!--            android:padding="20dp"-->
+<!--            android:text="@string/get_started5"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="#FDFDFD"-->
+<!--            android:textSize="24sp" />-->
+
+    </LinearLayout>
+</ScrollView>

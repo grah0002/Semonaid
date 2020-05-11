@@ -11,10 +11,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.ServiceDatabase;
 import com.gerontechies.semonaid.Models.ServiceItem;
 import com.gerontechies.semonaid.R;
@@ -28,7 +30,8 @@ public class ServiceItemActivity extends AppCompatActivity {
     TextView cost, tram, train, category1, category2, category3, category4, addressTxt;
     ServiceDatabase db = null;
     ServiceItem item;
-    String id;
+    String id, route, serviceName;
+    boolean isMap=false;
 
 
     @Override
@@ -47,14 +50,28 @@ public class ServiceItemActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
 
-        ReadDatabase rd = new ReadDatabase();
-        rd.execute();
 
         Intent intent = getIntent();
+        id = getIntent().getStringExtra("id");
+        Log.d("ID", id);
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
              id = intent.getStringExtra(Intent.EXTRA_TEXT);
 
+
+//             if(route.equals("map")){
+//                 serviceName = getIntent().getStringExtra("service_name");
+//                 Log.d("NAME", "n"+ serviceName);
+//                 isMap = true;
+//             }
+//             else{
+//                 isMap = false;
+//             }
+
+
         }
+
+        ReadDatabase rd = new ReadDatabase();
+        rd.execute();
 
         name = (TextView) findViewById(R.id.txt_service_name);
         what = (TextView) findViewById(R.id.txt_service_what);
@@ -91,7 +108,13 @@ public class ServiceItemActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
+
             String status = "";
+            if(isMap){
+                //item = db.ServiceDAO().findByName(serviceName);
+            } else{
+             //   item = db.ServiceDAO().findByID(Integer.parseInt(id));
+            }
             item = db.ServiceDAO().findByID(Integer.parseInt(id));
             return  status;
         }
@@ -251,7 +274,12 @@ public class ServiceItemActivity extends AppCompatActivity {
         }
 
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -263,6 +291,11 @@ public class ServiceItemActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

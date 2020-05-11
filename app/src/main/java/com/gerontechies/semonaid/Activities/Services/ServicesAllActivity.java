@@ -10,6 +10,7 @@ import androidx.room.Room;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,12 +21,15 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Adapters.SummaryItemAdapter;
 import com.gerontechies.semonaid.Models.BudgetItem;
@@ -51,6 +55,7 @@ public class ServicesAllActivity extends AppCompatActivity  {
     List<ServiceItem> item;
 
     ServicesAdapter mAdapter;
+    Button map_btn, filter_btn;
 
     ServiceDatabase db = null;
 
@@ -73,6 +78,28 @@ public class ServicesAllActivity extends AppCompatActivity  {
         rd.execute();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_all_services);
+
+        map_btn = (Button) findViewById(R.id.map_btn);
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        map_btn.setTypeface(font);
+        map_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServicesAllActivity.this, ServicesMapActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, "none");
+
+                startActivity(intent);
+            }
+        });
+
+//        filter_btn = (Button) findViewById(R.id.filter_btn);
+//        filter_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ServicesAllActivity.this, ServicesFilterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 
@@ -121,7 +148,12 @@ public class ServicesAllActivity extends AppCompatActivity  {
     }
 
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -135,10 +167,16 @@ public class ServicesAllActivity extends AppCompatActivity  {
             // finish the activity
             onBackPressed();
             return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     public void setTitle(String title){

@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,7 @@ import com.gerontechies.semonaid.Activities.Budget.Calculator.IncomeActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.PersonalActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.SummaryActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.TransportActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
 import com.gerontechies.semonaid.R;
@@ -32,6 +33,8 @@ import java.util.List;
 
 public class BudgetMainMenuActivity extends AppCompatActivity {
 
+    int cat1;
+    int cat2;
     ImageView iv_income, iv_add_utilities;
     CardView card_income, card_house_exp, card_bills, card_personal, card_transport;
     Button btn_next;
@@ -58,7 +61,6 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
         rd.execute();
 
         iv_income = (ImageView) findViewById(R.id.iv_add_income);
-        iv_add_utilities = (ImageView) findViewById(R.id.iv_add_utilities) ;
 
         card_income = (CardView) findViewById(R.id.card_income);
         card_house_exp = (CardView) findViewById(R.id.card_housing_exp);
@@ -133,7 +135,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.BudgetDAO().getAll();
+            item = db.budgetDAO().getAll();
             if (!(item.isEmpty() || item == null)) {
                 for (BudgetItem temp : item) {
 
@@ -215,6 +217,14 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(textView);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -226,9 +236,15 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
             // finish the activity
             onBackPressed();
             return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }

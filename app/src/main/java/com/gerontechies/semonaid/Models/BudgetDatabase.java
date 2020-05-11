@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase;
 
 public abstract class BudgetDatabase extends RoomDatabase {
 
-    public abstract BudgetDAO BudgetDAO();
+    public abstract BudgetDAO budgetDAO();
     private static volatile BudgetDatabase INSTANCE;
     static BudgetDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {

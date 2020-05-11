@@ -30,6 +30,7 @@ import android.provider.MediaStore;
 import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,30 +38,44 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.gerontechies.semonaid.Activities.Budget.Tips.BillsTipsMenuActivity;
+import com.gerontechies.semonaid.Activities.Budget.Tips.OtherTipsActivity;
+import com.gerontechies.semonaid.Activities.Budget.Tips.TipsMenuActivity;
+import com.gerontechies.semonaid.Activities.Budget.Tips.TravelTipsActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Services.ServiceCategoryActivity;
+import com.gerontechies.semonaid.Activities.Services.ServicesCategoryList;
 import com.gerontechies.semonaid.Adapters.SummaryItemAdapter;
+import com.gerontechies.semonaid.Adapters.TopCategoriesAdapter;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
 import com.gerontechies.semonaid.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 
 
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SummaryActivity extends AppCompatActivity implements
@@ -68,6 +83,9 @@ public class SummaryActivity extends AppCompatActivity implements
 
     BudgetDatabase db = null;
     String CATEGORY = "bills";
+    String heroCategory = "None, you're Golden!";
+    String gosave = "Go To Saving Tips";
+    String goservice = "Go To Services";
     Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
     List<BudgetItem> allItemList = new ArrayList<>();
@@ -75,9 +93,11 @@ public class SummaryActivity extends AppCompatActivity implements
     List<BudgetItem> expenseItemList = new ArrayList<>();
     String category_bills = "Utility Bills", category_personal = "Personal Expenses", category_transport = "Transport Expenses", category_household = "Household Expenses", categotry_income = "Income";
 
-    RecyclerView incomeList, expenseList;
+    List<BudgetItem> top3 = new ArrayList<>();
+    RecyclerView incomeList, expenseList, topList;
 
-    double incomeTotal, expenseTotal;
+    double incomeTotal, expenseTotal, maxExpense = 0;
+    int heroRedirectToken = 4;
 
     TextView incomeTotalTxt, expenseTotalTxt;
 
@@ -112,9 +132,10 @@ public class SummaryActivity extends AppCompatActivity implements
 
         incomeTotalTxt = (TextView) findViewById(R.id.income_amt);
         expenseTotalTxt = (TextView) findViewById(R.id.exp_amt);
+        topList = (RecyclerView) findViewById(R.id.list_top);
 
 
-
+/*
         Button btn_save = (Button) findViewById(R.id.btn_save);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -132,21 +153,69 @@ public class SummaryActivity extends AppCompatActivity implements
             }
         });
         btn_save.setTypeface(font);
-
-        Button btn_home = (Button) findViewById(R.id.btn_next);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SummaryActivity.this, HomeScreenActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        btn_home.setTypeface(font);
-
+*/
+//        Button btn_home = (Button) findViewById(R.id.btn_next);
+//        btn_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SummaryActivity.this, HomeScreenActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        btn_home.setTypeface(font);
+//
+//        Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
+//        btn_gosave.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SummaryActivity.this, TipsMenuActivity.class);
+//                if(heroRedirectToken == 1) {
+//                    intent = new Intent(SummaryActivity.this, BillsTipsMenuActivity.class);
+//                }
+//                if(heroRedirectToken == 2) {
+//                    intent = new Intent(SummaryActivity.this, OtherTipsActivity.class);
+//                }
+//                if(heroRedirectToken == 3) {
+//                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
+//                }
+//
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//        btn_gosave.setTypeface(font);
+//
+//        Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
+//        btn_goservice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
+///*                if(heroRedirectToken == 1) {
+//                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
+//                }
+//                if(heroRedirectToken == 2) {
+//                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
+//                }
+//
+// */
+//                if(heroRedirectToken == 3) {
+//                    String category = "Travel Assistance";
+//                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
+//                    intent.putExtra(Intent.EXTRA_TEXT, category);
+//                }
+//
+//                startActivity(intent);
+//                finish();
+//
+//            }
+//        });
+//        btn_goservice.setText(goservice);
+//        btn_goservice.setTypeface(font);
 
         chart = findViewById(R.id.chart1);
         initilizePieData();
+
 
 
     }
@@ -214,6 +283,8 @@ public class SummaryActivity extends AppCompatActivity implements
         AlertDialog alert = alertBuilder.create();
         alert.show();
     }
+
+    //initilizes the chart with the ui elements
     public  void initilizePieData(){
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
@@ -221,7 +292,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
         chart.setDragDecelerationFrictionCoef(0.95f);
 
-        // chart.setCenterTextTypeface(tfLight);
+         chart.setCenterTextTypeface(font);
 
         chart.setDrawHoleEnabled(true);
         chart.setHoleColor(Color.WHITE);
@@ -239,8 +310,7 @@ public class SummaryActivity extends AppCompatActivity implements
         chart.setRotationEnabled(true);
         chart.setHighlightPerTapEnabled(true);
 
-        // chart.setUnit(" €");
-        // chart.setDrawUnitsInChart(true);
+
 
         // add a selection listener
         chart.setOnChartValueSelectedListener(this);
@@ -248,42 +318,39 @@ public class SummaryActivity extends AppCompatActivity implements
 
 
         chart.animateY(1400, Easing.EaseInOutQuad);
-         chart.spin(2000, 0, 360, Easing.EaseInBack);
+        chart.spin(2000, 0, 360, Easing.EaseInBack);
 
 
 
-//        Legend l = chart.getLegend();
-//        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-//        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-//        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-//        l.setDrawInside(false);
-//        l.setXEntrySpace(7f);
-//        l.setYEntrySpace(0f);
-//        l.setYOffset(0f);
+        Legend l = chart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+        l.setDrawInside(true);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+        l.setTextSize(13f);
+        l.setTypeface(font);
 
         // entry label styling
         chart.setEntryLabelColor(Color.BLACK);
-         chart.setEntryLabelTypeface(font);
+        chart.setEntryLabelTypeface(font);
         chart.setEntryLabelTextSize(12f);
     }
 
 
-
-
-
-
-
-
+    //sets the center string
     private SpannableString generateCenterSpannableText(String title) {
 
         SpannableString s = new SpannableString(title);
-      //  s.setSpan(new StyleSpan(Typeface.create(font,Typeface.NORMAL)));
-     //  s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
-     //   s.setSpan(new StyleSpan(Typeface.), 14, s.length() - 15, 0);
+        //  s.setSpan(new StyleSpan(Typeface.create(font,Typeface.NORMAL)));
+        //  s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
+        //   s.setSpan(new StyleSpan(Typeface.), 14, s.length() - 15, 0);
 //        s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
-  //      s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
+        //      s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
         //s.setSpan(new StyleSpan(Typeface.create(font), s.length() - 14, s.length(), 0);
-       // s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
+        // s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
         return s;
     }
 
@@ -299,6 +366,14 @@ public class SummaryActivity extends AppCompatActivity implements
 
 
 
+
+
+//    ValueFormatter formatter = new ValueFormatter() {
+//        @Override
+//        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+//            return (Math.round(value)) + "%" ;
+//        }
+//    };
     @Override
     public void onNothingSelected() {
         Log.i("PieChart", "nothing selected");
@@ -306,12 +381,13 @@ public class SummaryActivity extends AppCompatActivity implements
 
 
 
+    //gets the data from the SQL db
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.BudgetDAO().getAll();
+            item = db.budgetDAO().getAll();
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 
@@ -354,15 +430,51 @@ public class SummaryActivity extends AppCompatActivity implements
 
         @Override
         protected void onPostExecute(String details) {
-         // displaySummaryItems(details);
+            // displaySummaryItems(details);
 
             expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
             incomeTotalTxt.setText("$ "+String.valueOf(incomeTotal));
 
             budggetGraph();
+            categories();
 
 
         }
+
+    }
+
+
+    //calculate the top 3 categories
+    public void categories(){
+
+        //sorting the arraylist expenseItemList based on the amount
+        Collections.sort(expenseItemList, new Comparator<BudgetItem>() {
+            @Override
+            public int compare(BudgetItem o1, BudgetItem o2) {
+                return Double.compare(o1.getAmount(), o2.getAmount());
+            }
+        });
+
+        //sorts in decending order
+        Collections.reverse(expenseItemList);
+
+       // gets the top 3 categories
+        for(int i=0; i<3; i++){
+            BudgetItem item = expenseItemList.get(i);
+            Log.d("CAT", item.itemName + "----"+ item.getAmount());
+             top3.add(item);
+        }
+
+        TopCategoriesAdapter adapter = new TopCategoriesAdapter(this,  top3);
+        RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        topList.setLayoutManager(mLayoutManagerIncome);
+
+        topList.setItemAnimator(new DefaultItemAnimator());
+        topList.setAdapter(adapter);
+        topList.setNestedScrollingEnabled(false);
+
+
+
 
     }
 
@@ -372,7 +484,7 @@ public class SummaryActivity extends AppCompatActivity implements
         double household = 0, personal = 0, bills = 0, transport=0;
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
 
-
+        maxExpense = 0;
         for(int i = 0; i<expenseItemList.size(); i++){
 
             BudgetItem b = expenseItemList.get(i);
@@ -389,7 +501,7 @@ public class SummaryActivity extends AppCompatActivity implements
             }
 
             if(b.category.equals(category_household)){
-                household = household + b.amount*multiplier;
+                household =  household + b.amount*multiplier;
             } else if(b.category.equals(category_personal)){
                 personal = personal + b.amount*multiplier;
             } else if (b.category.equals(category_bills)){
@@ -400,30 +512,34 @@ public class SummaryActivity extends AppCompatActivity implements
 
         }
 
-
-
-
         //expense is more and there is no money left. So we need to show the breakdown of expense
         if(expenseTotal > incomeTotal){
 
             if(household > 0){
-                pieEntries.add(new PieEntry((float) household,  "Household"));
+                int val =  (int) Math.round(household);
+                pieEntries.add(new PieEntry((float) val,  "Household Exp"));
             }
 
             if(personal > 0){
-                pieEntries.add(new PieEntry((float) personal,  "Personal"));
+                int val =  (int) Math.round(personal);
+                pieEntries.add(new PieEntry((float) val,  "Personal"));
+
             }
 
             if(transport > 0){
-                pieEntries.add(new PieEntry((float) transport,  "Transport"));
+                int val =  (int) Math.round(transport);
+                pieEntries.add(new PieEntry((float) val,  "Transport"));
+
             }
 
             if(bills > 0){
-                pieEntries.add(new PieEntry((float) bills,  "Utility"));
+                int val =  (int) Math.round(bills);
+                Log.d("VAL", String.valueOf(val));
+                pieEntries.add(new PieEntry((float) val,  "Bills"));
             }
 
             double diff = (expenseTotal - incomeTotal)/expenseTotal * 100;
-            title =  df.format(diff) +"% Overhead";
+            title = "Your expenses are "+ df.format(diff) +"% over your Income";
 
 
 
@@ -432,6 +548,7 @@ public class SummaryActivity extends AppCompatActivity implements
             if(household > 0){
                 double hPercentage = household/incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) hPercentage,  "Household"));
+
             }
 
             if(personal > 0){
@@ -441,26 +558,27 @@ public class SummaryActivity extends AppCompatActivity implements
             }
 
             if(bills > 0){
-                double uPercentage = bills/incomeTotal * 100;
+                double uPercentage = bills/ incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) uPercentage,  "Utility"));
+
             }
 
             if(transport > 0){
-                double tPercentage = transport/incomeTotal * 100;
+                double tPercentage = transport/  incomeTotal * 100;
                 pieEntries.add(new PieEntry((float) tPercentage,  "Transport"));
 
             }
 
             double diff = (incomeTotal - expenseTotal)/incomeTotal * 100;
             pieEntries.add(new PieEntry((float) diff, "Surplus"));
-            title = df.format(diff) + "% of Income Spent";
-
+            title = "You have "+df.format(diff) + "% of Income left!";
         }
 
 
         PieDataSet dataSet = new PieDataSet(pieEntries, " ");
 
         dataSet.setDrawIcons(false);
+        dataSet.setValueTextSize(10f);
 
         dataSet.setSliceSpace(3f);
         dataSet.setIconsOffset(new MPPointF(0, 40));
@@ -495,6 +613,10 @@ public class SummaryActivity extends AppCompatActivity implements
         data.setValueTextSize(15f);
         data.setValueTextColor(Color.BLACK);
         data.setValueTypeface(font);
+      //  dataSet.setValueFormatter(formatter);
+      //  dataSet.setValueFormatter(new MyValueFormatter());
+
+
         chart.setDrawSliceText(false);
         chart.setCenterText(generateCenterSpannableText(title));
 
@@ -533,40 +655,28 @@ public class SummaryActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    public  void displaySummaryItems(String details){
-        if(details.equals("full"))
-        {
+    public class MyValueFormatter extends ValueFormatter implements IValueFormatter {
 
-            Log.d("ITEM", String.valueOf(expenseItemList.size()));
+        private DecimalFormat mFormat;
 
-
-            Log.d("ITEM", String.valueOf(expenseItemList.size()));
-            SummaryItemAdapter incomeAdapter = new SummaryItemAdapter(this,  incomeItemList);
-            RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-            incomeList.setLayoutManager(mLayoutManagerIncome);
-
-            incomeList.setItemAnimator(new DefaultItemAnimator());
-            incomeList.setAdapter(incomeAdapter);
-            incomeList.setNestedScrollingEnabled(false);
-
-            SummaryItemAdapter expAdapter = new SummaryItemAdapter(this,  expenseItemList);
-            RecyclerView.LayoutManager mLayoutManagerExpense = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-            expenseList.setLayoutManager(mLayoutManagerExpense);
-
-            expenseList.setItemAnimator(new DefaultItemAnimator());
-            expenseList.setAdapter(expAdapter);
-           // expenseList.setNestedScrollingEnabled(false);
-
-
-            expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
-            incomeTotalTxt.setText("$ " + String.valueOf(incomeTotal));
-
-        } else{
-            Log.d("ITEM", "No item");
-
+        public MyValueFormatter() {
+            mFormat = new DecimalFormat("###,###,##0.0"); // use one decimal
         }
 
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            // write your logic here
+            Log.d("VAL", "INNN");
+            return mFormat.format(value) + " %"; // e.g. append a dollar-sign
+        }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -578,6 +688,11 @@ public class SummaryActivity extends AppCompatActivity implements
         if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 
