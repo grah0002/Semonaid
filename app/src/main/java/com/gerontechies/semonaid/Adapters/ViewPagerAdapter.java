@@ -1,6 +1,7 @@
 package com.gerontechies.semonaid.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,10 +49,13 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         imageView.setImageResource(images[position]);
         textView.setText(text[position]);
+        Log.d("LL", text[position]);
 
-        ViewPager vp = (ViewPager) container;
-        vp.addView(view, 0);
 
+//        ViewPager vp = (ViewPager) container;
+//        vp.addView(view, 0);
+
+        (container).addView(view,0);
         return  view;
 
     }
