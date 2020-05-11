@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -63,7 +64,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         viewPager.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new taskTime(), 2000, 4000);
+        timer.scheduleAtFixedRate(new taskTime(), 2000, 7000);
 
 
     }
@@ -86,7 +87,13 @@ public class HomeScreenActivity extends AppCompatActivity {
         }
     }
 
-                //Custom title in the NavBar
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.home_menu, menu);
+//        return true;
+//    }
+//                //Custom title in the NavBar
         public void setTitle (String title){
             Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
@@ -99,7 +106,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             textView.setTextSize(20);
             textView.setTextColor(getResources().getColor(R.color.white));
 
-            textView.setGravity(Gravity.CENTER_HORIZONTAL);
+            textView.setGravity(Gravity.CENTER);
             getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             getSupportActionBar().setCustomView(textView);
         }
