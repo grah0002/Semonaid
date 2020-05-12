@@ -131,7 +131,7 @@ public class TipsActivity extends AppCompatActivity {
             case  "Other Personal Bills":
                 uri = "@drawable/other";
                 break;
-            case  "Rego and licence":
+            case  "Registration and licence":
                 uri = "@drawable/auto";
                 break;
             case  "Public transport":

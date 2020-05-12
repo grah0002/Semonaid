@@ -1,4 +1,4 @@
-package com.gerontechies.semonaid.Activities.Services;
+package com.gerontechies.semonaid.Activities.Budget.Tips;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -21,90 +20,71 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import com.gerontechies.semonaid.Activities.Budget.Calculator.TipsActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Adapters.ServicesAdapter;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
+import com.gerontechies.semonaid.Models.TipDatabase;
+import com.gerontechies.semonaid.Models.TipItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServicesCategoryList extends AppCompatActivity  {
+public class TipCategoryActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    String jsonData;
-    List<ServiceItem> allItemList = new ArrayList<>();
-    List<ServiceItem> item;
-
-    ServicesAdapter mAdapter;
-
-    ServiceDatabase db = null;
-    String category;
-
-    CardView map_btn;
+    RecyclerView tipsRV;
+    TipDatabase db = null;
+    List<TipItem> item ;
+    String tipName;
+    List<TipItem> allIatemList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_category_list);
-
-        setTitle("Get Assistance");
-
+        setContentView(R.layout.activity_tip_category);
+        setTitle("Saving Tips");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tipName = getIntent().getStringExtra("tip_category");
+        TextView catName = (TextView) findViewById(R.id.categoryName_txt);
+
+        if(tipName.equals("General")){
+            catName.setText("General Saving Tips");
+        } else if( tipName.equals("Bills")){
+            catName.setText("Save on Bills");
+        } else  if(tipName.equals("Banking")){
+            catName.setText("Banking Tips");
+        } else  if(tipName.equals("Travel")){
+            catName.setText("Travel Tips");
+        }
+        Log.d("TIPS",tipName);
 
 
         db = Room.databaseBuilder(this,
-                ServiceDatabase.class, "service_database")
+                TipDatabase.class, "tips_database")
                 .fallbackToDestructiveMigration()
                 .build();
 
-        Intent intent = getIntent();
-        if (intent.hasExtra(Intent.EXTRA_TEXT)){
-            category = intent.getStringExtra(Intent.EXTRA_TEXT);
-            setTitle(category);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        }
+
+
+        tipsRV = (RecyclerView) findViewById(R.id.tipsRV);
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
-
-        map_btn = (CardView) findViewById(R.id.map_btn);
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
-
-        map_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 =new Intent(ServicesCategoryList.this, ServicesMapActivity.class);
-                intent1.putExtra(Intent.EXTRA_TEXT, category);
-                startActivity(intent1);
-            }
-        });
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_categories);
-
-
-
-    }
+    };
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.ServiceDAO().getCategoryItems(category);
-            if (!(item.isEmpty() || item == null) ){
-                for (ServiceItem temp : item) {
-
-                    allItemList.add(temp);
-
+            item = db.TipDAO().getCategory(tipName);
+            if (!(item.isEmpty() || item == null) ) {
+                for (TipItem temp : item) {
+                    allIatemList.add(temp);
+                    Log.d("TIPS",temp.name);
                 }
 
-
             }
-
-
             return  status;
         }
 
@@ -112,25 +92,35 @@ public class ServicesCategoryList extends AppCompatActivity  {
         @Override
         protected void onPostExecute(String details) {
 
-            if(allItemList.size()>1){
-                 Log.d("ITEM", String.valueOf(allItemList.size()));
-                 mAdapter = new ServicesAdapter(ServicesCategoryList.this,  allItemList);
+            if(allIatemList != null){
 
-                RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(ServicesCategoryList.this, LinearLayoutManager.VERTICAL, false);
-                recyclerView.setLayoutManager(mLayoutManagerIncome);
+                if(allIatemList.size()>0){
+                    SavingTipsAdapter adapter = new SavingTipsAdapter(TipCategoryActivity.this,  allIatemList);
+                    RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(TipCategoryActivity.this, LinearLayoutManager.VERTICAL, false);
+                    tipsRV.setLayoutManager(mLayoutManagerIncome);
 
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(mAdapter);
-                recyclerView.setNestedScrollingEnabled(false);
+                    tipsRV.setItemAnimator(new DefaultItemAnimator());
+                    tipsRV.setAdapter(adapter);
+                    tipsRV.setNestedScrollingEnabled(false);
 
-
-
+                }
+//                else if(allIatemList.size()<=0 ){
+//
+//                    noRes.setVisibility(View.VISIBLE);
+//                    searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
+//                }
             }
+//            else if(allIatemList.size()<=0 ){
+//
+//                noRes.setVisibility(View.VISIBLE);
+//                searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
+//            }
+
+
+
         }
 
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -160,10 +150,8 @@ public class ServicesCategoryList extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
-
-
     public void setTitle(String title){
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
 
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -177,8 +165,5 @@ public class ServicesCategoryList extends AppCompatActivity  {
         textView.setGravity(Gravity.CENTER_HORIZONTAL);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(textView);
-
-
     }
-
 }

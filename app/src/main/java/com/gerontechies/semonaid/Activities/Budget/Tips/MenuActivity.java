@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -14,63 +14,63 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.R;
 
-public class TipsMenuActivity extends AppCompatActivity {
-
-    CardView btn_generaltips, btn_bankingtips, btn_traveltips, btn_othertips, btn_billstips;
-
+public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tipsmenu);
-        setTitle("Save My Earnings");
+        setContentView(R.layout.activity_updated_saving_tip_menu);
+        setTitle("Saving Tips");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        btn_generaltips = (CardView) findViewById(R.id.saving_1);
-
-        btn_generaltips.setOnClickListener(new View.OnClickListener() {
+        CardView general = (CardView) findViewById(R.id.tip1);
+        general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TipsMenuActivity.this, GeneralTipsActivity.class);
+                Intent intent = new Intent(MenuActivity.this, TipCategoryActivity.class);
+                intent.putExtra("tip_category", "General");
                 startActivity(intent);
             }
         });
 
-        btn_bankingtips = (CardView) findViewById(R.id.saving_3);
-        btn_bankingtips.setOnClickListener(new View.OnClickListener() {
+        CardView bills = (CardView) findViewById(R.id.tip2);
+        bills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TipsMenuActivity.this, BankingTipsActivity.class);
+                Intent intent = new Intent(MenuActivity.this, TipCategoryActivity.class);
+                intent.putExtra("tip_category", "Bills");
                 startActivity(intent);
             }
         });
 
-        btn_traveltips = (CardView) findViewById(R.id.saving_4);
-        btn_traveltips.setOnClickListener(new View.OnClickListener() {
+        CardView banking = (CardView) findViewById(R.id.tip3);
+        banking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TipsMenuActivity.this, TravelTipsActivity.class);
+                Intent intent = new Intent(MenuActivity.this, TipCategoryActivity.class);
+                intent.putExtra("tip_category", "Banking");
                 startActivity(intent);
             }
         });
-        btn_othertips = (CardView) findViewById(R.id.saving_5);
-        btn_othertips.setOnClickListener(new View.OnClickListener() {
+        CardView travel = (CardView) findViewById(R.id.tip4);
+        travel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TipsMenuActivity.this, OtherTipsActivity.class);
+                Intent intent = new Intent(MenuActivity.this, TipCategoryActivity.class);
+                intent.putExtra("tip_category", "Travel");
                 startActivity(intent);
             }
         });
-        btn_billstips = (CardView) findViewById(R.id.saving_2);
-        btn_billstips.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TipsMenuActivity.this, BillsTipsMenuActivity.class);
-                startActivity(intent);
-            }
-        });
+
+    };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -85,11 +85,15 @@ public class TipsMenuActivity extends AppCompatActivity {
             // finish the activity
             onBackPressed();
             return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
     public void setTitle(String title){
         Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);

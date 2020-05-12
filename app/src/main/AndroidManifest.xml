@@ -45,6 +45,8 @@
             </intent-filter>
             -->
         </activity>
+        <activity android:name=".Activities.Budget.Tips.TipCategoryActivity" />
+        <activity android:name=".Activities.Budget.Tips.MenuActivity" />
         <activity android:name=".Activities.Services.ServiceItemActivity" />
         <activity android:name=".Activities.Services.ServiceCategoryActivity" />
         <activity android:name=".Activities.Services.ServicesCategoryList" />
@@ -58,41 +60,6 @@
         <activity android:name=".Activities.Budget.Calculator.IncomeActivity" />
         <activity android:name=".Activities.Budget.BudgetMainMenuActivity" />
         <activity android:name=".Activities.Budget.BudgetInfoActivity" />
-        <activity android:name=".Activities.Budget.Tips.GeneralTips1Activity" />
-        <activity android:name=".Activities.Budget.Tips.GeneralTips2Activity" />
-        <activity android:name=".Activities.Budget.Tips.GeneralTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.BankingTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.BankingTips1Activity" />
-        <activity android:name=".Activities.Budget.Tips.BankingTips2Activity" />
-        <activity android:name=".Activities.Budget.Tips.TravelTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.TravelTips1Activity" />
-        <activity android:name=".Activities.Budget.Tips.TravelTips2Activity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTips1Activity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTips2Activity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTips3Activity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTips4Activity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTips5Activity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTips6Activity" />
-        <activity android:name=".Activities.Budget.Tips.OtherTips7Activity" />
-        <activity android:name=".Activities.Budget.Tips.BillsTipsMenuActivity" />
-        <activity android:name=".Activities.Budget.Tips.ElecBillTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.ElecBillTips1Activity" />
-        <activity android:name=".Activities.Budget.Tips.ElecBillTips2Activity" />
-        <activity android:name=".Activities.Budget.Tips.ElecBillTips3Activity" />
-        <activity android:name=".Activities.Budget.Tips.ElecBillTips4Activity" />
-        <activity android:name=".Activities.Budget.Tips.ElecBillTips5Activity" />
-        <activity android:name=".Activities.Budget.Tips.WaterBillTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.WaterBillTips1Activity" />
-        <activity android:name=".Activities.Budget.Tips.WaterBillTips2Activity" />
-        <activity android:name=".Activities.Budget.Tips.WaterBillTips3Activity" />
-        <activity android:name=".Activities.Budget.Tips.WaterBillTips4Activity" />
-        <activity android:name=".Activities.Budget.Tips.FoodBillTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.FoodBillTips1Activity" />
-        <activity android:name=".Activities.Budget.Tips.FoodBillTips2Activity" />
-        <activity android:name=".Activities.Budget.Tips.GasBillTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.MobileBillTipsActivity" />
-        <activity android:name=".Activities.Budget.Tips.TipsMenuActivity" />
         <activity android:name=".Activities.HomeScreenActivity" />
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>

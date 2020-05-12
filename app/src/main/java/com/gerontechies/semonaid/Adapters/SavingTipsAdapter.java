@@ -53,9 +53,6 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
 
             card_tip1 = (CardView) itemView.findViewById(R.id.tip1);
 
-
-
-
         }
 
     }
@@ -64,7 +61,7 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.category_tip_item, parent, false);
+                .inflate(R.layout.savings_tipitem, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -78,6 +75,9 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
 
         holder.text1.setText(item.getTip());
 
+        if(position == 0){
+            holder.text1.setVisibility(View.VISIBLE);
+        }
 
         holder.card_tip1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,12 +91,7 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
         });
 
 
-
-
-
     }
-
-
 
 
     @Override

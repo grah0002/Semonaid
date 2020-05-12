@@ -1,7 +1,6 @@
 package com.gerontechies.semonaid.Activities.Budget.Calculator;
 
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -32,21 +31,12 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.gerontechies.semonaid.Activities.Budget.Tips.BillsTipsMenuActivity;
-import com.gerontechies.semonaid.Activities.Budget.Tips.OtherTipsActivity;
-import com.gerontechies.semonaid.Activities.Budget.Tips.TipsMenuActivity;
-import com.gerontechies.semonaid.Activities.Budget.Tips.TravelTipsActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceCategoryActivity;
-import com.gerontechies.semonaid.Activities.Services.ServicesCategoryList;
-import com.gerontechies.semonaid.Adapters.SummaryItemAdapter;
 import com.gerontechies.semonaid.Adapters.TopCategoriesAdapter;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
 import com.gerontechies.semonaid.Models.BudgetItem;
@@ -82,31 +72,20 @@ public class SummaryActivity extends AppCompatActivity implements
         OnChartValueSelectedListener {
 
     BudgetDatabase db = null;
-    String CATEGORY = "bills";
-    String heroCategory = "None, you're Golden!";
-    String gosave = "Go To Saving Tips";
-    String goservice = "Go To Services";
-    Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
     List<BudgetItem> allItemList = new ArrayList<>();
     List<BudgetItem> incomeItemList = new ArrayList<>();
     List<BudgetItem> expenseItemList = new ArrayList<>();
     String category_bills = "Utility Bills", category_personal = "Personal Expenses", category_transport = "Transport Expenses", category_household = "Household Expenses", categotry_income = "Income";
-
     List<BudgetItem> top3 = new ArrayList<>();
-    RecyclerView incomeList, expenseList, topList;
-
+    RecyclerView  topList;
     double incomeTotal, expenseTotal, maxExpense = 0;
-    int heroRedirectToken = 4;
-
     TextView incomeTotalTxt, expenseTotalTxt;
-
     private PieChart chart;
-    private SeekBar seekBarX, seekBarY;
-    private TextView tvX, tvY;
     Typeface font ;
     private static DecimalFormat df = new DecimalFormat("0.00");
     public static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 112;
+    boolean isIncome=false, isExpense=false, isData=false;
 
 
     @Override
@@ -126,92 +105,9 @@ public class SummaryActivity extends AppCompatActivity implements
 
         font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
 
-
-//        incomeList = (RecyclerView) findViewById(R.id.summary_income);
-//        expenseList = (RecyclerView) findViewById(R.id.summary_expense);
-
         incomeTotalTxt = (TextView) findViewById(R.id.income_amt);
         expenseTotalTxt = (TextView) findViewById(R.id.exp_amt);
         topList = (RecyclerView) findViewById(R.id.list_top);
-
-
-/*
-        Button btn_save = (Button) findViewById(R.id.btn_save);
-        btn_save.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View view) {
-                if (checkPermissionREAD_EXTERNAL_STORAGE(SummaryActivity.this)) {
-                    try {
-                        saveChart();
-                        Log.d("Item", "sharing");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-        });
-        btn_save.setTypeface(font);
-*/
-//        Button btn_home = (Button) findViewById(R.id.btn_next);
-//        btn_home.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(SummaryActivity.this, HomeScreenActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//        btn_home.setTypeface(font);
-//
-//        Button btn_gosave = (Button) findViewById(R.id.btn_gosave);
-//        btn_gosave.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(SummaryActivity.this, TipsMenuActivity.class);
-//                if(heroRedirectToken == 1) {
-//                    intent = new Intent(SummaryActivity.this, BillsTipsMenuActivity.class);
-//                }
-//                if(heroRedirectToken == 2) {
-//                    intent = new Intent(SummaryActivity.this, OtherTipsActivity.class);
-//                }
-//                if(heroRedirectToken == 3) {
-//                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
-//                }
-//
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//        btn_gosave.setTypeface(font);
-//
-//        Button btn_goservice = (Button) findViewById(R.id.btn_goservice);
-//        btn_goservice.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
-///*                if(heroRedirectToken == 1) {
-//                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
-//                }
-//                if(heroRedirectToken == 2) {
-//                    intent = new Intent(SummaryActivity.this, ServiceCategoryActivity.class);
-//                }
-//
-// */
-//                if(heroRedirectToken == 3) {
-//                    String category = "Travel Assistance";
-//                    intent = new Intent(SummaryActivity.this, TravelTipsActivity.class);
-//                    intent.putExtra(Intent.EXTRA_TEXT, category);
-//                }
-//
-//                startActivity(intent);
-//                finish();
-//
-//            }
-//        });
-//        btn_goservice.setText(goservice);
-//        btn_goservice.setTypeface(font);
 
         chart = findViewById(R.id.chart1);
         initilizePieData();
@@ -310,16 +206,11 @@ public class SummaryActivity extends AppCompatActivity implements
         chart.setRotationEnabled(true);
         chart.setHighlightPerTapEnabled(true);
 
-
-
         // add a selection listener
         chart.setOnChartValueSelectedListener(this);
 
-
-
         chart.animateY(1400, Easing.EaseInOutQuad);
         chart.spin(2000, 0, 360, Easing.EaseInBack);
-
 
 
         Legend l = chart.getLegend();
@@ -364,22 +255,10 @@ public class SummaryActivity extends AppCompatActivity implements
                         + ", DataSet index: " + h.getDataSetIndex());
     }
 
-
-
-
-
-//    ValueFormatter formatter = new ValueFormatter() {
-//        @Override
-//        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
-//            return (Math.round(value)) + "%" ;
-//        }
-//    };
     @Override
     public void onNothingSelected() {
         Log.i("PieChart", "nothing selected");
     }
-
-
 
     //gets the data from the SQL db
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
@@ -389,6 +268,7 @@ public class SummaryActivity extends AppCompatActivity implements
             String status = "";
             item = db.budgetDAO().getAll();
             if (!(item.isEmpty() || item == null) ){
+                isData = true;
                 for (BudgetItem temp : item) {
 
 
@@ -420,6 +300,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
                 status = "full";
             } else {
+                isData = false;
                 status = "empty";
             }
 
@@ -432,17 +313,29 @@ public class SummaryActivity extends AppCompatActivity implements
         protected void onPostExecute(String details) {
             // displaySummaryItems(details);
 
-            expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
-            incomeTotalTxt.setText("$ "+String.valueOf(incomeTotal));
+            if(incomeTotal>0){
+                incomeTotalTxt.setText("$ "+String.valueOf(incomeTotal));
+                isIncome = true;
+            }
+            if(expenseTotal > 0 ){
+                expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
+                isExpense = true;
+            }
 
-            budggetGraph();
-            categories();
+            if(incomeTotal <= 0 && expenseTotal <= 0){
+                //need to tell the user to enter something
+            }
 
+           if(isData){
+               budggetGraph();
+               categories();
+           } else{
+               //show that there is no data
+           }
 
         }
 
     }
-
 
     //calculate the top 3 categories
     public void categories(){
@@ -458,12 +351,22 @@ public class SummaryActivity extends AppCompatActivity implements
         //sorts in decending order
         Collections.reverse(expenseItemList);
 
-       // gets the top 3 categories
-        for(int i=0; i<3; i++){
-            BudgetItem item = expenseItemList.get(i);
-            Log.d("CAT", item.itemName + "----"+ item.getAmount());
-             top3.add(item);
+        if(expenseItemList.size()>3){
+            // gets the top 3 categories
+            for(int i=0; i<3; i++){
+                BudgetItem item = expenseItemList.get(i);
+                Log.d("CAT", item.itemName + "----"+ item.getAmount());
+                top3.add(item);
+            }
+        } else {
+            // gets the top 3 categories
+            for(int i=0; i<expenseItemList.size(); i++){
+                BudgetItem item = expenseItemList.get(i);
+                Log.d("CAT", item.itemName + "----"+ item.getAmount());
+                top3.add(item);
+            }
         }
+
 
         TopCategoriesAdapter adapter = new TopCategoriesAdapter(this,  top3);
         RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
