@@ -18,9 +18,11 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
@@ -49,6 +51,7 @@ public class TipsActivity extends AppCompatActivity {
 
     ImageView noRes;
     TextView searchTxt;
+    Button viewTips;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,15 @@ public class TipsActivity extends AppCompatActivity {
         imgIcon = (ImageView) findViewById(R.id.img_icon);
         searchTxt = (TextView) findViewById(R.id.txtSavings);
         noRes = (ImageView) findViewById(R.id.noRes);
+        viewTips = (Button) findViewById(R.id.btn_tips);
+
+        viewTips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TipsActivity.this, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
 
         tipName = getIntent().getStringExtra("name");
         String amtVal = getIntent().getStringExtra("amt");
@@ -131,13 +143,16 @@ public class TipsActivity extends AppCompatActivity {
             case  "Other Personal Bills":
                 uri = "@drawable/other";
                 break;
-            case  "Rego and licence":
+            case  "Registration and licence":
                 uri = "@drawable/auto";
                 break;
-            case  "Public transport":
+            case  "Public Transport":
                 uri = "@drawable/publictransport";
                 break;
             case  "Other Transport Expenses":
+                uri = "@drawable/other";
+                break;
+            default:
                 uri = "@drawable/other";
                 break;
         }

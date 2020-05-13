@@ -50,7 +50,6 @@ public class TopCategoriesAdapter extends RecyclerView.Adapter<TopCategoriesAdap
             item_amt = (TextView) itemView.findViewById(R.id.category_amt);
             cardView = (CardView) itemView.findViewById(R.id.item);
 
-
         }
 
     }
@@ -99,8 +98,6 @@ public class TopCategoriesAdapter extends RecyclerView.Adapter<TopCategoriesAdap
 
         Log.d("ITEM--", stepsUser.itemName);
     }
-
-
 
 
     @Override

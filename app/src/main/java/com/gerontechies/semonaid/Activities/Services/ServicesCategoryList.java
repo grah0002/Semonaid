@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,7 +42,7 @@ public class ServicesCategoryList extends AppCompatActivity  {
     ServiceDatabase db = null;
     String category;
 
-    Button map_btn;
+    CardView map_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +69,9 @@ public class ServicesCategoryList extends AppCompatActivity  {
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
 
-        map_btn = (Button) findViewById(R.id.map_btn);
+        map_btn = (CardView) findViewById(R.id.map_btn);
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
-        map_btn.setTypeface(font);
+
         map_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,6 +80,7 @@ public class ServicesCategoryList extends AppCompatActivity  {
                 startActivity(intent1);
             }
         });
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recycle_categories);
 

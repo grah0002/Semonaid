@@ -1,6 +1,5 @@
 package com.gerontechies.semonaid.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -11,21 +10,13 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity;
-import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
-import com.gerontechies.semonaid.Activities.Budget.Tips.TipsMenuActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Adapters.ViewPagerAdapter;
 import com.gerontechies.semonaid.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -33,8 +24,8 @@ import java.util.TimerTask;
 public class HomeScreenActivity extends AppCompatActivity {
 
     ViewPager viewPager;
-     Integer [] images = {R.drawable.semonaidbg2, R.drawable.semonaidbgv2};
-     String [] text = {"Bring that Change Home", "Your Second Change at Saving"};
+     Integer [] images = { R.drawable.semonaidupdated, R.drawable.semonaidbg2};
+     String [] text = { "Your Second Change at Saving", "Bring that Change Home"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +47,8 @@ public class HomeScreenActivity extends AppCompatActivity {
                // finish();
             }
         });
+
+
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this, images, text);
