@@ -31,11 +31,15 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.TopCategoriesAdapter;
 import com.gerontechies.semonaid.Models.BudgetDatabase;
@@ -86,6 +90,8 @@ public class SummaryActivity extends AppCompatActivity implements
     private static DecimalFormat df = new DecimalFormat("0.00");
     public static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 112;
     boolean isIncome=false, isExpense=false, isData=false;
+    LinearLayout noInfo, valuesExsist;
+    Button back_to_buget;
 
 
     @Override
@@ -105,9 +111,22 @@ public class SummaryActivity extends AppCompatActivity implements
 
         font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
 
+        noInfo = (LinearLayout) findViewById(R.id.noValues_layout);
+        valuesExsist = (LinearLayout) findViewById(R.id.values_layout);
+
         incomeTotalTxt = (TextView) findViewById(R.id.income_amt);
         expenseTotalTxt = (TextView) findViewById(R.id.exp_amt);
         topList = (RecyclerView) findViewById(R.id.list_top);
+        back_to_buget = (Button) findViewById(R.id.btn_budget);
+
+        back_to_buget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SummaryActivity.this, BudgetMainMenuActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         chart = findViewById(R.id.chart1);
         initilizePieData();
@@ -322,15 +341,21 @@ public class SummaryActivity extends AppCompatActivity implements
                 isExpense = true;
             }
 
-            if(incomeTotal <= 0 && expenseTotal <= 0){
-                //need to tell the user to enter something
-            }
+
 
            if(isData){
-               budggetGraph();
-               categories();
-           } else{
-               //show that there is no data
+               if(incomeTotal == 0 && expenseTotal == 0){
+                   Log.d("PPP", "zero");
+                   //need to tell the user to enter something
+                   valuesExsist.setVisibility(View.INVISIBLE);
+                   noInfo.setVisibility(View.VISIBLE);
+               } else{
+                   valuesExsist.setVisibility(View.VISIBLE);
+                   noInfo.setVisibility(View.GONE);
+                   budggetGraph();
+                   categories();
+               }
+
            }
 
         }

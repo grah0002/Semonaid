@@ -24,7 +24,7 @@ import java.util.TimerTask;
 public class HomeScreenActivity extends AppCompatActivity {
 
     ViewPager viewPager;
-     Integer [] images = { R.drawable.semonaidbgv2, R.drawable.semonaidbg2};
+     Integer [] images = { R.drawable.semonaidupdated, R.drawable.semonaidbg2};
      String [] text = { "Your Second Change at Saving", "Bring that Change Home"};
 
     @Override
