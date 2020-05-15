@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity;
+import com.gerontechies.semonaid.Activities.Skills.SkillsQuizActivity;
 import com.gerontechies.semonaid.Adapters.ViewPagerAdapter;
 import com.gerontechies.semonaid.R;
 
@@ -24,7 +25,7 @@ import java.util.TimerTask;
 public class HomeScreenActivity extends AppCompatActivity {
 
     ViewPager viewPager;
-     Integer [] images = { R.drawable.semonaidupdated, R.drawable.semonaidbg2};
+     Integer [] images = {  R.drawable.semonaidbgfinal, R.drawable.semonaidupdatedbg1,};
      String [] text = { "Your Second Change at Saving", "Bring that Change Home"};
 
     @Override
@@ -48,6 +49,14 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
 
+        CardView income = (CardView) findViewById(R.id.card_inc);
+        income.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeScreenActivity.this, SkillsQuizActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);

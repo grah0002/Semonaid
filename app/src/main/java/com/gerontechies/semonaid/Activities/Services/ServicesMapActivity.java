@@ -1,29 +1,24 @@
 package com.gerontechies.semonaid.Activities.Services;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -43,7 +38,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
     private GoogleMap mMap;
     List<ServiceItem> allItemList = new ArrayList<>();
     List<ServiceItem> item;
-    ServiceDatabase db = null;
+    SemonaidDB db = null;
     String category;
     Map<String, String> mMarkerMap = new HashMap<>();
     String ROUTE, NAME;
@@ -82,7 +77,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         ServicesMapActivity.this.setTitle(R.string.app_name);
 
         db = Room.databaseBuilder(this,
-                ServiceDatabase.class, "service_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -96,7 +91,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.ServiceDAO().getAll();
+            item = db.AppDAO().getAllServiceItem();
             if (!(item.isEmpty() || item == null) ){
                 for (ServiceItem temp : item) {
 

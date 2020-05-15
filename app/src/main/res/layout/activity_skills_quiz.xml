@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/scrollbar_shape_style"
+    tools:context=".Activities.Skills.SkillsQuizActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Find the Right Job"
+            android:textColor="#020202"
+            android:textSize="24sp"
+            app:fontFamily="@font/montserrat" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="Discover the type of jobs most suited to your skills"
+            android:textColor="#020202"
+            android:textSize="18sp"
+            app:fontFamily="@font/montserrat" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/skills_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:text="Select Skills"
+                    android:textColor="#020202"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <androidx.core.widget.NestedScrollView
+                    style="@style/scrollbar_shape_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/skillsRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+                            android:orientation="vertical">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/ovalbtn"
+                    android:text="@string/btn_next"
+                    android:textAllCaps="false"
+                    android:textColor="#F8F3F3"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/certifications_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:visibility="visible"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView172"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:text="Select Certifications"
+                    android:textColor="#020202"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <androidx.core.widget.NestedScrollView
+                    style="@style/scrollbar_shape_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/certficationsRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+                            android:orientation="vertical">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_back"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ovalbtn"
+                        android:text="Back"
+                        android:textAllCaps="false"
+                        android:textColor="#F8F3F3"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/button22"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ovalbtn"
+                        android:text="@string/btn_next"
+                        android:textAllCaps="false"
+                        android:textColor="#F8F3F3"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Skip and View Professions Directly!"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:fontFamily="@font/montserrat" />
+    </LinearLayout>
+
+</ScrollView>

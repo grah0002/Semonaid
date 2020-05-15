@@ -17,8 +17,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gerontechies.semonaid.Activities.Services.ServiceItemActivity;
-import com.gerontechies.semonaid.Activities.Services.ServicesAllActivity;
-import com.gerontechies.semonaid.Models.ServiceItem;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;
@@ -53,12 +52,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
             button = (Button) itemView.findViewById(R.id.btn_view_details);
             Typeface font = ResourcesCompat.getFont(itemView.getContext(),R.font.montserrat);
             button.setTypeface(font);
-//            item_category_1 = (TextView) itemView.findViewById(R.id.txt_category1);
-//            item_category_2 = (TextView) itemView.findViewById(R.id.txt_category2);
-//            item_category_3 = (TextView) itemView.findViewById(R.id.txt_category3);
-//            item_category_4 = (TextView) itemView.findViewById(R.id.txt_category4);
-
-
 
         }
 
@@ -97,13 +90,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
             }
         });
 
-
-//        double amt = stepsUser.amount * multiplier;
-//
-//        holder.item_name.setText("" +  stepsUser.itemName);
-//        holder.item_amt.setText("" + amt);
-//
-//        Log.d("ITEM--", stepsUser.itemName);
     }
 
 

@@ -7,19 +7,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gerontechies.semonaid.Activities.Budget.Calculator.TipsActivity;
-import com.gerontechies.semonaid.Models.BudgetDatabase;
-import com.gerontechies.semonaid.Models.BudgetItem;
+import com.gerontechies.semonaid.Models.Budget.BudgetItem;
 import com.gerontechies.semonaid.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TopCategoriesAdapter extends RecyclerView.Adapter<TopCategoriesAdapter.MyViewHolder> {

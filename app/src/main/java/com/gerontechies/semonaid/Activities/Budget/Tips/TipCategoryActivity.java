@@ -8,23 +8,21 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import com.gerontechies.semonaid.Activities.Budget.Calculator.TipsActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
-import com.gerontechies.semonaid.Models.TipDatabase;
-import com.gerontechies.semonaid.Models.TipItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Tips.TipDatabase;
+import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ import java.util.List;
 public class TipCategoryActivity extends AppCompatActivity {
 
     RecyclerView tipsRV;
-    TipDatabase db = null;
+    SemonaidDB db = null;
     List<TipItem> item ;
     String tipName;
     List<TipItem> allIatemList = new ArrayList<>();
@@ -60,7 +58,7 @@ public class TipCategoryActivity extends AppCompatActivity {
 
 
         db = Room.databaseBuilder(this,
-                TipDatabase.class, "tips_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -77,7 +75,7 @@ public class TipCategoryActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.TipDAO().getCategory(tipName);
+            item = db.AppDAO().getTipCategory(tipName);
             if (!(item.isEmpty() || item == null) ) {
                 for (TipItem temp : item) {
                     allIatemList.add(temp);

@@ -8,42 +8,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
-import com.gerontechies.semonaid.Adapters.SummaryItemAdapter;
-import com.gerontechies.semonaid.Models.BudgetItem;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +39,7 @@ public class ServicesAllActivity extends AppCompatActivity  {
     ServicesAdapter mAdapter;
     Button map_btn, filter_btn;
 
-    ServiceDatabase db = null;
+    SemonaidDB db = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,20 +47,15 @@ public class ServicesAllActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_service_list);
 
         setTitle("Get Assistance");
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         db = Room.databaseBuilder(this,
-                ServiceDatabase.class, "service_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
-
         recyclerView = (RecyclerView) findViewById(R.id.recycler_all_services);
-
         map_btn = (Button) findViewById(R.id.map_btn);
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
         map_btn.setTypeface(font);
@@ -92,17 +69,6 @@ public class ServicesAllActivity extends AppCompatActivity  {
             }
         });
 
-//        filter_btn = (Button) findViewById(R.id.filter_btn);
-//        filter_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ServicesAllActivity.this, ServicesFilterActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
-
-
     }
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
@@ -110,18 +76,14 @@ public class ServicesAllActivity extends AppCompatActivity  {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.ServiceDAO().getAll();
+            item = db.AppDAO().getAllServiceItem();
             if (!(item.isEmpty() || item == null) ){
                 for (ServiceItem temp : item) {
 
                     allItemList.add(temp);
 
                 }
-
-
             }
-
-
             return  status;
         }
 
@@ -130,18 +92,12 @@ public class ServicesAllActivity extends AppCompatActivity  {
         protected void onPostExecute(String details) {
 
             if(allItemList.size()>1){
-               // Log.d("ITEM", String.valueOf(allItemList.size()));
                  mAdapter = new ServicesAdapter(ServicesAllActivity.this,  allItemList);
-
                 RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(ServicesAllActivity.this, LinearLayoutManager.VERTICAL, false);
                 recyclerView.setLayoutManager(mLayoutManagerIncome);
-
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(mAdapter);
                 recyclerView.setNestedScrollingEnabled(false);
-
-
-
             }
         }
 

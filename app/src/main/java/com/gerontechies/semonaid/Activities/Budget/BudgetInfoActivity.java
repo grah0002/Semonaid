@@ -21,8 +21,9 @@ import android.widget.TextView;
 import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
-import com.gerontechies.semonaid.Models.TipDatabase;
-import com.gerontechies.semonaid.Models.TipItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Tips.TipDatabase;
+import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
 
 import org.json.JSONArray;
@@ -38,7 +39,7 @@ public class BudgetInfoActivity extends AppCompatActivity {
 
     Button btn_next;
     CardView budget_btn, saving_btn, service_btn;
-    TipDatabase db = null;
+    SemonaidDB db = null;
     String jsonData;
     List<TipItem> allItemList = new ArrayList<>();
     List<TipItem> item;
@@ -54,7 +55,7 @@ public class BudgetInfoActivity extends AppCompatActivity {
 
 
         db = Room.databaseBuilder(this,
-                TipDatabase.class, "tips_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -133,14 +134,13 @@ public class BudgetInfoActivity extends AppCompatActivity {
                     String tip = object.getString("text");
                     String title = object.getString("title");
 
-
                     item.setId(id);
                     item.setCategory(category);
                     item.setName(name);
                     item.setTip(tip);
                     item.setTitle(title);
 
-                    db.TipDAO().insert(item);
+                    db.AppDAO().insertTipItem(item);
 
 
                 }
@@ -164,17 +164,14 @@ public class BudgetInfoActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.TipDAO().getAll();
+            item = db.AppDAO().getAllTipItem();
             if (!(item.isEmpty() || item == null) ){
                 for (TipItem temp : item) {
 
                     allItemList.add(temp);
 
                 }
-
-
             }
-
 
             return  status;
         }

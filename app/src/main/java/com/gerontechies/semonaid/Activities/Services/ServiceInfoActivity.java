@@ -4,9 +4,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
@@ -18,16 +15,12 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.gerontechies.semonaid.Activities.Budget.Calculator.SummaryActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Adapters.ServicesAdapter;
-import com.gerontechies.semonaid.Models.BudgetDatabase;
-import com.gerontechies.semonaid.Models.BudgetItem;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
 import org.json.JSONArray;
@@ -45,13 +38,9 @@ public class ServiceInfoActivity extends AppCompatActivity {
     String jsonData;
     List<ServiceItem> item;
     int itemCount = 0;
-
     boolean isLoaded = false;
-
-
     List<ServiceItem> allItemList = new ArrayList<>();
-    ServiceDatabase db = null;
-
+    SemonaidDB db = null;
     CardView clothes, showers, accom, health, food, advise, counselling, drug, travel, jobs, helpline;
 
 
@@ -74,7 +63,7 @@ public class ServiceInfoActivity extends AppCompatActivity {
         helpline = (CardView) findViewById(R.id.card_helpline);
 
         db = Room.databaseBuilder(this,
-                ServiceDatabase.class, "service_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -295,8 +284,7 @@ public class ServiceInfoActivity extends AppCompatActivity {
 
                     allItemList.add(item);
 
-
-                    db.ServiceDAO().insert(item);
+                    db.AppDAO().insertServiceItem(item);
 
 
                 }
@@ -311,8 +299,6 @@ public class ServiceInfoActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String details) {
             //itemCount = 100;
-
-
         }
 
     }
@@ -322,24 +308,16 @@ public class ServiceInfoActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.ServiceDAO().getAll();
+            item = db.AppDAO().getAllServiceItem();
             if (!(item.isEmpty() || item == null) ){
                 for (ServiceItem temp : item) {
-
-
-
 
                     allItemList.add(temp);
 
                 }
-
-
             }
-
-
             return  status;
         }
-
 
         @Override
         protected void onPostExecute(String details) {

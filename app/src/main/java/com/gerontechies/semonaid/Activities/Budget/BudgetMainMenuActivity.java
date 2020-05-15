@@ -25,8 +25,8 @@ import com.gerontechies.semonaid.Activities.Budget.Calculator.PersonalActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.SummaryActivity;
 import com.gerontechies.semonaid.Activities.Budget.Calculator.TransportActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Models.BudgetDatabase;
-import com.gerontechies.semonaid.Models.BudgetItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Budget.BudgetItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
 
     List<BudgetItem> item;
     Double sum_income = 0.0, sum_house_exp = 0.0, sum_personal = 0.0, sum_bills = 0.0, sum_transport = 0.0;
-    BudgetDatabase db = null;
+    SemonaidDB db = null;
     TextView incomeTotalTxt, houseingTotalTxt, personalTotalTxt, transportTotalTxt, billsTotalTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
 
 
         db = Room.databaseBuilder(this,
-                BudgetDatabase.class, "budget_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -135,7 +135,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.budgetDAO().getAll();
+            item = db.AppDAO().getAllBudgetData();
             if (!(item.isEmpty() || item == null)) {
                 for (BudgetItem temp : item) {
 

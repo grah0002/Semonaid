@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -23,8 +22,9 @@ import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class ServicesCategoryList extends AppCompatActivity  {
 
     ServicesAdapter mAdapter;
 
-    ServiceDatabase db = null;
+    SemonaidDB db = null;
     String category;
 
     CardView map_btn;
@@ -55,7 +55,7 @@ public class ServicesCategoryList extends AppCompatActivity  {
 
 
         db = Room.databaseBuilder(this,
-                ServiceDatabase.class, "service_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -93,7 +93,7 @@ public class ServicesCategoryList extends AppCompatActivity  {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.ServiceDAO().getCategoryItems(category);
+            item = db.AppDAO().getCategoryServiceItem(category);
             if (!(item.isEmpty() || item == null) ){
                 for (ServiceItem temp : item) {
 
@@ -103,7 +103,6 @@ public class ServicesCategoryList extends AppCompatActivity  {
 
 
             }
-
 
             return  status;
         }

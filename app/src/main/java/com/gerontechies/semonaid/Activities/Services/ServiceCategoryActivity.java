@@ -135,16 +135,6 @@ public class ServiceCategoryActivity extends AppCompatActivity {
             }
         });
 
-//        drug.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String category = "Drug and Alcohol";
-//                Intent intent = new Intent(ServiceCategoryActivity.this, ServicesCategoryList.class);
-//                intent.putExtra(Intent.EXTRA_TEXT, category);
-//                startActivity(intent);
-//            }
-//        });
-
         travel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

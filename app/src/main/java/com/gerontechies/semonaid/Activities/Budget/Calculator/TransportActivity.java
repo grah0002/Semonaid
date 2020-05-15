@@ -24,8 +24,8 @@ import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Models.BudgetDatabase;
-import com.gerontechies.semonaid.Models.BudgetItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Budget.BudgetItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ import java.util.List;
 
 public class TransportActivity extends AppCompatActivity {
 
-    BudgetDatabase db = null;
+    SemonaidDB db = null;
 
     private SharedPreferences calculatorPreferences;
     private SharedPreferences.Editor calculatorPrefEditor;
@@ -62,7 +62,7 @@ public class TransportActivity extends AppCompatActivity {
         BundleBudget=intent.getExtras();
 
         db = Room.databaseBuilder(this,
-                BudgetDatabase.class, "budget_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -151,15 +151,15 @@ public class TransportActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(rego)){
                 if(rego_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Registration and licence",0,1,TYPE,CATEGORY);
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(rego_sp);
                 BudgetItem budgetItem = new BudgetItem("Registration and licence",Double.parseDouble(rego),frequency,TYPE,CATEGORY);
                 if(rego_flag == 99){
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 } else if(rego_flag == 0){
-                    db.budgetDAO().insert(budgetItem);
+                    db.AppDAO().insertBudgetItem(budgetItem);
                 }
 
             }
@@ -168,16 +168,16 @@ public class TransportActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(public_transport)){
                 if(public_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Public Transport",0,1,TYPE,CATEGORY);
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().insertBudgetItem(budgetItem);
                 }
 
             } else {
                 int frequency = getFrequency(public_sp);
                 BudgetItem budgetItem = new BudgetItem("Public Transport",Double.parseDouble(public_transport),frequency,TYPE,CATEGORY);
                 if(public_flag == 99){
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 } else if(public_flag == 0){
-                    db.budgetDAO().insert(budgetItem);
+                    db.AppDAO().insertBudgetItem(budgetItem);
                 }
 
             }
@@ -187,15 +187,15 @@ public class TransportActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(other)){
                 if(other_flag ==99){
                     BudgetItem budgetItem = new BudgetItem("Other Transport Expenses",0,1,TYPE,CATEGORY);
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Transport Expenses",Double.parseDouble(other),frequency,TYPE,CATEGORY);
                 if(other_flag ==99){
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.budgetDAO().insert(budgetItem);
+                    db.AppDAO().insertBudgetItem(budgetItem);
                 }
 
             }
@@ -222,7 +222,7 @@ public class TransportActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-            item = db.budgetDAO().getCategoryItems(CATEGORY);
+            item = db.AppDAO().getBudgetCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 

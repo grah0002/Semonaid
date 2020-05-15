@@ -1,0 +1,493 @@
+[
+  {
+    "id": 0,
+    "job_name": "Consultant",
+    "category": "Professional, Scientific and Technical Services",
+    "skills": [
+
+      {
+        "name": "Learning Ability"
+      }
+    ],
+    "certification": [],
+    "desc": "If you love your career, but want to spend a little less time doing it, consulting might be perfect for you. Turn your expertise, network, and experience to good advantage and work part-time for your old employer or for other companies in your field."
+  },
+  {
+    "id": 1,
+    "job_name": "Writer/ Subject Matter Expert",
+    "category": "Professional, Scientific and Technical Services",
+    "skills": [
+      {
+        "name": "Academic Knowledge"
+      },
+      {
+        "name": "Writing Ability"
+      }
+    ],
+    "certification": [],
+    "desc": "In the age of information, many people are looking for authoritative content online or in print. So if you're an expert on a particular subject, get your name out there! Begin by starting a blog, publishing articles on platforms such as LinkedIn, or approaching publications related to your area of expertise."
+  },
+  {
+    "id": 2,
+    "job_name": "Teacher",
+    "category": "Education/ Training",
+    "skills": [
+      {
+        "name": "Academic Knowledge"
+      },
+      {
+        "name": "Leadership Aspiration"
+      },
+      {
+        "name": "Experience in the Field"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Working With Children (WWC)"
+      },
+      {
+        "name": "Police Check (National Police Certificate)"
+      }
+    ],
+    "desc": "Why not teach others about your field? Community colleges and community centers often hire temporary instructors to teach classes for professional development or general interest. So check out your local college, community center, or seniors' center to see what's already being offered and inquire about the possibility of creating new classes based on your particular areas of expertise.Keep in mind that you don't have to be an academic scholar or professor. Your knowledge and experience could be enough to qualify you to teach self-enrichment classes in a college's continuing education department. For example, if your former career was in the food industry, you could offer to teach a cooking class."
+  },
+  {
+    "id": 3,
+    "job_name": "Tutor",
+    "category": "Education / Training",
+    "skills": [
+      {
+        "name": "Academic Knowledge"
+      },
+      {
+        "name": "Communication Skills"
+      },
+      {
+        "name": "Computer Literacy Skill"
+      },
+      {
+        "name": "Experience in the Field"
+      }
+    ],
+    "certification": [
+      {
+        "name": "High School Diploma"
+      },
+      {
+        "name": "Working With Children (WWC)"
+      },
+      {
+        "name": "Police Check (National Police Certificate)"
+      }
+    ],
+    "desc": "Retired teachers have the educational background and experience to help students learn tough subjects, bring up their grades, and prepare for exams like the SAT, among other milestones. In addition to tutoring, there are other flexible work options available for former teachers."
+  },
+  {
+    "id": 4,
+    "job_name": "On-demand Driver",
+    "category": "Transport, Postal and Warehousing",
+    "skills": [
+      {
+        "name": "Verbal Communication"
+      },
+      {
+        "name": "Written Communication"
+      },
+      {
+        "name": "Ability to Think on the Run"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Driver's Licence"
+      }
+    ],
+    "desc": "Services such as Uber and Lyft need independent drivers to take passengers from place to place. Because you set your own hours, on-demand driving is one of the most flexible part-time jobs for seniors. In fact, about 23 percent of Uber's drivers are over 50. Plus, two-thirds of Uber contractors have no previous job history as drivers. So these services offer suitable jobs for older people with no experience but clean driving records. (If you're thinking about getting a new vehicle, check out some of the best cars for seniors)"
+  },
+  {
+    "id": 5,
+    "job_name": "Courier",
+    "category": "Transport, Postal and Warehousing",
+    "skills": [
+      {
+        "name": "Freight Handling"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Driver's Licence"
+      },
+      {
+        "name": "A Full MR or HR License"
+      }
+    ],
+    "desc": "Deliver food, packages, or other goods from restaurants, stores, or warehouses to the local people who ordered them. You need to be efficient in these jobs, since workers are often held to time-frame standards for delivery.Medical courier work is also becoming more common. A medical courier transports and delivers test results, lab specimens, images (such as x-rays), medications, and other medically necessary items."
+  },
+  {
+    "id": 6,
+    "job_name": "Customer Service Representative",
+    "category": "Administrative and Support Services",
+    "skills": [
+      {
+        "name": "Clear Communication (both Verbal and Written English)"
+      },
+      {
+        "name": "Computer Literacy Skills"
+      },
+      {
+        "name": "Problem Solving Skills"
+      }
+    ],
+    "certification": [],
+    "desc": "Customer service jobs are always hiring, and many of them will let you work from home. If you’re good at communicating on the phone or via chat software and don’t mind talking people down when they’re not at their best, this role might let you work part-time from your home office."
+  },
+  {
+    "id": 7,
+    "job_name": "Tour Guide",
+    "category": "Administrative and Support Services",
+    "skills": [
+      {
+        "name": "Communication Skills"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Tour Escort Pass"
+      }
+    ],
+    "desc": "Share your love of local attractions and inspire others with your knowledge of history and geography. Depending on the venue, you could meet people from around the world. Public-speaking skills and a good memory are essential."
+  },
+  {
+    "id": 8,
+    "job_name": "Retail Salesperson",
+    "category": "Retail Trade",
+    "skills": [
+      {
+        "name": "Communication Skills"
+      },
+      {
+        "name": "Computer Literacy Skill"
+      },
+      {
+        "name": "Teamwork Ability"
+      }
+    ],
+    "certification": [],
+    "desc": "This is one of the most popular jobs for seniors. And it's easy to see why: Retail positions often have flexible schedules, opportunities for friendly contact with customers, and even healthcare benefits if you work for a larger company. Plus, salespeople are often eligible for a store discount. And you could work at a store that aligns with your personal interests\u2014for example, a bookstore if you like to read, a clothing store if you follow fashion, or a sports store if you're athletically inclined."
+  },
+  {
+    "id": 9,
+    "job_name": "Event Usher/ Event Attendant",
+    "category": "Arts and Recreation Services",
+    "skills": [
+      {
+        "name": "Communication Skills"
+      },
+      {
+        "name": "Related Field Knowledge"
+      },
+      {
+        "name": "Problem Solving Ability"
+      }
+    ],
+    "certification": [],
+    "desc": "Do you enjoy attending concerts, plays, and sporting events? Consider helping out\u2014and earning some money\u2014as an usher or event attendant. You could help people find their seats, take tickets, and provide general assistance. These jobs generally don't require much training, and they typically involve part-time work hours. Evening and weekend shifts are common."
+  },
+  {
+    "id": 10,
+    "job_name": "Greeter",
+    "category": "Public Administration and Safety",
+    "skills": [
+      {
+        "name": "Communication Skills"
+      },
+      {
+        "name": "Problem Solving Ability"
+      },
+      {
+        "name": "Customer Service Experience"
+      }
+    ],
+    "certification": [],
+    "desc": "Are you a real people person? Greeters welcome visitors with a friendly hello as they enter stores or other facilities. Generally, they also answer questions, assist people with packages, keep an eye out for shoplifters, and do basic cleaning. You should be comfortable standing for long periods of time."
+  },
+  {
+    "id": 11,
+    "job_name": "Personal Carer/ Home Health Assistant",
+    "category": "Health Care and Social Assistance",
+    "skills": [
+      {
+        "name": "Communication Skills"
+      },
+      {
+        "name": "Knowledge of Aged Care Standards"
+      },
+      {
+        "name": "Experience in Residential Aged Care"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Certificate III in Aged Care Work or Home & Community Care or equivalent"
+      },
+      {
+        "name": "Police Check (National Police Certificate)"
+      }
+    ],
+    "desc": "Want to feel that you're truly making a difference? Personal care aides help people who are disabled or sick by assisting them with basic everyday needs. For example, you could provide assistance with things like errands, laundry, and bathing. But this can be physical work, so you should be comfortable lifting heavier objects and helping clients move from place to place within their homes or while out running errands.As a home health aide, you could change bandages or dressings, monitor body temperature, and administer basic medications. Home health aides are usually allowed to perform more medically necessary tasks than personal care aides.These types of roles are some of the top jobs for women over 50 since maturity and life experience are highly valued in them. Although people of any gender can work in this field and a need exists for more males, over 90 percent of care workers are female. Plus, many clients (who are often seniors themselves prefer older workers over younger workers who may not empathize as much with the difficulties they face."
+  },
+  {
+    "id": 12,
+    "job_name": "Childcare Worker",
+    "category": "Health Care and Social Assistance",
+    "skills": [
+      {
+        "name": "Physical Stamina"
+      },
+      {
+        "name": " First Aid Ability"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Childhood Education Certification"
+      },
+      {
+        "name": "Working With Children (WWC)"
+      },
+      {
+        "name": "Police Check (National Police Certificate)"
+      }
+    ],
+    "desc": "Help care for other people's children. You could find work in a daycare, childcare center, or as a private nanny. If you don't have formal childcare experience, completing an early childhood education program can help you find a position.Certificate programs can often be completed in one year or less.You also may need to complete a criminal record check. And you should have good physical stamina since children have a lot of energy."
+  },
+  {
+    "id": 13,
+    "job_name": "School Bus Monitor",
+    "category": "Health Care and Social Assistance",
+    "skills": [
+      {
+        "name": "Communication Skills"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Childhood Education Certification"
+      },
+      {
+        "name": "Working With Children (WWC)"
+      },
+      {
+        "name": "Police Check (National Police Certificate)"
+      },
+      {
+        "name": " First Aid accreditation"
+      }
+    ],
+    "desc": "School bus drivers need to focus on driving, but students can get unruly. So who keeps things in order so that buses travel safely? School bus monitors. If you like kids and can keep your cool in sometimes chaotic conditions, this can be a rewarding job."
+  },
+  {
+    "id": 14,
+    "job_name": "Dog Walker/ Pet Sitter",
+    "category": "Health Care and Social Assistance",
+    "skills": [],
+    "certification": [],
+    "desc": "If you’re a dog owner and used to work full-time, you remember how hard it was to make sure your furry-friend got his daily exercise and avoided accidents. Dog walkers take the day shift so that workers don’t have to race home when the workday is over. If cats are more your speed, or you’re an equal-opportunity animal lover, pet sitting while clients go on vacation is a great way to put a little extra money in your pocket. Apps like Rover and Wag make it simple to get started."
+  },
+  {
+    "id": 15,
+    "job_name": "Handyman",
+    "category": "Manufacturing",
+    "skills": [
+      {
+        "name": "Teamwork Ability"
+      },
+      {
+        "name": "Experience in General Maintenance"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Driver's Lisence"
+      },
+      {
+        "name": "Police Check (National Police Certificate)"
+      }
+    ],
+    "desc": "Handy, physically fit seniors can help others with odd jobs and repairs. To find clients, you can advertise in your community or apply for a job with an established company.One other option for finding clients is TaskRabbit, which works a bit like Uber. The app matches people who are looking to do odd jobs with people who need repair work or help with miscellaneous household jobs. Tasks can range from assembling furniture to fixing plumbing issues. \"Taskers,\" as they're called, must complete a criminal record check before registering."
+  },
+  {
+    "id": 16,
+    "job_name": "Gardener/ Landscaper",
+    "category": "Administrative and Support Services",
+    "skills": [
+      {
+        "name": "Gardening"
+      },
+      {
+        "name": "Design"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Police Check (National Police Certificate)"
+      },
+      {
+        "name": "First Aid accreditation"
+      }
+    ],
+    "desc": "Gardening is definitely a popular skills among seniors. But did you know it's possible to turn your passion for plants into profits? You could find individual clients in your neighborhood, work for a nursery, or find a job with a landscaping company. This work is often seasonal, and it can involve working in inclement weather conditions.Also, there is a requirement from government that the grass around the houses need to well cleaned. Many resident are busy with their daily work to keep the gardening stuff. So we can use our free time to do the gardening job for them so that we can get extra income."
+  },
+  {
+    "id": 17,
+    "job_name": "Library Assistant/Librarian",
+    "category": "Public Administration and Safety",
+    "skills": [
+      {
+        "name": "Record Keeping Ability"
+      },
+      {
+        "name": "Computer Literacy Skill"
+      }
+    ],
+    "certification": [
+      {
+        "name": "A degree or graduate diploma in librarianship or information studies"
+      }
+    ],
+    "desc": "Shh! Love books? Love their smell, feel, and the magical worlds they contain?Librarian need to be comfortable using accounting software programs like QuickBooks, computer and cloud-based versions, as well as Microsoft Excel. They must also possess a keen eye for detail and the interpersonal skills to communicate requirements to clients/employees"
+  },
+  {
+    "id": 18,
+    "job_name": "Education Assistant",
+    "category": "Education and Training",
+    "skills": [
+      {
+        "name": "Communication Skills"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Childhood Education Certification"
+      },
+      {
+        "name": "Working With Children (WWC)"
+      },
+      {
+        "name": "Police Check (National Police Certificate)"
+      },
+      {
+        "name": "First Aid accreditation"
+      }
+    ],
+    "desc": "Help teachers by working one on one with students and providing other support as needed. Some teacher assistants even work with special needs students. But you may need a two-year associate degree. And you should be in good physical shape.Although we don't tend to think of teaching as a physical career, teacher assistants are among the workers most likely to be injured on the job."
+  },
+  {
+    "id": 19,
+    "job_name": "Coach/ Referee",
+    "category": "Professional, Scientific and Technical Services",
+    "skills": [
+      {
+        "name": "Sports Knowledge"
+      },
+      {
+        "name": "First Aid"
+      },
+      {
+        "name": "Coaching Skill"
+      },
+      {
+        "name": "Time Management"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Coaching Degree"
+      }
+    ],
+    "desc": "Want to share your love of sports with a new generation of budding athletes and stay active at the same time? Coaching might be for you. Pay generally isn’t high — a few thousand per season — but if you need a little extra cash and want to work outdoors, work as an athletic coach might be perfect for you."
+  },
+  {
+    "id": 20,
+    "job_name": "Musician/ Singer",
+    "category": "Arts and Recreation Services",
+    "skills": [
+      {
+        "name": "Music"
+      }
+    ],
+    "certification": [],
+    "desc": "Have you always wanted to be on stage? The senior years could be your chance to shine. In fact, even though you might not think of performing as one of the top jobs for seniors over 70, almost nine percent of singers and musicians have passed their 70th birthday. Of course, a performing arts background is helpful, and you should be prepared to put a lot of time into practicing."
+  },
+  {
+    "id": 21,
+    "job_name": "Creative writer/ Memoirist",
+    "category": "Arts and Recreation Services",
+    "skills": [
+      {
+        "name": "Writting Ability"
+      }
+    ],
+    "certification": [],
+    "desc": "Do you have a story to tell? Many retirees draft a memoir or novel once they finally have the time to sit down and write. And the bestseller list is filled with writers who found success late in life. But it's important to brace yourself for rejection if you want to publish your work. That's because making money from creative writing can take some persistence. Meeting with other writers and sharing your work in order to receive constructive feedback can boost your chances of success and add a social element to your days."
+  },
+  {
+    "id": 22,
+    "job_name": "Artist/ Craftsperson",
+    "category": "Arts and Recreation Services",
+    "skills": [
+      {
+        "name": "Art"
+      }
+    ],
+    "certification": [],
+    "desc": "Is expressing your artistic side on your retirement bucket list? Although most artists never get rich, activities like painting, sculpture, and crafts are popular retirement hobbies that make money. However, as an artist or craftsperson, you often have to invest some time in finding customers who will purchase your work.Sites like Etsy make it possible to sell your art or market crafts such as handmade jewelry. And many communities have farmer's markets and arts and crafts fairs that feature local artists."
+  },
+  {
+    "id": 23,
+    "job_name": "Medical Biller/Coder",
+    "category": "Health Care and Social Assistance",
+    "skills": [
+      {
+        "name": "Computer Literacy Skill"
+      }
+    ],
+    "certification": [
+      {
+        "name": "Associate Degree"
+      }
+    ],
+    "desc": "Medical billers and coders translate healthcare services into diagnostic codes for use in medical billing. They also prepare, send, and track medical bills to patients and insurance companies."
+  },
+  {
+    "id": 24,
+    "job_name": "Virtual Assistant",
+    "category": "Professional, Scientific and Technical Services",
+    "skills": [
+      {
+        "name": "Computer Literacy Skill"
+      },
+      {
+        "name": "Writting Skill"
+      }
+    ],
+    "certification": [],
+    "desc": "If you were an administrative assistant in your full-time working life, and you’re comfortable with technology, a virtual assistant role can help you translate your skills into a new part-time job. You’ll need to be organized, detail-oriented, and good at working under tight, constantly changing deadlines."
+  },
+  {
+    "id": 25,
+    "job_name": "Blogger",
+    "category": "Professional, Scientific and Technical Services",
+    "skills": [
+      {
+        "name": "Computer Literacy Skill"
+      },
+      {
+        "name": "Writting Skill"
+      }
+    ],
+    "certification": [],
+    "desc": "Perhaps the ultimate work-from-home job, writing or managing a blog has no educational requirements or specific training. You just need a way with words and enough comfort with technology to learn how to use various content management systems.If you’re a subject matter expert, you can break into the job by building up clips in online publications in your field. Just don’t get too used to writing for free. The sooner you can translate your experience into money, the sooner you can get hired to work for a blog."
+  }
+]

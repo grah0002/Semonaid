@@ -2,8 +2,6 @@ package com.gerontechies.semonaid.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +10,8 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gerontechies.semonaid.Activities.Budget.Calculator.TipsActivity;
-import com.gerontechies.semonaid.Models.BudgetItem;
-import com.gerontechies.semonaid.Models.TipItem;
+import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
-import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.util.List;
 

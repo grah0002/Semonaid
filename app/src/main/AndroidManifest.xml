@@ -17,6 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.Skills.SkillDetailItemActivity"></activity>
+        <activity android:name=".Activities.Skills.SkillListingActivity" />
+        <activity android:name=".Activities.Skills.SkillsQuizActivity" />
         <activity android:name=".Activities.Budget.Calculator.TipsActivity" />
         <activity android:name=".Activities.GetStartedActivity" />
         <!--

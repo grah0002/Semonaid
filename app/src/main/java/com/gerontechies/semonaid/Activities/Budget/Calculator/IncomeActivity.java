@@ -24,8 +24,8 @@ import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Models.BudgetDatabase;
-import com.gerontechies.semonaid.Models.BudgetItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Budget.BudgetItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import java.util.List;
 public class IncomeActivity extends AppCompatActivity {
 
 
-    BudgetDatabase db = null;
+    SemonaidDB db = null;
 
 
     private SharedPreferences calculatorPreferences;
@@ -66,7 +66,7 @@ public class IncomeActivity extends AppCompatActivity {
         BundleBudget=intent.getExtras();
 
         db = Room.databaseBuilder(this,
-                BudgetDatabase.class, "budget_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -153,16 +153,16 @@ public class IncomeActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(income)){
                 if(income_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Income-item",0,1,TYPE,CATEGORY);
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(income_sp);
 
                 BudgetItem budgetItem = new BudgetItem("Income-item",(Double.parseDouble(income)),frequency,TYPE,CATEGORY);
                 if(income_flag == 99){
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 } else if(income_flag == 0){
-                    db.budgetDAO().insert(budgetItem);
+                    db.AppDAO().insertBudgetItem(budgetItem);
                 }
 
             }
@@ -172,16 +172,16 @@ public class IncomeActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(other_income)){
                 if(other_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Other Income",0,1,TYPE,CATEGORY);
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 }
 
             } else {
                 int frequency = getFrequency(other_sp);
                 BudgetItem budgetItem = new BudgetItem("Other Income",Double.parseDouble(other_income),frequency,TYPE,CATEGORY);
                 if(other_flag == 99){
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 } else if(other_flag == 0){
-                    db.budgetDAO().insert(budgetItem);
+                    db.AppDAO().insertBudgetItem(budgetItem);
                 }
 
             }
@@ -191,15 +191,15 @@ public class IncomeActivity extends AppCompatActivity {
             if(TextUtils.isEmpty(govt_income)){
                 if(govt_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Govt Income",0,1,TYPE,CATEGORY);
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 }
             } else {
                 int frequency = getFrequency(govt_sp);
                 BudgetItem budgetItem = new BudgetItem("Govt Income",Double.parseDouble(govt_income),frequency,TYPE,CATEGORY);
                 if(govt_flag==99){
-                    db.budgetDAO().updateItem(budgetItem);
+                    db.AppDAO().updateBudgetItem(budgetItem);
                 } else if(govt_flag == 0){
-                    db.budgetDAO().insert(budgetItem);
+                    db.AppDAO().insertBudgetItem(budgetItem);
                 }
 
             }
@@ -226,7 +226,7 @@ public class IncomeActivity extends AppCompatActivity {
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
-           item = db.budgetDAO().getCategoryItems(CATEGORY);
+           item = db.AppDAO().getBudgetCategoryItems(CATEGORY);
             if (!(item.isEmpty() || item == null) ){
                 for (BudgetItem temp : item) {
 
@@ -260,10 +260,6 @@ public class IncomeActivity extends AppCompatActivity {
                 }
 
             }
-
-
-
-           // totalStepsTxt.setText(String.valueOf(totalStepsVal)+" ");
 
         }
     }

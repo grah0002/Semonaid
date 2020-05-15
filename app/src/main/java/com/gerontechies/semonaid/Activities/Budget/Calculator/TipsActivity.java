@@ -24,14 +24,10 @@ import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
-import com.gerontechies.semonaid.Adapters.TopCategoriesAdapter;
-import com.gerontechies.semonaid.Models.BudgetItem;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
-import com.gerontechies.semonaid.Models.TipDatabase;
-import com.gerontechies.semonaid.Models.TipItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Tips.TipDatabase;
+import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;
@@ -40,7 +36,7 @@ import java.util.List;
 public class TipsActivity extends AppCompatActivity {
 
     RecyclerView tipsRV;
-    TipDatabase db = null;
+    SemonaidDB db = null;
     List<TipItem> item ;
     String tipName;
     String name;
@@ -64,7 +60,7 @@ public class TipsActivity extends AppCompatActivity {
         tipsRV = (RecyclerView) findViewById(R.id.tips_list);
 
         db = Room.databaseBuilder(this,
-                TipDatabase.class, "tips_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -169,7 +165,7 @@ public class TipsActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.TipDAO().getName(tipName);
+            item = db.AppDAO().getTipName(tipName);
             if (!(item.isEmpty() || item == null) ) {
                 for (TipItem temp : item) {
                     allIatemList.add(temp);

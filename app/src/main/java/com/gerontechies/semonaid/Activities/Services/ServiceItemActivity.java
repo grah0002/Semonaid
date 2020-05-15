@@ -17,18 +17,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
-
-import java.util.List;
 
 public class ServiceItemActivity extends AppCompatActivity {
 
     TextView name, what, who, address, suburb, phone, email, helpline, website;
     TextView monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday;
     TextView cost, tram, train, category1, category2, category3, category4, addressTxt;
-    ServiceDatabase db = null;
+    SemonaidDB db = null;
     ServiceItem item;
     String id, route, serviceName;
     boolean isMap=false;
@@ -46,7 +45,7 @@ public class ServiceItemActivity extends AppCompatActivity {
 
 
         db = Room.databaseBuilder(this,
-                ServiceDatabase.class, "service_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -57,17 +56,6 @@ public class ServiceItemActivity extends AppCompatActivity {
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
              id = intent.getStringExtra(Intent.EXTRA_TEXT);
 
-
-//             if(route.equals("map")){
-//                 serviceName = getIntent().getStringExtra("service_name");
-//                 Log.d("NAME", "n"+ serviceName);
-//                 isMap = true;
-//             }
-//             else{
-//                 isMap = false;
-//             }
-
-
         }
 
         ReadDatabase rd = new ReadDatabase();
@@ -77,12 +65,6 @@ public class ServiceItemActivity extends AppCompatActivity {
         what = (TextView) findViewById(R.id.txt_service_what);
         who =  (TextView) findViewById(R.id.txt_service_who);
         address = (TextView) findViewById(R.id.txt_cost);
-//        suburb = (TextView) findViewById(R.id.);
-//        phone = (TextView) findViewById(R.id.);
-//        email = (TextView) findViewById(R.id.);
-//        helpline = (TextView) findViewById(R.id.);
-//        website = (TextView) findViewById(R.id.);
-
         monday = (TextView) findViewById(R.id.txt_monday);
         tuesday = (TextView) findViewById(R.id.txt_tuesday);
         wednesday = (TextView) findViewById(R.id.txt_wednesday);
@@ -91,13 +73,10 @@ public class ServiceItemActivity extends AppCompatActivity {
         saturday = (TextView) findViewById(R.id.txt_saturday);
         sunday = (TextView) findViewById(R.id.txt_sunday);
         holiday = (TextView) findViewById(R.id.txt_public);
-
         category1 = (TextView) findViewById(R.id.txt_category1);
         category2 = (TextView) findViewById(R.id.txt_category2);
         category3= (TextView) findViewById(R.id.txt_category3);
         category4 = (TextView) findViewById(R.id.txt_category4);
-
-
         train = (TextView) findViewById(R.id.txt_train);
         tram = (TextView) findViewById(R.id.txt_tram);
         addressTxt = (TextView) findViewById(R.id.txt_address);
@@ -115,7 +94,7 @@ public class ServiceItemActivity extends AppCompatActivity {
             } else{
              //   item = db.ServiceDAO().findByID(Integer.parseInt(id));
             }
-            item = db.ServiceDAO().findByID(Integer.parseInt(id));
+            item = db.AppDAO().findByServiceItemID(Integer.parseInt(id));
             return  status;
         }
 
@@ -123,13 +102,9 @@ public class ServiceItemActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String details) {
 
-
-
             String nameTxt = item.getService_name();
             String whoTxt =  item.getWho();
-
             String whatTxt =  item.getWhat();
-
             String mTxt = item.getMonday();
             String tuTxt = item.getTuesday();
             String wTxt = item.getWednesday();
@@ -138,21 +113,18 @@ public class ServiceItemActivity extends AppCompatActivity {
             String sat = item.getSaturday();
             String sun = item.getSunday();
             String pTxt =  item.getPublic_holodays();
-
             String c1 = item.getCategory_1();
             String c2 = item.getCategory_2();
             String c3 = item.getCategory_3();
             String c4 = item.getCategory_4();
-
             String price = item.getCost();
-
-
             String train1 = item.getNearest_train();
             String tram1 = item.getTram_routes();
             String a1 = item.getAddress_1();
             String a2 = item.getAddress_2();
             String a3 = item.getSuburb();
             String place ="";
+
             if(!a1.equals("n/a")){
                  place = a1 +", ";
             }
@@ -164,8 +136,6 @@ public class ServiceItemActivity extends AppCompatActivity {
             if(!a3.equals("n/a")){
                 place = place + a3  ;
             }
-
-
 
 
            name.setText(item.getService_name());
@@ -305,8 +275,6 @@ public class ServiceItemActivity extends AppCompatActivity {
 
     public void setTitle(String title){
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
-
-
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TextView textView = new TextView(this);

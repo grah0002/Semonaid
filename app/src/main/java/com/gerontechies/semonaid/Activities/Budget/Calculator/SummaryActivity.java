@@ -34,7 +34,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,8 +41,8 @@ import android.widget.Toast;
 import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.TopCategoriesAdapter;
-import com.gerontechies.semonaid.Models.BudgetDatabase;
-import com.gerontechies.semonaid.Models.BudgetItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Budget.BudgetItem;
 import com.gerontechies.semonaid.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -75,7 +74,7 @@ import java.util.List;
 public class SummaryActivity extends AppCompatActivity implements
         OnChartValueSelectedListener {
 
-    BudgetDatabase db = null;
+    SemonaidDB db = null;
     List<BudgetItem> item;
     List<BudgetItem> allItemList = new ArrayList<>();
     List<BudgetItem> incomeItemList = new ArrayList<>();
@@ -102,7 +101,7 @@ public class SummaryActivity extends AppCompatActivity implements
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db = Room.databaseBuilder(this,
-                BudgetDatabase.class, "budget_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -285,7 +284,7 @@ public class SummaryActivity extends AppCompatActivity implements
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.budgetDAO().getAll();
+            item = db.AppDAO().getAllBudgetData();
             if (!(item.isEmpty() || item == null) ){
                 isData = true;
                 for (BudgetItem temp : item) {
