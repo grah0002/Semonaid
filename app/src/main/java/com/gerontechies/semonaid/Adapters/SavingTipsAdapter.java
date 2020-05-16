@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -35,6 +36,7 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
         TextView title1;
         TextView text1;
         CardView card_tip1;
+        ImageView arrow_img;
 
 
 
@@ -47,6 +49,9 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
             text1 = (TextView) itemView.findViewById(R.id.text1);
 
             card_tip1 = (CardView) itemView.findViewById(R.id.tip1);
+
+            arrow_img = (ImageView) itemView.findViewById(R.id.arrow_img);
+
 
         }
 
@@ -70,17 +75,20 @@ public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.My
 
         holder.text1.setText(item.getTip());
 
-        if(position == 0){
-            holder.text1.setVisibility(View.VISIBLE);
-        }
+//        if(position == 0){
+//            holder.text1.setVisibility(View.VISIBLE);
+//        }
 
         holder.card_tip1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(holder.text1.getVisibility() == View.GONE){
                     holder.text1.setVisibility(View.VISIBLE);
+                    holder.arrow_img.setImageResource(R.drawable.arrow_up_float);
+
                 } else if(holder.text1.getVisibility() == View.VISIBLE){
                     holder.text1.setVisibility(View.GONE);
+                    holder.arrow_img.setImageResource(R.drawable.arrow_down_float);
                 }
             }
         });

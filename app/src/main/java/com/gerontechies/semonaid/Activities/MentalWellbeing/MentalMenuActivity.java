@@ -1,76 +1,57 @@
-package com.gerontechies.semonaid.Activities.Income;
-
-import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+package com.gerontechies.semonaid.Activities.MentalWellbeing;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.room.Room;
 
-import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
-import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Income.IncomeMenuActivity;
 import com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
-import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Budget.TipItem;
+import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsCategoryActivity;
+import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsListingActivity;
 import com.gerontechies.semonaid.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+public class MentalMenuActivity extends AppCompatActivity {
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-public class IncomeMenuActivity extends AppCompatActivity {
-
-    CardView t2t, jobs;
-
-
-
+    CardView events, yoga;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_income_menu);
-        setTitle("Increase Your Income");
+        setContentView(R.layout.activity_mental_menu);
+        setTitle("Event Finder");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        t2t = (CardView) findViewById(R.id.t2t_card);
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        events = (CardView) findViewById(R.id.events_card);
 
-        t2t.setOnClickListener(new View.OnClickListener() {
+        events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(IncomeMenuActivity.this, BudgetMainMenuActivity.class);
-                //startActivity(intent);
-
-            }
-        });
-
-        jobs = (CardView) findViewById(R.id.jobs_card);
-
-        jobs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(IncomeMenuActivity.this, SkillsQuizActivity.class);
+                 Intent intent = new Intent(MentalMenuActivity.this, EventsCategoryActivity.class);
                 startActivity(intent);
+
             }
         });
+
+        yoga = (CardView) findViewById(R.id.yoga_card);
+
+//        yoga.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(IncomeMenuActivity.this, SkillsQuizActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 
@@ -124,4 +105,5 @@ public class IncomeMenuActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(textView);
     }
+
 }

@@ -1,4 +1,12 @@
-package com.gerontechies.semonaid.Activities.Services;
+package com.gerontechies.semonaid.Activities.MentalWellbeing.Events;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -8,84 +16,59 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
-
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
+import com.gerontechies.semonaid.Activities.Services.ServicesAllActivity;
+import com.gerontechies.semonaid.Adapters.EventAdapter;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
+import com.gerontechies.semonaid.Models.Budget.EventItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class ServicesCategoryList extends AppCompatActivity  {
-
-    RecyclerView recyclerView;
-    String jsonData;
-    List<ServiceItem> allItemList = new ArrayList<>();
-    List<ServiceItem> item;
-
-    ServicesAdapter mAdapter;
+public class EventsListingActivity extends AppCompatActivity {
 
     SemonaidDB db = null;
+    List<EventItem> item;
+    List<EventItem> allItemList = new ArrayList<>();
+    RecyclerView rv;
     String category;
-
-    CardView map_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_category_list);
+        setContentView(R.layout.activity_events_listing);
 
-        setTitle("Get Assistance");
+        //setTitle("Event Finder");
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent intent = getIntent();
+        if (intent.hasExtra(Intent.EXTRA_TEXT)){
+            category = intent.getStringExtra(Intent.EXTRA_TEXT);
+            setTitle(category);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        rv = (RecyclerView) findViewById(R.id.events_rv) ;
 
         db = Room.databaseBuilder(this,
                 SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Intent intent = getIntent();
-        if (intent.hasExtra(Intent.EXTRA_TEXT)){
-            category = intent.getStringExtra(Intent.EXTRA_TEXT);
-            setTitle(category);
 
-
-        }
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
-
-        map_btn = (CardView) findViewById(R.id.map_btn);
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
-
-        map_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 =new Intent(ServicesCategoryList.this, ServicesMapActivity.class);
-                intent1.putExtra(Intent.EXTRA_TEXT, category);
-                startActivity(intent1);
-            }
-        });
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_categories);
-
-
-
     }
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
@@ -93,42 +76,47 @@ public class ServicesCategoryList extends AppCompatActivity  {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.AppDAO().getCategoryServiceItem(category);
+            item = db.AppDAO().getAllEvents();
             if (!(item.isEmpty() || item == null) ){
-                for (ServiceItem temp : item) {
+                for (EventItem temp : item) {
 
-                    allItemList.add(temp);
+                    String eventCategory = temp.category;
+                    List<String> cat = Arrays.asList(eventCategory.split(","));
+
+                    //String[] cat = eventCategory.split(",");
+                    for(int i = 0; i<cat.size(); i++){
+                       Log.d("STR", i+"-------"+cat.get(i)+"----"+temp.activity+"----"+ temp.id);
+                        if(cat.get(i).equals(category))
+                        {
+                            allItemList.add(temp);
+ 
+                        }
+                    }
+
+
+
 
                 }
-
-
             }
-
             return  status;
         }
-
 
         @Override
         protected void onPostExecute(String details) {
 
             if(allItemList.size()>1){
-                 Log.d("ITEM", String.valueOf(allItemList.size()));
-                 mAdapter = new ServicesAdapter(ServicesCategoryList.this,  allItemList);
-
-                RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(ServicesCategoryList.this, LinearLayoutManager.VERTICAL, false);
-                recyclerView.setLayoutManager(mLayoutManagerIncome);
-
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(mAdapter);
-                recyclerView.setNestedScrollingEnabled(false);
-
-
-
+                Log.d("STR", String.valueOf(allItemList.size()));
+                EventAdapter mAdapter = new EventAdapter(EventsListingActivity.this,  allItemList);
+                RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(EventsListingActivity.this, LinearLayoutManager.VERTICAL, false);
+                rv.setLayoutManager(mLayoutManagerIncome);
+                rv.setItemAnimator(new DefaultItemAnimator());
+                rv.setAdapter(mAdapter);
+                //rv.setNestedScrollingEnabled(false);
             }
+
         }
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -160,7 +148,6 @@ public class ServicesCategoryList extends AppCompatActivity  {
     }
 
 
-
     public void setTitle(String title){
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
 
@@ -176,8 +163,5 @@ public class ServicesCategoryList extends AppCompatActivity  {
         textView.setGravity(Gravity.CENTER_HORIZONTAL);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(textView);
-
-
     }
-
 }

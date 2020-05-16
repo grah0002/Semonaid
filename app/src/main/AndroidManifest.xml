@@ -17,12 +17,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Income.Skills.SkillsFilterActivity"></activity>
-        <activity android:name=".Activities.Income.Skills.SkillDetailItemActivity"
-            android:theme="@style/Material">
-
-        </activity>
-        <activity android:name=".Activities.Income.IncomeMenuActivity"></activity>
+        <activity android:name=".Activities.MentalWellbeing.Events.EventInfoActivity"></activity>
+        <activity android:name=".Activities.MentalWellbeing.Events.EventsCategoryActivity" />
+        <activity android:name=".Activities.MentalWellbeing.MentalMenuActivity" />
+        <activity android:name=".Activities.MentalWellbeing.Events.EventsListingActivity" />
+        <activity android:name=".Activities.Income.ApplyJobs.JobsInstructionActivity" />
+        <activity android:name=".Activities.Income.Skills.SkillsFilterActivity" />
+        <activity
+            android:name=".Activities.Income.Skills.SkillDetailItemActivity"
+            android:theme="@style/Material" />
+        <activity android:name=".Activities.Income.IncomeMenuActivity" />
         <activity android:name=".Activities.Income.Skills.SkillListingActivity" />
         <activity android:name=".Activities.Income.Skills.SkillsQuizActivity" />
         <activity android:name=".Activities.Budget.Calculator.TipsActivity" />

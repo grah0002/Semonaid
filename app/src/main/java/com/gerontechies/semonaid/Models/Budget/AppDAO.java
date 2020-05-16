@@ -109,12 +109,21 @@ public interface AppDAO {
     @Query("SELECT * FROM jobitem")
     List<JobItem> getAllJobs();
 
-
     @Insert
     void insertAllJobs(JobItem... jobItem);
 
     @Insert
     long insertJobs(JobItem jobItem);
 
+
+    //Events
+    @Query("SELECT * FROM eventitem")
+    List<EventItem> getAllEvents();
+
+    @Query("SELECT * FROM eventitem WHERE id = :id LIMIT 1")
+    EventItem findByEventID(int id);
+
+    @Insert
+    long insertEventItem(EventItem eventItem);
 
 }
