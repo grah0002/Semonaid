@@ -3,6 +3,7 @@ package com.gerontechies.semonaid.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gerontechies.semonaid.Activities.Income.Skills.SkillDetailItemActivity;
+import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventInfoActivity;
 import com.gerontechies.semonaid.Models.Budget.EventItem;
 import com.gerontechies.semonaid.Models.Budget.JobItem;
 import com.gerontechies.semonaid.R;
@@ -62,15 +64,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
         final EventItem eventItem = eventItems.get(position);
         final int eventId = eventItem.id;
-
         holder.event_name.setText("" +  eventItem.activity);
         holder.event_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(mContext, SkillDetailItemActivity.class);
-                intent.putExtra("event_id", String.valueOf(eventId));
+                Intent intent = new Intent(mContext, EventInfoActivity.class);
 
+                intent.putExtra("event_id", eventId);
 
                 mContext.startActivity(intent);
             }

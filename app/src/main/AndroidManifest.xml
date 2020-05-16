@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MentalWellbeing.Events.EventInfoActivity"></activity>
+        <activity android:name=".Activities.MentalWellbeing.Events.EventInfoActivity"
+            android:theme="@style/Material"></activity>
         <activity android:name=".Activities.MentalWellbeing.Events.EventsCategoryActivity" />
         <activity android:name=".Activities.MentalWellbeing.MentalMenuActivity" />
         <activity android:name=".Activities.MentalWellbeing.Events.EventsListingActivity" />
