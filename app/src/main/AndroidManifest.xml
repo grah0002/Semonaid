@@ -61,6 +61,9 @@
         <activity android:name=".Activities.Budget.BudgetMainMenuActivity" />
         <activity android:name=".Activities.Budget.BudgetInfoActivity" />
         <activity android:name=".Activities.HomeScreenActivity" />
+        <activity android:name=".Activities.T2T.T2tCategoryActivity" />
+        <activity android:name=".Activities.T2T.T2tCategoryListActivity" />
+        <activity android:name=".Activities.T2T.T2tMenuActivity" />
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

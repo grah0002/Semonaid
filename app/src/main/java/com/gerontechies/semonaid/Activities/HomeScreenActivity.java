@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity;
+import com.gerontechies.semonaid.Activities.T2T.T2tCategoryListActivity;
+import com.gerontechies.semonaid.Activities.T2T.T2tMenuActivity;
 import com.gerontechies.semonaid.Adapters.ViewPagerAdapter;
 import com.gerontechies.semonaid.R;
 
@@ -48,6 +50,15 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
 
+        CardView card_inc = (CardView) findViewById(R.id.card_inc);
+        card_inc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeScreenActivity.this, T2tMenuActivity.class);
+                startActivity(intent);
+                // finish();
+            }
+        });
 
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
