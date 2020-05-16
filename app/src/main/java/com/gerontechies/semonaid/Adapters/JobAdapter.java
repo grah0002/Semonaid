@@ -1,36 +1,22 @@
 package com.gerontechies.semonaid.Adapters;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gerontechies.semonaid.Activities.Services.ServiceItemActivity;
-import com.gerontechies.semonaid.Activities.Skills.SkillDetailItemActivity;
+import com.gerontechies.semonaid.Activities.Income.Skills.SkillDetailItemActivity;
 import com.gerontechies.semonaid.Models.Budget.JobItem;
 import com.gerontechies.semonaid.R;
-import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipGroup;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
-
-import static com.gerontechies.semonaid.Activities.Skills.SkillsQuizActivity.selectedCertfificationsList;
-import static com.gerontechies.semonaid.Activities.Skills.SkillsQuizActivity.selectedSkillsList;
 
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
 

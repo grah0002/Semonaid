@@ -15,7 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity;
-import com.gerontechies.semonaid.Activities.Skills.SkillsQuizActivity;
+import com.gerontechies.semonaid.Activities.Income.IncomeMenuActivity;
+import com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity;
 import com.gerontechies.semonaid.Adapters.ViewPagerAdapter;
 import com.gerontechies.semonaid.R;
 
@@ -53,7 +54,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         income.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeScreenActivity.this, SkillsQuizActivity.class);
+                Intent intent = new Intent(HomeScreenActivity.this, IncomeMenuActivity.class);
                 startActivity(intent);
             }
         });

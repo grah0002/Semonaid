@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     style="@style/scrollbar_shape_style"
-    tools:context=".Activities.Skills.SkillDetailItemActivity">
+    tools:context=".Activities.Income.Skills.SkillDetailItemActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

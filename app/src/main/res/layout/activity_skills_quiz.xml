@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     style="@style/scrollbar_shape_style"
-    tools:context=".Activities.Skills.SkillsQuizActivity">
+    tools:context=".Activities.Income.Skills.SkillsQuizActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,10 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:text="Find the Right Job"
             android:textColor="#020202"
@@ -34,6 +37,19 @@
             android:text="Discover the type of jobs most suited to your skills"
             android:textColor="#020202"
             android:textSize="18sp"
+            app:fontFamily="@font/montserrat" />
+
+        <TextView
+            android:id="@+id/skil_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="Skip and view all Professions"
+            android:textSize="16sp"
+            android:textStyle="italic"
             app:fontFamily="@font/montserrat" />
 
         <androidx.cardview.widget.CardView
@@ -87,7 +103,7 @@
                 <Button
                     android:id="@+id/button2"
                     style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
@@ -158,7 +174,7 @@
                     <Button
                         android:id="@+id/btn_back"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="20dp"
@@ -172,7 +188,7 @@
                     <Button
                         android:id="@+id/button22"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="20dp"
@@ -188,16 +204,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:text="Skip and View Professions Directly!"
-            android:textSize="18sp"
-            android:textStyle="italic"
-            app:fontFamily="@font/montserrat" />
     </LinearLayout>
 
 </ScrollView>

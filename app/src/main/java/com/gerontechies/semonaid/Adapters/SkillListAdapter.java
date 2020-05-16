@@ -2,6 +2,7 @@ package com.gerontechies.semonaid.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,8 @@ import com.gerontechies.semonaid.R;
 
 import java.util.List;
 
-import static com.gerontechies.semonaid.Activities.Skills.SkillsQuizActivity.selectedCertfificationsList;
-import static com.gerontechies.semonaid.Activities.Skills.SkillsQuizActivity.selectedSkillsList;
+import static com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity.selectedCertfificationsList;
+import static com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity.selectedSkillsList;
 
 public class SkillListAdapter extends RecyclerView.Adapter<SkillListAdapter.MyViewHolder> {
 
@@ -55,6 +56,17 @@ public class SkillListAdapter extends RecyclerView.Adapter<SkillListAdapter.MyVi
         final JobContentItem skill = jobContentItem.get(position);
 
        holder.skill_check.setText("" +  skill.name);
+       if(skill.type.equals("skills")){
+           if(selectedSkillsList.contains(skill.name)){
+               holder.skill_check.setChecked(true);
+           }
+       }
+
+        if(skill.type.equals("certification")){
+            if(selectedCertfificationsList.contains(skill.name)){
+                holder.skill_check.setChecked(true);
+            }
+        }
 
         holder.skill_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -63,6 +75,7 @@ public class SkillListAdapter extends RecyclerView.Adapter<SkillListAdapter.MyVi
                 if(skill.type.equals("skills")){
                     if (isChecked) {
                         selectedSkillsList.add(skill.name);
+                        Log.d("ERR", skill.name);
                     }else{
                         selectedSkillsList.remove(skill.name);
 
