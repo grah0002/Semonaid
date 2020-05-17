@@ -19,6 +19,7 @@ import com.gerontechies.semonaid.Activities.Income.IncomeMenuActivity;
 import com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsCategoryActivity;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsListingActivity;
+import com.gerontechies.semonaid.Activities.Yoga.YogaListActivity;
 import com.gerontechies.semonaid.R;
 
 public class MentalMenuActivity extends AppCompatActivity {
@@ -45,13 +46,13 @@ public class MentalMenuActivity extends AppCompatActivity {
 
         yoga = (CardView) findViewById(R.id.yoga_card);
 
-//        yoga.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(IncomeMenuActivity.this, SkillsQuizActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        yoga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MentalMenuActivity.this, YogaListActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

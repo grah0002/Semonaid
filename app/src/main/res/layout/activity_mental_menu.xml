@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:gravity="end"
-                    android:text="Yoga"
+                    android:text="Yoga Techniques"
                     android:textColor="@color/colorPrimary"
                     android:textSize="24sp"
                     app:fontFamily="@font/montserrat" />

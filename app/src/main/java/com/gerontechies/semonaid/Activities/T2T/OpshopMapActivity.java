@@ -16,13 +16,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceItemActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+
 import com.gerontechies.semonaid.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -37,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener  {
 
     private GoogleMap mMap;
     List<OpshopItem> allItemList = new ArrayList<>();
@@ -192,20 +190,7 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-       // Toast.makeText(this, "Info window clicked",
-         //       Toast.LENGTH_SHORT).show();
-        String venueID = mMarkerMap.get(marker.getId());
-        String venueName = marker.getTitle();
-        Intent intent = new Intent(OpshopMapActivity.this, ServiceItemActivity.class);
-        intent.putExtra("id", marker.getTag().toString());
-        //     intent.putExtra("route", "map");
-        startActivity(intent);
-//        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-//            @Override
-//            public void onInfoWindowClick(Marker marker) {
-//
-//            }
-//        });
+
 
     }
 }

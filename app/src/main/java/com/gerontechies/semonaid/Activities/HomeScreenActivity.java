@@ -34,9 +34,6 @@ public class HomeScreenActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
-
-
-
         CardView getStarted = (CardView) findViewById(R.id.card_save);
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override

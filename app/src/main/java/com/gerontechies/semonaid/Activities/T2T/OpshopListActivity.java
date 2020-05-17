@@ -26,8 +26,7 @@ import com.gerontechies.semonaid.Adapters.OpshopAdapter;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;
-import com.gerontechies.semonaid.Models.ServiceDatabase;
-import com.gerontechies.semonaid.Models.ServiceItem;
+
 import com.gerontechies.semonaid.R;
 
 import java.util.ArrayList;

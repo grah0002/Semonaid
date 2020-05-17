@@ -73,7 +73,7 @@
                     android:id="@+id/imageView82"
                     android:layout_width="88dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/selling" />
+                    app:srcCompat="@drawable/money" />
 
                 <TextView
                     android:id="@+id/textView312"

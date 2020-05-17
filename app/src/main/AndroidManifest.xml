@@ -94,7 +94,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.Yoga.YogaListActivity" />
-        <activity android:name=".Activities.Yoga.YogaMenuActivity" />
     </application>
 
 </manifest>

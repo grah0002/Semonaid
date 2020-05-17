@@ -40,6 +40,7 @@ public class YogaListActivity extends AppCompatActivity {
     YogaDatabase db = null;
     List<YogaItem> item ;
     String yogaName;
+
     List<YogaItem> allItemList = new ArrayList<>();
 
     @Override
@@ -83,6 +84,7 @@ public class YogaListActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
+            Log.d("YY", "II");
             String status = "";
             item = db.YogaDAO().getAll();
             if (!(item.isEmpty() || item == null) ) {
@@ -99,29 +101,17 @@ public class YogaListActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String details) {
 
-//            if(allItemList != null){
-
-
-                    RecyclerView.LayoutManager mLayoutManagerYoga = new LinearLayoutManager(YogaListActivity.this, LinearLayoutManager.VERTICAL, false);
-                    yogaRV.setLayoutManager(mLayoutManagerYoga);
-                    yogaRV.setItemAnimator(new DefaultItemAnimator());
-                    YogaAdapter adapter = new YogaAdapter(YogaListActivity.this,  allItemList);
-                    yogaRV.setAdapter(adapter);
-                    yogaRV.setNestedScrollingEnabled(false);
-
-//                }
-//                else if(allItemList.size()<=0 ){
-//
-//                    noRes.setVisibility(View.VISIBLE);
-//                    searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any innovations for this category! Please check out the other categories!");
-//                }
-//latest            }
-//            else if(allItemList.size()<=0 ){
-//
-//                noRes.setVisibility(View.VISIBLE);
-//                searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any innovations for this category! Please check out the other categories!");
-//            }
-
+            if(allItemList.size()>0){
+                RecyclerView.LayoutManager mLayoutManagerYoga = new LinearLayoutManager(YogaListActivity.this, LinearLayoutManager.VERTICAL, false);
+                yogaRV.setLayoutManager(mLayoutManagerYoga);
+                yogaRV.setItemAnimator(new DefaultItemAnimator());
+                YogaAdapter adapter = new YogaAdapter(YogaListActivity.this,  allItemList);
+                yogaRV.setAdapter(adapter);
+                yogaRV.setNestedScrollingEnabled(false);
+            } else{
+                LoadData ld = new LoadData();
+                ld.execute();
+            }
 
 
         }
@@ -129,7 +119,67 @@ public class YogaListActivity extends AppCompatActivity {
     }
 
 
+    private class LoadData extends AsyncTask<Void, Void, String> {
 
+        @Override
+        protected String doInBackground(Void... params) {
+            String data =  loadJSONFromAsset();
+
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(data);
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject object = jsonArray.getJSONObject(i);
+
+                    YogaItem item = new YogaItem();
+                    int id = object.getInt("id");
+                    String name = object.getString("name");
+                    String yoga = object.getString("text");
+                    String image = object.getString("image");
+                    String title = object.getString("title");
+
+
+                    item.setId(id);
+                    item.setName(name);
+                    item.setImage(image);
+                    item.setYoga(yoga);
+                    item.setTitle(title);
+
+                    db.YogaDAO().insert(item);
+
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return " ";
+        }
+
+
+        @Override
+        protected void onPostExecute(String details) {
+
+        }
+
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = this.getAssets().open("YogaItems.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

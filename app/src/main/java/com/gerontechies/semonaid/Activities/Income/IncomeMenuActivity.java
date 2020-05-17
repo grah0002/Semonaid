@@ -25,6 +25,7 @@ import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Income.ApplyJobs.JobsInstructionActivity;
 import com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
+import com.gerontechies.semonaid.Activities.T2T.T2tMenuActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
@@ -58,8 +59,8 @@ public class IncomeMenuActivity extends AppCompatActivity {
         t2t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(IncomeMenuActivity.this, BudgetMainMenuActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(IncomeMenuActivity.this, T2tMenuActivity.class);
+                startActivity(intent);
 
             }
         });
