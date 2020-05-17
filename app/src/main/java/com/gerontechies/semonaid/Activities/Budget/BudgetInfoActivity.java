@@ -22,7 +22,6 @@ import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Tips.TipDatabase;
 import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
 
@@ -40,10 +39,8 @@ public class BudgetInfoActivity extends AppCompatActivity {
     Button btn_next;
     CardView budget_btn, saving_btn, service_btn;
     SemonaidDB db = null;
-    String jsonData;
     List<TipItem> allItemList = new ArrayList<>();
     List<TipItem> item;
-
 
 
     @Override
@@ -64,7 +61,7 @@ public class BudgetInfoActivity extends AppCompatActivity {
         ld.execute();
 
         budget_btn = (CardView) findViewById(R.id.budget_calculator);
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
         budget_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,9 +92,9 @@ public class BudgetInfoActivity extends AppCompatActivity {
         });
 
 
-
     }
 
+    //loading the tips from the json file
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -114,11 +111,12 @@ public class BudgetInfoActivity extends AppCompatActivity {
         return json;
     }
 
+    //adding the data to the db
     private class LoadData extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
-            String data =  loadJSONFromAsset();
+            String data = loadJSONFromAsset();
 
             JSONArray jsonArray = null;
             try {
@@ -151,12 +149,6 @@ public class BudgetInfoActivity extends AppCompatActivity {
             return " ";
         }
 
-
-        @Override
-        protected void onPostExecute(String details) {
-
-        }
-
     }
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
@@ -165,7 +157,7 @@ public class BudgetInfoActivity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             String status = "";
             item = db.AppDAO().getAllTipItem();
-            if (!(item.isEmpty() || item == null) ){
+            if (!(item.isEmpty() || item == null)) {
                 for (TipItem temp : item) {
 
                     allItemList.add(temp);
@@ -173,27 +165,24 @@ public class BudgetInfoActivity extends AppCompatActivity {
                 }
             }
 
-            return  status;
+            return status;
         }
 
 
         @Override
         protected void onPostExecute(String details) {
 
-            if(allItemList.size()>1){
-                Log.d("Data", "Loaded");
-            } else{
+            if (allItemList.size() > 1) {
+            } else { //if the size is less than 1, it loads the data from the db
 
                 LoadData ld = new LoadData();
                 ld.execute();
 
             }
-
-
-
         }
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -213,7 +202,7 @@ public class BudgetInfoActivity extends AppCompatActivity {
             // finish the activity
             onBackPressed();
             return true;
-        } else if(id == R.id.homeIcon){
+        } else if (id == R.id.homeIcon) {
             Intent intent = new Intent(this, HomeScreenActivity.class);
             startActivity(intent);
             finish();
@@ -224,8 +213,8 @@ public class BudgetInfoActivity extends AppCompatActivity {
     }
 
 
-    public void setTitle(String title){
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+    public void setTitle(String title) {
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
 
         getSupportActionBar().setHomeButtonEnabled(true);

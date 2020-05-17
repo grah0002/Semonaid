@@ -35,22 +35,17 @@ public class IncomeActivity extends AppCompatActivity {
 
 
     SemonaidDB db = null;
-
-
     private SharedPreferences calculatorPreferences;
     private SharedPreferences.Editor calculatorPrefEditor;
     Bundle BundleBudget;
     String CATEGORY = "Income";
     Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
-
     EditText income_edit_txt ,govt_edit_txt , other_edit_txt ;
     Spinner income_spinner,  govt_spinner, other_spinner ;
     double incomeTotal = 0.0;
     int TYPE = 100;
-
     List<BudgetItem> BudgetItemList = new ArrayList<>();
-
     int income_flag = 0, other_flag = 0, govt_flag = 0;
 
 
@@ -150,6 +145,11 @@ public class IncomeActivity extends AppCompatActivity {
             String govt_sp = govt_spinner.getSelectedItem().toString();
 
 
+            /* The below section checks to see if the value has already been inputted before. If so, it just edits it based on the
+             * current selection.
+             * Else it adds a new entry to the db with the values*/
+
+
             if(TextUtils.isEmpty(income)){
                 if(income_flag==99){
                     BudgetItem budgetItem = new BudgetItem("Income-item",0,1,TYPE,CATEGORY);
@@ -216,13 +216,16 @@ public class IncomeActivity extends AppCompatActivity {
 
 
             startActivity(intent);
-            finish();
+            IncomeActivity.this.finish();
 
             Log.d("DB-ITEM","Added the values");
             // textView_insert.setText("Added Record: " + details);
         }
     }
 
+    /*
+     * Reading the db to get the already inputted values
+     * */
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -243,7 +246,7 @@ public class IncomeActivity extends AppCompatActivity {
                 BudgetItem budgetItem = item.get(i);
 
 
-
+                /*if the values exsist, setting the edit text and spinner to those values*/
                 if(budgetItem.itemName.equals("Income-item")){
                     income_flag = 99;
                     income_edit_txt.setText(String.valueOf(budgetItem.amount));
@@ -264,6 +267,7 @@ public class IncomeActivity extends AppCompatActivity {
         }
     }
 
+    //getting the frequency based on the spinner selection
     public int getFrequency(String frequency){
 
         int freq = 0;
@@ -298,6 +302,8 @@ public class IncomeActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             // finish the activity
+            this.finish();
+
             onBackPressed();
             return true;
         } else if(id == R.id.homeIcon){

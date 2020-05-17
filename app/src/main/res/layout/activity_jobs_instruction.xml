@@ -12,15 +12,23 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/textView37"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:textSize="24sp"
+            android:layout_margin="20dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:layout_margin="20dp"
+            android:text="Apply to Jobs"
             android:textColor="@color/cardview_dark_background"
-            android:text="Apply to Jobs" />
+            android:textSize="24sp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_job_tips"
+            android:layout_width="match_parent"
+            style="@style/scrollbar_shape_style"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 </ScrollView>

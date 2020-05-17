@@ -272,6 +272,7 @@ public class SkillsQuizActivity extends AppCompatActivity  {
             if(certficationsList.size()>0){
 
 
+                //add all the certifications to the db
                 InsertCertifications ic = new InsertCertifications();
                 ic.execute();
             }
@@ -279,6 +280,8 @@ public class SkillsQuizActivity extends AppCompatActivity  {
         }
 
     }
+
+    //adding all the certifications and skills to the db
     private class InsertCertifications extends AsyncTask<Void, Void, String> {
 
         @Override

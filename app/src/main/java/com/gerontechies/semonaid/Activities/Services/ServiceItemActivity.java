@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
@@ -51,12 +50,8 @@ public class ServiceItemActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        id = getIntent().getStringExtra("id");
-        Log.d("ID", id);
-        if (intent.hasExtra(Intent.EXTRA_TEXT)){
-             id = intent.getStringExtra(Intent.EXTRA_TEXT);
+        id = getIntent().getStringExtra("service_id");
 
-        }
 
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
@@ -82,6 +77,8 @@ public class ServiceItemActivity extends AppCompatActivity {
         addressTxt = (TextView) findViewById(R.id.txt_address);
 
     }
+
+    //getting the values for the selected item
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 

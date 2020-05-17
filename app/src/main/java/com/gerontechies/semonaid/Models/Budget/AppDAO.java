@@ -11,6 +11,7 @@ import java.util.List;
 
 import static androidx.room.OnConflictStrategy.REPLACE;
 
+/*DAO for all the DB querries*/
 @Dao
 public interface AppDAO {
 
@@ -126,4 +127,13 @@ public interface AppDAO {
     @Insert
     long insertEventItem(EventItem eventItem);
 
+
+    //how to apply for jobs
+    @Query("SELECT * FROM JobTips")
+    List<JobTips> getAllJobTips();
+
+    @Insert
+    long insertJobTipItem(JobTips jobTips);
+
 }
+

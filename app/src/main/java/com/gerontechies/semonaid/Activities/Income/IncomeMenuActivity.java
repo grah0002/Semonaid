@@ -19,8 +19,10 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
+import com.gerontechies.semonaid.Activities.Budget.Calculator.IncomeActivity;
 import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Income.ApplyJobs.JobsInstructionActivity;
 import com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity;
 import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
@@ -38,7 +40,7 @@ import java.util.List;
 
 public class IncomeMenuActivity extends AppCompatActivity {
 
-    CardView t2t, jobs;
+    CardView t2t, jobs, apply;
 
 
 
@@ -68,6 +70,15 @@ public class IncomeMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(IncomeMenuActivity.this, SkillsQuizActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        apply = (CardView) findViewById(R.id.apply_jobs_card);
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(IncomeMenuActivity.this, JobsInstructionActivity.class);
                 startActivity(intent);
             }
         });

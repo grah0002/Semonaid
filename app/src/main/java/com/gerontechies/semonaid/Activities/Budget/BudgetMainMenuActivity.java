@@ -33,12 +33,9 @@ import java.util.List;
 
 public class BudgetMainMenuActivity extends AppCompatActivity {
 
-    int cat1;
-    int cat2;
-    ImageView iv_income, iv_add_utilities;
+    ImageView iv_income;
     CardView card_income, card_house_exp, card_bills, card_personal, card_transport;
     Button btn_next;
-
     List<BudgetItem> item;
     Double sum_income = 0.0, sum_house_exp = 0.0, sum_personal = 0.0, sum_bills = 0.0, sum_transport = 0.0;
     SemonaidDB db = null;
@@ -49,9 +46,6 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_budget_menu);
         setTitle("Budget Calculator");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
         db = Room.databaseBuilder(this,
                 SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
@@ -83,17 +77,16 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetMainMenuActivity.this, SummaryActivity.class);
                 startActivity(intent);
+
             }
         });
-
-
-
 
         card_income.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetMainMenuActivity.this, IncomeActivity.class);
                 startActivity(intent);
+                BudgetMainMenuActivity.this.finish();
             }
         });
 
@@ -132,6 +125,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
 
     }
 
+    //getting the budget input items from the db
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -152,6 +146,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
                     }
 
 
+                    //calculate the total for each category from the values in the db
                     if(temp.category.equals("Income")){
                         sum_income = sum_income + (temp.amount * multiplier );
                        // IncomeList.add(temp);
@@ -168,6 +163,8 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
 
                 }
             }
+
+            //setting the text input with the sum values
 
             if(sum_income != null){
                 //Total : $

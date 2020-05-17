@@ -17,19 +17,18 @@ import com.gerontechies.semonaid.Models.Budget.JobItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.List;
-
+/*
+* Adapter for displaying the different professions
+* */
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
 
     Context mContext;
     List<JobItem> jobItems;
 
-
-
     public JobAdapter(Activity mContext, List<JobItem> jobItems) {
         this.mContext = mContext;
         this.jobItems = jobItems;
     }
-
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 

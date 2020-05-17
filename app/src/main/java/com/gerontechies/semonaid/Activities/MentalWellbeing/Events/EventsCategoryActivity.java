@@ -145,6 +145,7 @@ public class EventsCategoryActivity extends AppCompatActivity {
 
     }
 
+    //loading the file from the json
     public String loadJSONFromAsset() {
         String json = null;
         try {

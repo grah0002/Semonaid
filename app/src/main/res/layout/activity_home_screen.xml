@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/scrollbar_shape_style"
     android:orientation="vertical"
     tools:context=".Activities.HomeScreenActivity">
 
@@ -17,11 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -29,19 +30,30 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Semonaid"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 app:fontFamily="@font/montserrat" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Your Second Change at Saving"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:fontFamily="@font/montserrat" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/semonaidbg_final3" />
         </LinearLayout>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-
-            android:background="@color/colorPrimary">
-
-        </androidx.viewpager.widget.ViewPager>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_save"

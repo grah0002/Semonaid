@@ -8,16 +8,21 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventInfoActivity;
+import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsMapsActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
+import com.gerontechies.semonaid.Models.Budget.EventItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,13 +32,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener  {
 
     private GoogleMap mMap;
     List<ServiceItem> allItemList = new ArrayList<>();
@@ -42,6 +48,8 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
     String category;
     Map<String, String> mMarkerMap = new HashMap<>();
     String ROUTE, NAME;
+    ServiceItem selected;
+
 
     ServicesAdapter mAdapter;
 
@@ -86,6 +94,51 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
     }
 
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        GetEventDetails getEventDetails = new GetEventDetails();
+        getEventDetails.execute((Integer) marker.getTag());
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ServicesMapActivity.this, R.style.BottomSheet);
+        View bottomsheet = LayoutInflater.from(getApplicationContext())
+                .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
+        TextView locationName = bottomsheet.findViewById(R.id.location_name);
+        TextView locationAddress = bottomsheet.findViewById(R.id.location_address_txt);
+        TextView locationDays = bottomsheet.findViewById(R.id.location_days);
+        Button view_details = bottomsheet.findViewById(R.id.btn_location);
+
+
+        locationName.setText(selected.service_name);
+        locationAddress.setText(selected.category_1);
+       // locationDays.setText(selected.suburb);
+        view_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
+                intent.putExtra("service_id", String.valueOf(selected.id)) ;
+                startActivity(intent);
+            }
+        });
+
+        bottomSheetDialog.setContentView(bottomsheet);
+        bottomSheetDialog.show();
+
+
+        return true;
+    }
+
+    private class GetEventDetails extends AsyncTask<Integer, Void, String> {
+
+        @Override
+        protected String doInBackground(Integer... ints) {
+            selected = db.AppDAO().findByServiceItemID(ints[0]);
+
+
+            return "eventItem";
+        }
+
+
+    }
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
         @Override
@@ -141,7 +194,6 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
                         marker.setTag(serviceItem.getId());
                     }
                 }
-              // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(item, 15f));
             }
 
         }
@@ -160,7 +212,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f));
 
         mMap.setOnInfoWindowClickListener(this);
-
+        mMap.setOnMarkerClickListener(this);
 
     }
 

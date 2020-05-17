@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Activities.MentalWellbeing.Events.EventsListingActivity">
 
     <LinearLayout
@@ -47,6 +48,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/events_rv"
+            style="@style/scrollbar_shape_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

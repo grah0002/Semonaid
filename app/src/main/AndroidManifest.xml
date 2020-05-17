@@ -54,7 +54,6 @@
         <activity
             android:name=".Activities.Services.ServicesMapActivity"
             android:label="@string/title_activity_services_map" />
-        <activity android:name=".Activities.Services.ServicesFilterActivity" />
         <activity android:name=".Activities.PasswordActivity">
 
             <!--

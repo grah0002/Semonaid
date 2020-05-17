@@ -25,32 +25,56 @@
             android:textSize="24sp"
             app:fontFamily="@font/montserrat" />
 
-        <TextView
-            android:id="@+id/txt_service_who"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:text="TextView"
-            android:textColor="#000000"
-            app:fontFamily="@font/montserrat" />
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
 
-        <TextView
-            android:id="@+id/txt_service_what"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="TextView"
-            android:textColor="#000000"
-            app:fontFamily="@font/montserrat" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txt_cost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="TextView"
-            android:textColor="#000000"
-            app:fontFamily="@font/montserrat" />
+                <TextView
+                    android:id="@+id/txttype2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Details"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_service_who"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_service_what"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

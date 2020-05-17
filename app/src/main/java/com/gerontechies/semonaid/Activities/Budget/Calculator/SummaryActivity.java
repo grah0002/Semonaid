@@ -81,14 +81,14 @@ public class SummaryActivity extends AppCompatActivity implements
     List<BudgetItem> expenseItemList = new ArrayList<>();
     String category_bills = "Utility Bills", category_personal = "Personal Expenses", category_transport = "Transport Expenses", category_household = "Household Expenses", categotry_income = "Income";
     List<BudgetItem> top3 = new ArrayList<>();
-    RecyclerView  topList;
+    RecyclerView topList;
     double incomeTotal, expenseTotal, maxExpense = 0;
     TextView incomeTotalTxt, expenseTotalTxt;
     private PieChart chart;
-    Typeface font ;
+    Typeface font;
     private static DecimalFormat df = new DecimalFormat("0.00");
     public static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 112;
-    boolean isIncome=false, isExpense=false, isData=false;
+    boolean isIncome = false, isExpense = false, isData = false;
     LinearLayout noInfo, valuesExsist;
     Button back_to_buget;
 
@@ -108,7 +108,7 @@ public class SummaryActivity extends AppCompatActivity implements
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
 
-        font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
         noInfo = (LinearLayout) findViewById(R.id.noValues_layout);
         valuesExsist = (LinearLayout) findViewById(R.id.values_layout);
@@ -131,82 +131,18 @@ public class SummaryActivity extends AppCompatActivity implements
         initilizePieData();
 
 
-
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // do your stuff
-                } else {
-                    Toast.makeText(SummaryActivity.this, "GET_ACCOUNTS Denied",
-                            Toast.LENGTH_SHORT).show();
-                }
-                break;
-            default:
-                super.onRequestPermissionsResult(requestCode, permissions,
-                        grantResults);
-        }
-    }
-
-    public boolean checkPermissionREAD_EXTERNAL_STORAGE(
-            final Context context) {
-        int currentAPIVersion = Build.VERSION.SDK_INT;
-        if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(context,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(
-                        (Activity) context,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    showDialog("External storage", context, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-                } else {
-                    ActivityCompat
-                            .requestPermissions(
-                                    (Activity) context,
-                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                                    MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
-                }
-                return false;
-            } else {
-                return true;
-            }
-
-        } else {
-            return true;
-        }
-    }
-
-    public void showDialog(final String msg, final Context context,
-                           final String permission) {
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
-        alertBuilder.setCancelable(true);
-        alertBuilder.setTitle("Permission necessary");
-        alertBuilder.setMessage(msg + " permission is necessary");
-        alertBuilder.setPositiveButton(android.R.string.yes,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        ActivityCompat.requestPermissions((Activity) context,
-                                new String[]{permission},
-                                MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
-                    }
-                });
-        AlertDialog alert = alertBuilder.create();
-        alert.show();
-    }
 
     //initilizes the chart with the ui elements
-    public  void initilizePieData(){
+    public void initilizePieData() {
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
         chart.setExtraOffsets(5, 10, 5, 5);
 
         chart.setDragDecelerationFrictionCoef(0.95f);
 
-         chart.setCenterTextTypeface(font);
+        chart.setCenterTextTypeface(font);
 
         chart.setDrawHoleEnabled(true);
         chart.setHoleColor(Color.WHITE);
@@ -232,7 +168,7 @@ public class SummaryActivity extends AppCompatActivity implements
         chart.spin(2000, 0, 360, Easing.EaseInBack);
 
 
-
+        //setting the legend for the chart
         Legend l = chart.getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
@@ -259,13 +195,6 @@ public class SummaryActivity extends AppCompatActivity implements
     private SpannableString generateCenterSpannableText(String title) {
 
         SpannableString s = new SpannableString(title);
-        //  s.setSpan(new StyleSpan(Typeface.create(font,Typeface.NORMAL)));
-        //  s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
-        //   s.setSpan(new StyleSpan(Typeface.), 14, s.length() - 15, 0);
-//        s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
-        //      s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
-        //s.setSpan(new StyleSpan(Typeface.create(font), s.length() - 14, s.length(), 0);
-        // s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
         return s;
     }
 
@@ -291,29 +220,30 @@ public class SummaryActivity extends AppCompatActivity implements
         protected String doInBackground(Void... params) {
             String status = "";
             item = db.AppDAO().getAllBudgetData();
-            if (!(item.isEmpty() || item == null) ){
+            if (!(item.isEmpty() || item == null)) {
                 isData = true;
                 for (BudgetItem temp : item) {
 
 
                     int multiplier = 1;
-                    if(temp.frequency == 1){
+                    if (temp.frequency == 1) {
                         multiplier = 52;
-                    } else if(temp.frequency == 2){
+                    } else if (temp.frequency == 2) {
                         multiplier = 26;
-                    } else if(temp.frequency == 3){
+                    } else if (temp.frequency == 3) {
                         multiplier = 12;
-                    } else if(temp.frequency == 4){
+                    } else if (temp.frequency == 4) {
                         multiplier = 1;
                     }
 
 
-                    if(temp.type == 100){ //income
+                    //checking to see if the values are of type income or expense
+                    if (temp.type == 100) { //income
                         incomeItemList.add(temp);
                         incomeTotal = incomeTotal + (temp.getAmount() * multiplier);
 
 
-                    } else if(temp.type == 999){ //expense
+                    } else if (temp.type == 999) { //expense
                         expenseItemList.add(temp);
                         expenseTotal = expenseTotal + (temp.getAmount() * multiplier);
 
@@ -329,7 +259,7 @@ public class SummaryActivity extends AppCompatActivity implements
             }
 
 
-            return  status;
+            return status;
         }
 
 
@@ -337,38 +267,38 @@ public class SummaryActivity extends AppCompatActivity implements
         protected void onPostExecute(String details) {
             // displaySummaryItems(details);
 
-            if(incomeTotal>0){
-                incomeTotalTxt.setText("$ "+String.valueOf(incomeTotal));
+            //setting the values in the income/exp card
+            if (incomeTotal > 0) {
+                incomeTotalTxt.setText("$ " + String.valueOf(incomeTotal));
                 isIncome = true;
             }
-            if(expenseTotal > 0 ){
-                expenseTotalTxt.setText("$ "+String.valueOf(expenseTotal));
+            if (expenseTotal > 0) {
+                expenseTotalTxt.setText("$ " + String.valueOf(expenseTotal));
                 isExpense = true;
             }
 
 
+            //checking to see if there is data. If not, the img is displayed
+            if (isData) {
+                if (incomeTotal == 0 && expenseTotal == 0) {
+                    //need to tell the user to enter something
+                    valuesExsist.setVisibility(View.INVISIBLE);
+                    noInfo.setVisibility(View.VISIBLE);
+                } else {
+                    valuesExsist.setVisibility(View.VISIBLE);
+                    noInfo.setVisibility(View.GONE);
+                    budggetGraph();
+                    categories();
+                }
 
-           if(isData){
-               if(incomeTotal == 0 && expenseTotal == 0){
-                   Log.d("PPP", "zero");
-                   //need to tell the user to enter something
-                   valuesExsist.setVisibility(View.INVISIBLE);
-                   noInfo.setVisibility(View.VISIBLE);
-               } else{
-                   valuesExsist.setVisibility(View.VISIBLE);
-                   noInfo.setVisibility(View.GONE);
-                   budggetGraph();
-                   categories();
-               }
-
-           }
+            }
 
         }
 
     }
 
     //calculate the top 3 categories
-    public void categories(){
+    public void categories() {
 
         //sorting the arraylist expenseItemList based on the amount
         Collections.sort(expenseItemList, new Comparator<BudgetItem>() {
@@ -381,24 +311,24 @@ public class SummaryActivity extends AppCompatActivity implements
         //sorts in decending order
         Collections.reverse(expenseItemList);
 
-        if(expenseItemList.size()>3){
+        if (expenseItemList.size() > 3) {
             // gets the top 3 categories
-            for(int i=0; i<3; i++){
+            for (int i = 0; i < 3; i++) {
                 BudgetItem item = expenseItemList.get(i);
-                Log.d("CAT", item.itemName + "----"+ item.getAmount());
+                Log.d("CAT", item.itemName + "----" + item.getAmount());
                 top3.add(item);
             }
         } else {
             // gets the top 3 categories
-            for(int i=0; i<expenseItemList.size(); i++){
+            for (int i = 0; i < expenseItemList.size(); i++) {
                 BudgetItem item = expenseItemList.get(i);
-                Log.d("CAT", item.itemName + "----"+ item.getAmount());
+                Log.d("CAT", item.itemName + "----" + item.getAmount());
                 top3.add(item);
             }
         }
 
 
-        TopCategoriesAdapter adapter = new TopCategoriesAdapter(this,  top3);
+        TopCategoriesAdapter adapter = new TopCategoriesAdapter(this, top3);
         RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         topList.setLayoutManager(mLayoutManagerIncome);
 
@@ -407,107 +337,108 @@ public class SummaryActivity extends AppCompatActivity implements
         topList.setNestedScrollingEnabled(false);
 
 
-
-
     }
 
-    public void budggetGraph(){
+    //func to compute the values for the graph
+    public void budggetGraph() {
 
         String title = "";
-        double household = 0, personal = 0, bills = 0, transport=0;
+        double household = 0, personal = 0, bills = 0, transport = 0;
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
 
         maxExpense = 0;
-        for(int i = 0; i<expenseItemList.size(); i++){
+        for (int i = 0; i < expenseItemList.size(); i++) {
 
             BudgetItem b = expenseItemList.get(i);
 
             int multiplier = 1;
-            if(b.frequency == 1){
+            if (b.frequency == 1) {
                 multiplier = 52;
-            } else if(b.frequency == 2){
+            } else if (b.frequency == 2) {
                 multiplier = 26;
-            } else if(b.frequency == 3){
+            } else if (b.frequency == 3) {
                 multiplier = 12;
-            } else if(b.frequency == 4){
+            } else if (b.frequency == 4) {
                 multiplier = 1;
             }
 
-            if(b.category.equals(category_household)){
-                household =  household + b.amount*multiplier;
-            } else if(b.category.equals(category_personal)){
-                personal = personal + b.amount*multiplier;
-            } else if (b.category.equals(category_bills)){
-                bills = bills + b.amount*multiplier;
-            } else  if(b.category.equals(category_transport)){
-                transport = transport + b.amount*multiplier;
+            //getting the values for each category
+            if (b.category.equals(category_household)) {
+                household = household + b.amount * multiplier;
+            } else if (b.category.equals(category_personal)) {
+                personal = personal + b.amount * multiplier;
+            } else if (b.category.equals(category_bills)) {
+                bills = bills + b.amount * multiplier;
+            } else if (b.category.equals(category_transport)) {
+                transport = transport + b.amount * multiplier;
             }
 
         }
 
         //expense is more and there is no money left. So we need to show the breakdown of expense
-        if(expenseTotal > incomeTotal){
+        if (expenseTotal > incomeTotal) {
 
-            if(household > 0){
-                int val =  (int) Math.round(household);
-                pieEntries.add(new PieEntry((float) val,  "Household Exp"));
+            if (household > 0) {
+                int val = (int) Math.round(household);
+                pieEntries.add(new PieEntry((float) val, "Household Exp"));
             }
 
-            if(personal > 0){
-                int val =  (int) Math.round(personal);
-                pieEntries.add(new PieEntry((float) val,  "Personal"));
-
-            }
-
-            if(transport > 0){
-                int val =  (int) Math.round(transport);
-                pieEntries.add(new PieEntry((float) val,  "Transport"));
+            if (personal > 0) {
+                int val = (int) Math.round(personal);
+                pieEntries.add(new PieEntry((float) val, "Personal"));
 
             }
 
-            if(bills > 0){
-                int val =  (int) Math.round(bills);
+            if (transport > 0) {
+                int val = (int) Math.round(transport);
+                pieEntries.add(new PieEntry((float) val, "Transport"));
+
+            }
+
+            if (bills > 0) {
+                int val = (int) Math.round(bills);
                 Log.d("VAL", String.valueOf(val));
-                pieEntries.add(new PieEntry((float) val,  "Bills"));
+                pieEntries.add(new PieEntry((float) val, "Bills"));
             }
 
-            double diff = (expenseTotal - incomeTotal)/expenseTotal * 100;
-            title = "Your expenses are "+ df.format(diff) +"% over your Income";
+            double diff = (expenseTotal - incomeTotal) / expenseTotal * 100;
+            title = "You have overshot your expenses by " + df.format(diff) + "%";
 
 
+        } else if (expenseTotal < incomeTotal) { //if expense is less than income
 
-        } else if(expenseTotal<incomeTotal){
-
-            if(household > 0){
-                double hPercentage = household/incomeTotal * 100;
-                pieEntries.add(new PieEntry((float) hPercentage,  "Household"));
-
-            }
-
-            if(personal > 0){
-                double pPercentage = personal/incomeTotal * 100;
-                pieEntries.add(new PieEntry((float) pPercentage,  "Personal"));
+            if (household > 0) {
+                double hPercentage = household / incomeTotal * 100;
+                pieEntries.add(new PieEntry((float) hPercentage, "Household"));
 
             }
 
-            if(bills > 0){
-                double uPercentage = bills/ incomeTotal * 100;
-                pieEntries.add(new PieEntry((float) uPercentage,  "Utility"));
+            if (personal > 0) {
+                double pPercentage = personal / incomeTotal * 100;
+                pieEntries.add(new PieEntry((float) pPercentage, "Personal"));
 
             }
 
-            if(transport > 0){
-                double tPercentage = transport/  incomeTotal * 100;
-                pieEntries.add(new PieEntry((float) tPercentage,  "Transport"));
+            if (bills > 0) {
+                double uPercentage = bills / incomeTotal * 100;
+                pieEntries.add(new PieEntry((float) uPercentage, "Utility"));
 
             }
 
-            double diff = (incomeTotal - expenseTotal)/incomeTotal * 100;
+            if (transport > 0) {
+                double tPercentage = transport / incomeTotal * 100;
+                pieEntries.add(new PieEntry((float) tPercentage, "Transport"));
+
+            }
+
+            double diff = (incomeTotal - expenseTotal) / incomeTotal * 100;
+            double remaining = Math.abs(diff - 100);
             pieEntries.add(new PieEntry((float) diff, "Surplus"));
-            title = "You have "+df.format(diff) + "% of Income left!";
+            title = "You have utilized " + df.format(remaining) + "% of your Income!";
         }
 
 
+        //generating a pie data with the values
         PieDataSet dataSet = new PieDataSet(pieEntries, " ");
 
         dataSet.setDrawIcons(false);
@@ -539,16 +470,12 @@ public class SummaryActivity extends AppCompatActivity implements
         colors.add(ColorTemplate.getHoloBlue());
 
         dataSet.setColors(colors);
-        //dataSet.setSelectionShift(0f);
 
         PieData data = new PieData(dataSet);
         data.setValueFormatter(new PercentFormatter(chart));
         data.setValueTextSize(15f);
         data.setValueTextColor(Color.BLACK);
         data.setValueTypeface(font);
-      //  dataSet.setValueFormatter(formatter);
-      //  dataSet.setValueFormatter(new MyValueFormatter());
-
 
         chart.setDrawSliceText(false);
         chart.setCenterText(generateCenterSpannableText(title));
@@ -562,47 +489,6 @@ public class SummaryActivity extends AppCompatActivity implements
         chart.invalidate();
     }
 
-    public void saveChart() throws IOException {
-        Long tsLong = System.currentTimeMillis() / 1000;
-        String ts = tsLong.toString();
-        chart.saveToGallery("Semonaid-" + ts);
-
-        Bitmap bitmap = chart.getChartBitmap();
-        Uri yourUri = getImageUri(SummaryActivity.this, bitmap);
-
-        shareImageUri(yourUri);
-    }
-
-    public Uri getImageUri(Context inContext, Bitmap inImage) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-        return Uri.parse(path);
-    }
-
-    private void shareImageUri(Uri uri) {
-        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_STREAM, uri);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setType("image/png");
-        startActivity(intent);
-    }
-
-    public class MyValueFormatter extends ValueFormatter implements IValueFormatter {
-
-        private DecimalFormat mFormat;
-
-        public MyValueFormatter() {
-            mFormat = new DecimalFormat("###,###,##0.0"); // use one decimal
-        }
-
-        @Override
-        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
-            // write your logic here
-            Log.d("VAL", "INNN");
-            return mFormat.format(value) + " %"; // e.g. append a dollar-sign
-        }
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -622,7 +508,7 @@ public class SummaryActivity extends AppCompatActivity implements
             // finish the activity
             onBackPressed();
             return true;
-        } else if(id == R.id.homeIcon){
+        } else if (id == R.id.homeIcon) {
             Intent intent = new Intent(this, HomeScreenActivity.class);
             startActivity(intent);
             finish();
@@ -633,8 +519,8 @@ public class SummaryActivity extends AppCompatActivity implements
     }
 
 
-    public void setTitle(String title){
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+    public void setTitle(String title) {
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
 
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -649,7 +535,6 @@ public class SummaryActivity extends AppCompatActivity implements
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(textView);
     }
-
 
 
 }

@@ -1,0 +1,53 @@
+[
+
+  {
+    "id": 1,
+    "title": "What You Need to Apply",
+    "desc": "To apply for a job online and to complete online job applications, you'll need Internet access, an email address to use for job searching, an up-to-date resume and a cover letter."
+  },
+  {
+    "id": 2,
+    "title": "Get Your Resume Ready",
+    "desc": "Before you start looking for jobs, you'll need an updated version of your resume ready to upload. You may also need a cover letter to apply for some jobs.Make sure your resume includes your current contact information and work history."
+  },
+  {
+    "id": 3,
+    "title": "Know Your Employment History",
+    "desc": "Have the details of your employment history ready."
+  },
+  {
+    "id": 4,
+    "title": "Create Accounts on Job Sites",
+    "desc": "Some of the best job sites are traditional job boards like Dice and CareerBuilder. Others, like Indeed, allow you to search through many job boards, company career sites, associations, and other sources of job postings."
+  },
+  {
+    "id": 5,
+    "title": "Post Your Resume or a Candidate Profile Online",
+    "desc": "Most jobs sites provide a system for job seekers to post a resume online. After you upload your resume, you'll be able to use it to quickly apply for jobs on the site."
+  },
+  {
+    "id": 6,
+    "title": "Use Job Search Keywords",
+    "desc": "When you look for jobs online, the most effective way to search is to use job keywords to find jobs in the career fields and industries you are interested in."
+  },
+  {
+    "id": 7,
+    "title": "Search for Jobs Online",
+    "desc": "In addition to using job boards, using a job search engine can save you a lot of online job search time."
+  },
+  {
+    "id": 8,
+    "title": "Apply for Jobs on Company Websites",
+    "desc": "Company websites are a good source of job listings, especially if you know what companies you are interested in working for."
+  },
+  {
+    "id": 9,
+    "title": "When Are You Available to Work?",
+    "desc": "Especially when applying for part-time jobs, you may be asked what days and hours you are available to work. Know your schedule and availability before you apply."
+  },
+  {
+    "id": 10,
+    "title": "Email Job Applications",
+    "desc": "In addition to applying for jobs directly online, you may also need to apply via email.Some employers, especially smaller companies, don't have systems in place to handle online job applications."
+  }
+]

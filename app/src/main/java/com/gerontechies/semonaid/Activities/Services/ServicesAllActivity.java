@@ -22,7 +22,6 @@ import android.widget.TextView;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
@@ -32,12 +31,10 @@ import java.util.List;
 public class ServicesAllActivity extends AppCompatActivity  {
 
     RecyclerView recyclerView;
-    String jsonData;
     List<ServiceItem> allItemList = new ArrayList<>();
     List<ServiceItem> item;
-
     ServicesAdapter mAdapter;
-    Button map_btn, filter_btn;
+    Button map_btn;
 
     SemonaidDB db = null;
 
