@@ -80,6 +80,12 @@
         <activity android:name=".Activities.Budget.BudgetMainMenuActivity" />
         <activity android:name=".Activities.Budget.BudgetInfoActivity" />
         <activity android:name=".Activities.HomeScreenActivity" />
+        <activity android:name=".Activities.T2T.OpshopListActivity" />
+        <activity android:name=".Activities.T2T.OpshopItemActivity" />
+        <activity android:name=".Activities.T2T.OpshopMapActivity" />
+        <activity android:name=".Activities.T2T.T2tCategoryActivity" />
+        <activity android:name=".Activities.T2T.T2tCategoryListActivity" />
+        <activity android:name=".Activities.T2T.T2tMenuActivity" />
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,6 +93,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.Yoga.YogaListActivity" />
+        <activity android:name=".Activities.Yoga.YogaMenuActivity" />
     </application>
 
 </manifest>
