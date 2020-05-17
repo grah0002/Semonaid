@@ -42,7 +42,7 @@
   {
     "id": 5,
     "activity": "Carlton Women’s Turkish Group (cohealth)",
-    "day": "Tuesday",
+    "day": "Every Tuesday",
     "category": "Social Groups",
     "Address": "510 Lygon Street, Carlton",
     "latitude": 46.664679,
@@ -52,7 +52,7 @@
   {
     "id": 6,
     "activity": "Cinema Nova",
-    "day": "Monday",
+    "day": "Every Monday",
     "category": "Arts and culture",
     "Address": "Lygon Court, 380 Lygon Street, Carlton",
     "latitude": -37.79804,
@@ -62,7 +62,7 @@
   {
     "id": 7,
     "activity": "Circolo Pensionati Italiani di San Marco in Lamis",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "category": "Arts and culture",
     "Address": "San Marco in Lamis Social Club, 149 Canning Street, Carlton",
     "latitude": 39.390897,
@@ -92,7 +92,7 @@
   {
     "id": 10,
     "activity": "Eritrean Men’s Group (cohealth)",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "category": "Social Groups",
     "Address": "Community Hall, Ground Floor, 510 Lygon Street, Carlton",
     "latitude": -37.79461,
@@ -102,7 +102,7 @@
   {
     "id": 11,
     "activity": "Eritrean Women’s Group (Carlton Neighbourhood Learning Centre)",
-    "day": "Friday",
+    "day": "Every Friday",
     "category": "Social Groups",
     "Address": "Community Hall, Ground Floor 510 Lygon Street, Carlton",
     "latitude": -37.79461,
@@ -172,7 +172,7 @@
   {
     "id": 18,
     "activity": "Parkville Tennis Club Social Seniors Tennis",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "category": "Health and Wellbeing",
     "Address": "151 Royal Parade, Parkville",
     "latitude": 39.195041,
@@ -192,7 +192,7 @@
   {
     "id": 20,
     "activity": "Somali Senior Women’s Group (cohealth)",
-    "day": "Friday",
+    "day": "Every Friday",
     "category": "Social Groups",
     "Address": "Community Hall, 480 Lygon Street, Carlton",
     "latitude": -37.79529,
@@ -242,7 +242,7 @@
   {
     "id": 25,
     "activity": "Boyd Community Hub Walking Group",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "category": "Health and Wellbeing",
     "Address": "Boyd Community Hub, 207 City Road, Southbank",
     "latitude": -37.82555,
@@ -252,7 +252,7 @@
   {
     "id": 26,
     "activity": "Boyd laughter club",
-    "day": "Tuesday",
+    "day": "Every Tuesday",
     "category": "Health and Wellbeing",
     "Address": "Boyd Community Hub, 207 City Road, Southbank",
     "latitude": -37.82555,
@@ -312,7 +312,7 @@
   {
     "id": 32,
     "activity": "English Conversation Club at Southbank Library",
-    "day": "Monday",
+    "day": "Every Monday",
     "category": "Lifelong Learning",
     "Address": "Southbank Library at Boyd, 207 City Road, Southbank",
     "latitude": -37.82555,
@@ -370,16 +370,6 @@
     "Description": "Bringing together children, families and artists to explore and create innovative art experiences that encourage self-expression and playful exchange. Check website for schedule of events"
   },
   {
-    "id": 38,
-    "activity": "Association of New Elderly",
-    "day": "Various days",
-    "category": "Social Groups",
-    "Address": "Various locations around the city",
-    "latitude": 39.85979,
-    "longitude": -86.05802,
-    "Description": "Take part in a variety of activities in the central city including meals, yoga and a singing and movie group. Language spoken by participants in this group is Japanese."
-  },
-  {
     "id": 39,
     "activity": "Austral Salon Recital",
     "day": "Fourth Monday of the month",
@@ -392,27 +382,18 @@
   {
     "id": 40,
     "activity": "A Walk in the Flagstaff Gardens",
-    "day": "Monday",
+    "day": "Every Monday",
     "category": "Health and Wellbeing, Lifelong Learning",
     "Address": "Royal Historical Society of Victoria, 239 A’Beckett Street, Melbourne",
     "latitude": -37.81078,
     "longitude": 144.95624,
     "Description": "Join expert tour guides from the Royal Historical Society of Victoria on a guided walk through the beautiful Flagstaff Gardens. Visitors will climb Flagstaff Hill to consider its place in Melbourne topography and pre-European history as well as its early role as a burial ground."
   },
-  {
-    "id": 41,
-    "activity": "Calm in the City Meditation",
-    "day": "Every Thursday (no sessions in July or January)",
-    "category": "Health and Wellbeing",
-    "Address": "Stay calm in the city, learn how to maintain a peaceful attitude to life and reduce daily stress.",
-    "latitude": 39.390897,
-    "longitude": -99.066067,
-    "Description": "Stay calm in the city, learn how to maintain a peaceful attitude to life and reduce daily stress."
-  },
+
   {
     "id": 42,
     "activity": "Chinese Community Healthy Advisory of Australia",
-    "day": "Friday",
+    "day": "Every Friday",
     "category": "Social Groups, Health and Wellbeing",
     "Address": "Multicultural Hub, 506 Elizabeth Street, Melbourne",
     "latitude": -37.80693,
@@ -462,22 +443,12 @@
   {
     "id": 47,
     "activity": "Federation of Spanish Speaking Senior Citizens in Victoria",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "category": "Social Groups",
     "Address": "Ross House, 247-251 Flinders Lane, Melbourne",
     "latitude": -37.81675,
     "longitude": 144.9662,
     "Description": "Join in meals, cultural, social and educational activities. Language spoken by participants in this group is Spanish."
-  },
-  {
-    "id": 48,
-    "activity": "Federation Square Guided Tours",
-    "day": "Monday to Saturday",
-    "category": "Arts and culture",
-    "Address": "",
-    "latitude": "",
-    "longitude": "",
-    "Description": "Learn about the site’s history, unique architecture and the engineering marvels that make Fed Square one of the city’s great icons."
   },
   {
     "id": 49,
@@ -492,7 +463,7 @@
   {
     "id": 50,
     "activity": "Health Qigong",
-    "day": "Friday",
+    "day": "Every Friday",
     "category": "Health and Wellbeing",
     "Address": "Federation Square. The Square, corner of Swanston and Flinders Street, Melbourne",
     "latitude": 39.283298,
@@ -532,7 +503,7 @@
   {
     "id": 54,
     "activity": "Korean Book Club",
-    "day": "Third Wednesday of the month",
+    "day": "Every Third Wednesday of the month",
     "category": "Lifelong Learning",
     "Address": "City Library, 253 Flinders Lane, Melbourne",
     "latitude": -37.81694,
@@ -542,7 +513,7 @@
   {
     "id": 55,
     "activity": "Meditation",
-    "day": "Tuesday",
+    "day": "Every Tuesday",
     "category": "Health and Wellbeing",
     "Address": "Federation Square, Corner Flinders and Swanston Street, Melbourne",
     "latitude": 39.283298,
@@ -579,20 +550,11 @@
     "longitude": -99.066067,
     "Description": "Take a free walking orientation of Melbourne conducted by a knowledgeable local. Groups of up to four people can be accommodated and bookings are essential. The tours are available in other languages including Mandarin, Cantonese, Croatian, Greek and Italian."
   },
-  {
-    "id": 59,
-    "activity": "Melbourne Line Dancing Group",
-    "day": "Thursday",
-    "category": "Health and Wellbeing， Social Groups",
-    "Address": "Federation Square",
-    "latitude": 33.490626,
-    "longitude": -79.104613,
-    "Description": "Join in Chinese dancing and exercises. Languages spoken by participants in this group are Cantonese, Mandarin and English."
-  },
+
   {
     "id": 60,
     "activity": "Melbourne Line Dancing Group",
-    "day": "Tuesday",
+    "day": "Every Tuesday",
     "category": "Health and Wellbeing， Social Groups",
     "Address": "South Yarra Neighbourhood Centre, 65 Toorak Road West, South Yarra",
     "latitude": -37.83844,
@@ -629,16 +591,7 @@
     "longitude": 144.87528,
     "Description": "The Old Treasury Building is one of Melbourne’s finest 19th century buildings. Visit this exciting museum, showcasing the history of Melbourne and Victoria."
   },
-  {
-    "id": 64,
-    "activity": "Out and About",
-    "day": "Monday to Thursday",
-    "category": "Health and Wellbeing",
-    "Address": "",
-    "latitude": "",
-    "longitude": "",
-    "Description": "Out and About is a peer service connecting lesbian, gay, bisexual, transgender, or intersex (LGBTI) people across Victoria. It is a free community visitors program run specifically for older members of the LGBTI community. We aim to reduce social isolation and loneliness by creating community connections and facilitating peer friendships."
-  },
+
   {
     "id": 65,
     "activity": "Queer Book Club",
@@ -672,7 +625,7 @@
   {
     "id": 68,
     "activity": "St Nicholas Antiochian Orthodox Church Senior Citizens Group",
-    "day": "Tuesday",
+    "day": "Every Tuesday",
     "category": "Social Groups",
     "Address": "St Nicholas Antiochian Orthodox Church, 176 Simpson Street, East Melbourne",
     "latitude": -37.81018,
@@ -682,7 +635,7 @@
   {
     "id": 69,
     "activity": "Tai Chi for Health",
-    "day": "Tuesday",
+    "day": "Every Tuesday",
     "category": "Health and Wellbeing",
     "Address": "Federation Square. The Square, Corner of Swanston and Flinders streets, Melbourne",
     "latitude": 42.815174,
@@ -702,7 +655,7 @@
   {
     "id": 71,
     "activity": "Thursday Lunchtime Organ Recitals",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "category": "Arts and culture",
     "Address": "St Michael’s Uniting Church, 120 Collins Street, Melbourne",
     "latitude": -37.75594,
@@ -762,7 +715,7 @@
   {
     "id": 77,
     "activity": "East African Elders Association",
-    "day": "Sunday",
+    "day": "Every Sunday",
     "category": "Social Groups",
     "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
     "latitude": -37.78958,
@@ -772,7 +725,7 @@
   {
     "id": 78,
     "activity": "Elderly Greek Club of Kensington and Flemington",
-    "day": "Friday",
+    "day": "Every Friday",
     "category": "Social Groups",
     "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
     "latitude": -37.78958,
@@ -782,7 +735,7 @@
   {
     "id": 79,
     "activity": "Healthy Living and Learning Program",
-    "day": "Thursdays during school terms",
+    "day": "Every Thursdays during school terms",
     "category": "Health and Wellbeing",
     "Address": "Community Room, 94 Ormond Street, Kensington",
     "latitude": -37.79804,
@@ -802,7 +755,7 @@
   {
     "id": 81,
     "activity": "Indochinese Elderly Refugees Association Vietnamese Elderly Social Group",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "category": "Social Groups",
     "Address": "Community Hub, 94 Ormond Street, Kensington",
     "latitude": -37.79804,
@@ -872,7 +825,7 @@
   {
     "id": 88,
     "activity": "St Mary’s Coptic Orthodox Church Social Support Program for Coptic Elderly People",
-    "day": "Friday",
+    "day": "Every Friday",
     "category": "Social Groups",
     "Address": "5 Epsom Road, Kensington",
     "latitude": 44.410625,
@@ -892,7 +845,7 @@
   {
     "id": 90,
     "activity": "Wednesday Social Group",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "category": "Social Groups",
     "Address": "Kensington Neighbourhood House, 89 McCracken Street, Kensington",
     "latitude": -37.79324,
@@ -922,7 +875,7 @@
   {
     "id": 93,
     "activity": "African Community Elderly Association",
-    "day": "Tuesday, Thursday and Saturday",
+    "day": "Every Tuesday, Thursday and Saturday",
     "category": "Social Groups",
     "Address": "Jean McKendry, Neighbourhood Centre 91-111 Melrose Street, North Melbourne",
     "latitude": -37.79325,
@@ -962,7 +915,7 @@
   {
     "id": 97,
     "activity": "Chinese Arts Association of Melbourne",
-    "day": "Wednesday and Friday",
+    "day": "Every Wednesday and Friday",
     "category": "Social Groups",
     "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
     "latitude": -37.79325,
@@ -992,7 +945,7 @@
   {
     "id": 100,
     "activity": "Melrose Art Group",
-    "day": "Monday",
+    "day": "Every Monday",
     "category": "Arts and culture",
     "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
     "latitude": -37.79325,
@@ -1002,7 +955,7 @@
   {
     "id": 101,
     "activity": "Nase Zene",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "category": "Social Groups",
     "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
     "latitude": -37.79325,
@@ -1022,7 +975,7 @@
   {
     "id": 103,
     "activity": "North Melbourne Chinese Association",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "category": "Social Groups",
     "Address": "North Melbourne Community Centre, 49-53 Buncle Street, North Melbourne",
     "latitude": -37.79289,
@@ -1092,7 +1045,7 @@
   {
     "id": 110,
     "activity": "Spanish (Speaking) Elderly Group of North Melbourne",
-    "day": "Tuesday",
+    "day": "Every Tuesday",
     "category": "Social Groups",
     "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
     "latitude": -37.79325,

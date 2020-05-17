@@ -2,6 +2,7 @@ package com.gerontechies.semonaid.Activities.MentalWellbeing.Events;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
@@ -44,6 +46,7 @@ public class EventsListingActivity extends AppCompatActivity {
     List<EventItem> item;
     List<EventItem> allItemList = new ArrayList<>();
     RecyclerView rv;
+    CardView map;
     String category;
 
     @Override
@@ -59,6 +62,7 @@ public class EventsListingActivity extends AppCompatActivity {
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
             setTitle(category);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         }
         rv = (RecyclerView) findViewById(R.id.events_rv) ;
 
@@ -69,6 +73,16 @@ public class EventsListingActivity extends AppCompatActivity {
 
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
+
+        map = (CardView) findViewById(R.id.card_map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(EventsListingActivity.this, EventsMapsActivity.class);
+                intent1.putExtra("event_category", category);
+                startActivity(intent1);
+            }
+        });
     }
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
@@ -89,7 +103,7 @@ public class EventsListingActivity extends AppCompatActivity {
                         if(cat.get(i).equals(category))
                         {
                             allItemList.add(temp);
- 
+
                         }
                     }
 
@@ -135,6 +149,7 @@ public class EventsListingActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             // finish the activity
+            this.finish();
             onBackPressed();
             return true;
         } else if(id == R.id.homeIcon){

@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        app:srcCompat="@drawable/clothes99" />
+                        app:srcCompat="@drawable/arts" />
 
                     <TextView
                         android:id="@+id/textView121"
@@ -115,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        app:srcCompat="@drawable/bath99" />
+                        app:srcCompat="@drawable/social" />
 
                     <TextView
                         android:id="@+id/textView122"
@@ -159,7 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        app:srcCompat="@drawable/accom99" />
+                        app:srcCompat="@drawable/wellbeing" />
 
                     <TextView
                         android:id="@+id/textView123"
@@ -198,7 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        app:srcCompat="@drawable/hosp99" />
+                        app:srcCompat="@drawable/learning" />
 
                     <TextView
                         android:id="@+id/textView124"

@@ -35,7 +35,7 @@ import java.util.List;
 
 public class EventsCategoryActivity extends AppCompatActivity {
 
-    CardView health, social, art, learning;
+    CardView health, social, art, learning, map;
     SemonaidDB db = null;
     List<EventItem> item;
     List<EventItem> allItemList = new ArrayList<>();
@@ -45,6 +45,17 @@ public class EventsCategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events_category);
         setTitle("Event Finder");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        map = (CardView) findViewById(R.id.card_map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EventsCategoryActivity.this, EventsMapsActivity.class);
+                intent.putExtra("event_category", "none");
+                startActivity(intent);
+            }
+        });
 
         health = (CardView) findViewById(R.id.card_health);
         health.setOnClickListener(new View.OnClickListener() {

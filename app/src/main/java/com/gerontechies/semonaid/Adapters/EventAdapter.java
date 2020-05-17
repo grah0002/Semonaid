@@ -72,7 +72,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                 Intent intent = new Intent(mContext, EventInfoActivity.class);
 
                 intent.putExtra("event_id", eventId);
-
                 mContext.startActivity(intent);
             }
         });
