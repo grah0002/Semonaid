@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.Services.ServiceItemActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_opshop_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#090909"
+            android:textSize="24sp"
+            app:fontFamily="@font/montserrat" />
+
+        <TextView
+            android:id="@+id/txt_opshop_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:fontFamily="@font/montserrat" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Opening Hours"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_monday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Monday"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_tuesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Tuesday"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_wednesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Wednesday"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_thursday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Thursday"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_friday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Friday"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_saturday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Saturday"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_sunday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Sunday"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+<!--        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="How To Get There"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Tram"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_tram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Tram"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+                <TextView
+                    android:id="@+id/txt_train"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Train"
+                    android:textColor="#000000"
+                    app:fontFamily="@font/montserrat" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        -->
+    </LinearLayout>
+
+</ScrollView>

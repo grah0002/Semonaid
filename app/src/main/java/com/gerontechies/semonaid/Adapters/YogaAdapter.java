@@ -2,9 +2,7 @@ package com.gerontechies.semonaid.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +11,10 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.gerontechies.semonaid.Models.T2tItem;
 import com.gerontechies.semonaid.Models.YogaItem;
 import com.gerontechies.semonaid.R;
 
 import java.util.List;
-
-//import static androidx.core.graphics.drawable.IconCompat.getResources;
 
 public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> {
 
@@ -42,7 +36,7 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> 
         TextView title1;
         ImageView image1;
         TextView text1;
-        CardView card_t2t1;
+        CardView card_yoga1;
 
 
 
@@ -56,7 +50,7 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> 
 
             text1 = (TextView) itemView.findViewById(R.id.yogatext);
 
-            card_t2t1 = (CardView) itemView.findViewById(R.id.yoga1);
+            card_yoga1 = (CardView) itemView.findViewById(R.id.yoga1);
 
         }
 
@@ -79,17 +73,19 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> 
         holder.title1.setText(item.getTitle());
 
         String src = item.getImage();
+        String uri = "@drawable/"+src;
 
-//        int drawableId = this.getResources().getIdentifier(src, "drawable", context.getPackageName());
-//        holder.image1.setImageResource(drawableId);
+        int imageResource = mContext.getResources().getIdentifier(uri, null, mContext.getPackageName());
+        Drawable res = mContext.getResources().getDrawable(imageResource);
 
+        holder.image1.setImageDrawable(res);
         holder.text1.setText(item.getYoga());
 
         if(position == 0){
             holder.text1.setVisibility(View.VISIBLE);
         }
 
-        holder.card_t2t1.setOnClickListener(new View.OnClickListener() {
+        holder.card_yoga1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(holder.text1.getVisibility() == View.GONE){
