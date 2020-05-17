@@ -4,30 +4,46 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.room.Room;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity;
-import com.gerontechies.semonaid.Activities.T2T.T2tCategoryListActivity;
 import com.gerontechies.semonaid.Activities.T2T.T2tMenuActivity;
+import com.gerontechies.semonaid.Activities.Yoga.YogaListActivity;
 import com.gerontechies.semonaid.Adapters.ViewPagerAdapter;
+import com.gerontechies.semonaid.Models.YogaDatabase;
+import com.gerontechies.semonaid.Models.YogaItem;
 import com.gerontechies.semonaid.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
     ViewPager viewPager;
-     Integer [] images = { R.drawable.semonaidupdated, R.drawable.semonaidbg2};
-     String [] text = { "Your Second Change at Saving", "Bring that Change Home"};
+    YogaDatabase db = null;
+    List<YogaItem> allItemList = new ArrayList<>();
+    List<YogaItem> item;
+    Integer [] images = { R.drawable.semonaidupdated, R.drawable.semonaidbg2};
+    String [] text = { "Your Second Change at Saving", "Bring that Change Home"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +54,13 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
+        db = Room.databaseBuilder(this,
+                YogaDatabase.class, "yoga_database")
+                .fallbackToDestructiveMigration()
+                .build();
 
-
+        ReadDatabase rd = new ReadDatabase();
+        rd.execute();
         CardView getStarted = (CardView) findViewById(R.id.card_save);
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +81,15 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
 
+        CardView card_mental = (CardView) findViewById(R.id.card_mental);
+        card_mental.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeScreenActivity.this, YogaListActivity.class);
+                startActivity(intent);
+                // finish();
+            }
+        });
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this, images, text);
@@ -71,6 +101,98 @@ public class HomeScreenActivity extends AppCompatActivity {
         timer.scheduleAtFixedRate(new taskTime(), 2000, 7000);
 
 
+    }
+
+    private class ReadDatabase extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String status = "";
+            item = db.YogaDAO().getAll();
+            if (!(item.isEmpty() || item == null) ){
+                for (YogaItem temp : item) {
+
+                    allItemList.add(temp);
+
+                }
+            }
+            return  status;
+        }
+
+
+        @Override
+        protected void onPostExecute(String details) {
+
+            if(allItemList.size()>1){
+                Log.d("Data", "Loaded");
+            } else{
+
+                LoadData ld = new LoadData();
+                ld.execute();
+
+            }
+        }
+    }
+    private class LoadData extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String data =  loadJSONFromAsset();
+
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(data);
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject object = jsonArray.getJSONObject(i);
+
+                    YogaItem item = new YogaItem();
+                    int id = object.getInt("id");
+                    String name = object.getString("name");
+                    String yoga = object.getString("text");
+                    String image = object.getString("image");
+                    String title = object.getString("title");
+
+
+                    item.setId(id);
+                    item.setName(name);
+                    item.setImage(image);
+                    item.setYoga(yoga);
+                    item.setTitle(title);
+
+                    db.YogaDAO().insert(item);
+
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return " ";
+        }
+
+
+        @Override
+        protected void onPostExecute(String details) {
+
+        }
+
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = this.getAssets().open("YogaItems.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     public  class taskTime extends TimerTask{
