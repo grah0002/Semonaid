@@ -219,6 +219,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
         chart.setDrawCenterText(true);
 
+
         chart.setRotationAngle(0);
         // enable rotation of the chart by touch
         chart.setRotationEnabled(true);
@@ -229,6 +230,7 @@ public class SummaryActivity extends AppCompatActivity implements
 
         chart.animateY(1400, Easing.EaseInOutQuad);
         chart.spin(2000, 0, 360, Easing.EaseInBack);
+
 
 
         Legend l = chart.getLegend();
@@ -242,9 +244,13 @@ public class SummaryActivity extends AppCompatActivity implements
         l.setTextSize(13f);
         l.setTypeface(font);
 
+
         // entry label styling
         chart.setEntryLabelColor(Color.BLACK);
         chart.setEntryLabelTypeface(font);
+        l.setWordWrapEnabled(false);
+
+        chart.getLegend().setWordWrapEnabled(true);
         chart.setEntryLabelTextSize(12f);
     }
 

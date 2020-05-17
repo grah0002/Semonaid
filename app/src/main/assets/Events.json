@@ -1,0 +1,1075 @@
+[
+  {
+    "id": 1,
+    "activity": "Carer Support Group",
+    "day": "Contact organiser",
+    "category": "Social Groups, Health and Wellbeing",
+    "Address": "Kathleen Syme Library and Community Centre 251 Faraday Street, Carlton",
+    "latitude": 39.390897,
+    "longitude": -99.066067,
+    "Description": "Anyone can become a carer at any stage of their life. Carers play an invaluable role in our community and provide unpaid care and support to family members or friends with a variety of care needs. This group is an opportunity to share and receive information, support and experiences with other local carers."
+  },
+  {
+    "id": 2,
+    "activity": "Carlton Baths",
+    "day": "Daily",
+    "category": "Health and Wellbeing",
+    "Address": "248 Rathdowne Street, Carlton",
+    "latitude": 38.686477,
+    "longitude": -97.293186,
+    "Description": "Carlton Baths welcomes members and visitors to use a range of facilities and services. The facility offers over 60 group fitness classes each week and a 25 metre outdoor pool which is open from October to April each year. Casual and ongoing memberships available. The Prime membership is specifically designed to support people over 60 build fitness and strength. The YMCA Open Doors program can provide financial assistance for people who are unable to access the facility."
+  },
+  {
+    "id": 3,
+    "activity": "Carlton Farmers Market",
+    "day": "First Saturday of the month",
+    "category": "Health and Wellbeing",
+    "Address": "Carlton North Primary School. Corner Canning and O’Grady Streets, Carlton",
+    "latitude": -37.79064,
+    "longitude": 144.97345,
+    "Description": "Buy your meat, fruit and vegetables as well as nuts, eggs and cheese – all while supporting ethical and local growers and producers. Enjoy a hearty breakfast or an early lunch while you’re there."
+  },
+  {
+    "id": 4,
+    "activity": "Carlton Neighbourhood Learning Centre",
+    "day": "Daily",
+    "category": "Arts and culture, Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "20 Princes Street, Carlton",
+    "latitude": 46.664679,
+    "longitude": -92.422631,
+    "Description": "Take part in a broad and varied program that includes community activities, English language and computer classes, community gardening and other general interest courses."
+  },
+  {
+    "id": 5,
+    "activity": "Carlton Women’s Turkish Group (cohealth)",
+    "day": "Every Tuesday",
+    "category": "Social Groups",
+    "Address": "510 Lygon Street, Carlton",
+    "latitude": 46.664679,
+    "longitude": -92.422631,
+    "Description": "Connect and share experiences with other Turkish women. Language spoken by participants in this group is Turkish."
+  },
+  {
+    "id": 6,
+    "activity": "Cinema Nova",
+    "day": "Every Monday",
+    "category": "Arts and culture",
+    "Address": "Lygon Court, 380 Lygon Street, Carlton",
+    "latitude": -37.79804,
+    "longitude": 144.96767,
+    "Description": "Enjoy an affordable day at the movies with discounted tickets."
+  },
+  {
+    "id": 7,
+    "activity": "Circolo Pensionati Italiani di San Marco in Lamis",
+    "day": "Every Wednesday",
+    "category": "Arts and culture",
+    "Address": "San Marco in Lamis Social Club, 149 Canning Street, Carlton",
+    "latitude": 39.390897,
+    "longitude": -99.066067,
+    "Description": "Join in for meals and outings with other members of the Italian community. Language spoken by participants in this group is Italian."
+  },
+  {
+    "id": 8,
+    "activity": "Community Morning Tea",
+    "day": "Third Monday of the month",
+    "category": "Arts and culture",
+    "Address": "Kathleen Syme Library and Community Centre, 251 Faraday Street, Carlton",
+    "latitude": -37.798714,
+    "longitude": 144.965252,
+    "Description": "Join us for a relaxed community get together with  morning tea and live music by sing-a-long champions The Flukes ukulele group."
+  },
+  {
+    "id": 9,
+    "activity": "eAudiobook Club",
+    "day": "Third Tuesday of the month",
+    "category": "Lifelong Learning",
+    "Address": "Kathleen Syme Library and Community Centre, 251 Faraday Street, Carlton",
+    "latitude": -37.798714,
+    "longitude": 144.965252,
+    "Description": "The eAudiobook club is just like a regular book club, with great books selected and discussed once a month. Download, listen, gather and discuss!"
+  },
+  {
+    "id": 10,
+    "activity": "Eritrean Men’s Group (cohealth)",
+    "day": "Every Thursday",
+    "category": "Social Groups",
+    "Address": "Community Hall, Ground Floor, 510 Lygon Street, Carlton",
+    "latitude": -37.79461,
+    "longitude": 144.96833,
+    "Description": "Take part in cultural events, meals, information and social activities with other men. Languages spoken by participants in this group are Tigre, Tigrinya and Arabic."
+  },
+  {
+    "id": 11,
+    "activity": "Eritrean Women’s Group (Carlton Neighbourhood Learning Centre)",
+    "day": "Every Friday",
+    "category": "Social Groups",
+    "Address": "Community Hall, Ground Floor 510 Lygon Street, Carlton",
+    "latitude": -37.79461,
+    "longitude": 144.96833,
+    "Description": "Join other women in the community to share meals, social support and forums on particular issues."
+  },
+  {
+    "id": 12,
+    "activity": "Harari Womens Group (Carlton Neighbourhood Learning Centre)",
+    "day": "Saturday",
+    "category": "Social Groups",
+    "Address": "Community Room, 38 Elgin Street, Carlton",
+    "latitude": -37.79743,
+    "longitude": 144.97322,
+    "Description": "Join other women in the community to share meals, social support and forums on particular issues."
+  },
+  {
+    "id": 13,
+    "activity": "Kathleen Syme Library and Community Centre",
+    "day": "Daily",
+    "category": "Arts and culture, Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "251 Faraday Street, Carlton",
+    "latitude": 38.084702,
+    "longitude": -102.419197,
+    "Description": "Welcome to your local creative, learning and community space. The centre is home to a comprehensive library, as well as learning and training rooms with a computer lab, makerspace, recording studio, meeting rooms, community activity spaces, café and free wifi. There are regular activities and events for people of all ages including a weekly program for older people on a Wednesday and a monthly carers group."
+  },
+  {
+    "id": 14,
+    "activity": "Maltese Communities Council of Victoria",
+    "day": "First Tuesday and Friday of the month",
+    "category": "Social Groups",
+    "Address": "477 Royal Parade, Parkville",
+    "latitude": 39.384497,
+    "longitude": -76.552991,
+    "Description": "Enjoy a range of activities and opportunities for social connection through music, gentle exercise, meals, guest speakers, health education and access to Maltese library. Language spoken by participants in this group is Maltese."
+  },
+  {
+    "id": 15,
+    "activity": "Melbourne Museum",
+    "day": "Daily",
+    "category": "Lifelong Learning",
+    "Address": "11 Nicholson Street, Carlton",
+    "latitude": 46.664679,
+    "longitude": -92.422631,
+    "Description": "Gain a rich and inspiring insight into life in Victoria through a variety of exhibitions and activities."
+  },
+  {
+    "id": 16,
+    "activity": "Morning Exercise Melbourne",
+    "day": "Monday to Friday",
+    "category": "Health and Wellbeing",
+    "Address": "Royal Exhibition Building Museum Plaza, 9 Nicholson Street and at 480 Lygon Street, Carlton",
+    "latitude": -37.8032,
+    "longitude": 144.97391,
+    "Description": "Join us for daily invigorating exercises. Languages spoken by participants in this group are Mandarin and English."
+  },
+  {
+    "id": 17,
+    "activity": "Older Person’s Highrise Support Program (cohealth)",
+    "day": "Contact organiser",
+    "category": "Health and Wellbeing, Social Groups",
+    "Address": "530 Lygon Street, Carlton",
+    "latitude": 38.084702,
+    "longitude": -102.419197,
+    "Description": "Enjoy morning tea, Chinese group activities, women’s group activities, healthy lunches and exercise. Get involved in the community garden and get information from the residents’ advisory group. Residents only."
+  },
+  {
+    "id": 18,
+    "activity": "Parkville Tennis Club Social Seniors Tennis",
+    "day": "Every Wednesday",
+    "category": "Health and Wellbeing",
+    "Address": "151 Royal Parade, Parkville",
+    "latitude": 39.195041,
+    "longitude": -94.682372,
+    "Description": "If you’re a beginner or coming back to tennis, come and enjoy a hit and morning tea. Suitable for all skill levels and held each week at Parkville Tennis Club. Anyone over the age of 35 is welcome. Racquets are available for loan."
+  },
+  {
+    "id": 19,
+    "activity": "Social Support Group",
+    "day": "Daily",
+    "category": "Health and Wellbeing, Social Groups",
+    "Address": "Kathleen Syme Library and Community Centre, 251 Faraday Street, Carlton",
+    "latitude": -37.798714,
+    "longitude": 144.965252,
+    "Description": "If you or a loved one is interested in social and recreational activities but need extra support we offer a choice of groups to meet your individual needs and preferences. The program includes transport, activities, a meal and support from trained and caring staff. Eligibility criteria apply."
+  },
+  {
+    "id": 20,
+    "activity": "Somali Senior Women’s Group (cohealth)",
+    "day": "Every Friday",
+    "category": "Social Groups",
+    "Address": "Community Hall, 480 Lygon Street, Carlton",
+    "latitude": -37.79529,
+    "longitude": 144.96828,
+    "Description": "Enjoy meals and share information, support and activities including walking and outings with other women. Language spoken by participants in this group is Somali."
+  },
+  {
+    "id": 21,
+    "activity": "The Carlton Gardens Probus Club",
+    "day": "First Tuesday of the month, interest based groups at various locations and times",
+    "category": "Social Groups",
+    "Address": "The Clyde Hotel, 385 Cardigan Street (corner of Elgin Street), Carlton",
+    "latitude": 31.98776,
+    "longitude": -102.09936,
+    "Description": "Learn from regular speakers and enjoy cultural excursions and various interest groups including coffee club, dine out group, golf, bocce, mahjong and internet workshops."
+  },
+  {
+    "id": 22,
+    "activity": "The Community Grocer",
+    "day": "Friday 8am to noon",
+    "category": "Health and Wellbeing",
+    "Address": "478 Drummond Street, Carlton",
+    "latitude": 46.664679,
+    "longitude": -92.422631,
+    "Description": "Buy your weekly fresh food in a more affordable way while supporting healthy, connected communities."
+  },
+  {
+    "id": 23,
+    "activity": "The Probus Club of Carlton Parkville",
+    "day": "Second Tuesday of the month",
+    "category": "",
+    "Address": "Graduate House, 220 Leicester Street, Carlton",
+    "latitude": -37.80132,
+    "longitude": 144.96108,
+    "Description": "Come along to weekly, monthly or one-off activities including outings, dining, cycling, walking, book, art, music, theatre, film and bridge groups."
+  },
+  {
+    "id": 24,
+    "activity": "Boyd Community Hub",
+    "day": "Daily",
+    "category": "Arts and culture, Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "207 City Road, Southbank",
+    "latitude": 45.281326,
+    "longitude": -66.057082,
+    "Description": "Boyd is the City of Melbourne's first integrated community service space, transformed from the heritage-listed site of the former JH Boyd Girls' High School. Spaces are available at Boyd for meetings, events and consultations."
+  },
+  {
+    "id": 25,
+    "activity": "Boyd Community Hub Walking Group",
+    "day": "Every Wednesday",
+    "category": "Health and Wellbeing",
+    "Address": "Boyd Community Hub, 207 City Road, Southbank",
+    "latitude": -37.82555,
+    "longitude": 144.96093,
+    "Description": "A great way to stay active and socialise at the same time. Contact organiser for more information."
+  },
+  {
+    "id": 26,
+    "activity": "Boyd laughter club",
+    "day": "Every Tuesday",
+    "category": "Health and Wellbeing",
+    "Address": "Boyd Community Hub, 207 City Road, Southbank",
+    "latitude": -37.82555,
+    "longitude": 144.96093,
+    "Description": "Come laugh with us to immerse in fun aerobic laughter for a natural high, to ramp up your joy & happiness meter, increase positivity, manage stress and enjoy life enhancing your mind, body, spirit & social well-being."
+  },
+  {
+    "id": 27,
+    "activity": "Chinese Book Club",
+    "day": "Second Thursday of the month",
+    "category": "Lifelong Learning",
+    "Address": "Library at The Dock, 107 Victoria Harbour Promenade, Docklands",
+    "latitude": -37.81977,
+    "longitude": 144.9409,
+    "Description": "Come and join us for morning tea and see our new Chinese books at Library at The Dock. Meet other readers, have a chat and find some new Chinese books, magazines or DVDs to borrow."
+  },
+  {
+    "id": 28,
+    "activity": "Community Hub at The Dock",
+    "day": "Daily",
+    "category": "Arts and culture, Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "Community Hub at The Dock, 912 Collins Street, Docklands",
+    "latitude": 39.390897,
+    "longitude": -99.066067,
+    "Description": "Situated on the waterfront of Victoria Harbour, the Community Hub at The Dock is a community facility for boating enthusiasts and families to access a range of services. There is a large multipurpose room suitable for community workshops and health and wellbeing activities."
+  },
+  {
+    "id": 29,
+    "activity": "Community Sailing at Docklands Yacht Club",
+    "day": "Second and fourth Sunday of the month unless weather does not permit",
+    "category": "Health and Wellbeing",
+    "Address": "Docklands Yacht Club, 912 Collins Street, (adjacent to the Dock Library), Docklands",
+    "latitude": 39.390897,
+    "longitude": -99.066067,
+    "Description": "Take part in community sailing days, held all year round unless there is a gale warning. Step into a sturdy, easy to operate boat. All ages and abilities welcome."
+  },
+  {
+    "id": 30,
+    "activity": "Dock Laughter Club",
+    "day": "First Saturday of the month",
+    "category": "Health and Wellbeing",
+    "Address": "Buluk Park at the Dock, 107 Victoria Harbour Promenade, Docklands",
+    "latitude": -37.81977,
+    "longitude": 144.9409,
+    "Description": "Come along and have a laugh for a natural high that will increase positivity, manage stress and enhance your mind, body and social wellbeing."
+  },
+  {
+    "id": 31,
+    "activity": "English Conversation Club at Library at The Dock",
+    "day": "Monday to Thursday",
+    "category": "Lifelong Learning",
+    "Address": "Library at The Dock, 107 Victoria Harbour Promenade, Docklands",
+    "latitude": -37.81977,
+    "longitude": 144.9409,
+    "Description": "Come along for informal English conversation practice, meet new people and improve your English language skills. All sessions are facilitated by a native-speaking volunteer."
+  },
+  {
+    "id": 32,
+    "activity": "English Conversation Club at Southbank Library",
+    "day": "Every Monday",
+    "category": "Lifelong Learning",
+    "Address": "Southbank Library at Boyd, 207 City Road, Southbank",
+    "latitude": -37.82555,
+    "longitude": 144.96093,
+    "Description": "Come along for informal English conversation practice, meet new people and improve your English language skills. All sessions are free and facilitated by a native speaking volunteer."
+  },
+  {
+    "id": 33,
+    "activity": "Fawkner Park Laughter Club",
+    "day": "Third Saturday of the month",
+    "category": "Health and Wellbeing",
+    "Address": "Fawkner Park, South Yarra",
+    "latitude": -37.83593,
+    "longitude": 144.9821,
+    "Description": "Get together for a medicinal belly laugh. Laughter can help to improve physical, mental, emotional, spiritual and social health. Meet at playground with large boulders near tennis courts."
+  },
+  {
+    "id": 34,
+    "activity": "Melbourne Sunrise Probus Club",
+    "day": "First Thursday of the month, interest groups on various days and times",
+    "category": "Social Groups",
+    "Address": "Library at the Dock, 107 Victoria Harbour Promenade, Docklands",
+    "latitude": -37.81977,
+    "longitude": 144.9409,
+    "Description": "Come to the monthly meeting and meal or join an interest group including Pilates, golf, mah-jong, table tennis, social lawn bowls, book and coffee club, photography, walking group, family history, cinema and bridge."
+  },
+  {
+    "id": 35,
+    "activity": "South Yarra Neighbourhood Centre",
+    "day": "Daily",
+    "category": "Arts and culture",
+    "Address": "Fawkner Park, 65 Toorak Road West, South Yarra",
+    "latitude": -37.83844,
+    "longitude": 144.98868,
+    "Description": "Take part in a range of activities including tai chi, gentle yoga, social lunches, live music and more."
+  },
+  {
+    "id": 36,
+    "activity": "Any Book Book Club",
+    "day": "First Tuesday of the month",
+    "category": "Lifelong Learning",
+    "Address": "East Melbourne Library, 122 George Street, East Melbourne",
+    "latitude": -37.78091,
+    "longitude": 145.14806,
+    "Description": "Share your love of reading and get inspiration about what to read next. No set books, instead, each person shares what they are currently reading."
+  },
+  {
+    "id": 37,
+    "activity": "ArtPlay",
+    "day": "Check website for schedule of events",
+    "category": "Arts and culture",
+    "Address": "ArtPlay, Birrarung Marr, Batman Avenue, Melbourne",
+    "latitude": -37.58061,
+    "longitude": 144.71462,
+    "Description": "Bringing together children, families and artists to explore and create innovative art experiences that encourage self-expression and playful exchange. Check website for schedule of events"
+  },
+  {
+    "id": 39,
+    "activity": "Austral Salon Recital",
+    "day": "Fourth Monday of the month",
+    "category": "Arts and culture",
+    "Address": "St Peter’s Eastern Hill, Main Hall, 15 Gisborne Street, (opposite St Patrick’s Cathedral), East Melbourne",
+    "latitude": 39.390897,
+    "longitude": -99.066067,
+    "Description": "Bring your lunch and listen to music at these lunchtime recitals by talented young musicians. Tea, coffee and cake provided."
+  },
+  {
+    "id": 40,
+    "activity": "A Walk in the Flagstaff Gardens",
+    "day": "Every Monday",
+    "category": "Health and Wellbeing, Lifelong Learning",
+    "Address": "Royal Historical Society of Victoria, 239 A’Beckett Street, Melbourne",
+    "latitude": -37.81078,
+    "longitude": 144.95624,
+    "Description": "Join expert tour guides from the Royal Historical Society of Victoria on a guided walk through the beautiful Flagstaff Gardens. Visitors will climb Flagstaff Hill to consider its place in Melbourne topography and pre-European history as well as its early role as a burial ground."
+  },
+
+  {
+    "id": 42,
+    "activity": "Chinese Community Healthy Advisory of Australia",
+    "day": "Every Friday",
+    "category": "Social Groups, Health and Wellbeing",
+    "Address": "Multicultural Hub, 506 Elizabeth Street, Melbourne",
+    "latitude": -37.80693,
+    "longitude": 144.96007,
+    "Description": "Take part in community activities for Chinese seniors including information sessions, physical exercise, meals and outings. Language spoken by participants in this group is Cantonese and Mandarin."
+  },
+  {
+    "id": 43,
+    "activity": "Classics Book Club",
+    "day": "Third Wednesday of the month",
+    "category": "Lifelong Learning",
+    "Address": "City Library, 253 Flinders Lane, Melbourne",
+    "latitude": -37.81694,
+    "longitude": 144.96584,
+    "Description": "A book club for people who want to read or re-read the classics, from traditional to modern to cult. Each month we read a classic book and then get together to chat about it."
+  },
+  {
+    "id": 44,
+    "activity": "COTA Victoria",
+    "day": "Monday to Friday",
+    "category": "Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "Level 4, 533 Little Lonsdale Street, Melbourne",
+    "latitude": 42.815174,
+    "longitude": -81.552544,
+    "Description": "A not-for-profit organisation promoting opportunities for and protecting the rights of people aged over 50. Activities include advocacy, information and social groups including bike rides and an older men’s ideas group."
+  },
+  {
+    "id": 45,
+    "activity": "ESL Conversation Club at City Library",
+    "day": "Monday to Friday",
+    "category": "Lifelong Learning",
+    "Address": "City Library, 253 Flinders Lane, Melbourne",
+    "latitude": -37.81694,
+    "longitude": 144.96584,
+    "Description": "Come along for informal English conversation practice, meet new people and improve your English language skills. All sessions are free and facilitated by a native speaking volunteer."
+  },
+  {
+    "id": 46,
+    "activity": "Existentialist Society Lectures",
+    "day": "First Tuesday of the month",
+    "category": "Lifelong Learning",
+    "Address": "Unitarian Church Hall, 110 Grey Street, East Melbourne",
+    "latitude": -37.81154,
+    "longitude": 144.9848,
+    "Description": "Learn at this monthly lecture series addressing concepts related to existentialism. Starts in February. No prior booking required, all are welcome."
+  },
+  {
+    "id": 47,
+    "activity": "Federation of Spanish Speaking Senior Citizens in Victoria",
+    "day": "Every Thursday",
+    "category": "Social Groups",
+    "Address": "Ross House, 247-251 Flinders Lane, Melbourne",
+    "latitude": -37.81675,
+    "longitude": 144.9662,
+    "Description": "Join in meals, cultural, social and educational activities. Language spoken by participants in this group is Spanish."
+  },
+  {
+    "id": 49,
+    "activity": "Federation Square Laughter Club",
+    "day": "First and third Sunday of the month",
+    "category": "Health and Wellbeing",
+    "Address": "The Atrium, Federation Square, Melbourne",
+    "latitude": -37.61539,
+    "longitude": 145.06938,
+    "Description": "Come along and have a laugh for a natural high that will increase positivity, manage stress and enhance your mind, body and social wellbeing."
+  },
+  {
+    "id": 50,
+    "activity": "Health Qigong",
+    "day": "Every Friday",
+    "category": "Health and Wellbeing",
+    "Address": "Federation Square. The Square, corner of Swanston and Flinders Street, Melbourne",
+    "latitude": 39.283298,
+    "longitude": -123.649696,
+    "Description": "Activate your mind, body and soul with this Chinese system of physical exercise and breathing control, related to tai chi."
+  },
+  {
+    "id": 51,
+    "activity": "Indo China Ethnic Chinese Association",
+    "day": "Various days",
+    "category": "Social Groups",
+    "Address": "Ross House, 247-251 Flinders Lane, Melbourne",
+    "latitude": -37.81675,
+    "longitude": 144.9662,
+    "Description": "Take part in activities including sharing community meals. The community meal is held on the third Tuesday of the month. Language spoken by participants in this group is Cantonese."
+  },
+  {
+    "id": 52,
+    "activity": "Japanese Book Club",
+    "day": "Third Tuesday of the month",
+    "category": "Lifelong Learning",
+    "Address": "City Library, 253 Flinders Lane, Melbourne",
+    "latitude": -37.81694,
+    "longitude": 144.96584,
+    "Description": "Join us at City Library for a Japanese Language Book Club. Get together with other Japanese speakers and chat about your favourite reading materials."
+  },
+  {
+    "id": 53,
+    "activity": "Koorie Heritage Trust Exhibitions",
+    "day": "Daily",
+    "category": "Arts and culture, Lifelong Learning",
+    "Address": "The Yarra Building, Levels 1 and 3 Federation Square, Melbourne",
+    "latitude": -37.84013,
+    "longitude": 144.98512,
+    "Description": "Visit a space where you can experience, learn, connect and reconnect with the rich, living Aboriginal culture, heritage and histories of Victoria. You can also take part in guided walking tours of the Melbourne CBD led by a friendly Koorie guide."
+  },
+  {
+    "id": 54,
+    "activity": "Korean Book Club",
+    "day": "Every Third Wednesday of the month",
+    "category": "Lifelong Learning",
+    "Address": "City Library, 253 Flinders Lane, Melbourne",
+    "latitude": -37.81694,
+    "longitude": 144.96584,
+    "Description": "Join us at City Library for a Korean Language Book Club. Get together with other Korean speakers and chat about your favourite reading materials."
+  },
+  {
+    "id": 55,
+    "activity": "Meditation",
+    "day": "Every Tuesday",
+    "category": "Health and Wellbeing",
+    "Address": "Federation Square, Corner Flinders and Swanston Street, Melbourne",
+    "latitude": 39.283298,
+    "longitude": -123.649696,
+    "Description": "Escape the stress and busyness of city life to discover the peace of meditation in 30 minute meditation sessions. Be guided through simple meditations that relax the mind and body, leading to a deep experience of inner peace and contentment. All ages and beginners welcome."
+  },
+  {
+    "id": 56,
+    "activity": "Melbourne City Baths",
+    "day": "Daily",
+    "category": "Health and Wellbeing",
+    "Address": "Melbourne City Baths, 420 Swanston Street, Melbourne",
+    "latitude": -37.80703,
+    "longitude": 144.9631,
+    "Description": "Group fitness classes are a motivating way to keep fit and healthy. Melbourne City Baths provides health and fitness services to the community. It has the largest swimming pool in the CBD, as well as a gym and a fitness studio. Classes include Zumba gold, yoga, Pilates, Prime, water workouts and much more."
+  },
+  {
+    "id": 57,
+    "activity": "Melbourne Book Club",
+    "day": "First Tuesday of the month",
+    "category": "Lifelong Learning",
+    "Address": "City Library, Group Study Room, 253 Flinders Lane, Melbourne",
+    "latitude": 39.390897,
+    "longitude": -99.066067,
+    "Description": "We read a wide variety of fiction and non-fiction, chosen by our book club members."
+  },
+  {
+    "id": 58,
+    "activity": "Melbourne Greeter Service Walking Tour",
+    "day": "Daily",
+    "category": "Arts and culture, Lifelong Learning",
+    "Address": "Depart Melbourne Visitor Hub, Melbourne Town Hall, Corner Swanston Street and Collins Street, Melbourne",
+    "latitude": 39.390897,
+    "longitude": -99.066067,
+    "Description": "Take a free walking orientation of Melbourne conducted by a knowledgeable local. Groups of up to four people can be accommodated and bookings are essential. The tours are available in other languages including Mandarin, Cantonese, Croatian, Greek and Italian."
+  },
+
+  {
+    "id": 60,
+    "activity": "Melbourne Line Dancing Group",
+    "day": "Every Tuesday",
+    "category": "Health and Wellbeing， Social Groups",
+    "Address": "South Yarra Neighbourhood Centre, 65 Toorak Road West, South Yarra",
+    "latitude": -37.83844,
+    "longitude": 144.98868,
+    "Description": "Join in Chinese dancing and exercises. Languages spoken by participants in this group are Cantonese, Mandarin and English."
+  },
+  {
+    "id": 61,
+    "activity": "Melbourne Men’s Shed",
+    "day": "Monday to Thursday and the third Saturday of the month",
+    "category": "Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "Federation Square, Level 1 car park",
+    "latitude": -41.15634,
+    "longitude": 146.17097,
+    "Description": "Learn new skills, build friendships and improve your health. Activities include walking group, woodworking, cooking, community projects, social activities and volunteering."
+  },
+  {
+    "id": 62,
+    "activity": "Melbourne Town Hall Tour",
+    "day": "Monday, Wednesday, Thursday and Friday",
+    "category": "Arts and culture, Lifelong Learning",
+    "Address": "Melbourne Town Hall, 90-130 Swanston Street, Melbourne",
+    "latitude": -37.81462,
+    "longitude": 144.96649,
+    "Description": "Learn about the architectural, social and political significance of this impressive building."
+  },
+  {
+    "id": 63,
+    "activity": "Old Treasury Building Tour",
+    "day": "Sunday to Friday",
+    "category": "Arts and culture, Lifelong Learning",
+    "Address": "Old Treasury Building, 20 Spring Street, Melbourne",
+    "latitude": -37.73262,
+    "longitude": 144.87528,
+    "Description": "The Old Treasury Building is one of Melbourne’s finest 19th century buildings. Visit this exciting museum, showcasing the history of Melbourne and Victoria."
+  },
+
+  {
+    "id": 65,
+    "activity": "Queer Book Club",
+    "day": "Fourth Monday of the month",
+    "category": "Lifelong Learning",
+    "Address": "Activity Space, City Library, 253 Flinders Lane, Melbourne",
+    "latitude": -37.81694,
+    "longitude": 144.96584,
+    "Description": "Read and discuss all manner of books with lesbian, gay, bisexual, transgender, intersex or queer characters and themes."
+  },
+  {
+    "id": 66,
+    "activity": "Royal Botanic Gardens: Branch out",
+    "day": "Daily",
+    "category": "Health and Wellbeing, Lifelong Learning",
+    "Address": "Birdwood Avenue, Melbourne",
+    "latitude": 42.815174,
+    "longitude": -81.552544,
+    "Description": "Connecting with nature can have a powerful impact on health and wellbeing. Awaken your senses through learning about Aboriginal plant knowledge on a walk with a passionate Aboriginal guide, take a rare look inside the National Herbarium of Victoria and enjoy guided meditation and a soothing live harp performance."
+  },
+  {
+    "id": 67,
+    "activity": "Sit and Knit",
+    "day": "First Sunday of each month",
+    "category": "Arts and culture",
+    "Address": "Handknitters Guild, Ross House, 247-251 Flinders Lane, Melbourne",
+    "latitude": -37.81686,
+    "longitude": 144.9661,
+    "Description": "We sit and knit/crochet on the first Sunday of each month at Ross House and cater to all skill levels. Non-members and visitors can attend a sit and knit with some yarn and needles and get some help getting started with some basic techniques or get some knitting tips."
+  },
+  {
+    "id": 68,
+    "activity": "St Nicholas Antiochian Orthodox Church Senior Citizens Group",
+    "day": "Every Tuesday",
+    "category": "Social Groups",
+    "Address": "St Nicholas Antiochian Orthodox Church, 176 Simpson Street, East Melbourne",
+    "latitude": -37.81018,
+    "longitude": 144.98906,
+    "Description": "Join in meals and social activities. Language spoken by participants in this group is Arabic."
+  },
+  {
+    "id": 69,
+    "activity": "Tai Chi for Health",
+    "day": "Every Tuesday",
+    "category": "Health and Wellbeing",
+    "Address": "Federation Square. The Square, Corner of Swanston and Flinders streets, Melbourne",
+    "latitude": 42.815174,
+    "longitude": -81.552544,
+    "Description": "Experience the calming qualities of tai chi with a qualified instructor. Please note these sessions are delivered by different providers."
+  },
+  {
+    "id": 70,
+    "activity": "The Federation of Chinese Associations",
+    "day": "Community meal on last Wednesday of the month, other activities on various days",
+    "category": "Social Groups",
+    "Address": "20 Collins Street, Melbourne",
+    "latitude": 28.122802,
+    "longitude": -80.661314,
+    "Description": "Join in meals and social activities including singing, dancing, information sessions, exercise, healthy meals, festival celebrations and outings. Language spoken by participants in this group is Mandarin. Community meal on last Wednesday of the month, other activities on various days"
+  },
+  {
+    "id": 71,
+    "activity": "Thursday Lunchtime Organ Recitals",
+    "day": "Every Thursday",
+    "category": "Arts and culture",
+    "Address": "St Michael’s Uniting Church, 120 Collins Street, Melbourne",
+    "latitude": -37.75594,
+    "longitude": 145.01304,
+    "Description": "Every Thursday, the grand organ comes to life for a free 30 minute recital."
+  },
+  {
+    "id": 72,
+    "activity": "Uniting Church Gospel Hall Melbourne (Yee Hong)",
+    "day": "Fortnightly on Sunday",
+    "category": "Social Groups",
+    "Address": "Wesley Church (School House), 148 Lonsdale Street, Melbourne",
+    "latitude": -37.81032,
+    "longitude": 144.96827,
+    "Description": "Join in meals, outings and social activities. Language spoken by members of this group is Mandarin."
+  },
+  {
+    "id": 73,
+    "activity": "Victorian Parliament House Tour",
+    "day": "Weekdays excluding public holidays and when Parliament is not sitting",
+    "category": "Arts and culture, Lifelong Learning",
+    "Address": "Parliament House, Spring Street, Melbourne",
+    "latitude": -37.95997,
+    "longitude": 145.02393,
+    "Description": "Explore and learn all about Parliament House. Public tours of Parliament House take place at various times on days when parliament is not sitting. Full and express tours available. Garden and architectural tours also available."
+  },
+  {
+    "id": 74,
+    "activity": "Welcome to the Library Tour",
+    "day": "Daily",
+    "category": "Arts and culture, Lifelong Learning",
+    "Address": "State Library Victoria, 328 Swanston Street, Melbourne",
+    "latitude": -37.80981,
+    "longitude": 144.96403,
+    "Description": "Take a guided tour exploring State Library Victoria’s many spaces and services where you can see the magnificent heritage reading rooms and browse collections of books, magazines and music."
+  },
+  {
+    "id": 75,
+    "activity": "Australian Greek and Cypriot Senior Citizens of Melbourne",
+    "day": "First Monday of the month",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
+    "latitude": -37.78958,
+    "longitude": 144.92829,
+    "Description": "Enjoy meals, health talks, outings and other social activities. Language spoken by participants in this group is Greek."
+  },
+  {
+    "id": 76,
+    "activity": "Circolo Pensionati Italiani di Kensington",
+    "day": "Every Tuesday and Thursday and monthly on a Saturday for meals and outings",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
+    "latitude": -37.78958,
+    "longitude": 144.92829,
+    "Description": "Enjoy meals, tombola, dancing, exercise and other social activities. Language spoken by participants in this group is Italian."
+  },
+  {
+    "id": 77,
+    "activity": "East African Elders Association",
+    "day": "Every Sunday",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
+    "latitude": -37.78958,
+    "longitude": 144.92829,
+    "Description": "Enjoy meals, outings and social activities with other men. If interested please attend on the day and speak to volunteer committee members. Language spoken by participants in this group is Somali."
+  },
+  {
+    "id": 78,
+    "activity": "Elderly Greek Club of Kensington and Flemington",
+    "day": "Every Friday",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
+    "latitude": -37.78958,
+    "longitude": 144.92829,
+    "Description": "Share in meals, outings, games and other social activities. If interested please attend on the day and speak to volunteer committee members. Language spoken by participants in this group is Greek."
+  },
+  {
+    "id": 79,
+    "activity": "Healthy Living and Learning Program",
+    "day": "Every Thursdays during school terms",
+    "category": "Health and Wellbeing",
+    "Address": "Community Room, 94 Ormond Street, Kensington",
+    "latitude": -37.79804,
+    "longitude": 144.92746,
+    "Description": "Learn to cook healthy affordable meals, join in a weekly activity before lunch such as gardening, gentle exercise, Tai Chi, dancing and enjoy a meal with fellow residents and neighbours. All meals are low cost to make and able to replicate at home. For senior residents of Kensington public housing."
+  },
+  {
+    "id": 80,
+    "activity": "Horn of Africa Senior Women’s Program",
+    "day": "Wednesday and on 2nd, 3rd and 4th Monday of the month for an exercise program",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
+    "latitude": -37.78958,
+    "longitude": 144.92829,
+    "Description": "Join in meals, outings, information and planned activities with other women. Languages spoken by participants in this group are Tigre, Tigrinya and Arabic."
+  },
+  {
+    "id": 81,
+    "activity": "Indochinese Elderly Refugees Association Vietnamese Elderly Social Group",
+    "day": "Every Wednesday",
+    "category": "Social Groups",
+    "Address": "Community Hub, 94 Ormond Street, Kensington",
+    "latitude": -37.79804,
+    "longitude": 144.92746,
+    "Description": "Join in meals and social activities. Language spoken by participants in this group is Vietnamese."
+  },
+  {
+    "id": 82,
+    "activity": "Kensington Community Recreation Centre",
+    "day": "Daily",
+    "category": "Health and Wellbeing",
+    "Address": "Corner Kensington Road and Altona Street, Kensington",
+    "latitude": 40.0153,
+    "longitude": -79.57837,
+    "Description": "Access recreation facilities and programs for people of all ages and fitness levels, whether through memberships or casual visits. The Prime membership is specifically designed to support people over 60 build fitness and strength. As we get older, physical exercise becomes increasingly important for a wide range of physical and mental health reasons. Members receive access to our facilities and a wide range of age-specific classes including aquatic and land classes, in addition to all mainstream aquatic classes."
+  },
+  {
+    "id": 83,
+    "activity": "Kensington Chinese Friendship Group",
+    "day": "Monday, Tuesday and Thursday",
+    "category": "Social Groups",
+    "Address": "Community Hub, 94 Ormond Street, Kensington",
+    "latitude": -37.79804,
+    "longitude": 144.92746,
+    "Description": "Enjoy meals, mahjong, table tennis, pool, walking group, craft and outings. Language spoken by participants in this group is Cantonese and Mandarin."
+  },
+  {
+    "id": 84,
+    "activity": "Kensington Neighbourhood House",
+    "day": "Monday to Friday",
+    "category": "Arts and culture, Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "89 McCracken Street, Kensington",
+    "latitude": 46.436722,
+    "longitude": -63.637309,
+    "Description": "Come along and take part in a range of education, art, hobby, social groups, health and wellbeing programs. The house is a place to meet, share information, develop skills and break down isolation and other community barriers. Call or check the timetable online for a course or activity that suits you."
+  },
+  {
+    "id": 85,
+    "activity": "Kensington Market",
+    "day": "Third Sunday of the month",
+    "category": "Arts and culture",
+    "Address": "Kensington Town Hall, 30-34 Bellair Street, Kensington",
+    "latitude": -37.78947,
+    "longitude": 144.92863,
+    "Description": "This market is held monthly and provides artists with a wonderful platform to display their produce, perform and be a part of the community."
+  },
+  {
+    "id": 86,
+    "activity": "Older Persons Highrise Support Program (cohealth)",
+    "day": "Various days",
+    "category": "Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "94 Ormond Street, Kensington",
+    "latitude": 37.910605,
+    "longitude": -122.280236,
+    "Description": "Enjoy morning tea, tai chi, swimming, outings, healthy lunches and get information from the residents’ advisory group. Residents only."
+  },
+  {
+    "id": 87,
+    "activity": "Spanish Group of the Third Age",
+    "day": "Second Saturday of the month",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
+    "latitude": -37.78958,
+    "longitude": 144.92829,
+    "Description": "Come along to lunch, afternoon tea, bus trips and a multigenerational festival. Language spoken by participants in this group is Spanish."
+  },
+  {
+    "id": 88,
+    "activity": "St Mary’s Coptic Orthodox Church Social Support Program for Coptic Elderly People",
+    "day": "Every Friday",
+    "category": "Social Groups",
+    "Address": "5 Epsom Road, Kensington",
+    "latitude": 44.410625,
+    "longitude": -79.650132,
+    "Description": "Take part in meals, information and planned activities. Language spoken by participants in this group is Arabic."
+  },
+  {
+    "id": 89,
+    "activity": "Vietnamese and Indochinese Elderly Group",
+    "day": "Fortnightly on Thursdays",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood House, 89 McCracken Street, Kensington",
+    "latitude": -37.79324,
+    "longitude": 144.92793,
+    "Description": "Join information sessions, guest speakers, gentle exercise and a meal. Alternates with a trip outside Melbourne."
+  },
+  {
+    "id": 90,
+    "activity": "Wednesday Social Group",
+    "day": "Every Wednesday",
+    "category": "Social Groups",
+    "Address": "Kensington Neighbourhood House, 89 McCracken Street, Kensington",
+    "latitude": -37.79324,
+    "longitude": 144.92793,
+    "Description": "Enjoy a two-course meal and bingo in the company of this friendly social group. Weekly lunches alternate with a bus trip once a month."
+  },
+  {
+    "id": 91,
+    "activity": "Western Suburbs Organ Club",
+    "day": "Second Wednesday of the month",
+    "category": "Arts and culture",
+    "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
+    "latitude": -37.78958,
+    "longitude": 144.92829,
+    "Description": "Join in special organ concerts and supper in a friendly atmosphere."
+  },
+  {
+    "id": 92,
+    "activity": "78 Seniors",
+    "day": "Fortnightly or monthly activities on Monday or Tuesday",
+    "category": "Social Groups",
+    "Address": "Community Hub, 94 Ormond Street and Community Room 201/78 Clifford Terrace, Kensington",
+    "latitude": 47.07351,
+    "longitude": -55.82988,
+    "Description": "Enjoy meals, outings and celebratory events at this multicultural group for older residents who live at Kensington public housing."
+  },
+  {
+    "id": 93,
+    "activity": "African Community Elderly Association",
+    "day": "Every Tuesday, Thursday and Saturday",
+    "category": "Social Groups",
+    "Address": "Jean McKendry, Neighbourhood Centre 91-111 Melrose Street, North Melbourne",
+    "latitude": -37.79325,
+    "longitude": 144.94198,
+    "Description": "Join in meals, outings, cards, billiards, afternoon tea and information with other men. Languages spoken by participants in this group are Tigre, Tigrinya and Arabic."
+  },
+  {
+    "id": 94,
+    "activity": "Australian Romanian Community Welfare, Health and Services Association of Victoria",
+    "day": "Monday to Saturday",
+    "category": "Social Groups",
+    "Address": "55 Melrose Street, North Melbourne",
+    "latitude": 28.199035,
+    "longitude": -80.6982,
+    "Description": "Join in meals, recreation and planned activity group. Language spoken by participants in this group is Romanian."
+  },
+  {
+    "id": 95,
+    "activity": "Australian Somali Women’s Healthcare and Community Foundation",
+    "day": "Various days",
+    "category": "Social Groups",
+    "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
+    "latitude": -37.79325,
+    "longitude": 144.94198,
+    "Description": "Have fun sewing, cooking, dancing, singing, exercising and learning with other women. Language spoken by participants in this group is Somali."
+  },
+  {
+    "id": 96,
+    "activity": "Bus Trips",
+    "day": "Fourth Tuesday of every month except school holidays and public holidays",
+    "category": "Social Groups",
+    "Address": "The Centre, 58 Errol Street, North Melbourne",
+    "latitude": -37.80377,
+    "longitude": 144.94975,
+    "Description": "Travel around Melbourne and to country areas within two hours of the city."
+  },
+  {
+    "id": 97,
+    "activity": "Chinese Arts Association of Melbourne",
+    "day": "Every Wednesday and Friday",
+    "category": "Social Groups",
+    "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
+    "latitude": -37.79325,
+    "longitude": 144.94198,
+    "Description": "Have fun at singing, dancing, tai chi, Chinese drumming, meals and other social activities. Language spoken by participants in this group is Mandarin."
+  },
+  {
+    "id": 98,
+    "activity": "Chinese Social Centre of North Melbourne",
+    "day": "Monday, Wednesday and Thursday at different locations",
+    "category": "Social Groups",
+    "Address": "76 Canning Street, North Melbourne",
+    "latitude": 39.283298,
+    "longitude": -123.649696,
+    "Description": "Join in a range of activities from gentle exercise and tai chi, lunches, karaoke, bus trips, camps, Chinese New Year, autumn festival and Christmas celebrations. Languages spoken by members of this group are Mandarin and Cantonese."
+  },
+  {
+    "id": 99,
+    "activity": "Drop In Morning Tea",
+    "day": "First Tuesday of the month excluding school and public holidays",
+    "category": "Social Groups",
+    "Address": "The Centre, 58 Errol Street, North Melbourne",
+    "latitude": -37.80377,
+    "longitude": 144.94975,
+    "Description": "Enjoy a cup of tea and healthy snacks with a friendly group from different backgrounds."
+  },
+  {
+    "id": 100,
+    "activity": "Melrose Art Group",
+    "day": "Every Monday",
+    "category": "Arts and culture",
+    "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
+    "latitude": -37.79325,
+    "longitude": 144.94198,
+    "Description": "Take part in weekly painting and craft activities for seniors from all cultural backgrounds."
+  },
+  {
+    "id": 101,
+    "activity": "Nase Zene",
+    "day": "Every Thursday",
+    "category": "Social Groups",
+    "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
+    "latitude": -37.79325,
+    "longitude": 144.94198,
+    "Description": "Share in meals, celebrations, outings, information and socialising. Language spoken by participants in this group is Serbo-Croatian."
+  },
+  {
+    "id": 102,
+    "activity": "North Melbourne Book Club",
+    "day": "Third Monday of the month",
+    "category": "Lifelong Learning",
+    "Address": "North Melbourne Library, 66 Errol Street, North Melbourne",
+    "latitude": -37.80356,
+    "longitude": 144.94979,
+    "Description": "The North Melbourne book group provides a chance to expand your reading material and discuss current books in a friendly atmosphere."
+  },
+  {
+    "id": 103,
+    "activity": "North Melbourne Chinese Association",
+    "day": "Every Wednesday",
+    "category": "Social Groups",
+    "Address": "North Melbourne Community Centre, 49-53 Buncle Street, North Melbourne",
+    "latitude": -37.79289,
+    "longitude": 144.9406,
+    "Description": "Come along and join in line and social dancing, mahjong, cards, gentle exercise, table tennis, lion dancing and qigong. No contact details available. If interested please attend on the day and speak to volunteer committee members. Languages spoken by participants in this group are Cantonese and Mandarin."
+  },
+  {
+    "id": 104,
+    "activity": "North Melbourne Language & Learning",
+    "day": "Monday to Friday",
+    "category": "Lifelong Learning",
+    "Address": "Ground Floor, 33 Alfred Street, North Melbourne",
+    "latitude": 42.815174,
+    "longitude": -81.552544,
+    "Description": "Take part in English language classes, computer classes and a range of activities that help to build the local community, with a focus on engaging and connecting our culturally and linguistically diverse (CALD) communities."
+  },
+  {
+    "id": 105,
+    "activity": "North Melbourne Community Centre",
+    "day": "Daily",
+    "category": "Health and Wellbeing",
+    "Address": "49-53 Buncle Street, North Melbourne",
+    "latitude": 28.134984,
+    "longitude": -80.63497,
+    "Description": "We offer a wide range of facilities and programs to help you achieve your fitness goals. For people of all ages, abilities and fitness levels."
+  },
+  {
+    "id": 106,
+    "activity": "North Melbourne Recreation Centre",
+    "day": "Daily",
+    "category": "Health and Wellbeing",
+    "Address": "204-206 Arden Street, North Melbourne",
+    "latitude": 28.182863,
+    "longitude": -80.67484,
+    "Description": "Push your health and fitness further with our gym facilities, pool, group fitness classes, stadium space, meeting rooms, stretching areas and more. Prime Movers memberships are available for people aged 60 and over, with a focus on resistance training and functional strength activities."
+  },
+  {
+    "id": 107,
+    "activity": "North Melbourne Recreation Group (cohealth)",
+    "day": "First Wednesday of the month",
+    "category": "Health and Wellbeing",
+    "Address": "Community Hall, 76 Canning Street, North Melbourne",
+    "latitude": -37.79549,
+    "longitude": 144.94067,
+    "Description": "Enjoy meals, social activities and take part in information sessions."
+  },
+  {
+    "id": 108,
+    "activity": "Pilates and Older Adults Exercise Program",
+    "day": "Various days and times",
+    "category": "Health and Wellbeing",
+    "Address": "The Centre, 58 Errol Street, North Melbourne",
+    "latitude": -37.80377,
+    "longitude": 144.94975,
+    "Description": "Strengthen your core muscles and get fit with Pilates. Various levels available."
+  },
+  {
+    "id": 109,
+    "activity": "Salvation Army Support in Public Housing Program",
+    "day": "Monday to Friday",
+    "category": "Social Groups, Health and Wellbeing, Lifelong Learning",
+    "Address": "Community Hall, 159 Melrose Street, North Melbourne",
+    "latitude": -37.79143,
+    "longitude": 144.94183,
+    "Description": "Take part in meals, walking, water aerobics, woodwork, jewellery making, knitting, outings, cultural events, information and gardening. For people over the age of 50 that resides on the North Melbourne housing estate."
+  },
+  {
+    "id": 110,
+    "activity": "Spanish (Speaking) Elderly Group of North Melbourne",
+    "day": "Every Tuesday",
+    "category": "Social Groups",
+    "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
+    "latitude": -37.79325,
+    "longitude": 144.94198,
+    "Description": "Enjoy meals, art and craft, outings and social activities. Language spoken by participants in this group is Spanish."
+  },
+  {
+    "id": 111,
+    "activity": "Victorian Elderly Chinese Welfare Society",
+    "day": "Monday to Friday",
+    "category": "Social Groups",
+    "Address": "187-189 Victoria Street, West Melbourne",
+    "latitude": 37.71407,
+    "longitude": -122.46531,
+    "Description": "Come to this activity group to enjoy outings, meals, yum cha, Chinese television and magazines. Includes transport to and from activities. Languages spoken by participants in this group are Cantonese and Mandarin."
+  },
+  {
+    "id": 112,
+    "activity": "Victorian Lithuanian Pensioners Association",
+    "day": "Second Wednesday of the month",
+    "category": "Social Groups",
+    "Address": "Lithuanian House, 44 Errol Street, North Melbourne",
+    "latitude": -37.80153,
+    "longitude": 144.88883,
+    "Description": "Enjoy meals, outings and social activities. Language spoken by participants in this group is Lithuanian."
+  }
+]

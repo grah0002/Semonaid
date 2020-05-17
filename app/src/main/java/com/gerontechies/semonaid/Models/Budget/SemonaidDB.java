@@ -7,7 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {BudgetItem.class, ServiceItem.class, TipItem.class, JobContentItem.class, JobItem.class}, version = 2, exportSchema = false)
+@Database(entities = {BudgetItem.class, ServiceItem.class, TipItem.class, JobContentItem.class, JobItem.class, EventItem.class}, version = 2, exportSchema = false)
 
 public abstract class SemonaidDB extends RoomDatabase {
 

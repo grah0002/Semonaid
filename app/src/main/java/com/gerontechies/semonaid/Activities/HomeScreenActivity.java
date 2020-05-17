@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity;
 import com.gerontechies.semonaid.Activities.Income.IncomeMenuActivity;
 import com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity;
+import com.gerontechies.semonaid.Activities.MentalWellbeing.MentalMenuActivity;
 import com.gerontechies.semonaid.Adapters.ViewPagerAdapter;
 import com.gerontechies.semonaid.R;
 
@@ -55,6 +56,15 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeScreenActivity.this, IncomeMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView mental = (CardView) findViewById(R.id.card_mental);
+        mental.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeScreenActivity.this, MentalMenuActivity.class);
                 startActivity(intent);
             }
         });

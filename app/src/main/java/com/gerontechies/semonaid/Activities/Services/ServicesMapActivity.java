@@ -119,7 +119,14 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
                 if(category.equals("none")){
                     LatLng item  = new LatLng(serviceItem.getLatitude(),serviceItem.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
+                  //  mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
+                    marker =  mMap.addMarker(new MarkerOptions()
+                            .position(item)
+                            .title(serviceItem.getService_name())
+                            .snippet(serviceItem.getSuburb())
+
+                    );
+                    marker.setTag(serviceItem.getId());
                 }
 
                 else {
@@ -128,7 +135,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
                        marker =  mMap.addMarker(new MarkerOptions()
                                 .position(item)
                                 .title(serviceItem.getService_name())
-                                .snippet(serviceItem.getCategory_1())
+                                .snippet(serviceItem.getSuburb())
 
                         );
                         marker.setTag(serviceItem.getId());

@@ -39,7 +39,7 @@
         "name": "Leadership Aspiration"
       },
       {
-        "name": "Experience in the Field"
+        "name": "Related Field Knowledge"
       }
     ],
     "certification": [
@@ -64,10 +64,10 @@
         "name": "Communication Skills"
       },
       {
-        "name": "Computer Literacy Skill"
+        "name": "Computer Literacy Skills"
       },
       {
-        "name": "Experience in the Field"
+        "name": "Related Field Knowledge"
       }
     ],
     "certification": [
@@ -130,7 +130,11 @@
     "category": "Administrative and Support Services",
     "skills": [
       {
-        "name": "Clear Communication (both Verbal and Written English)"
+      {
+        "name": "Verbal Communication"
+      },
+      {
+        "name": "Written Communication"
       },
       {
         "name": "Computer Literacy Skills"
@@ -167,7 +171,7 @@
         "name": "Communication Skills"
       },
       {
-        "name": "Computer Literacy Skill"
+        "name": "Computer Literacy Skills"
       },
       {
         "name": "Teamwork Ability"
@@ -246,7 +250,7 @@
         "name": "Physical Stamina"
       },
       {
-        "name": " First Aid Ability"
+        "name": "First Aid"
       }
     ],
     "certification": [
@@ -282,7 +286,7 @@
         "name": "Police Check (National Police Certificate)"
       },
       {
-        "name": " First Aid accreditation"
+        "name": "First Aid Accreditation"
       }
     ],
     "desc": "School bus drivers need to focus on driving, but students can get unruly. So who keeps things in order so that buses travel safely? School bus monitors. If you like kids and can keep your cool in sometimes chaotic conditions, this can be a rewarding job."
@@ -334,7 +338,7 @@
         "name": "Police Check (National Police Certificate)"
       },
       {
-        "name": "First Aid accreditation"
+        "name": "Working With Children (WWC)"
       }
     ],
     "desc": "Gardening is definitely a popular skills among seniors. But did you know it's possible to turn your passion for plants into profits? You could find individual clients in your neighborhood, work for a nursery, or find a job with a landscaping company. This work is often seasonal, and it can involve working in inclement weather conditions.Also, there is a requirement from government that the grass around the houses need to well cleaned. Many resident are busy with their daily work to keep the gardening stuff. So we can use our free time to do the gardening job for them so that we can get extra income."
@@ -348,7 +352,7 @@
         "name": "Record Keeping Ability"
       },
       {
-        "name": "Computer Literacy Skill"
+        "name": "Computer Literacy Skills"
       }
     ],
     "certification": [
@@ -377,9 +381,7 @@
       {
         "name": "Police Check (National Police Certificate)"
       },
-      {
-        "name": "First Aid accreditation"
-      }
+
     ],
     "desc": "Help teachers by working one on one with students and providing other support as needed. Some teacher assistants even work with special needs students. But you may need a two-year associate degree. And you should be in good physical shape.Although we don't tend to think of teaching as a physical career, teacher assistants are among the workers most likely to be injured on the job."
   },
@@ -392,13 +394,13 @@
         "name": "Sports Knowledge"
       },
       {
-        "name": "First Aid"
-      },
-      {
         "name": "Coaching Skill"
       },
       {
         "name": "Time Management"
+      },
+      {
+        "name": "First Aid"
       }
     ],
     "certification": [
@@ -426,7 +428,7 @@
     "category": "Arts and Recreation Services",
     "skills": [
       {
-        "name": "Writting Ability"
+        "name": "Writing Ability"
       }
     ],
     "certification": [],
@@ -450,7 +452,7 @@
     "category": "Health Care and Social Assistance",
     "skills": [
       {
-        "name": "Computer Literacy Skill"
+        "name": "Computer Literacy Skills"
       }
     ],
     "certification": [
@@ -466,10 +468,10 @@
     "category": "Professional, Scientific and Technical Services",
     "skills": [
       {
-        "name": "Computer Literacy Skill"
+        "name": "Computer Literacy Skills"
       },
       {
-        "name": "Writting Skill"
+        "name": "Written Communication"
       }
     ],
     "certification": [],
@@ -481,10 +483,10 @@
     "category": "Professional, Scientific and Technical Services",
     "skills": [
       {
-        "name": "Computer Literacy Skill"
+        "name": "Computer Literacy Skills"
       },
       {
-        "name": "Writting Skill"
+        "name": "Writing Ability"
       }
     ],
     "certification": [],

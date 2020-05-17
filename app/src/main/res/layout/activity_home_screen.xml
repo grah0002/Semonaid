@@ -89,7 +89,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
                         android:gravity="end"
-                        android:text="Find ways to keep your expenses down"
+                        android:text="Find ways to spend less"
                         android:textColor="#2A2A2C"
                         android:textSize="16sp"
                         app:fontFamily="@font/montserrat" />
@@ -130,7 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="Increase Your Income"
+                        android:text="Increase your Income"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
                         app:fontFamily="@font/montserrat" />

@@ -58,12 +58,12 @@ public class ServicesCategoryList extends AppCompatActivity  {
                 SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
             setTitle(category);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         }
         ReadDatabase rd = new ReadDatabase();

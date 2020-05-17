@@ -46,7 +46,7 @@ public class IncomeMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_income_menu);
-        setTitle("Learn to Save");
+        setTitle("Increase Your Income");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 

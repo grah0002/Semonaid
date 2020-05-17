@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+
 
 
     <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -60,88 +58,11 @@
                     android:textColor="#EFEBEB" />
             </LinearLayout>
 
-            <!--            <View-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="1dp"-->
-            <!--                android:background="@android:color/darker_gray" />-->
 
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:background="#FFFFFF"-->
-            <!--                android:orientation="vertical"-->
-            <!--                android:padding="20dp">-->
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView21"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_weight="0"-->
-            <!--                    android:text="Type"-->
-            <!--                    android:textColor="#000000"-->
-            <!--                    android:textSize="18sp"-->
-            <!--                    app:fontFamily="@font/montserrat" />-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_marginTop="20dp"-->
-            <!--                    android:layout_weight="1"-->
-            <!--                    android:orientation="horizontal">-->
-
-            <!--                    <TextView-->
-            <!--                        android:id="@+id/txt_category1"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:text="TextView"-->
-            <!--                        android:textColor="#000000" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:id="@+id/txt_category2"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:text="TextView"-->
-            <!--                        android:textColor="#000000" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:id="@+id/txt_category3"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:text="TextView"-->
-            <!--                        android:textColor="#000000" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:id="@+id/txt_category4"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:text="TextView"-->
-            <!--                        android:textColor="#000000" />-->
-            <!--                </LinearLayout>-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn_view_service"-->
-            <!--                    style="@android:style/Widget.Button.Toggle"-->
-            <!--                    android:layout_width="200dp"-->
-            <!--                    android:layout_height="wrap_content"-->
-
-            <!--                    android:layout_gravity="center"-->
-            <!--                    android:layout_marginTop="50dp"-->
-            <!--                    android:layout_weight="0"-->
-            <!--                    android:background="@drawable/ovalbtn"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:text="@string/btn_save"-->
-            <!--                    android:textColor="#FFF" />-->
-
-            <!--            </LinearLayout>-->
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 
 
-</LinearLayout>

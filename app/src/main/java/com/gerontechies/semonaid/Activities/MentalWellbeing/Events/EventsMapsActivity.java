@@ -1,0 +1,315 @@
+package com.gerontechies.semonaid.Activities.MentalWellbeing.Events;
+
+import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.FragmentActivity;
+import androidx.room.Room;
+
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.location.Address;
+import android.location.Geocoder;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Models.Budget.EventItem;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener {
+
+    private GoogleMap mMap;
+    List<EventItem> allItemList = new ArrayList<>();
+    List<EventItem> item;
+    SemonaidDB db = null;
+    String category;
+    Map<String, String> mMarkerMap = new HashMap<>();
+    ArrayList<LatLng> latLngs = new ArrayList<LatLng>() ;
+    EventItem selected;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_events_maps);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        Button list_btn = (Button) findViewById(R.id.list_btn) ;
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        list_btn.setTypeface(font);
+        list_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              //  Intent intent = new Intent(EventsMapsActivity.this, EventInfoActivity.class);
+               // startActivity(intent);
+                EventsMapsActivity.this.finish();
+            }
+        });
+
+        Intent intent = getIntent();
+
+        category = getIntent().getStringExtra("event_category");
+        this.setTitle(R.string.app_name);
+
+        db = Room.databaseBuilder(this,
+                SemonaidDB.class, "db_semonaid")
+                .fallbackToDestructiveMigration()
+                .build();
+
+        ReadDatabase rd = new ReadDatabase();
+        rd.execute();
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        GetEventDetails getEventDetails = new GetEventDetails();
+        getEventDetails.execute((Integer) marker.getTag());
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(EventsMapsActivity.this, R.style.BottomSheet);
+        View bottomsheet = LayoutInflater.from(getApplicationContext())
+                .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
+        TextView locationName = bottomsheet.findViewById(R.id.location_name);
+        TextView locationAddress = bottomsheet.findViewById(R.id.location_address_txt);
+        TextView locationDays = bottomsheet.findViewById(R.id.location_days);
+        Button view_details = bottomsheet.findViewById(R.id.btn_location);
+
+
+        locationName.setText(selected.activity);
+        locationAddress.setText(selected.Address);
+        locationDays.setText(selected.day);
+        view_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EventsMapsActivity.this, EventInfoActivity.class);
+                intent.putExtra("event_id", (int) selected.id);
+                startActivity(intent);
+            }
+        });
+
+        bottomSheetDialog.setContentView(bottomsheet);
+        bottomSheetDialog.show();
+
+
+//        Button buttonOpenBottomSheet = findViewById(R.id.button_open_bottom_sheet);
+//        buttonOpenBottomSheet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ExampleBottomSheetDialog bottomSheet = new ExampleBottomSheetDialog();
+//                bottomSheet.show(getSupportFragmentManager(), "exampleBottomSheet");
+//            }
+//        });
+
+
+        return true;
+    }
+
+
+
+    private class GetEventDetails extends AsyncTask<Integer, Void, String> {
+
+
+
+
+        @Override
+        protected String doInBackground(Integer... ints) {
+            selected = db.AppDAO().findByEventID(ints[0]);
+
+
+            return "eventItem";
+        }
+
+
+    }
+    private class ReadDatabase extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String status = "";
+            item = db.AppDAO().getAllEvents();
+            if (!(item.isEmpty() || item == null) ){
+                for (EventItem temp : item) {
+
+                    if(category.equals("none")){
+                        allItemList.add(temp);
+                    }
+                    else if(temp.category.equals(category)){
+                        allItemList.add(temp);
+                    }
+
+
+                }
+            }
+            return  status;
+        }
+
+        @Override
+        protected void onPostExecute(String details) {
+
+            //add markers
+            if(allItemList.size()>0){
+                PlotData plotData = new PlotData();
+                plotData.execute();
+            }
+
+
+        }
+
+    }
+
+
+    //reference - https://stackoverflow.com/questions/3574644/how-can-i-find-the-latitude-and-longitude-from-address/27834110#27834110
+    private class PlotData extends AsyncTask<Void, Void, String> {
+        ProgressDialog pd;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pd = new ProgressDialog(EventsMapsActivity.this);
+            pd.setMessage("Please Wait.. Loading Map..");
+            pd.setCanceledOnTouchOutside(false);
+
+            pd.show();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String status = "";
+            for(int i = 0; i<allItemList.size(); i++){
+                EventItem serviceItem = allItemList.get(i);
+                Geocoder coder = new Geocoder(EventsMapsActivity.this);
+                List<Address> address;
+                LatLng p1 = null;
+
+                try {
+                    address = coder.getFromLocationName(serviceItem.Address, 1);
+                    if (address != null) {
+                        Address location = address.get(0);
+                        location.getLatitude();
+                        location.getLongitude();
+
+                        p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+                        latLngs.add(p1);
+
+                    }
+
+                } catch (Exception ex) {
+
+                    ex.printStackTrace();
+                }
+
+            }
+            return  status;
+        }
+
+        @Override
+        protected void onPostExecute(String details) {
+
+            //add markers
+            if(latLngs.size()>0){
+
+                for(int i=0; i<latLngs.size(); i++){
+                    EventItem eventItem = allItemList.get(i);
+                    Marker marker;
+                    marker =  mMap.addMarker(new MarkerOptions()
+                            .position(latLngs.get(i))
+                            .title(eventItem.getActivity())
+                            .snippet(eventItem.getAddress())
+                    );
+
+                    marker.setTag(eventItem.getId());
+                }
+            }
+
+            if (pd != null)
+            {
+                pd.dismiss();
+            }
+        }
+
+    }
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in melbourne central and move the camera
+        LatLng melb = new LatLng(-37.806498, 144.929392);
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(melb, 12f));
+
+        mMap.setOnInfoWindowClickListener(this);
+        mMap.setOnMarkerClickListener(this);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            // finish the activity
+            onBackPressed();
+            return true;
+        } else if(id == R.id.homeIcon){
+            Intent intent = new Intent(this, HomeScreenActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+
+        Intent intent = new Intent(EventsMapsActivity.this, EventInfoActivity.class);
+        Log.d("EVE", marker.getTag().toString());
+        intent.putExtra("event_id", (int) marker.getTag());
+        startActivity(intent);
+
+
+    }
+
+
+}
