@@ -43,10 +43,9 @@ public class SkillListingActivity extends AppCompatActivity {
     SemonaidDB db = null;
     List<JobItem> jobItems;
     List<JobItem> allJobItems = new ArrayList<>();
-//    List<JobItem> allJobItems1 = new ArrayList<>();
-    boolean isFilterd =false;
+    boolean isFilterd = false;
     Button filter;
-    HashSet<JobItem>  allJobItems1=new HashSet<>();
+    HashSet<JobItem> allJobItems1 = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +54,6 @@ public class SkillListingActivity extends AppCompatActivity {
 
         setTitle("Job Lists");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         db = Room.databaseBuilder(this,
                 SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
@@ -88,23 +85,27 @@ public class SkillListingActivity extends AppCompatActivity {
                 for (JobItem temp : jobItems) {
                     allJobItems.add(temp);
                 }
-                if(selectedSkillsList.size()>0  || selectedCertfificationsList.size()>0){
-                    isFilterd=true;
-                    for(JobItem jobItem: allJobItems )
-
-                    {
-                        Log.d("ERR", "------" + jobItem.name);
+                /*
+                * Checking to see if the users have selected any certifications or skills
+                 */
+                if (selectedSkillsList.size() > 0 || selectedCertfificationsList.size() > 0) {
+                    isFilterd = true;
+                    for (JobItem jobItem : allJobItems) {
                         try {
                             JSONArray skills = new JSONArray(jobItem.getSkills());
                             JSONArray certifications = new JSONArray(jobItem.getCertifications());
 
+                            /*
+                            * Filtering the list to see if that item exsists
+                            */
                             for (int j = 0; j < skills.length(); j++) {
 
                                 JSONObject object1 = skills.getJSONObject(j);
                                 String skillName = object1.getString("name");
 
 
-                                if(selectedSkillsList.contains(skillName)){
+                                /*If the item is there, its added to the hashmap*/
+                                if (selectedSkillsList.contains(skillName)) {
                                     allJobItems1.add(jobItem);
                                     break;
 
@@ -116,7 +117,7 @@ public class SkillListingActivity extends AppCompatActivity {
                                 JSONObject object1 = certifications.getJSONObject(j);
                                 String skillName = object1.getString("name");
 
-                                if(selectedCertfificationsList.contains(skillName)){
+                                if (selectedCertfificationsList.contains(skillName)) {
                                     allJobItems1.add(jobItem);
                                     Log.d("ERR", "matched------" + skillName);
                                     break;
@@ -130,7 +131,7 @@ public class SkillListingActivity extends AppCompatActivity {
                     }
 
 
-                } else{
+                } else {
                     isFilterd = false;
                 }
 
@@ -145,6 +146,11 @@ public class SkillListingActivity extends AppCompatActivity {
 
             if (allJobItems != null) {
 
+                /*
+                Checking to see which list to send to the adapter.
+                If the content has been filtered, allJobItems1 is sent,
+                else allJobItems is sent
+                */
                 if (isFilterd) {
 
 
@@ -156,8 +162,7 @@ public class SkillListingActivity extends AppCompatActivity {
 
                     tipsRV.setItemAnimator(new DefaultItemAnimator());
                     tipsRV.setAdapter(adapter);
-                }
-                else{
+                } else {
                     Log.d("ERR", "all----" + String.valueOf(allJobItems.size()));
                     JobAdapter adapter = new JobAdapter(SkillListingActivity.this, allJobItems);
                     RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(SkillListingActivity.this, LinearLayoutManager.VERTICAL, false);
@@ -168,11 +173,10 @@ public class SkillListingActivity extends AppCompatActivity {
                 }
 
 
-
-                }
-
-
             }
+
+
+        }
 
 
     }

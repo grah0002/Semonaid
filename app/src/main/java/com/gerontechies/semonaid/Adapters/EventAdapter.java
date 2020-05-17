@@ -21,6 +21,9 @@ import com.gerontechies.semonaid.R;
 
 import java.util.List;
 
+/*
+* Adapter for displaying all the events
+*/
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder> {
 
     Context mContext;

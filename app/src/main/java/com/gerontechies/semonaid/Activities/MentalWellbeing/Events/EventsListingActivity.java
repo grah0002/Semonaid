@@ -58,13 +58,14 @@ public class EventsListingActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        if (intent.hasExtra(Intent.EXTRA_TEXT)){
+        if (intent.hasExtra(Intent.EXTRA_TEXT)) {
+            //getting the category name for this selection
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
             setTitle(category);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         }
-        rv = (RecyclerView) findViewById(R.id.events_rv) ;
+        rv = (RecyclerView) findViewById(R.id.events_rv);
 
         db = Room.databaseBuilder(this,
                 SemonaidDB.class, "db_semonaid")
@@ -91,36 +92,33 @@ public class EventsListingActivity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             String status = "";
             item = db.AppDAO().getAllEvents();
-            if (!(item.isEmpty() || item == null) ){
+            if (!(item.isEmpty() || item == null)) {
                 for (EventItem temp : item) {
 
                     String eventCategory = temp.category;
                     List<String> cat = Arrays.asList(eventCategory.split(","));
 
                     //String[] cat = eventCategory.split(",");
-                    for(int i = 0; i<cat.size(); i++){
-                       Log.d("STR", i+"-------"+cat.get(i)+"----"+temp.activity+"----"+ temp.id);
-                        if(cat.get(i).equals(category))
-                        {
+                    for (int i = 0; i < cat.size(); i++) {
+                        //  Log.d("STR", i+"-------"+cat.get(i)+"----"+temp.activity+"----"+ temp.id);
+                        if (cat.get(i).equals(category)) {
                             allItemList.add(temp);
 
                         }
                     }
 
 
-
-
                 }
             }
-            return  status;
+            return status;
         }
 
         @Override
         protected void onPostExecute(String details) {
 
-            if(allItemList.size()>1){
+            if (allItemList.size() > 1) {
                 Log.d("STR", String.valueOf(allItemList.size()));
-                EventAdapter mAdapter = new EventAdapter(EventsListingActivity.this,  allItemList);
+                EventAdapter mAdapter = new EventAdapter(EventsListingActivity.this, allItemList);
                 RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(EventsListingActivity.this, LinearLayoutManager.VERTICAL, false);
                 rv.setLayoutManager(mLayoutManagerIncome);
                 rv.setItemAnimator(new DefaultItemAnimator());
@@ -152,7 +150,7 @@ public class EventsListingActivity extends AppCompatActivity {
             this.finish();
             onBackPressed();
             return true;
-        } else if(id == R.id.homeIcon){
+        } else if (id == R.id.homeIcon) {
             Intent intent = new Intent(this, HomeScreenActivity.class);
             startActivity(intent);
             finish();
@@ -163,8 +161,8 @@ public class EventsListingActivity extends AppCompatActivity {
     }
 
 
-    public void setTitle(String title){
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+    public void setTitle(String title) {
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
 
         getSupportActionBar().setHomeButtonEnabled(true);

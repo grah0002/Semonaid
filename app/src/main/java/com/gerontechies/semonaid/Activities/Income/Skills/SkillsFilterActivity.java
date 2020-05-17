@@ -42,7 +42,6 @@ public class SkillsFilterActivity extends AppCompatActivity {
     List<JobContentItem> skillsObjList = new ArrayList<>();
     List<JobContentItem> allCertficateItems = new ArrayList<>();
     List<JobContentItem> allSkillsItem = new ArrayList<>();
-    AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +86,6 @@ public class SkillsFilterActivity extends AppCompatActivity {
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
-
 
             }
         });
@@ -139,6 +137,7 @@ public class SkillsFilterActivity extends AppCompatActivity {
                 if (allCertficateItems.size() > 0) {
 
 
+                    //setting the adapters with the skills and certifications values
                     SkillListAdapter adapter = new SkillListAdapter(SkillsFilterActivity.this, allCertficateItems);
                     RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(SkillsFilterActivity.this, LinearLayoutManager.VERTICAL, false);
                     certification_rv.setLayoutManager(mLayoutManagerIncome);

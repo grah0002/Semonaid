@@ -87,8 +87,13 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
     @Override
     public boolean onMarkerClick(Marker marker) {
 
+        //getting the selected event details
         GetEventDetails getEventDetails = new GetEventDetails();
         getEventDetails.execute((Integer) marker.getTag());
+
+        //Reference - https://www.youtube.com/watch?v=-QychBmRXz0&t=426s
+        //Setting the bottom dialog sheet
+        //setting the textview values
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(EventsMapsActivity.this, R.style.BottomSheet);
         View bottomsheet = LayoutInflater.from(getApplicationContext())
                 .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
@@ -114,36 +119,22 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         bottomSheetDialog.show();
 
 
-//        Button buttonOpenBottomSheet = findViewById(R.id.button_open_bottom_sheet);
-//        buttonOpenBottomSheet.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ExampleBottomSheetDialog bottomSheet = new ExampleBottomSheetDialog();
-//                bottomSheet.show(getSupportFragmentManager(), "exampleBottomSheet");
-//            }
-//        });
-
-
         return true;
     }
 
 
+    //getting the details of the selected marker item
 
     private class GetEventDetails extends AsyncTask<Integer, Void, String> {
-
-
-
 
         @Override
         protected String doInBackground(Integer... ints) {
             selected = db.AppDAO().findByEventID(ints[0]);
-
-
             return "eventItem";
         }
 
-
     }
+
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
         @Override
@@ -156,11 +147,9 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
                     if(category.equals("none")){
                         allItemList.add(temp);
                     }
-                    else if(temp.category.equals(category)){
+                     if(temp.category.equals(category)){
                         allItemList.add(temp);
                     }
-
-
                 }
             }
             return  status;
@@ -174,8 +163,6 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
                 PlotData plotData = new PlotData();
                 plotData.execute();
             }
-
-
         }
 
     }
@@ -190,7 +177,6 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
             pd = new ProgressDialog(EventsMapsActivity.this);
             pd.setMessage("Please Wait.. Loading Map..");
             pd.setCanceledOnTouchOutside(false);
-
             pd.show();
         }
 
@@ -198,12 +184,15 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         protected String doInBackground(Void... params) {
             String status = "";
             for(int i = 0; i<allItemList.size(); i++){
+
+                //calculating the lat and long for each item
                 EventItem serviceItem = allItemList.get(i);
                 Geocoder coder = new Geocoder(EventsMapsActivity.this);
                 List<Address> address;
                 LatLng p1 = null;
 
                 try {
+
                     address = coder.getFromLocationName(serviceItem.Address, 1);
                     if (address != null) {
                         Address location = address.get(0);
@@ -230,6 +219,7 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
             //add markers
             if(latLngs.size()>0){
 
+                //plotting them to the db
                 for(int i=0; i<latLngs.size(); i++){
                     EventItem eventItem = allItemList.get(i);
                     Marker marker;
@@ -304,7 +294,6 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
     public void onInfoWindowClick(Marker marker) {
 
         Intent intent = new Intent(EventsMapsActivity.this, EventInfoActivity.class);
-        Log.d("EVE", marker.getTag().toString());
         intent.putExtra("event_id", (int) marker.getTag());
         startActivity(intent);
 

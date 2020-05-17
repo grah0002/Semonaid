@@ -23,7 +23,10 @@ import com.gerontechies.semonaid.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyViewHolder> implements Filterable {
+/*Adapter to display the services*/
+public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyViewHolder>  {
+
+
 
     Context mContext;
     List<ServiceItem> serviceItem;
@@ -84,7 +87,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, ServiceItemActivity.class);
-                intent.putExtra("id", String.valueOf(id));
+                intent.putExtra("service_id", String.valueOf(id));
 
                 mContext.startActivity(intent);
             }
@@ -92,48 +95,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
 
     }
 
-
-
-
         @Override
         public int getItemCount () {
             return serviceItem.size();
         }
 
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString = charSequence.toString();
-                if (charString.isEmpty()) {
-                    serviceListFiltered = serviceItem;
-                } else {
-                    List<ServiceItem> filteredList = new ArrayList<>();
-                    for (ServiceItem row : serviceItem) {
-
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (row.getService_name().toLowerCase().contains(charString.toLowerCase()) || row.getSuburb().contains(charSequence)) {
-                            filteredList.add(row);
-                        }
-                    }
-
-                    serviceListFiltered = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = serviceListFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                serviceListFiltered = (ArrayList<ServiceItem>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
-    }
 
 
     }

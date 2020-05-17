@@ -21,7 +21,6 @@ import androidx.room.Room;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Tips.TipDatabase;
 import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
 

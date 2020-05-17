@@ -6,15 +6,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/*Model for event item */
+
 @Entity
 public class JobContentItem {
-
-
-//    @NonNull
-//    @ColumnInfo(name = "id")
-//    @PrimaryKey(autoGenerate = true)
-//    public int id;
-
 
     @PrimaryKey
     @NonNull
@@ -32,13 +27,6 @@ public class JobContentItem {
         this.type = type;
     }
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 
     public String getName() {
         return name;

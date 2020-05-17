@@ -16,6 +16,8 @@ import com.gerontechies.semonaid.R;
 
 import java.util.List;
 
+/*Adapter to show the saving tips*/
+
 public class SavingTipsAdapter extends RecyclerView.Adapter<SavingTipsAdapter.MyViewHolder> {
 
     Context mContext;

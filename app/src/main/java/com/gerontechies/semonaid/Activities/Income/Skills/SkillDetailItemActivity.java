@@ -57,7 +57,7 @@ public class SkillDetailItemActivity extends AppCompatActivity {
         Log.d("CERT", certifiation);
         job_name.setText(jobName);
         try {
-            addSkills(jobSkills);
+            addSkills(jobSkills);       //splitting the skill values
             if(certifiation.equals("[]")){
                 cert_card.setVisibility(View.GONE);
             } else{
@@ -69,8 +69,7 @@ public class SkillDetailItemActivity extends AppCompatActivity {
         }
 
 
-
-
+        //formatting the job desc
         String[] arrOfStr = jobDesc.split("\\.");
 
         for(int i=0; i< arrOfStr.length; i++)
@@ -93,6 +92,11 @@ public class SkillDetailItemActivity extends AppCompatActivity {
         });
 
     }
+
+    /*
+    * getting the skills and certifications of the current job
+    * For each item, we are adding a chip with the name
+    * */
 
     public void addSkills(String skillList) throws JSONException {
         Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);

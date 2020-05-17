@@ -26,10 +26,6 @@ import java.util.TimerTask;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
-    ViewPager viewPager;
-     Integer [] images = {  R.drawable.semonaidbgfinal, R.drawable.semonaidupdatedbg1,};
-     String [] text = { "Your Second Change at Saving", "Bring that Change Home"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,43 +66,12 @@ public class HomeScreenActivity extends AppCompatActivity {
         });
 
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this, images, text);
-        viewPager.setAdapter(viewPagerAdapter);
 
-        viewPager.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new taskTime(), 2000, 7000);
 
 
     }
 
-    public  class taskTime extends TimerTask{
-
-        @Override
-        public void run() {
-            HomeScreenActivity.this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    if(viewPager.getCurrentItem()== 0 ){
-                        viewPager.setCurrentItem(1);
-                    } else if(viewPager.getCurrentItem() == 1){
-                        viewPager.setCurrentItem(0);
-                    }
-                }
-            });
-
-        }
-    }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.home_menu, menu);
-//        return true;
-//    }
-//                //Custom title in the NavBar
+         //Custom title in the NavBar
         public void setTitle (String title){
             Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 

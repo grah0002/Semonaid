@@ -18,6 +18,7 @@ import com.gerontechies.semonaid.R;
 
 import java.util.List;
 
+/*Adapter for the top3 expenses*/
 public class TopCategoriesAdapter extends RecyclerView.Adapter<TopCategoriesAdapter.MyViewHolder> {
 
     Context mContext;

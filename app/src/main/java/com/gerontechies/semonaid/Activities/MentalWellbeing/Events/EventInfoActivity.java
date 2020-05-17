@@ -59,13 +59,14 @@ public class EventInfoActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         eventId = getIntent().getIntExtra("event_id", 0);
-
-
-        Log.d("EVE", "S-----"+ String.valueOf(eventId));
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
 
     }
+
+
+    //reading the db for the events
+
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
@@ -80,10 +81,11 @@ public class EventInfoActivity extends AppCompatActivity {
         protected void onPostExecute(String details) {
 
             String eventCategory = item.category;
+            //splitting the categories by ,
             List<String> cat = Arrays.asList(eventCategory.split(","));
             Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
-            //String[] cat = eventCategory.split(",");
+            //adding chips for each of the categories
             for(int i = 0; i<cat.size(); i++){
                 Chip chip = new Chip(EventInfoActivity.this);
                 chip.setTypeface(font);

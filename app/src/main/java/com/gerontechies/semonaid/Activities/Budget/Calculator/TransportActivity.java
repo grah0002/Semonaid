@@ -39,7 +39,6 @@ public class TransportActivity extends AppCompatActivity {
     private SharedPreferences.Editor calculatorPrefEditor;
     Bundle BundleBudget;
     String CATEGORY = "Transport Expenses";
-    Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
 
     EditText rego_edit_txt, public_edit_txt, other_edit_txt;
@@ -147,6 +146,10 @@ public class TransportActivity extends AppCompatActivity {
             String other_sp = other_spinner.getSelectedItem().toString();
 
 
+            /* The below section checks to see if the value has already been inputted before. If so, it just edits it based on the
+             * current selection.
+             * Else it adds a new entry to the db with the values*/
+
             //rego
             if(TextUtils.isEmpty(rego)){
                 if(rego_flag ==99){
@@ -219,6 +222,9 @@ public class TransportActivity extends AppCompatActivity {
         }
     }
 
+    /*
+     * Reading the db to get the already inputted values
+     * */
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -239,7 +245,7 @@ public class TransportActivity extends AppCompatActivity {
                 BudgetItem budgetItem = item.get(i);
 
 
-
+                /*if the values exsist, setting the edit text and spinner to those values*/
                 if(budgetItem.itemName.equals("Rego and licence")){
                     rego_flag = 99;
                     rego_edit_txt.setText(String.valueOf(budgetItem.amount));
@@ -259,6 +265,8 @@ public class TransportActivity extends AppCompatActivity {
 
         }
     }
+
+    //getting the frequency based on the spinner selection
 
     public int getFrequency(String frequency){
 

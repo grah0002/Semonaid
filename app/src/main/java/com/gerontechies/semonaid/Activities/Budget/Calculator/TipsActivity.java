@@ -26,7 +26,6 @@ import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Tips.TipDatabase;
 import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
 
@@ -39,7 +38,6 @@ public class TipsActivity extends AppCompatActivity {
     SemonaidDB db = null;
     List<TipItem> item ;
     String tipName;
-    String name;
 
     ImageView imgIcon;
     String uri;
@@ -84,7 +82,6 @@ public class TipsActivity extends AppCompatActivity {
         name.setText(tipName);
         amt.setText("$" +amtVal + " spent yearly");
 
-        Log.d("LL", tipName);
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
 
@@ -154,7 +151,6 @@ public class TipsActivity extends AppCompatActivity {
         }
 
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-
         Drawable res = getResources().getDrawable(imageResource);
         imgIcon.setImageDrawable(res);
 
@@ -191,6 +187,7 @@ public class TipsActivity extends AppCompatActivity {
                     tipsRV.setNestedScrollingEnabled(false);
 
                 }
+                //if there are no tips, show the no tips image
                else if(allIatemList.size()<=0 ){
 
                    noRes.setVisibility(View.VISIBLE);

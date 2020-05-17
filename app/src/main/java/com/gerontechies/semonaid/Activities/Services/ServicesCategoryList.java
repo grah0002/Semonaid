@@ -23,7 +23,6 @@ import androidx.room.Room;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
@@ -58,12 +57,12 @@ public class ServicesCategoryList extends AppCompatActivity  {
                 SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
             setTitle(category);
-
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         }
         ReadDatabase rd = new ReadDatabase();
@@ -158,8 +157,6 @@ public class ServicesCategoryList extends AppCompatActivity  {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
     public void setTitle(String title){
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);

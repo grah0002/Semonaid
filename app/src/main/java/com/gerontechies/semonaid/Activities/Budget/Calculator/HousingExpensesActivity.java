@@ -33,23 +33,16 @@ import java.util.List;
 public class HousingExpensesActivity extends AppCompatActivity {
 
     SemonaidDB db = null;
-
-
     private SharedPreferences calculatorPreferences;
     private SharedPreferences.Editor calculatorPrefEditor;
     Bundle BundleBudget;
     String CATEGORY = "Household Expenses";
-    Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
-
     EditText rent_edit_text,groceries_edit_txt , other_edit_txt ;
     Spinner rent_spinner, groceries_spinner, other_spinner ;
     double expenseTotal = 0.0;
-
     int TYPE = 999; //type 999 values need to be reduced from the total
-
     List<BudgetItem> BudgetItemList = new ArrayList<>();
-
     int rent_flag = 0, other_flag = 0, groceries_flag = 0;
 
     @Override
@@ -99,8 +92,6 @@ public class HousingExpensesActivity extends AppCompatActivity {
         groceries_spinner.setAdapter(spinnerArrayAdapter);
         other_spinner.setAdapter(spinnerArrayAdapter);
 
-
-
         rent_edit_text = (EditText) findViewById(R.id.editText_rent);
         groceries_edit_txt = (EditText) findViewById(R.id.editText_groceries);
         other_edit_txt = (EditText) findViewById(R.id.editText_house_other);
@@ -145,6 +136,10 @@ public class HousingExpensesActivity extends AppCompatActivity {
             String rent_sp = rent_spinner.getSelectedItem().toString();
             String other_sp = other_spinner.getSelectedItem().toString();
             String groceries_sp = groceries_spinner.getSelectedItem().toString();
+
+            /* The below section checks to see if the value has already been inputted before. If so, it just edits it based on the
+             * current selection.
+             * Else it adds a new entry to the db with the values*/
 
 
             if(TextUtils.isEmpty(rent)){
@@ -220,6 +215,9 @@ public class HousingExpensesActivity extends AppCompatActivity {
         }
     }
 
+    /*
+     * Reading the db to get the already inputted values
+     * */
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -239,6 +237,7 @@ public class HousingExpensesActivity extends AppCompatActivity {
 
                 BudgetItem budgetItem = item.get(i);
 
+                /*if the values exsist, setting the edit text and spinner to those values*/
                 if(budgetItem.itemName.equals("Rent")){
                     rent_flag = 99;
                     rent_edit_text.setText(String.valueOf(budgetItem.amount));
@@ -261,6 +260,7 @@ public class HousingExpensesActivity extends AppCompatActivity {
         }
     }
 
+    //getting the frequency based on the spinner selection
     public int getFrequency(String frequency){
 
         int freq = 0;

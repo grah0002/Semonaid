@@ -37,16 +37,12 @@ public class BillsActivity extends AppCompatActivity {
     private SharedPreferences.Editor calculatorPrefEditor;
     Bundle BundleBudget;
     String CATEGORY = "Utility Bills";
-    Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
-
     EditText gas_edit_txt, water_edit_txt, electricity_edit_txt, phone_edit_txt, insurance_edit_txt, loans_edit_txt, other_edit_txt, internet_edit_txt;
     Spinner gas_spinner, water_spinner, electricity_spinner , phone_spinner, insurance_spinner, loans_spinner, other_spinner, internet_spinner ;
     double incomeTotal = 0.0;
     int TYPE = 999;
-
     List<BudgetItem> BudgetItemList = new ArrayList<>();
-
     int gas_flag = 0, water_flag = 0, electricity_flag = 0, phone_flag = 0, insurance_flag = 0, loans_flag = 0, other_flag=0, internet_flag=0;
 
     @Override
@@ -108,8 +104,7 @@ public class BillsActivity extends AppCompatActivity {
         internet_spinner.setAdapter(spinnerArrayAdapter);
 
 
-
-
+        //setting the textbox items
         gas_edit_txt = (EditText) findViewById(R.id.editText_gas);
         water_edit_txt = (EditText) findViewById(R.id.editText_water);
         electricity_edit_txt = (EditText) findViewById(R.id.editText_electricity);
@@ -133,13 +128,10 @@ public class BillsActivity extends AppCompatActivity {
 
         Button btn_next = (Button) findViewById(R.id.btn_next);
         btn_next.setTypeface(font);
-
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
+                //adding to db on button click
                 addToDb addToDb = new addToDb();
                 addToDb.execute();
             }
@@ -153,6 +145,7 @@ public class BillsActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
 
+            //getting the input values on button click
             String  gas,  water, electricity, phone, internet, insurance, loans, other;
             gas = gas_edit_txt.getText().toString();
             water = electricity_edit_txt.getText().toString();
@@ -164,8 +157,7 @@ public class BillsActivity extends AppCompatActivity {
             other = other_edit_txt.getText().toString();
 
 
-            //Spinner selected items
-
+            //getting the frequency values
             String gas_sp = gas_spinner.getSelectedItem().toString();
             String water_sp = water_spinner.getSelectedItem().toString();
             String electricity_sp = electricity_spinner.getSelectedItem().toString();
@@ -175,6 +167,11 @@ public class BillsActivity extends AppCompatActivity {
             String loans_sp = loans_spinner.getSelectedItem().toString();
             String other_sp = other_spinner.getSelectedItem().toString();
 
+
+
+       /* The below section checks to see if the value has already been inputted before. If so, it just edits it based on the
+       * current selection.
+       * Else it adds a new entry to the db with the values*/
 
             //gas
             if(TextUtils.isEmpty(gas)){
@@ -320,8 +317,6 @@ public class BillsActivity extends AppCompatActivity {
             }
 
 
-
-
             return null;
         }
 
@@ -331,13 +326,13 @@ public class BillsActivity extends AppCompatActivity {
 
 
             startActivity(intent);
-            finish();
-
-            Log.d("DB-ITEM","Added the values");
-            // textView_insert.setText("Added Record: " + details);
+            BillsActivity.this.finish();
         }
     }
 
+    /*
+    * Reading the db to get the already inputted values
+    * */
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -359,6 +354,7 @@ public class BillsActivity extends AppCompatActivity {
 
 
 
+                /*if the values exsist, setting the edit text and spinner to those values*/
                 if(budgetItem.itemName.equals("Gas Bill")){
                     gas_flag = 99;
                     gas_edit_txt.setText(String.valueOf(budgetItem.amount));
@@ -398,6 +394,9 @@ public class BillsActivity extends AppCompatActivity {
 
         }
     }
+
+
+    //getting the frequency based on the spinner selection
 
     public int getFrequency(String frequency){
 

@@ -40,7 +40,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:srcCompat="@drawable/trash" />
+                    app:srcCompat="@drawable/calendar" />
 
                 <TextView
                     android:id="@+id/textView31"
@@ -80,7 +80,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
-                    app:srcCompat="@drawable/detective" />
+                    app:srcCompat="@drawable/wellbeing" />
 
                 <TextView
                     android:id="@+id/textView312"

@@ -34,20 +34,16 @@ import java.util.List;
 public class PersonalActivity extends AppCompatActivity {
 
     SemonaidDB db = null;
-
     private SharedPreferences calculatorPreferences;
     private SharedPreferences.Editor calculatorPrefEditor;
     Bundle BundleBudget;
     String CATEGORY = "Personal Expenses";
     Bundle BudgetCalculator = new Bundle();
     List<BudgetItem> item;
-
     EditText clothing_edit_txt, doctor_edit_txt, entertainment_edit_txt, pets_edit_txt,  other_edit_txt;
     Spinner clothing_spinner, doctor_spinner, entertainment_spinner, pets_spinner,  other_spinner ;
     int TYPE = 999;
-
     List<BudgetItem> BudgetItemList = new ArrayList<>();
-
     int clothing_flag = 0, doctor_flag = 0, entertainment_flag = 0, pets_flag = 0,  other_flag = 0;
 
     @Override
@@ -158,6 +154,10 @@ public class PersonalActivity extends AppCompatActivity {
             String other_sp = other_spinner.getSelectedItem().toString();
 
 
+            /* The below section checks to see if the value has already been inputted before. If so, it just edits it based on the
+             * current selection.
+             * Else it adds a new entry to the db with the values*/
+
             //clothing
             if(TextUtils.isEmpty(clothing)){
                 if(clothing_flag ==99){
@@ -267,6 +267,9 @@ public class PersonalActivity extends AppCompatActivity {
         }
     }
 
+    /*
+     * Reading the db to get the already inputted values
+     * */
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -287,7 +290,7 @@ public class PersonalActivity extends AppCompatActivity {
                 BudgetItem budgetItem = item.get(i);
 
 
-
+                /*if the values exsist, setting the edit text and spinner to those values*/
                 if(budgetItem.itemName.equals("Clothing")){
                     clothing_flag = 99;
                     clothing_edit_txt.setText(String.valueOf(budgetItem.amount));
@@ -316,6 +319,7 @@ public class PersonalActivity extends AppCompatActivity {
         }
     }
 
+    //getting the frequency based on the spinner selection
     public int getFrequency(String frequency){
 
         int freq = 0;

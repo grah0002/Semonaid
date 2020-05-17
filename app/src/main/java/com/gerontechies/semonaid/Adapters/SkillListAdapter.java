@@ -18,7 +18,7 @@ import java.util.List;
 
 import static com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity.selectedCertfificationsList;
 import static com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity.selectedSkillsList;
-
+/*Adapter for the skills and certifications list*/
 public class SkillListAdapter extends RecyclerView.Adapter<SkillListAdapter.MyViewHolder> {
 
     Context mContext;

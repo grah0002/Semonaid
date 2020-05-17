@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Service.ServiceDatabase;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 
@@ -205,6 +204,8 @@ public class ServiceInfoActivity extends AppCompatActivity {
     }
 
 
+
+    //adding the values to the db
 
     private class LoadData extends AsyncTask<Void, Void, String>  {
 
