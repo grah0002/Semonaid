@@ -21,12 +21,12 @@ import java.util.List;
 public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> {
 
     Context mContext;
-    List<YogaItem> yogaItem;
+    List<YogaItem> yogaItems;
 
 
-    public YogaAdapter(Activity mContext, List<YogaItem> yogaItem) {
+    public YogaAdapter(Activity mContext, List<YogaItem> yogaItems) {
         this.mContext = mContext;
-        this.yogaItem = yogaItem;
+        this.yogaItems = yogaItems;
     }
 
 
@@ -67,16 +67,17 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
-        YogaItem item = yogaItem.get(position);
+        YogaItem item = yogaItems.get(position);
 
         holder.title1.setText(item.getTitle());
 
-        String src = item.image;
+        String src = " ";
+        src = item.getImage();
         Log.d("IMAge", src + "---");
         //String uri = "@drawable/" + "mountainpose";
 
-        String uri="";
-
+        String uri = "@drawable/" + src;
+/*
         if (item.equals("Mountain")) {
              uri = "@drawable/" + "mountainpose";
         } else if (item.equals("Tree")) {
@@ -90,11 +91,11 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> 
         } else if (item.equals("Savasana")) {
              uri = "@drawable/" + "savasanas";
         }
+*/
+//        int imageResource = (int) this.mContext.getResources().getIdentifier(uri, null, this.mContext.getPackageName());
+//        Drawable res = this.mContext.getResources().getDrawable(imageResource);
 
-        int imageResource = mContext.getResources().getIdentifier(uri, null, mContext.getPackageName());
-        Drawable res = this.mContext.getResources().getDrawable(imageResource);
-
-        holder.image1.setImageDrawable(res);
+//        holder.image1.setImageDrawable(res);
         holder.text1.setText(item.getYoga());
         holder.card_yoga1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +116,6 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return yogaItem.size();
+        return yogaItems.size();
     }
 }

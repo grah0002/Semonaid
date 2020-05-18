@@ -1,4 +1,4 @@
-package com.gerontechies.semonaid.Activities.Yoga;
+package com.gerontechies.semonaid.Activities.MentalWellbeing.Yoga;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -16,7 +16,6 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Database;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;

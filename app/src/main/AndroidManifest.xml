@@ -86,6 +86,8 @@
         <activity android:name=".Activities.T2T.T2tCategoryActivity" />
         <activity android:name=".Activities.T2T.T2tCategoryListActivity" />
         <activity android:name=".Activities.T2T.T2tMenuActivity" />
+        <activity android:name=".Activities.MentalWellbeing.Yoga.YogaList2Activity" />
+        <activity android:name=".Activities.MentalWellbeing.Yoga.YogaListActivity" />
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -93,7 +95,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Yoga.YogaListActivity" />
+
     </application>
 
 </manifest>

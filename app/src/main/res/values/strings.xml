@@ -100,6 +100,15 @@
     <string name="tips_1">To get started, please the category you would like to view tips on:</string>
     <string name="title_activity_services_map">Map</string>
 
+    <!--    Yoga  -->
+    <string name="yoga_1">• Stand tall with big toes touching and heels together.\nDraw your abdominal in and up and relax your shoulders down and back.\nBreathe five to eight breaths while actively engaging your leg muscles.\n\n• Benefits:\nBalance and grounding through the feet.</string>
+    <string name="yoga_2">• Stand tall, and place one foot on the opposite inner thigh, either above or below the knee. (start with Baby Tree or use a chair for support)\nOpen the leg to the side, bring your hands to prayer, and stay for five to eight breaths.\n\n• Benefits:\nBalance, concentration, leg and abdominal strength.</string>
+    <string name="yoga_3">• Start kneeling, and stretch one arm forward and the opposite leg back.\nImagine you have a tea cup on your back and draw your belly button towards your spine.\nStay for a breath, then switch sides.\nRepeat five times.\n\n• Benefit:\nBalance, concentration, abdominal and back support.</string>
+    <string name="yoga_4">• Start on hands and knees, tuck your toes under, and lift your hips up and back until your body forms a triangle.\nUse your core strength and legs to bring the weight back as much as possible.\nStay for five to eight breaths, lower down, and repeat two more times.\nFor seniors with wrist issues, do Forearm Downward Dog instead.\n\n• Benefits:\nJoint health, flexibility, and all-over body strength.</string>
+    <string name="yoga_5">• Lie down on your stomach and place your forearms on the mat, elbows under your shoulders.\nPress firmly into the arms and draw your shoulder blades together and down your back.\nLift your abdominal in and up and stay for five to eight breaths.\n\n• Benefits:\nUpper back strength and preventing forward head syndrome.</string>
+    <string name="yoga_6">• Sit tall and bring the soles of the feet together as you open your knees out to the sides.\nFold forward for a deeper stretch but try to prevent rounding too much in the lower back.\nHold for five to eight breaths.\n\n• Benefits:\nOpen hips, feet massage.</string>
+    <string name="yoga_7">• Lie down and let the floor support you.\nCompletely relax the muscles and breathe as you lie there and take a deep, restorative break.\n\n• Benefits:\nAids nervous system, mental and physical peace.</string>
+
     <!--Get Started -->
     <string name="get_started">Get Ready!\n Your journey to improve your Financial and Mental well-being starts now!</string>
     <string name="get_started2">To begin, please select an option</string>
