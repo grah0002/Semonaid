@@ -70,9 +70,9 @@ public class T2tAdapter extends RecyclerView.Adapter<T2tAdapter.MyViewHolder> {
 
         holder.text1.setText(item.getT2t());
 
-        if(position == 0){
-            holder.text1.setVisibility(View.VISIBLE);
-        }
+//        if(position == 0){
+//            holder.text1.setVisibility(View.VISIBLE);
+//        }
 
         holder.card_t2t1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -76,6 +76,8 @@ public class SkillsFilterActivity extends AppCompatActivity {
                         selectedCertfificationsList.clear();
                         selectedSkillsList.clear();
                         dialog.dismiss();
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -179,6 +181,7 @@ public class SkillsFilterActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             // finish the activity
+            finish();
             onBackPressed();
             return true;
         } else if (id == R.id.homeIcon) {

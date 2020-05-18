@@ -66,7 +66,7 @@ public class SkillListingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SkillListingActivity.this, SkillsFilterActivity.class);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 

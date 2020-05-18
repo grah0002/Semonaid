@@ -79,7 +79,7 @@ public class JobTipsAdapter extends RecyclerView.Adapter<JobTipsAdapter.MyViewHo
         holder.title1.setText(item.getName());
         holder.text1.setText(item.getDesc());
 
-        holder.step.setText("step "+item.getId() +"/11");
+        holder.step.setText("step "+item.getId() +"/10");
 
 
 

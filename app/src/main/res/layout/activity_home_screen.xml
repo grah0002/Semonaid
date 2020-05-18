@@ -42,7 +42,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Your Second Change at Saving"
+                android:text="Your Second Chance at Saving"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:fontFamily="@font/montserrat" />
