@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/scrollbar_shape_style"
-
     android:orientation="vertical"
     tools:context=".Activities.Services.ServiceItemActivity">
 
@@ -27,38 +25,32 @@
             android:textSize="24sp"
             app:fontFamily="@font/montserrat" />
 
-        <androidx.cardview.widget.CardView
+        <TextView
+            android:id="@+id/txt_opshop_phone"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="20dp">
+            android:text="TextView"
+            android:textColor="#000000"
+            app:fontFamily="@font/montserrat" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+        <TextView
+            android:id="@+id/txt_opshop_website"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:fontFamily="@font/montserrat" />
 
-                <TextView
-                    android:id="@+id/textView33"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Address"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    app:fontFamily="@font/montserrat" />
-
-                <TextView
-                    android:id="@+id/txt_opshop_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TextView"
-                    android:textColor="#000000"
-                    app:fontFamily="@font/montserrat" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/txt_opshop_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:fontFamily="@font/montserrat" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

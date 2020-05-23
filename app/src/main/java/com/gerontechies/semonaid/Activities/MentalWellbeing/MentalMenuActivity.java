@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsCategoryActivity;
-import com.gerontechies.semonaid.Activities.MentalWellbeing.Yoga.YogaList2Activity;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Yoga.YogaListActivity;
 import com.gerontechies.semonaid.R;
 
@@ -47,7 +46,7 @@ public class MentalMenuActivity extends AppCompatActivity {
         yoga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MentalMenuActivity.this, YogaList2Activity.class);
+                Intent intent = new Intent(MentalMenuActivity.this, YogaListActivity.class);
                 startActivity(intent);
             }
         });

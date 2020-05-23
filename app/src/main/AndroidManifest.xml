@@ -85,7 +85,6 @@
         <activity android:name=".Activities.T2T.T2tCategoryActivity" />
         <activity android:name=".Activities.T2T.T2tCategoryListActivity" />
         <activity android:name=".Activities.T2T.T2tMenuActivity" />
-        <activity android:name=".Activities.MentalWellbeing.Yoga.YogaList2Activity" />
         <activity android:name=".Activities.MentalWellbeing.Yoga.YogaListActivity" />
         <activity android:name=".Activities.SplashActivity">
 
