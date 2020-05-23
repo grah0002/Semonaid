@@ -4,9 +4,10 @@ android {
     compileSdkVersion 28
     buildToolsVersion "28.0.0"
 
+
     defaultConfig {
         applicationId "com.gerontechies.semonaid"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -18,6 +19,18 @@ android {
                                      "$projectDir/schemas".toString()]
             }
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
     }
 
     buildTypes {
@@ -58,7 +71,6 @@ dependencies {
     //Expandable text view
     implementation 'com.ms-square:expandableTextView:0.1.4'
 
-
     // Room
     implementation "android.arch.persistence.room:runtime:1.0.0"
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
@@ -68,7 +80,14 @@ dependencies {
     implementation 'com.google.android.gms:play-services-places:17.0.0'
 
 
-    //  implementation 'com.google.android.gms:play-services-maps:10.2.0'
+    //annimations
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
+    //alert dialogs
+    implementation 'com.shreyaspatil:MaterialDialog:2.1'
+
+    // Material Design Library
+    implementation 'com.google.android.material:material:1.0.0'
 
 }

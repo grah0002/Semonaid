@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.Budget.EventItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -48,7 +49,7 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
     Map<String, String> mMarkerMap = new HashMap<>();
     ArrayList<LatLng> latLngs = new ArrayList<LatLng>() ;
     EventItem selected;
-
+    Typeface font;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +60,7 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         mapFragment.getMapAsync(this);
 
         Button list_btn = (Button) findViewById(R.id.list_btn) ;
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+         font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
         list_btn.setTypeface(font);
         list_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,8 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         });
 
         Intent intent = getIntent();
+
+
 
         category = getIntent().getStringExtra("event_category");
         this.setTitle(R.string.app_name);
@@ -98,9 +101,15 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         View bottomsheet = LayoutInflater.from(getApplicationContext())
                 .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
         TextView locationName = bottomsheet.findViewById(R.id.location_name);
+
         TextView locationAddress = bottomsheet.findViewById(R.id.location_address_txt);
         TextView locationDays = bottomsheet.findViewById(R.id.location_days);
+        locationAddress.setTypeface(font);
+        locationDays.setTypeface(font);
+        locationName.setTypeface(font);
+
         Button view_details = bottomsheet.findViewById(R.id.btn_location);
+        view_details.setTypeface(font);
 
 
         locationName.setText(selected.activity);
@@ -158,18 +167,34 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         @Override
         protected void onPostExecute(String details) {
 
-            //add markers
-            if(allItemList.size()>0){
-                PlotData plotData = new PlotData();
-                plotData.execute();
+            for(int i = 0; i<allItemList.size(); i++){
+                Marker marker;
+
+                EventItem eventItem = allItemList.get(i);
+
+                if(category.equals("none")){
+                    LatLng item  = new LatLng(eventItem.getLatitude(),eventItem.getLongitude());
+                    //  mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
+                    marker =  mMap.addMarker(new MarkerOptions()
+                            .position(item)
+                            .title(eventItem.getActivity())
+                            .snippet(eventItem.getAddress())
+
+                    );
+                    marker.setTag(eventItem.getId());
+                }
+
+
             }
+
+
         }
 
     }
 
 
     //reference - https://stackoverflow.com/questions/3574644/how-can-i-find-the-latitude-and-longitude-from-address/27834110#27834110
-    private class PlotData extends AsyncTask<Void, Void, String> {
+/*    private class PlotData extends AsyncTask<Void, Void, String> {
         ProgressDialog pd;
         @Override
         protected void onPreExecute() {
@@ -239,7 +264,7 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
             }
         }
 
-    }
+    }*/
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.

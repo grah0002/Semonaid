@@ -322,11 +322,12 @@ public class BillsActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
+            //BillsActivity.this.finish();
             Intent intent = new Intent(BillsActivity.this, BudgetMainMenuActivity.class);
 
-
-            startActivity(intent);
             BillsActivity.this.finish();
+            startActivity(intent);
+
         }
     }
 

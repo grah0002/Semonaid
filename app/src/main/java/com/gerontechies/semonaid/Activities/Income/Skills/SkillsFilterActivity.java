@@ -58,15 +58,21 @@ public class SkillsFilterActivity extends AppCompatActivity {
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SkillsFilterActivity.this, SkillListingActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(SkillsFilterActivity.this, SkillListingActivity.class);
+              //  startActivity(intent);
                 finish();
             }
         });
 
+
+
+
         reset_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(SkillsFilterActivity.this);
                 builder.setTitle("Reset");
                 builder.setMessage("Are you sure you want to reset all the values?");

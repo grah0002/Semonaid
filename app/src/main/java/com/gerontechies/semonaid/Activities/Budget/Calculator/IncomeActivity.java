@@ -212,11 +212,12 @@ public class IncomeActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
+          //  IncomeActivity.this.finish();
             Intent intent = new Intent(IncomeActivity.this, BudgetMainMenuActivity.class);
-
+            IncomeActivity.this.finish();
 
             startActivity(intent);
-            IncomeActivity.this.finish();
+
 
             Log.d("DB-ITEM","Added the values");
             // textView_insert.setText("Added Record: " + details);

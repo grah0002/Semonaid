@@ -16,18 +16,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/search_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:fontFamily="@font/montserrat"
+                android:hint="Search..."
+                android:ems="10"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/filter_btn"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/ovalbtn"
+                android:gravity="center"
+                android:hint="Search "
+                android:text="Filter"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:text="Filter" />
+                android:textSize="18sp"
+                app:fontFamily="@font/montserrat" />
 
 
         </LinearLayout>
@@ -39,6 +54,7 @@
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
+
     </LinearLayout>
 
 

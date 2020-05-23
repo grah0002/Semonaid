@@ -256,11 +256,12 @@ public class PersonalActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
-            Intent intent = new Intent(PersonalActivity.this, BudgetMainMenuActivity.class);
 
+
+            Intent intent = new Intent(PersonalActivity.this, BudgetMainMenuActivity.class);
+            PersonalActivity.this.finish();
 
             startActivity(intent);
-            finish();
 
             Log.d("DB-ITEM","Added the values");
             // textView_insert.setText("Added Record: " + details);

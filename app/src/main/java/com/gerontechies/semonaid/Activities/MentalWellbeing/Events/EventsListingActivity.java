@@ -29,6 +29,7 @@ import com.gerontechies.semonaid.Models.Budget.EventItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.chip.Chip;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -96,16 +97,29 @@ public class EventsListingActivity extends AppCompatActivity {
                 for (EventItem temp : item) {
 
                     String eventCategory = temp.category;
-                    List<String> cat = Arrays.asList(eventCategory.split(","));
+                    JSONArray categoriesJson = null;
+                    try {
+                        categoriesJson = new JSONArray(eventCategory);
+                        for (int j = 0; j < categoriesJson.length(); j++) {
+                            JSONObject cObj = categoriesJson.getJSONObject(j);
 
-                    //String[] cat = eventCategory.split(",");
-                    for (int i = 0; i < cat.size(); i++) {
-                        //  Log.d("STR", i+"-------"+cat.get(i)+"----"+temp.activity+"----"+ temp.id);
-                        if (cat.get(i).equals(category)) {
-                            allItemList.add(temp);
+                            String c = cObj.getString("category");
+                            if(c.toLowerCase().equals(category.toLowerCase())){
+                                allItemList.add(temp);
+                            }
+                            // adding chips for each of the categories
+//                            Chip chip = new Chip(EventsListingActivity.this);
+//                            chip.setTypeface(font);
+//                            chip.setText(c);
+//                            chip.setTextColor(getResources().getColorStateList(R.color.white));
+//                            chip.setChipBackgroundColor(getResources().getColorStateList(R.color.colorPrimary));
+//                            categories.addView(chip);
 
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+
 
 
                 }

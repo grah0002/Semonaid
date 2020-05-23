@@ -211,14 +211,13 @@ public class TransportActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
-            Intent intent = new Intent(TransportActivity.this, BudgetMainMenuActivity.class);
 
+
+            Intent intent = new Intent(TransportActivity.this, BudgetMainMenuActivity.class);
+            TransportActivity.this.finish();
 
             startActivity(intent);
-            finish();
 
-            Log.d("DB-ITEM","Added the values");
-            // textView_insert.setText("Added Record: " + details);
         }
     }
 

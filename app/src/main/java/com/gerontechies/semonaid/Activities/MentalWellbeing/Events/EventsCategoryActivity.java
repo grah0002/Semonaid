@@ -149,7 +149,7 @@ public class EventsCategoryActivity extends AppCompatActivity {
     public String loadJSONFromAsset() {
         String json = null;
         try {
-            InputStream is = this.getAssets().open("Events.json");
+            InputStream is = this.getAssets().open("WellBeingActivites.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -180,13 +180,15 @@ public class EventsCategoryActivity extends AppCompatActivity {
                     int id = object.getInt("id");
                     String activity = object.getString("activity");
                     String day = object.getString("day");
-                    String category = object.getString("category");
+                    String category = object.getString("Category");
+
+
                     String Address = object.getString("Address");
                     String Description = object.getString("Description");
                     double longitude = object.getDouble("longitude");
                     double latitude = object.getDouble("latitude");
 
-                    item.setLongitude(latitude);
+                    item.setLatitude(latitude);
                     item.setLongitude(longitude);
                     item.setActivity(activity);
                     item.setAddress(Address);

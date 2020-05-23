@@ -147,6 +147,12 @@
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="18sp" />
 
+                <ImageView
+                    android:id="@+id/map_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@drawable/accom99" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView

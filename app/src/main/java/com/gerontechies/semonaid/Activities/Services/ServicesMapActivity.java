@@ -49,7 +49,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
     Map<String, String> mMarkerMap = new HashMap<>();
     String ROUTE, NAME;
     ServiceItem selected;
-
+    Typeface font;
 
     ServicesAdapter mAdapter;
 
@@ -66,7 +66,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         mapFragment.getMapAsync(this);
 
         Button list_btn = (Button) findViewById(R.id.list_btn) ;
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+         font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
         list_btn.setTypeface(font);
         list_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,11 +105,17 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         TextView locationName = bottomsheet.findViewById(R.id.location_name);
         TextView locationAddress = bottomsheet.findViewById(R.id.location_address_txt);
         TextView locationDays = bottomsheet.findViewById(R.id.location_days);
+        locationAddress.setTypeface(font);
+        locationDays.setTypeface(font);
+        locationName.setTypeface(font);
+
         Button view_details = bottomsheet.findViewById(R.id.btn_location);
+        view_details.setTypeface(font);
 
 
         locationName.setText(selected.service_name);
         locationAddress.setText(selected.category_1);
+
        // locationDays.setText(selected.suburb);
         view_details.setOnClickListener(new View.OnClickListener() {
             @Override

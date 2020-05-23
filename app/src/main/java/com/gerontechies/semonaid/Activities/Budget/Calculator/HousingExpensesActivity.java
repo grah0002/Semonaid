@@ -206,12 +206,15 @@ public class HousingExpensesActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
+
+
+            HousingExpensesActivity.this.finish();
             Intent intent = new Intent(HousingExpensesActivity.this, BudgetMainMenuActivity.class);
 
-
+            finish();
 
             startActivity(intent);
-            finish();
+
         }
     }
 

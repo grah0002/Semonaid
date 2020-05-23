@@ -12,12 +12,15 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
@@ -46,6 +49,7 @@ public class SkillListingActivity extends AppCompatActivity {
     boolean isFilterd = false;
     Button filter;
     HashSet<JobItem> allJobItems1 = new HashSet<>();
+    EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,25 @@ public class SkillListingActivity extends AppCompatActivity {
                 .build();
 
 
+        //Reference - https://www.youtube.com/watch?v=OWwOSLfWboY
+        search = (EditText) findViewById(R.id.search_txt);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                filterText(editable.toString());
+            }
+        });
         filter = (Button) findViewById(R.id.filter_btn);
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +96,32 @@ public class SkillListingActivity extends AppCompatActivity {
         tipsRV = (RecyclerView) findViewById(R.id.rv);
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
+    }
+
+    private void filterText(String search){
+        List<JobItem> filterList = new ArrayList<>();
+
+        if(isFilterd){
+            for(JobItem jobItem: allJobItems1){
+                if(jobItem.name.toLowerCase().contains(search.toLowerCase())){
+                    filterList.add(jobItem);
+                }
+            }
+        } else{
+            for(JobItem jobItem: allJobItems){
+                if(jobItem.name.toLowerCase().contains(search.toLowerCase())){
+                    filterList.add(jobItem);
+                }
+            }
+        }
+
+
+        JobAdapter adapter = new JobAdapter(SkillListingActivity.this, filterList);
+        RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(SkillListingActivity.this, LinearLayoutManager.VERTICAL, false);
+        tipsRV.setLayoutManager(mLayoutManagerIncome);
+
+        tipsRV.setItemAnimator(new DefaultItemAnimator());
+        tipsRV.setAdapter(adapter);
     }
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {

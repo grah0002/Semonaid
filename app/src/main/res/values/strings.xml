@@ -130,5 +130,7 @@
     <string name="home_second">Home Second</string>
     <string name="title_activity_events_maps">Map</string>
 
+    <!--  Help TExt  -->
+    <style name="help_save">Budget Calculator: Use the calculator to get an overall analysis of your current budget\nSave My Earnings: Have a look at the list of saving tips we have compiled to figure where you can save more money\n View Services: Contains information on affordable/free services located around Melbourne that can assist you in saving your money</style>
 
 </resources>
