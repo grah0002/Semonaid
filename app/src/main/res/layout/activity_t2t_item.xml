@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/tip1"
+        android:id="@+id/card_t2t1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -29,7 +29,7 @@
                 android:paddingBottom="20dp">
 
                 <TextView
-                    android:id="@+id/title1"
+                    android:id="@+id/t2t_title1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -46,8 +46,13 @@
                     app:srcCompat="@android:drawable/arrow_down_float" />
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/t2t_image1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <TextView
-                android:id="@+id/text1"
+                android:id="@+id/t2t_text1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"

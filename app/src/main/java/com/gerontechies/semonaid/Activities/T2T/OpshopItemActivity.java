@@ -23,11 +23,11 @@ import com.gerontechies.semonaid.R;
 
 public class OpshopItemActivity extends AppCompatActivity {
 
-    TextView name, address;
+    TextView name, phone, website, address;
     TextView monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday;
     OpshopDatabase db = null;
     OpshopItem item;
-    String id, opshopName;
+    String id;
     boolean isMap=false;
 
 
@@ -59,8 +59,8 @@ public class OpshopItemActivity extends AppCompatActivity {
         name = (TextView) findViewById(R.id.txt_opshop_name);
         address = (TextView) findViewById(R.id.txt_opshop_address);
 //        suburb = (TextView) findViewById(R.id.);
-//        phone = (TextView) findViewById(R.id.);
-//        email = (TextView) findViewById(R.id.);
+        phone = (TextView) findViewById(R.id.txt_opshop_phone);
+        website = (TextView) findViewById(R.id.txt_opshop_website);
 //        helpline = (TextView) findViewById(R.id.);
 //        website = (TextView) findViewById(R.id.);
 
@@ -108,39 +108,41 @@ public class OpshopItemActivity extends AppCompatActivity {
 
 
            name.setText(item.getName());
+           phone.setText(item.getPhone());
+           website.setText(item.getWebsite());
            address.setText(item.getAddress());
 
-            if(mTxt.equals("n/a")){
+            if(mTxt.equals("Refer to website")){
                 monday.setVisibility(View.GONE);
             } else{
                 monday.setText("Monday - "+item.getMonday());
             }
-            if(tuTxt.equals("n/a")){
+            if(tuTxt.equals("Refer to website")){
                 tuesday.setVisibility(View.GONE);
             } else{
                 tuesday.setText("Tuesday - "+item.getTuesday());
             }
-            if(wTxt.equals("n/a")){
+            if(wTxt.equals("Refer to website")){
                 wednesday.setVisibility(View.GONE);
             } else{
                 wednesday.setText("Wednesday - "+item.getWednesday());
             }
-            if(tTxt.equals("n/a")){
+            if(tTxt.equals("Refer to website")){
                 thursday.setVisibility(View.GONE);
             } else{
                 thursday.setText("Thusday - "+item.getThursday());
             }
-            if(fTxt.equals("n/a")){
+            if(fTxt.equals("Refer to website")){
                 friday.setVisibility(View.GONE);
             } else{
                 friday.setText("Friday - "+item.getFriday());
             }
-            if(sat.equals("n/a")){
+            if(sat.equals("Refer to website")){
                 saturday.setVisibility(View.GONE);
             } else{
                 saturday.setText("Saturday - "+item.getFriday());
             }
-            if(sun.equals("n/a")){
+            if(sun.equals("Refer to website")){
                 sunday.setVisibility(View.GONE);
             } else{
                 sunday.setText("Sunday - "+item.getFriday());

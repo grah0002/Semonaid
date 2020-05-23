@@ -49,8 +49,7 @@
             <ImageView
                 android:id="@+id/yogaImage"
                 android:layout_width="match_parent"
-                android:layout_height="175dp"
-                app:srcCompat="@drawable/treepose" />
+                android:layout_height="175dp" />
 
             <TextView
                 android:id="@+id/yogatext"

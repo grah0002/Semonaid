@@ -15,6 +15,12 @@ public class OpshopItem {
     @ColumnInfo(name = "opshop_name")
     public String opshop_name;
 
+    @ColumnInfo(name = "phone")
+    public String phone;
+
+    @ColumnInfo(name = "website")
+    public String website;
+
     @ColumnInfo(name = "address")
     public String address;
 
@@ -38,7 +44,6 @@ public class OpshopItem {
 
     @ColumnInfo(name = "friday")
     public String friday;
-
 
     @ColumnInfo(name = "saturday")
     public String saturday;
@@ -103,6 +108,22 @@ public class OpshopItem {
 
     public void setName(String name) {
         this.opshop_name = name;
+    }
+
+   public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public String getSuburb() {
