@@ -1,4 +1,4 @@
-package com.gerontechies.semonaid.Activities.T2T;
+package com.gerontechies.semonaid.Activities.Income.T2T;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Income.T2T.OpshopMapActivity;
 import com.gerontechies.semonaid.Activities.Services.ServicesMapActivity;
 import com.gerontechies.semonaid.Adapters.OpshopAdapter;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;

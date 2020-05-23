@@ -1,4 +1,4 @@
-package com.gerontechies.semonaid.Activities.T2T;
+package com.gerontechies.semonaid.Activities.Income.T2T;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -12,11 +12,9 @@ import android.widget.Toolbar;
 
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.room.Database;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceItemActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;

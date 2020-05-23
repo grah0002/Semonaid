@@ -1,8 +1,7 @@
-package com.gerontechies.semonaid.Activities.T2T;
+package com.gerontechies.semonaid.Activities.Income.T2T;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.location.Address;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;

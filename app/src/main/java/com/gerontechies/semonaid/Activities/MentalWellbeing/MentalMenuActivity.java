@@ -4,10 +4,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,13 +18,27 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Models.YogaDatabase;
+import com.gerontechies.semonaid.Models.YogaItem;
+import com.gerontechies.semonaid.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsCategoryActivity;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Yoga.YogaListActivity;
-import com.gerontechies.semonaid.R;
 
 public class MentalMenuActivity extends AppCompatActivity {
 
     CardView events, yoga;
+    YogaDatabase yogadb = null;
+    List<YogaItem> yogaitem;
+    List<YogaItem> allyogaItemList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +58,11 @@ public class MentalMenuActivity extends AppCompatActivity {
             }
         });
 
+        yogadb = Room.databaseBuilder(this,
+                YogaDatabase.class, "yoga_database")
+                .fallbackToDestructiveMigration()
+                .build();
+
         yoga = (CardView) findViewById(R.id.yoga_card);
 
         yoga.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +72,67 @@ public class MentalMenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private class LoadData extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String data =  loadJSONFromAsset();
+
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(data);
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject object = jsonArray.getJSONObject(i);
+
+                    YogaItem item = new YogaItem();
+                    int id = object.getInt("id");
+                    String name = object.getString("name");
+                    String yoga = object.getString("text");
+                    String image = object.getString("image");
+                    String title = object.getString("title");
 
 
+                    item.setId(id);
+                    item.setName(name);
+                    item.setImage(image);
+                    item.setYoga(yoga);
+                    item.setTitle(title);
+                    yogadb.YogaDAO().insert(item);
 
 
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return " ";
+        }
+
+
+        @Override
+        protected void onPostExecute(String details) {
+
+        }
+
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = this.getAssets().open("YogaItems.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
 

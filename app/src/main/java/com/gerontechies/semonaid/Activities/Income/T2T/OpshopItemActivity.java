@@ -1,4 +1,4 @@
-package com.gerontechies.semonaid.Activities.T2T;
+package com.gerontechies.semonaid.Activities.Income.T2T;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -23,11 +23,11 @@ import com.gerontechies.semonaid.R;
 
 public class OpshopItemActivity extends AppCompatActivity {
 
-    TextView name, phone, website, address;
+    TextView name, address;
     TextView monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday;
     OpshopDatabase db = null;
     OpshopItem item;
-    String id;
+    String id, opshopName;
     boolean isMap=false;
 
 
@@ -59,8 +59,8 @@ public class OpshopItemActivity extends AppCompatActivity {
         name = (TextView) findViewById(R.id.txt_opshop_name);
         address = (TextView) findViewById(R.id.txt_opshop_address);
 //        suburb = (TextView) findViewById(R.id.);
-        phone = (TextView) findViewById(R.id.txt_opshop_phone);
-        website = (TextView) findViewById(R.id.txt_opshop_website);
+//        phone = (TextView) findViewById(R.id.);
+//        email = (TextView) findViewById(R.id.);
 //        helpline = (TextView) findViewById(R.id.);
 //        website = (TextView) findViewById(R.id.);
 
@@ -108,41 +108,39 @@ public class OpshopItemActivity extends AppCompatActivity {
 
 
            name.setText(item.getName());
-           phone.setText(item.getPhone());
-           website.setText(item.getWebsite());
            address.setText(item.getAddress());
 
-            if(mTxt.equals("Refer to website")){
+            if(mTxt.equals("please call for detail")){
                 monday.setVisibility(View.GONE);
             } else{
                 monday.setText("Monday - "+item.getMonday());
             }
-            if(tuTxt.equals("Refer to website")){
+            if(tuTxt.equals("please call for detail")){
                 tuesday.setVisibility(View.GONE);
             } else{
                 tuesday.setText("Tuesday - "+item.getTuesday());
             }
-            if(wTxt.equals("Refer to website")){
+            if(wTxt.equals("please call for detail")){
                 wednesday.setVisibility(View.GONE);
             } else{
                 wednesday.setText("Wednesday - "+item.getWednesday());
             }
-            if(tTxt.equals("Refer to website")){
+            if(tTxt.equals("please call for detail")){
                 thursday.setVisibility(View.GONE);
             } else{
                 thursday.setText("Thusday - "+item.getThursday());
             }
-            if(fTxt.equals("Refer to website")){
+            if(fTxt.equals("please call for detail")){
                 friday.setVisibility(View.GONE);
             } else{
                 friday.setText("Friday - "+item.getFriday());
             }
-            if(sat.equals("Refer to website")){
+            if(sat.equals("please call for detail")){
                 saturday.setVisibility(View.GONE);
             } else{
                 saturday.setText("Saturday - "+item.getFriday());
             }
-            if(sun.equals("Refer to website")){
+            if(sun.equals("please call for detail")){
                 sunday.setVisibility(View.GONE);
             } else{
                 sunday.setText("Sunday - "+item.getFriday());

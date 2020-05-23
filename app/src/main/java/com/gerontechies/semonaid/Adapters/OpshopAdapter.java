@@ -15,7 +15,7 @@ import android.widget.TextView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gerontechies.semonaid.Activities.T2T.OpshopItemActivity;
+import com.gerontechies.semonaid.Activities.Income.T2T.OpshopItemActivity;
 import com.gerontechies.semonaid.Models.OpshopItem;
 import com.gerontechies.semonaid.R;
 

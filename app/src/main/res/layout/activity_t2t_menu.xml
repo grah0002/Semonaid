@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
     android:orientation="vertical"
-    tools:context=".Activities.T2T.T2tMenuActivity">
+    tools:context=".Activities.Income.T2T.T2tMenuActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

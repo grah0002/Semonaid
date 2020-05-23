@@ -2,43 +2,24 @@ package com.gerontechies.semonaid.Activities.Income;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.room.Room;
 
-import com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity;
-import com.gerontechies.semonaid.Activities.Budget.Calculator.IncomeActivity;
-import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Activities.Income.ApplyJobs.JobsInstructionActivity;
 import com.gerontechies.semonaid.Activities.Income.Skills.SkillsQuizActivity;
-import com.gerontechies.semonaid.Activities.Services.ServiceInfoActivity;
-import com.gerontechies.semonaid.Activities.T2T.T2tMenuActivity;
-import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
-import com.gerontechies.semonaid.Models.Budget.TipItem;
+import com.gerontechies.semonaid.Activities.Income.T2T.T2tMenuActivity;
 import com.gerontechies.semonaid.R;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class IncomeMenuActivity extends AppCompatActivity {
 
