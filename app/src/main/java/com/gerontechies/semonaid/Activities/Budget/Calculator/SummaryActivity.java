@@ -61,6 +61,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 
 import java.io.ByteArrayOutputStream;
@@ -503,21 +504,39 @@ public class SummaryActivity extends AppCompatActivity implements
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if (id == R.id.homeIcon) {
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("The chart shows the analysis of your budget based on what you have entered in the previous pages.\n\nThe list underneath shows you what categories of expenses have been highest.\n\nTap on any item on the list to find out tips on how you could reduce that expense")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+        }
         return super.onOptionsItemSelected(item);
     }
-
 
     public void setTitle(String title) {
         Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);

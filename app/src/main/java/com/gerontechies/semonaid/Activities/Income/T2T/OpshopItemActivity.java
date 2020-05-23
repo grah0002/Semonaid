@@ -2,6 +2,7 @@ package com.gerontechies.semonaid.Activities.Income.T2T;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,25 +10,31 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class OpshopItemActivity extends AppCompatActivity {
 
     TextView name, address;
-    TextView monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday;
-    OpshopDatabase db = null;
+    TextView monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday, phone, website;
+    SemonaidDB db = null;
     OpshopItem item;
-    String id, opshopName;
+    Button openMaps;
+    String id;
+    CardView timings;
     boolean isMap=false;
 
 
@@ -41,7 +48,7 @@ public class OpshopItemActivity extends AppCompatActivity {
 
 
         db = Room.databaseBuilder(this,
-                OpshopDatabase.class, "opshop_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -58,12 +65,8 @@ public class OpshopItemActivity extends AppCompatActivity {
 
         name = (TextView) findViewById(R.id.txt_opshop_name);
         address = (TextView) findViewById(R.id.txt_opshop_address);
-//        suburb = (TextView) findViewById(R.id.);
-//        phone = (TextView) findViewById(R.id.);
-//        email = (TextView) findViewById(R.id.);
-//        helpline = (TextView) findViewById(R.id.);
-//        website = (TextView) findViewById(R.id.);
-
+        phone = (TextView) findViewById(R.id.txt_opshop_phone);
+        website = (TextView) findViewById(R.id.txt_opshop_website);
         monday = (TextView) findViewById(R.id.txt_monday);
         tuesday = (TextView) findViewById(R.id.txt_tuesday);
         wednesday = (TextView) findViewById(R.id.txt_wednesday);
@@ -72,10 +75,9 @@ public class OpshopItemActivity extends AppCompatActivity {
         saturday = (TextView) findViewById(R.id.txt_saturday);
         sunday = (TextView) findViewById(R.id.txt_sunday);
         holiday = (TextView) findViewById(R.id.txt_public);
+        timings = (CardView) findViewById(R.id.timings_card);
+        openMaps = (Button) findViewById(R.id.button_maps);
 
-//        train = (TextView) findViewById(R.id.txt_train);
-//        tram = (TextView) findViewById(R.id.txt_tram);
-//        addressTxt = (TextView) findViewById(R.id.txt_address);
 
     }
 
@@ -85,12 +87,7 @@ public class OpshopItemActivity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
 
             String status = "";
-            if(isMap){
-                //item = db.ServiceDAO().findByName(serviceName);
-            } else{
-             //   item = db.ServiceDAO().findByID(Integer.parseInt(id));
-            }
-            item = db.OpshopDAO().findByID(Integer.parseInt(id));
+            item = db.AppDAO().findByIDOpPShop(Integer.parseInt(id));
             return  status;
         }
 
@@ -99,52 +96,47 @@ public class OpshopItemActivity extends AppCompatActivity {
         protected void onPostExecute(String details) {
 
             String mTxt = item.getMonday();
-            String tuTxt = item.getTuesday();
-            String wTxt = item.getWednesday();
-            String tTxt = item.getThursday();
-            String fTxt = item.getFriday();
-            String sat = item.getSaturday();
-            String sun = item.getSunday();
 
 
            name.setText(item.getName());
            address.setText(item.getAddress());
+           phone.setText(item.getPhone());
+         //  website.setText(item.getWebsite());
 
             if(mTxt.equals("please call for detail")){
-                monday.setVisibility(View.GONE);
+                timings.setVisibility(View.GONE);
             } else{
                 monday.setText("Monday - "+item.getMonday());
-            }
-            if(tuTxt.equals("please call for detail")){
-                tuesday.setVisibility(View.GONE);
-            } else{
                 tuesday.setText("Tuesday - "+item.getTuesday());
-            }
-            if(wTxt.equals("please call for detail")){
-                wednesday.setVisibility(View.GONE);
-            } else{
                 wednesday.setText("Wednesday - "+item.getWednesday());
-            }
-            if(tTxt.equals("please call for detail")){
-                thursday.setVisibility(View.GONE);
-            } else{
                 thursday.setText("Thusday - "+item.getThursday());
-            }
-            if(fTxt.equals("please call for detail")){
-                friday.setVisibility(View.GONE);
-            } else{
                 friday.setText("Friday - "+item.getFriday());
-            }
-            if(sat.equals("please call for detail")){
-                saturday.setVisibility(View.GONE);
-            } else{
+                sunday.setText("Sunday - "+item.getFriday());
                 saturday.setText("Saturday - "+item.getFriday());
             }
-            if(sun.equals("please call for detail")){
-                sunday.setVisibility(View.GONE);
-            } else{
-                sunday.setText("Sunday - "+item.getFriday());
-            }
+
+            website.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse(item.website);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
+
+
+
+            openMaps.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri gmmIntentUri = Uri.parse("geo:0,0?q="+item.address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(mapIntent);
+                    }
+                }
+            });
         }
     }
     @Override
@@ -155,26 +147,41 @@ public class OpshopItemActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("View Details of the Shop in this screen.\n\nClick on the 'Open in Maps' button to navigate to this location via Google maps\n\nTap on the website to open it in your browser")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+        }
         return super.onOptionsItemSelected(item);
     }
-
 
     public void setTitle(String title){
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);

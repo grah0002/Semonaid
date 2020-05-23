@@ -18,6 +18,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.room.Room;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;
 import com.gerontechies.semonaid.Models.T2tDatabase;
@@ -39,11 +40,10 @@ public class T2tMenuActivity extends AppCompatActivity {
     Button btn_next;
     CardView convert_trash, sell_treasure;
     String jsonData;
-    T2tDatabase db = null;
+    SemonaidDB db = null;
     List<T2tItem> allItemList = new ArrayList<>();
     List<T2tItem> item;
 
-    OpshopDatabase db1 = null;
     List<OpshopItem> allItemList1 = new ArrayList<>();
     List<OpshopItem> item1;
 
@@ -58,13 +58,10 @@ public class T2tMenuActivity extends AppCompatActivity {
 
 
         db = Room.databaseBuilder(this,
-                T2tDatabase.class, "t2t_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
-        db1 = Room.databaseBuilder(this,
-                OpshopDatabase.class, "opshop_database")
-                .fallbackToDestructiveMigration()
-                .build();
+
 
 
 
@@ -99,7 +96,7 @@ public class T2tMenuActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.T2tDAO().getAll();
+            item = db.AppDAO().getAllT2TItems();
             if (!(item.isEmpty() || item == null) ){
                 for (T2tItem temp : item) {
 
@@ -107,7 +104,7 @@ public class T2tMenuActivity extends AppCompatActivity {
 
                 }
             }
-            item1 = db1.OpshopDAO().getAll();
+            item1 = db.AppDAO().getAllOpShops();
             if (!(item1.isEmpty() || item1 == null) ){
                 for (OpshopItem temp : item1) {
 
@@ -159,17 +156,20 @@ public class T2tMenuActivity extends AppCompatActivity {
                     int id = object.getInt("id");
                     String name = object.getString("name");
                     String category = object.getString("category");
-                    String t2t = object.getString("text");
-                    String title = object.getString("title");
+                    String t2t = object.getString("title");
+                    String desc = object.getString("desc");
+                    String material = object.getString("materials");
 
 
                     item.setId(id);
                     item.setCategory(category);
                     item.setName(name);
                     item.setT2t(t2t);
-                    item.setTitle(title);
+                    item.setDesc(desc);
+                    item.setMaterials(material);
 
-                    db.T2tDAO().insert(item);
+                    db.AppDAO().insertT2TItem(item);
+                    Log.d("trash", t2t);
 
 
                 }
@@ -203,7 +203,7 @@ public class T2tMenuActivity extends AppCompatActivity {
 
                     OpshopItem item_1 = new OpshopItem();
                     int id = object.getInt("id");
-                    String name = object.getString("opshop_name");
+                    String name = object.getString("name");
                     String address = object.getString("address");
                     String street = object.getString("street");
                     String suburb = object.getString("suburb");
@@ -211,7 +211,6 @@ public class T2tMenuActivity extends AppCompatActivity {
                     double lat = Double.parseDouble(latt);
                     String lngg = object.getString("lng");
                     double lng = Double.parseDouble(lngg);
-                    String geocoded_location = object.getString("geocoded_location");
                     String monday = object.getString("monday");
                     String tuesday = object.getString("tuesday");
                     String wednesday = object.getString("wednesday");
@@ -219,6 +218,8 @@ public class T2tMenuActivity extends AppCompatActivity {
                     String friday = object.getString("friday");
                     String saturday = object.getString("saturday");
                     String sunday = object.getString("sunday");
+                    String phone = object.getString("phone");
+                    String website = object.getString("website");
 
                     item_1.setId(id);
                     item_1.setName(name);
@@ -227,7 +228,6 @@ public class T2tMenuActivity extends AppCompatActivity {
                     item_1.setSuburb(suburb);
                     item_1.setLat(lat);
                     item_1.setLng(lng);
-                    item_1.setGeocoded_location(geocoded_location);
                     item_1.setMonday(monday);
                     item_1.setTuesday(tuesday);
                     item_1.setWednesday(wednesday);
@@ -235,8 +235,10 @@ public class T2tMenuActivity extends AppCompatActivity {
                     item_1.setFriday(friday);
                     item_1.setSaturday(saturday);
                     item_1.setSunday(sunday);
+                    item_1.setPhone(phone);
+                    item_1.setWebsite(website);
 
-                    db1.OpshopDAO().insert(item_1);
+                    db.AppDAO().insertOpShop(item_1);
 
 
                 }

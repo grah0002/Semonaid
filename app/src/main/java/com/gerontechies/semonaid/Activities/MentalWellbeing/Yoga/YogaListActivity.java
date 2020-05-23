@@ -23,6 +23,7 @@ import com.gerontechies.semonaid.Adapters.YogaAdapter;
 import com.gerontechies.semonaid.Models.YogaDatabase;
 import com.gerontechies.semonaid.Models.YogaItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -188,25 +189,44 @@ public class YogaListActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("Have a look at the simpler Yoga poses you could practice.\n\nTap on them to learn more details on how to perform them and what benefits they bring" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
 
     public void setTitle(String title){

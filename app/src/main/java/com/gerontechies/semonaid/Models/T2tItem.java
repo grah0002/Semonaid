@@ -25,11 +25,23 @@ public class T2tItem {
     @ColumnInfo(name = "t2t")
     public String t2t;
 
+    @ColumnInfo(name = "desc")
+    public String desc;
+
+    @ColumnInfo(name = "materials")
+    public String materials;
 
     @ColumnInfo(name = "title")
     public String title;
 
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public T2tItem(){}
 
@@ -65,12 +77,20 @@ public class T2tItem {
         this.t2t = t2t;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(String materials) {
+        this.materials = materials;
     }
 }
 

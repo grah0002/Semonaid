@@ -12,16 +12,16 @@ import java.util.List;
 public interface T2tDAO {
 
     @Query("SELECT * FROM T2tItem")
-    List<T2tItem> getAll();
+    List<T2tItem> getAllT2TItems();
 
     @Query("SELECT * FROM T2tItem WHERE name LIKE :name")
-    List<T2tItem> getName(String name);
+    List<T2tItem> getNameT2TItem(String name);
+
+    @Query("SELECT * FROM T2tItem WHERE id LIKE :id LIMIT 1")
+    List<T2tItem> getIdT2TItem(String id);
 
     @Query("SELECT * FROM T2tItem WHERE category LIKE :category")
-    List<T2tItem> getCategory(String category);
-
-    @Insert
-    void insertAll(T2tItem... t2titems);
+    List<T2tItem> getCategoryT2TItem(int category);
 
     @Insert
     long insert(T2tItem t2titem);
@@ -30,8 +30,6 @@ public interface T2tDAO {
     void delete(T2tItem t2titem);
 
 
-    @Query("DELETE FROM T2tItem")
-    void deleteAll();
 
 
 }

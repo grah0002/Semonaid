@@ -62,7 +62,7 @@
   {
     "id": 4,
     "activity": "Carlton Women\u2019s Turkish Group (cohealth)",
-    "day": "Tuesday",
+    "day": "Every Tuesdays",
     "Category": [{ "category": "Social Groups" }],
     "Address": "510 Lygon Street, Carlton",
     "Phone": "9448 6792",
@@ -75,7 +75,7 @@
   {
     "id": 5,
     "activity": "Cinema Nova",
-    "day": "Monday",
+    "day": "Every Monday",
     "Category": [{ "category": "Arts and culture" }],
     "Address": "Lygon Court, 380 Lygon Street, Carlton",
     "Phone": "9347 5331",
@@ -88,7 +88,7 @@
   {
     "id": 6,
     "activity": "Circolo Pensionati Italiani di San Marco in Lamis",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "Category": [{ "category": "Arts and culture" }],
     "Address": "San Marco in Lamis Social Club, 149 Canning Street, Carlton",
     "Phone": "0402 026 116",
@@ -127,7 +127,7 @@
   {
     "id": 9,
     "activity": "Eritrean Men\u2019s Group (cohealth)",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Community Hall, Ground Floor, 510 Lygon Street, Carlton",
     "Phone": "9448 6792",
@@ -140,7 +140,7 @@
   {
     "id": 10,
     "activity": "Eritrean Women\u2019s Group (Carlton Neighbourhood Learning Centre)",
-    "day": "Friday",
+    "day": "Every Friday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Community Hall, Ground Floor 510 Lygon Street, Carlton",
     "Phone": "9347 2739",
@@ -153,7 +153,7 @@
   {
     "id": 11,
     "activity": "Harari Womens Group (Carlton Neighbourhood Learning Centre)",
-    "day": "Saturday",
+    "day": "Every Saturday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Community Room, 38 Elgin Street, Carlton",
     "Phone": "9347 2739",
@@ -239,7 +239,7 @@
   {
     "id": 17,
     "activity": "Parkville Tennis Club Social Seniors Tennis",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "Category": [{ "category": "Health and Wellbeing" }],
     "Address": "151 Royal Parade, Parkville",
     "Phone": "0412 279 156",
@@ -268,7 +268,7 @@
   {
     "id": 19,
     "activity": "Somali Senior Women\u2019s Group (cohealth)",
-    "day": "Friday",
+    "day": "Every Friday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Community Hall, 480 Lygon Street, Carlton",
     "Phone": "9448 6792",
@@ -338,7 +338,7 @@
   {
     "id": 24,
     "activity": "Boyd Community Hub Walking Group",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "Category": [{ "category": "Health and Wellbeing" }],
     "Address": "Boyd Community Hub, 207 City Road, Southbank",
     "Phone": "9658 8314",
@@ -351,7 +351,7 @@
   {
     "id": 25,
     "activity": "Boyd laughter club",
-    "day": "Tuesday",
+    "day": "Every Tuesdays",
     "Category": [{ "category": "Health and Wellbeing" }],
     "Address": "Boyd Community Hub, 207 City Road, Southbank",
     "Phone": "0408 552 269",
@@ -434,7 +434,7 @@
   {
     "id": 31,
     "activity": "English Conversation Club at Southbank Library",
-    "day": "Monday",
+    "day": "Every Monday",
     "Category": [{ "category": "Lifelong Learning" }],
     "Address": "Southbank Library at Boyd, 207 City Road, Southbank",
     "Phone": "9658 8300",
@@ -538,7 +538,7 @@
   {
     "id": 39,
     "activity": "A Walk in the Flagstaff Gardens",
-    "day": "Monday",
+    "day": "Every Monday",
     "Category": [
       { "category": "Health and Wellbeing" },
       { "category": " Lifelong Learning" }
@@ -567,7 +567,7 @@
   {
     "id": 41,
     "activity": "Chinese Community Healthy Advisory of Australia",
-    "day": "Friday",
+    "day": "Every Friday",
     "Category": [
       { "category": "Social Groups" },
       { "category": " Health and Wellbeing" }
@@ -639,7 +639,7 @@
   {
     "id": 46,
     "activity": "Federation of Spanish Speaking Senior Citizens in Victoria",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Ross House, 247-251 Flinders Lane, Melbourne",
     "Phone": "9650 1210",
@@ -678,7 +678,7 @@
   {
     "id": 49,
     "activity": "Health Qigong",
-    "day": "Friday",
+    "day": "Every Friday",
     "Category": [{ "category": "Health and Wellbeing" }],
     "Address": "Federation Square. The Square, corner of Swanston and Flinders Street, Melbourne",
     "Phone": "9889 9999",
@@ -746,7 +746,7 @@
   {
     "id": 54,
     "activity": "Meditation",
-    "day": "Tuesday",
+    "day": "Every Tuesdays",
     "Category": [{ "category": "Health and Wellbeing" }],
     "Address": "Federation Square, Corner Flinders and Swanston Street, Melbourne",
     "Phone": "9670 6369",
@@ -814,7 +814,7 @@
   {
     "id": 59,
     "activity": "Melbourne Line Dancing Group",
-    "day": "Tuesday",
+    "day": "Every Tuesdays",
     "Category": [{ "category": "Health and Wellbeing\uff0c Social Groups" }],
     "Address": "South Yarra Neighbourhood Centre, 65 Toorak Road West, South Yarra",
     "Phone": "0430 409 386",
@@ -918,7 +918,7 @@
   {
     "id": 66,
     "activity": "St Nicholas Antiochian Orthodox Church Senior Citizens Group",
-    "day": "Tuesday",
+    "day": "Every Tuesdays",
     "Category": [{ "category": "Social Groups" }],
     "Address": "St Nicholas Antiochian Orthodox Church, 176 Simpson Street, East Melbourne",
     "Phone": "9417 2266",
@@ -931,7 +931,7 @@
   {
     "id": 67,
     "activity": "Tai Chi for Health",
-    "day": "Tuesday",
+    "day": "Every Tuesdays",
     "Category": [{ "category": "Health and Wellbeing" }],
     "Address": "Federation Square. The Square, Corner of Swanston and Flinders streets, Melbourne",
     "Phone": "9889 9999",
@@ -957,7 +957,7 @@
   {
     "id": 69,
     "activity": "Thursday Lunchtime Organ Recitals",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "Category": [{ "category": "Arts and culture" }],
     "Address": "St Michael\u2019s Uniting Church, 120 Collins Street, Melbourne",
     "Phone": "9654 5120",
@@ -1041,7 +1041,7 @@
   {
     "id": 75,
     "activity": "East African Elders Association",
-    "day": "Sunday",
+    "day": "Every Sunday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
     "Phone": "9658 9190",
@@ -1054,7 +1054,7 @@
   {
     "id": 76,
     "activity": "Elderly Greek Club of Kensington and Flemington",
-    "day": "Friday",
+    "day": "Every Friday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Kensington Neighbourhood Centre, 18 Anthony Street, Kensington",
     "Phone": "9658 9190",
@@ -1093,7 +1093,7 @@
   {
     "id": 79,
     "activity": "Indochinese Elderly Refugees Association Vietnamese Elderly Social Group",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Community Hub, 94 Ormond Street, Kensington",
     "Phone": "9429 1307",
@@ -1206,7 +1206,7 @@
   {
     "id": 87,
     "activity": "St Mary\u2019s Coptic Orthodox Church Social Support Program for Coptic Elderly People",
-    "day": "Friday",
+    "day": "Every Friday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "5 Epsom Road, Kensington",
     "Phone": "0406 887 884",
@@ -1232,7 +1232,7 @@
   {
     "id": 89,
     "activity": "Wednesday Social Group",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Kensington Neighbourhood House, 89 McCracken Street, Kensington",
     "Phone": "9376 6366",
@@ -1375,7 +1375,7 @@
   {
     "id": 100,
     "activity": "Melrose Art Group",
-    "day": "Monday",
+    "day": "Every Monday",
     "Category": [{ "category": "Arts and culture" }],
     "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
     "Phone": "9328 1665",
@@ -1388,7 +1388,7 @@
   {
     "id": 101,
     "activity": "Nase Zene",
-    "day": "Thursday",
+    "day": "Every Thursday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
     "Phone": "0402 903 713",
@@ -1414,7 +1414,7 @@
   {
     "id": 103,
     "activity": "North Melbourne Chinese Association",
-    "day": "Wednesday",
+    "day": "Every Wednesday",
     "Category": [{ "category": "Social Groups" }],
     "Address": "North Melbourne Community Centre, 49-53 Buncle Street, North Melbourne",
     "Phone": "9658 9190",
@@ -1509,7 +1509,7 @@
   {
     "id": 110,
     "activity": "Spanish (Speaking) Elderly Group of North Melbourne",
-    "day": "Tuesday",
+    "day": "Every Tuesdays",
     "Category": [{ "category": "Social Groups" }],
     "Address": "Jean McKendry Neighbourhood Centre, 91-111 Melrose Street, North Melbourne",
     "Phone": "0403 358 346",

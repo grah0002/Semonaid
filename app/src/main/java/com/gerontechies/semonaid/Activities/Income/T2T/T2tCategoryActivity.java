@@ -20,9 +20,11 @@ import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Adapters.T2tAdapter;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.T2tDatabase;
 import com.gerontechies.semonaid.Models.T2tItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,7 @@ import java.util.List;
 public class T2tCategoryActivity extends AppCompatActivity {
 
     RecyclerView t2tRV;
-    T2tDatabase db = null;
+    SemonaidDB db = null;
     List<T2tItem> item ;
     String t2tName;
     List<T2tItem> allItemList = new ArrayList<>();
@@ -57,11 +59,9 @@ public class T2tCategoryActivity extends AppCompatActivity {
 
 
         db = Room.databaseBuilder(this,
-                T2tDatabase.class, "t2t_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
-
-
 
 
         t2tRV = (RecyclerView) findViewById(R.id.t2tRV);
@@ -74,7 +74,7 @@ public class T2tCategoryActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.T2tDAO().getCategory(t2tName);
+            item = db.AppDAO().getCategoryT2TItem(t2tName);
             if (!(item.isEmpty() || item == null) ) {
                 for (T2tItem temp : item) {
                     allItemList.add(temp);
@@ -89,29 +89,12 @@ public class T2tCategoryActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String details) {
 
-//            if(allItemList != null){
-
-//                if(allItemList.size()>0){
                     RecyclerView.LayoutManager mLayoutManagerT2t = new LinearLayoutManager(T2tCategoryActivity.this, LinearLayoutManager.VERTICAL, false);
                     t2tRV.setLayoutManager(mLayoutManagerT2t);
                     t2tRV.setItemAnimator(new DefaultItemAnimator());
                     T2tAdapter adapter = new T2tAdapter(T2tCategoryActivity.this,  allItemList);
                     t2tRV.setAdapter(adapter);
                     t2tRV.setNestedScrollingEnabled(false);
-
-//                }
-//                else if(allItemList.size()<=0 ){
-//
-//                    noRes.setVisibility(View.VISIBLE);
-//                    searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any innovations for this category! Please check out the other categories!");
-//                }
-//latest            }
-//            else if(allItemList.size()<=0 ){
-//
-//                noRes.setVisibility(View.VISIBLE);
-//                searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any innovations for this category! Please check out the other categories!");
-//            }
-
 
 
         }
@@ -131,18 +114,37 @@ public class T2tCategoryActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("Click on the 'View Details' button of the item you wish to learn how to make")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+        }
         return super.onOptionsItemSelected(item);
     }
 

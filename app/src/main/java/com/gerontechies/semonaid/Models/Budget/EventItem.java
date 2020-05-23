@@ -33,6 +33,39 @@ public class EventItem {
     @ColumnInfo(name = "Description")
     public String Description;
 
+    @ColumnInfo(name = "phone")
+    public String phone;
+
+    @ColumnInfo(name = "email")
+    public String email;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    @ColumnInfo(name = "website")
+    public String website;
+
     @ColumnInfo(name = "latitude")
     public double latitude;
 

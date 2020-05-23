@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventsCategoryActivity;
 import com.gerontechies.semonaid.Activities.MentalWellbeing.Yoga.YogaListActivity;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class MentalMenuActivity extends AppCompatActivity {
 
@@ -144,25 +145,45 @@ public class MentalMenuActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("Find Events Near You\nLearn about some the events being hosted around you and attend them to make some new friends\n\n" +
+                                "Yoga\nFor people who prefer their own company and serenity, here are some of the simpler yoga poses you could practice to help relax any tension you may have" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
 
 

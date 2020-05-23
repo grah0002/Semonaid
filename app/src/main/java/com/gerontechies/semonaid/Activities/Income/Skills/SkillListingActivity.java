@@ -28,6 +28,7 @@ import com.gerontechies.semonaid.Adapters.JobAdapter;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.JobItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -239,25 +240,45 @@ public class SkillListingActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if (id == R.id.homeIcon) {
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("The page shows a list of professions you could apply for based on the skills and certifications you have selected. " +
+                                "\n\nTap on 'View Details' to know more about the job.\n\nTap on 'Filter' to edit your skills and certifications selection" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
 
     public void setTitle(String title) {

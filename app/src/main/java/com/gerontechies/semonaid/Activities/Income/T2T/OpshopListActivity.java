@@ -25,10 +25,12 @@ import com.gerontechies.semonaid.Activities.Income.T2T.OpshopMapActivity;
 import com.gerontechies.semonaid.Activities.Services.ServicesMapActivity;
 import com.gerontechies.semonaid.Adapters.OpshopAdapter;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;
 
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +44,7 @@ public class OpshopListActivity extends AppCompatActivity  {
 
     OpshopAdapter mAdapter;
 
-    OpshopDatabase db = null;
+    SemonaidDB db = null;
 //    String category;
 
     CardView map_btn;
@@ -58,7 +60,7 @@ public class OpshopListActivity extends AppCompatActivity  {
 
 
         db = Room.databaseBuilder(this,
-                OpshopDatabase.class, "opshop_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -96,14 +98,13 @@ public class OpshopListActivity extends AppCompatActivity  {
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.OpshopDAO().getAll();
+            item = db.AppDAO().getAllOpShops();
             if (!(item.isEmpty() || item == null) ){
                 for (OpshopItem temp : item) {
 
                     allItemList.add(temp);
 
                 }
-
 
             }
 
@@ -143,27 +144,41 @@ public class OpshopListActivity extends AppCompatActivity  {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("Tap on the 'View Details' button for any of the stores you may be interested in, or click on 'View on Map' for a visual outlook on the store locations")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+        }
         return super.onOptionsItemSelected(item);
     }
-
-
 
     public void setTitle(String title){
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);

@@ -28,6 +28,7 @@ import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +49,7 @@ import java.util.Scanner;
 
 public class EventInfoActivity extends AppCompatActivity {
 
-    TextView event_name, event_desc, event_address, event_day;
+    TextView event_name, event_desc, event_address, event_day, event_phone, event_website, event_email;
     ChipGroup categories;
 
     ImageView map;
@@ -70,6 +71,9 @@ public class EventInfoActivity extends AppCompatActivity {
         event_day = (TextView) findViewById(R.id.when_txt);
         categories = (ChipGroup) findViewById(R.id.categories_chips);
         map = (ImageView) findViewById(R.id.map_image);
+        event_phone = (TextView) findViewById(R.id.phone_txt);
+        event_website = (TextView) findViewById(R.id.website_txt);
+        event_email = (TextView) findViewById(R.id.email_txt);
 
         db = Room.databaseBuilder(this,
                 SemonaidDB.class, "db_semonaid")
@@ -126,6 +130,9 @@ public class EventInfoActivity extends AppCompatActivity {
             event_desc.setText(item.Description);
             event_name.setText(item.activity);
             event_day.setText(item.day);
+            event_email.setText(item.email);
+            event_phone.setText(item.phone);
+            event_website.setText(item.website);
 
            // getXmlFromUrl(String.valueOf(item.getLatitude()),String.valueOf(item.getLongitude()));
         }
@@ -184,25 +191,44 @@ public class EventInfoActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if (id == R.id.homeIcon) {
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("This page shows the details of the event you have selected. For more details/participation in the event, please head to the event location which is listed in the 'Where' section" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
 
 

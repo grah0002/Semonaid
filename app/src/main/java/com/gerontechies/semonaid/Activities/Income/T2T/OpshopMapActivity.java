@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.core.content.res.ResourcesCompat;
@@ -15,7 +19,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Services.ServiceItemActivity;
+import com.gerontechies.semonaid.Activities.Services.ServicesMapActivity;
 import com.gerontechies.semonaid.Adapters.ServicesAdapter;
+import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
+import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;
 
@@ -27,23 +35,23 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener  {
+public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener,  GoogleMap.OnMarkerClickListener   {
 
     private GoogleMap mMap;
     List<OpshopItem> allItemList = new ArrayList<>();
     List<OpshopItem> item;
-    OpshopDatabase db = null;
-//    String category;
-    Map<String, String> mMarkerMap = new HashMap<>();
-    String ROUTE, NAME;
+    SemonaidDB db = null;
+    OpshopItem selected;
+    Typeface font;
 
-    ServicesAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,8 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
                 .findFragmentById(R.id.map);
        // setTitle("Get Assistance");
         Toolbar myToolbar = null;
+
+        font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
 
         mapFragment.getMapAsync(this);
 
@@ -77,7 +87,7 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
         OpshopMapActivity.this.setTitle(R.string.app_name);
 
         db = Room.databaseBuilder(this,
-                OpshopDatabase.class, "opshop_database")
+                SemonaidDB.class, "db_semonaid")
                 .fallbackToDestructiveMigration()
                 .build();
 
@@ -86,23 +96,63 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
     }
 
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        GetEventDetails getEventDetails = new GetEventDetails();
+        Log.d("ERR",  marker.getTag().toString());
+        getEventDetails.execute((Integer) marker.getTag());
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(OpshopMapActivity.this, R.style.BottomSheet);
+        View bottomsheet = LayoutInflater.from(getApplicationContext())
+                .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
+        TextView locationName = bottomsheet.findViewById(R.id.location_name);
+        TextView locationAddress = bottomsheet.findViewById(R.id.location_address_txt);
+        TextView locationDays = bottomsheet.findViewById(R.id.location_days);
+        locationAddress.setTypeface(font);
+        locationDays.setTypeface(font);
+        locationName.setTypeface(font);
+
+        Button view_details = bottomsheet.findViewById(R.id.btn_location);
+        view_details.setTypeface(font);
+
+
+        locationName.setText(selected.name);
+        locationAddress.setText(selected.address);
+
+        // locationDays.setText(selected.suburb);
+        view_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OpshopMapActivity.this, ServiceItemActivity.class);
+                intent.putExtra("id", String.valueOf(selected.id)) ;
+                startActivity(intent);
+            }
+        });
+
+        bottomSheetDialog.setContentView(bottomsheet);
+        bottomSheetDialog.show();
+
+
+        return true;
+    }
+
+    private class GetEventDetails extends AsyncTask<Integer, Void, String> {
+
+        @Override
+        protected String doInBackground(Integer... ints) {
+            selected = db.AppDAO().findByIDOpPShop(ints[0]);
+            return "eventItem";
+        }
+
+
+    }
+
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
             String status = "";
-            item = db.OpshopDAO().getAll();
-            if (!(item.isEmpty() || item == null) ){
-                for (OpshopItem temp : item) {
-
-                    allItemList.add(temp);
-
-                }
-
-
-            }
-
-
+            item = db.AppDAO().getAllOpShops();
             return  status;
         }
 
@@ -112,29 +162,20 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
 
           //add markers
 
-            for(int i = 0; i<allItemList.size(); i++){
+            for(int i = 0; i<item.size(); i++){
                  Marker marker;
 
-                OpshopItem opshopItem = allItemList.get(i);
+                OpshopItem opshopItem = item.get(i);
 
-//                if(category.equals("none")){
                     LatLng item  = new LatLng(opshopItem.getLat(),opshopItem.getLng());
                     mMap.addMarker(new MarkerOptions().position(item).title(opshopItem.getName()));
-/*                }
+                marker =  mMap.addMarker(new MarkerOptions()
+                        .position(item)
+                        .title(opshopItem.getName())
 
-                else {
-                    if(opshopItem.getCategory_1().equals(category) || serviceItem.getCategory_2().equals(category) || serviceItem.getCategory_3().equals(category) || serviceItem.getCategory_4().equals(category)){
-                        LatLng item  = new LatLng(serviceItem.getLatitude(),serviceItem.getLongitude());
-                       marker =  mMap.addMarker(new MarkerOptions()
-                                .position(item)
-                                .title(serviceItem.getService_name())
-                                .snippet(serviceItem.getCategory_1())
 
-                        );
-                        marker.setTag(serviceItem.getId());
-                    }
-                } */
-              // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(item, 15f));
+                );
+                marker.setTag(opshopItem.id);
             }
 
         }
@@ -145,13 +186,11 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-37.806498, 144.929392);
-      //  mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-       // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f));
 
+        mMap.setOnMarkerClickListener(this);
         mMap.setOnInfoWindowClickListener(this);
 
 
