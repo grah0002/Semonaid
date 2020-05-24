@@ -59,6 +59,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
+                    android:drawableLeft="@drawable/when"
+                    android:drawablePadding="20dp"
                     android:fontFamily="@font/montserrat"
                     android:text="When"
                     android:textColor="@color/cardview_dark_background"
@@ -87,7 +89,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="20dp"
 
                     android:fontFamily="@font/montserrat"
                     android:text="Contact Details"
@@ -101,6 +103,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
+                    android:drawableLeft="@drawable/call"
+                    android:drawablePadding="20dp"
                     android:fontFamily="@font/montserrat"
                     android:text="When"
                     android:textColor="@color/cardview_dark_background"
@@ -113,6 +117,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
+                    android:drawableLeft="@drawable/email"
+                    android:drawablePadding="20dp"
                     android:fontFamily="@font/montserrat"
                     android:text="When"
                     android:textColor="@color/cardview_dark_background"
@@ -125,8 +131,10 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
+                    android:drawableLeft="@drawable/website"
+                    android:drawablePadding="20dp"
                     android:fontFamily="@font/montserrat"
-                    android:text="When"
+                    android:text="Open in Browser"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="18sp" />
 
@@ -207,16 +215,22 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
+                    android:drawableLeft="@drawable/pin"
+                    android:drawablePadding="20dp"
                     android:fontFamily="@font/montserrat"
                     android:text="When"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="18sp" />
 
-                <ImageView
-                    android:id="@+id/map_image"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/button_maps"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:srcCompat="@drawable/accom99" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:text="Open in Google Maps" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

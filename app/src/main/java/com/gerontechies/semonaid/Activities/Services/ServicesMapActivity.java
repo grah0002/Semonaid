@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener  {
+public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     List<ServiceItem> allItemList = new ArrayList<>();
@@ -51,6 +51,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
     ServiceItem selected;
     Typeface font;
 
+    ServicesAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +60,12 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-       // setTitle("Get Assistance");
+        // setTitle("Get Assistance");
         Toolbar myToolbar = null;
 
         mapFragment.getMapAsync(this);
 
         Button list_btn = (Button) findViewById(R.id.list_btn) ;
-         font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
         list_btn.setTypeface(font);
         list_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +75,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
                 finish();
             }
         });
+        font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
@@ -93,57 +94,56 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
     }
 
 
-//    @Override
-//    public boolean onMarkerClick(Marker marker) {
-//
-//        GetEventDetails getEventDetails = new GetEventDetails();
-//        getEventDetails.execute((Integer) marker.getTag());
-//        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ServicesMapActivity.this, R.style.BottomSheet);
-//        View bottomsheet = LayoutInflater.from(getApplicationContext())
-//                .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
-//        TextView locationName = bottomsheet.findViewById(R.id.location_name);
-//        TextView locationAddress = bottomsheet.findViewById(R.id.location_address_txt);
-//        TextView locationDays = bottomsheet.findViewById(R.id.location_days);
-//        locationAddress.setTypeface(font);
-//        locationDays.setTypeface(font);
-//        locationName.setTypeface(font);
-//
-//        Button view_details = bottomsheet.findViewById(R.id.btn_location);
-//        view_details.setTypeface(font);
-//
-//
-//        locationName.setText(selected.service_name);
-//        locationAddress.setText(selected.category_1);
-//
-//       // locationDays.setText(selected.suburb);
-//        view_details.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
-//                intent.putExtra("service_id", String.valueOf(selected.id)) ;
-//                startActivity(intent);
-//            }
-//        });
-//
-//        bottomSheetDialog.setContentView(bottomsheet);
-//        bottomSheetDialog.show();
-//
-//
-//        return true;
-//    }
-//
-//    private class GetEventDetails extends AsyncTask<Integer, Void, String> {
-//
-//        @Override
-//        protected String doInBackground(Integer... ints) {
-//            selected = db.AppDAO().findByServiceItemID(ints[0]);
-//
-//
-//            return "eventItem";
-//        }
-//
-//
-//    }
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        GetEventDetails getEventDetails = new GetEventDetails();
+        getEventDetails.execute((Integer) marker.getTag());
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ServicesMapActivity.this, R.style.BottomSheet);
+        View bottomsheet = LayoutInflater.from(getApplicationContext())
+                .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
+        TextView locationName = bottomsheet.findViewById(R.id.location_name);
+        TextView locationAddress = bottomsheet.findViewById(R.id.location_address_txt);
+        TextView locationDays = bottomsheet.findViewById(R.id.location_days);
+        Button view_details = bottomsheet.findViewById(R.id.btn_location);
+
+
+        locationAddress.setTypeface(font);
+        locationDays.setTypeface(font);
+        locationName.setTypeface(font);
+
+        view_details.setTypeface(font);
+        locationName.setText(selected.service_name);
+        locationAddress.setText(selected.category_1);
+        // locationDays.setText(selected.suburb);
+        view_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
+                intent.putExtra("service_id", String.valueOf(selected.id));
+                startActivity(intent);
+            }
+        });
+
+        bottomSheetDialog.setContentView(bottomsheet);
+        bottomSheetDialog.show();
+
+
+        return true;
+    }
+
+    private class GetEventDetails extends AsyncTask<Integer, Void, String> {
+
+        @Override
+        protected String doInBackground(Integer... ints) {
+            selected = db.AppDAO().findByServiceItemID(ints[0]);
+
+
+            return "eventItem";
+        }
+
+
+    }
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
 
         @Override
@@ -168,16 +168,16 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         @Override
         protected void onPostExecute(String details) {
 
-          //add markers
+            //add markers
 
             for(int i = 0; i<allItemList.size(); i++){
-                 Marker marker;
+                Marker marker;
 
                 ServiceItem serviceItem = allItemList.get(i);
 
                 if(category.equals("none")){
                     LatLng item  = new LatLng(serviceItem.getLatitude(),serviceItem.getLongitude());
-                  //  mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
+                    //  mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
                     marker =  mMap.addMarker(new MarkerOptions()
                             .position(item)
                             .title(serviceItem.getService_name())
@@ -190,7 +190,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
                 else {
                     if(serviceItem.getCategory_1().equals(category) || serviceItem.getCategory_2().equals(category) || serviceItem.getCategory_3().equals(category) || serviceItem.getCategory_4().equals(category)){
                         LatLng item  = new LatLng(serviceItem.getLatitude(),serviceItem.getLongitude());
-                       marker =  mMap.addMarker(new MarkerOptions()
+                        marker = mMap.addMarker(new MarkerOptions()
                                 .position(item)
                                 .title(serviceItem.getService_name())
                                 .snippet(serviceItem.getSuburb())
@@ -211,13 +211,13 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-37.806498, 144.929392);
-      //  mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-       // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //  mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f));
 
         mMap.setOnInfoWindowClickListener(this);
-      //  mMap.setOnMarkerClickListener(this);
+        mMap.setOnMarkerClickListener(this);
 
     }
 
@@ -252,8 +252,8 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-       // Toast.makeText(this, "Info window clicked",
-         //       Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Info window clicked",
+        //       Toast.LENGTH_SHORT).show();
         String venueID = mMarkerMap.get(marker.getId());
         String venueName = marker.getTitle();
         Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);

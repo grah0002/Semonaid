@@ -160,7 +160,8 @@ public class YogaListActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
-
+            ReadDatabase rd = new ReadDatabase();
+            rd.execute();
         }
 
     }

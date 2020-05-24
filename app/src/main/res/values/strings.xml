@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Semonaid</string>
     <string name="tagline">A Second Chance at Saving</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoicG9vcm5paSIsImEiOiJjazFvZ3FydGgwbTN3M2xsdmJrMXk0OTdlIn0.WsvBou-iMQdPLidVQkvFrw</string>
 
 
     <!--  Menu items  -->

@@ -12,12 +12,15 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,6 +57,7 @@ public class EventInfoActivity extends AppCompatActivity {
 
     ImageView map;
     SemonaidDB db = null;
+    Button maps;
     EventItem item;
     int eventId;
 
@@ -70,10 +74,10 @@ public class EventInfoActivity extends AppCompatActivity {
         event_name = (TextView) findViewById(R.id.event_name);
         event_day = (TextView) findViewById(R.id.when_txt);
         categories = (ChipGroup) findViewById(R.id.categories_chips);
-        map = (ImageView) findViewById(R.id.map_image);
         event_phone = (TextView) findViewById(R.id.phone_txt);
         event_website = (TextView) findViewById(R.id.website_txt);
         event_email = (TextView) findViewById(R.id.email_txt);
+        maps = (Button) findViewById(R.id.button_maps);
 
         db = Room.databaseBuilder(this,
                 SemonaidDB.class, "db_semonaid")
@@ -132,55 +136,33 @@ public class EventInfoActivity extends AppCompatActivity {
             event_day.setText(item.day);
             event_email.setText(item.email);
             event_phone.setText(item.phone);
-            event_website.setText(item.website);
+            // event_website.setText(item.website);
 
-           // getXmlFromUrl(String.valueOf(item.getLatitude()),String.valueOf(item.getLongitude()));
+            event_website.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse(item.website);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
+
+
+            maps.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + item.Address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(mapIntent);
+                    }
+                }
+            });
         }
 
     }
 
-//    public void getXmlFromUrl(String lat, String  longitude) {
-//        String xml = null;
-//
-//        URL url;
-//        Bitmap bmp = null;
-//        STATIC_MAP_API_ENDPOINT = "https://maps.google.com/maps/api/staticmap?center=" + lat + "," + longitude + "&zoom=15&size=200x200&sensor=false&key=AIzaSyAcNa93QUXWQdnLf57gaG7NEpkuQHF3v7U";
-//
-//
-//        HttpURLConnection urlConnection = null;
-//
-//        try {
-//            url = new URL(STATIC_MAP_API_ENDPOINT);
-//
-//            urlConnection = (HttpURLConnection) url.openConnection();
-//
-//            InputStream in = urlConnection.getInputStream();
-//
-//            InputStreamReader isw = new InputStreamReader(in);
-//
-//            BufferedReader br = new BufferedReader(isw);
-//            StringBuilder sb = new StringBuilder();
-//            bmp = BitmapFactory.decodeStream(in);
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                sb.append(line+"\n");
-//            }
-//            br.close();
-//
-//            xml = sb.toString();
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        if (bmp!=null) {
-//
-//            map.setImageBitmap(bmp);
-//
-//        }
-//
-//    }
 
 
     @Override
@@ -210,7 +192,8 @@ public class EventInfoActivity extends AppCompatActivity {
 
                 MaterialDialog mDialog = new MaterialDialog.Builder(this)
                         .setTitle("Help")
-                        .setMessage("This page shows the details of the event you have selected. For more details/participation in the event, please head to the event location which is listed in the 'Where' section" )
+
+                        .setMessage("This page shows the details of the event you have selected. Click on the 'Open in Maps' button to navigate to this location via Google maps. Tap on the website to open it in your browser")
                         .setCancelable(false)
 
                         .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {

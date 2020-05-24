@@ -97,7 +97,7 @@ public class OpshopItemActivity extends AppCompatActivity {
 
             String mTxt = item.getMonday();
 
-
+            Log.d("IMAge", item.getId() + "---");
            name.setText(item.getName());
            address.setText(item.getAddress());
            phone.setText(item.getPhone());

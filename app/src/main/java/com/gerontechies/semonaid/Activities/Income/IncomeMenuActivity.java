@@ -26,10 +26,6 @@ import com.shreyaspatil.MaterialDialog.MaterialDialog;
 public class IncomeMenuActivity extends AppCompatActivity {
 
     CardView t2t, jobs, apply;
-    LinearLayout layout;
-    ImageView imageView;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +34,7 @@ public class IncomeMenuActivity extends AppCompatActivity {
         setTitle("Increase Your Income");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        layout = (LinearLayout) findViewById(R.id.layout);
-        imageView = (ImageView) findViewById(R.id.tutorial_image);
+
 
         t2t = (CardView) findViewById(R.id.t2t_card);
         Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
@@ -103,28 +98,27 @@ public class IncomeMenuActivity extends AppCompatActivity {
                 return true;
             case R.id.helpIcon:
 
-                layout.setVisibility(View.GONE);
-                imageView.setVisibility(View.VISIBLE);
-//                MaterialDialog mDialog = new MaterialDialog.Builder(this)
-//                        .setTitle("Help")
-//                        .setMessage("\"Trash to Treasure:\nFind ways to making items you don't need into a money for yourself\n\n" +
-//                                "Find the Right Job:\nGo through our compiled list of jobs you may not know you are applicable for with your skillset\n\n" +
-//                                "How to apply for Jobs:\nA ten-step process listed out to help you in applying for jobs in this digital age\n")
-//                        .setCancelable(false)
-//
-//                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
-//                            @Override
-//                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
-//                                dialogInterface.dismiss();
-//                            }
-//
-//                        })
-//
-//
-//                        .build();
-//
-//                // Show Dialog
-//                mDialog.show();
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("\"Trash to Treasure:\nFind ways to making items you don't need into a money for yourself\n\n" +
+                                "Find the Right Job:\nGo through our compiled list of jobs you may not know you are applicable for with your skillset\n\n" +
+                                "How to apply for Jobs:\nA ten-step process listed out to help you in applying for jobs in this digital age\n")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
 
         }
         return super.onOptionsItemSelected(item);

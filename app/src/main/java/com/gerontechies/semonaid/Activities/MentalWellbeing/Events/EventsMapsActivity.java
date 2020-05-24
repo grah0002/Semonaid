@@ -34,6 +34,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,13 +64,13 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         mapFragment.getMapAsync(this);
 
         Button list_btn = (Button) findViewById(R.id.list_btn) ;
-         font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
+        font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
         list_btn.setTypeface(font);
         list_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  Intent intent = new Intent(EventsMapsActivity.this, EventInfoActivity.class);
-               // startActivity(intent);
+                //  Intent intent = new Intent(EventsMapsActivity.this, EventInfoActivity.class);
+                // startActivity(intent);
                 EventsMapsActivity.this.finish();
             }
         });
@@ -76,7 +80,7 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
 
 
         category = getIntent().getStringExtra("event_category");
-        this.setTitle(R.string.app_name);
+        Log.d("CAT", category);
 
         db = Room.databaseBuilder(this,
                 SemonaidDB.class, "db_semonaid")
@@ -152,13 +156,31 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
             item = db.AppDAO().getAllEvents();
             if (!(item.isEmpty() || item == null) ){
                 for (EventItem temp : item) {
-
+                    Log.d("CAT", temp.category);
                     if(category.equals("none")){
                         allItemList.add(temp);
+                    } else {
+
+                        String eventCategory = temp.category;
+                        JSONArray categoriesJson = null;
+                        try {
+                            categoriesJson = new JSONArray(eventCategory);
+                            for (int j = 0; j < categoriesJson.length(); j++) {
+                                JSONObject cObj = categoriesJson.getJSONObject(j);
+
+                                String c = cObj.getString("category");
+                                if (c.toLowerCase().equals(category.toLowerCase())) {
+                                    allItemList.add(temp);
+                                }
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
-                     if(temp.category.equals(category)){
-                        allItemList.add(temp);
-                    }
+
                 }
             }
             return  status;
@@ -172,8 +194,8 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
 
                 EventItem eventItem = allItemList.get(i);
 
-                if(category.equals("none")){
-                    LatLng item  = new LatLng(eventItem.getLatitude(),eventItem.getLongitude());
+
+                LatLng item  = new LatLng(eventItem.getLatitude(),eventItem.getLongitude());
                     //  mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
                     marker =  mMap.addMarker(new MarkerOptions()
                             .position(item)
@@ -182,7 +204,6 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
 
                     );
                     marker.setTag(eventItem.getId());
-                }
 
 
             }

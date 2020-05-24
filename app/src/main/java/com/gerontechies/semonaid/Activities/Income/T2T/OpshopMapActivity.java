@@ -100,8 +100,11 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
     public boolean onMarkerClick(Marker marker) {
 
         GetEventDetails getEventDetails = new GetEventDetails();
-        Log.d("ERR",  marker.getTag().toString());
-        getEventDetails.execute((Integer) marker.getTag());
+        String[] arrOfStr = marker.getId().split("m");
+
+        Log.d("ERR", arrOfStr[1]);
+        int id = Integer.parseInt(arrOfStr[1]);
+        getEventDetails.execute(id);
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(OpshopMapActivity.this, R.style.BottomSheet);
         View bottomsheet = LayoutInflater.from(getApplicationContext())
                 .inflate(R.layout.bottom_sheet_layout, (LinearLayout) findViewById(R.id.bottomSheet));
@@ -123,7 +126,7 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
         view_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OpshopMapActivity.this, ServiceItemActivity.class);
+                Intent intent = new Intent(OpshopMapActivity.this, OpshopItemActivity.class);
                 intent.putExtra("id", String.valueOf(selected.id)) ;
                 startActivity(intent);
             }
@@ -175,7 +178,8 @@ public class OpshopMapActivity extends FragmentActivity implements OnMapReadyCal
 
 
                 );
-                marker.setTag(opshopItem.id);
+                marker.setTag(opshopItem.getId());
+
             }
 
         }
