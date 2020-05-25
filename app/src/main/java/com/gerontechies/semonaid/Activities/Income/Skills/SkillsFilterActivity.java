@@ -59,9 +59,10 @@ public class SkillsFilterActivity extends AppCompatActivity {
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(SkillsFilterActivity.this, SkillListingActivity.class);
-              //  startActivity(intent);
-                finish();
+                Intent intent = new Intent(SkillsFilterActivity.this, SkillListingActivity.class);
+                SkillsFilterActivity.this.finish();
+                startActivity(intent);
+
             }
         });
 

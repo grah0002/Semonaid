@@ -87,6 +87,7 @@ public class TopCategoriesAdapter extends RecyclerView.Adapter<TopCategoriesAdap
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, TipsActivity.class);
                 intent.putExtra("name", String.valueOf(stepsUser.getItemName()));
+                intent.putExtra("category", String.valueOf(stepsUser.getCategory()));
                 intent.putExtra("amt", String.valueOf(amt));
 
                 mContext.startActivity(intent);

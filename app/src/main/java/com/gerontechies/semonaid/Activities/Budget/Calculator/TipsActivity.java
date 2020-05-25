@@ -46,6 +46,7 @@ public class TipsActivity extends AppCompatActivity {
 
     ImageView noRes;
     TextView searchTxt;
+    String category;
     Button viewTips;
 
     @Override
@@ -79,6 +80,7 @@ public class TipsActivity extends AppCompatActivity {
         });
 
         tipName = getIntent().getStringExtra("name");
+        category = getIntent().getStringExtra("category");
         String amtVal = getIntent().getStringExtra("amt");
         name.setText(tipName);
         amt.setText("$" +amtVal + " spent yearly");
@@ -168,6 +170,15 @@ public class TipsActivity extends AppCompatActivity {
                     allIatemList.add(temp);
                 }
 
+            } else {
+                Log.d("IN", "insie" + category);
+                item = db.AppDAO().getTipCategory(category);
+                if (!(item.isEmpty() || item == null)) {
+                    for (TipItem temp : item) {
+                        allIatemList.add(temp);
+                    }
+
+                }
             }
             return  status;
         }

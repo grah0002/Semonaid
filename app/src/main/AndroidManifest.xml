@@ -56,12 +56,12 @@
             android:label="@string/title_activity_services_map" />
         <activity android:name=".Activities.PasswordActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Activities.Budget.Tips.TipCategoryActivity" />
         <activity android:name=".Activities.Budget.Tips.MenuActivity" />
@@ -87,11 +87,11 @@
         <activity android:name=".Activities.Income.T2T.T2tMenuActivity" />
         <activity android:name=".Activities.MentalWellbeing.Yoga.YogaListActivity" />
         <activity android:name=".Activities.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
     </application>
 
