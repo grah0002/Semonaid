@@ -13,16 +13,20 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Income.T2T.OpshopItemActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class ServiceItemActivity extends AppCompatActivity {
@@ -108,6 +112,8 @@ public class ServiceItemActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
+
+            final Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
             String nameTxt = item.getService_name();
             String whoTxt =  item.getWho();
@@ -255,9 +261,35 @@ public class ServiceItemActivity extends AppCompatActivity {
             website.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Uri uri = Uri.parse(item.website);
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
+
+
+                    final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ServiceItemActivity.this, R.style.BottomSheet);
+                    View bottomsheet = LayoutInflater.from(getApplicationContext())
+                            .inflate(R.layout.website_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheet));
+                    TextView locationName = bottomsheet.findViewById(R.id.location_name);
+
+                    TextView websiteDetails = bottomsheet.findViewById(R.id.website_details);
+                    websiteDetails.setTypeface(font);
+                    locationName.setTypeface(font);
+
+                    Button view_details = bottomsheet.findViewById(R.id.btn_location);
+                    view_details.setTypeface(font);
+
+
+                    websiteDetails.setText(item.website);
+                    view_details.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Uri uri = Uri.parse(item.website);
+                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                            startActivity(intent);
+                        }
+                    });
+
+                    bottomSheetDialog.setContentView(bottomsheet);
+                    bottomSheetDialog.show();
+
+
                 }
             });
 

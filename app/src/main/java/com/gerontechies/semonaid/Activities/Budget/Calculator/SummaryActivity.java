@@ -83,7 +83,7 @@ public class SummaryActivity extends AppCompatActivity implements
     String category_bills = "Utility Bills", category_personal = "Personal Expenses", category_transport = "Transport Expenses", category_household = "Household Expenses", categotry_income = "Income";
     List<BudgetItem> top3 = new ArrayList<>();
     RecyclerView topList;
-    double incomeTotal, expenseTotal, maxExpense = 0;
+    double incomeTotal, maxExpense = 0;
     TextView incomeTotalTxt, expenseTotalTxt;
     private PieChart chart;
     Typeface font;
@@ -92,6 +92,8 @@ public class SummaryActivity extends AppCompatActivity implements
     boolean isIncome = false, isExpense = false, isData = false;
     LinearLayout noInfo, valuesExsist;
     Button back_to_buget;
+
+    public static double expenseTotal;
 
 
     @Override
@@ -316,14 +318,12 @@ public class SummaryActivity extends AppCompatActivity implements
             // gets the top 3 categories
             for (int i = 0; i < 3; i++) {
                 BudgetItem item = expenseItemList.get(i);
-                Log.d("CAT", item.itemName + "----" + item.getAmount());
                 top3.add(item);
             }
         } else {
             // gets the top 3 categories
             for (int i = 0; i < expenseItemList.size(); i++) {
                 BudgetItem item = expenseItemList.get(i);
-                Log.d("CAT", item.itemName + "----" + item.getAmount());
                 top3.add(item);
             }
         }
@@ -332,7 +332,6 @@ public class SummaryActivity extends AppCompatActivity implements
         TopCategoriesAdapter adapter = new TopCategoriesAdapter(this, top3);
         RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         topList.setLayoutManager(mLayoutManagerIncome);
-
         topList.setItemAnimator(new DefaultItemAnimator());
         topList.setAdapter(adapter);
         topList.setNestedScrollingEnabled(false);
@@ -403,7 +402,7 @@ public class SummaryActivity extends AppCompatActivity implements
             }
 
             double diff = (expenseTotal - incomeTotal) / expenseTotal * 100;
-            title = "You have overshot your expenses by " + df.format(diff) + "%";
+            title = "You have exceeded your expenses by " + df.format(diff) + "%";
 
 
         } else if (expenseTotal < incomeTotal) { //if expense is less than income

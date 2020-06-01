@@ -17,11 +17,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
@@ -29,6 +31,7 @@ import com.gerontechies.semonaid.Adapters.EventAdapter;
 import com.gerontechies.semonaid.Models.Budget.EventItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
@@ -108,7 +111,7 @@ public class EventInfoActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String details) {
 
-            Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
+            final Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
             String eventCategory = item.category;
             try {
                 JSONArray categoriesJson = new JSONArray(eventCategory);
@@ -120,7 +123,12 @@ public class EventInfoActivity extends AppCompatActivity {
                     // adding chips for each of the categories
                     Chip chip = new Chip(EventInfoActivity.this);
                     chip.setTypeface(font);
-                    chip.setText(c);
+                    if (c.equals("Lifelong Learning")) {
+                        chip.setText("Educational");
+                    } else {
+                        chip.setText(c);
+                    }
+
                     chip.setTextColor(getResources().getColorStateList(R.color.white));
                     chip.setChipBackgroundColor(getResources().getColorStateList(R.color.colorPrimary));
                     categories.addView(chip);
@@ -141,9 +149,34 @@ public class EventInfoActivity extends AppCompatActivity {
             event_website.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Uri uri = Uri.parse(item.website);
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
+
+                    final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(EventInfoActivity.this, R.style.BottomSheet);
+                    View bottomsheet = LayoutInflater.from(getApplicationContext())
+                            .inflate(R.layout.website_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheet));
+                    TextView locationName = bottomsheet.findViewById(R.id.location_name);
+
+                    TextView websiteDetails = bottomsheet.findViewById(R.id.website_details);
+                    websiteDetails.setTypeface(font);
+                    locationName.setTypeface(font);
+
+                    Button view_details = bottomsheet.findViewById(R.id.btn_location);
+                    view_details.setTypeface(font);
+
+
+                    websiteDetails.setText(item.website);
+                    view_details.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Uri uri = Uri.parse(item.website);
+                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                            startActivity(intent);
+                        }
+                    });
+
+                    bottomSheetDialog.setContentView(bottomsheet);
+                    bottomSheetDialog.show();
+
+
                 }
             });
 

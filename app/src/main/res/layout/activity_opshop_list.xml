@@ -7,14 +7,29 @@
     android:orientation="vertical"
     tools:context=".Activities.Services.ServicesCategoryList">
 
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="Back to Budget Tips"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:fontFamily="@font/montserrat" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/map_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
@@ -26,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:gravity="end"
-            android:padding="30dp"
+            android:padding="20dp"
             android:text="View on Map"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"

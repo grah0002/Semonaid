@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/scrollbar_shape_style"
@@ -11,6 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_back2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="Back to Budget Tips"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:fontFamily="@font/montserrat"
+            tools:visibility="gone" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/tip1"

@@ -63,7 +63,12 @@ public class EventsListingActivity extends AppCompatActivity {
         if (intent.hasExtra(Intent.EXTRA_TEXT)) {
             //getting the category name for this selection
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
-            setTitle(category);
+            if (category.equals("Lifelong Learning")) {
+                setTitle("Educational");
+            } else {
+                setTitle(category);
+            }
+
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         }

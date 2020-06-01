@@ -218,7 +218,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
         mMap.setOnInfoWindowClickListener(this);
         mMap.setOnMarkerClickListener(this);
-
+        mMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
     @Override

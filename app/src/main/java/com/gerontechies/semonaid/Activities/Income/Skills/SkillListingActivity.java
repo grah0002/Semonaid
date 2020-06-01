@@ -51,6 +51,7 @@ public class SkillListingActivity extends AppCompatActivity {
     Button filter;
     HashSet<JobItem> allJobItems1 = new HashSet<>();
     EditText search;
+    TextView searchRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,8 @@ public class SkillListingActivity extends AppCompatActivity {
                 .build();
 
 
+        searchRes = (TextView) findViewById(R.id.no_resTxt);
+        searchRes.setVisibility(View.GONE);
         //Reference - https://www.youtube.com/watch?v=OWwOSLfWboY
         search = (EditText) findViewById(R.id.search_txt);
         search.addTextChangedListener(new TextWatcher() {
@@ -104,7 +107,7 @@ public class SkillListingActivity extends AppCompatActivity {
         List<JobItem> filterList = new ArrayList<>();
 
         if(isFilterd){
-            for(JobItem jobItem: allJobItems1){
+            for (JobItem jobItem : allJobItems) {
                 if(jobItem.name.toLowerCase().contains(search.toLowerCase())){
                     filterList.add(jobItem);
                 }
@@ -118,12 +121,23 @@ public class SkillListingActivity extends AppCompatActivity {
         }
 
 
-        JobAdapter adapter = new JobAdapter(SkillListingActivity.this, filterList);
-        RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(SkillListingActivity.this, LinearLayoutManager.VERTICAL, false);
-        tipsRV.setLayoutManager(mLayoutManagerIncome);
+        if (filterList.size() > 1) {
 
-        tipsRV.setItemAnimator(new DefaultItemAnimator());
-        tipsRV.setAdapter(adapter);
+            JobAdapter adapter = new JobAdapter(SkillListingActivity.this, filterList);
+            RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(SkillListingActivity.this, LinearLayoutManager.VERTICAL, false);
+            tipsRV.setLayoutManager(mLayoutManagerIncome);
+
+            tipsRV.setItemAnimator(new DefaultItemAnimator());
+            tipsRV.setAdapter(adapter);
+            searchRes.setVisibility(View.GONE);
+            tipsRV.setVisibility(View.VISIBLE);
+
+        } else if (filterList.size() == 0) {
+            searchRes.setVisibility(View.VISIBLE);
+            tipsRV.setVisibility(View.GONE);
+        }
+
+
     }
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {

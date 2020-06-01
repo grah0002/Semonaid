@@ -26,6 +26,7 @@ import com.gerontechies.semonaid.Adapters.SkillListAdapter;
 import com.gerontechies.semonaid.Models.Budget.JobContentItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.ArrayList;
@@ -73,29 +74,42 @@ public class SkillsFilterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(SkillsFilterActivity.this)
+                        .setTitle("Reset")
+                        .setMessage("Are you sure you want to reset all the values?")
+                        .setCancelable(true)
+
+                        .setPositiveButton("Okay", R.drawable.tick, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                selectedCertfificationsList.clear();
+                                selectedSkillsList.clear();
+                                // dialog.dismiss();
+                                finish();
+                                startActivity(getIntent());
+
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+                        .setNegativeButton("Cancel", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+
+                                dialogInterface.dismiss();
+                            }
+
+                        })
 
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(SkillsFilterActivity.this);
-                builder.setTitle("Reset");
-                builder.setMessage("Are you sure you want to reset all the values?");
+                        .build();
 
-                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        selectedCertfificationsList.clear();
-                        selectedSkillsList.clear();
-                        dialog.dismiss();
-                        finish();
-                        startActivity(getIntent());
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-                        dialog.dismiss();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                // Show Dialog
+                mDialog.show();
+
+
+
 
             }
         });

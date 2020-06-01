@@ -76,9 +76,9 @@ public class SkillDetailItemActivity extends AppCompatActivity {
         for(int i=0; i< arrOfStr.length; i++)
         {
             if(i==arrOfStr.length-1) {
-                job_desc.append("\u2014 "+arrOfStr[i]);
+                job_desc.append("\u2022 " + arrOfStr[i]);
             } else{
-                job_desc.append("\u2014 "+arrOfStr[i]+"\n\n");
+                job_desc.append("\u2022 " + arrOfStr[i] + "\n\n");
             }
 
         }

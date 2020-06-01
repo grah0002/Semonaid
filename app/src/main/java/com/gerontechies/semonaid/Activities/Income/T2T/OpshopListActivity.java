@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -47,16 +48,14 @@ public class OpshopListActivity extends AppCompatActivity  {
     SemonaidDB db = null;
 //    String category;
 
+    String fromRes;
+    Button back;
     CardView map_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opshop_list);
-
-        setTitle("Sell Treasure");
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         db = Room.databaseBuilder(this,
@@ -65,6 +64,23 @@ public class OpshopListActivity extends AppCompatActivity  {
                 .build();
 
         Intent intent = getIntent();
+        back = (Button) findViewById(R.id.button_back);
+        fromRes = getIntent().getStringExtra("from_results");
+        if (fromRes.equals("yes")) {
+            setTitle("Find Thrift Stores");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            back.setVisibility(View.VISIBLE);
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    OpshopListActivity.this.finish();
+                }
+            });
+        } else if (fromRes.equals("no")) {
+            setTitle("Sell Treasure");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            back.setVisibility(View.GONE);
+        }
 /*        if (intent.hasExtra(Intent.EXTRA_TEXT)){
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
             setTitle(category);

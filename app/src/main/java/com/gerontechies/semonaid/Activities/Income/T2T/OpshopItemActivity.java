@@ -7,10 +7,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -20,10 +22,12 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.room.Room;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.MentalWellbeing.Events.EventInfoActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.OpshopDatabase;
 import com.gerontechies.semonaid.Models.OpshopItem;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class OpshopItemActivity extends AppCompatActivity {
@@ -36,12 +40,23 @@ public class OpshopItemActivity extends AppCompatActivity {
     String id;
     CardView timings;
     boolean isMap=false;
+    String fromRes;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opshop_item);
+
+        fromRes = getIntent().getStringExtra("from_results");
+        if (fromRes.equals("yes")) {
+            setTitle("Find Thrift Stores");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        } else if (fromRes.equals("no")) {
+            setTitle("Sell Treasure");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         setTitle("Sell Treasure");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -95,6 +110,7 @@ public class OpshopItemActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String details) {
 
+            final Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
             String mTxt = item.getMonday();
 
             Log.d("IMAge", item.getId() + "---");
@@ -118,9 +134,34 @@ public class OpshopItemActivity extends AppCompatActivity {
             website.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Uri uri = Uri.parse(item.website);
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
+
+                    final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(OpshopItemActivity.this, R.style.BottomSheet);
+                    View bottomsheet = LayoutInflater.from(getApplicationContext())
+                            .inflate(R.layout.website_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheet));
+                    TextView locationName = bottomsheet.findViewById(R.id.location_name);
+
+                    TextView websiteDetails = bottomsheet.findViewById(R.id.website_details);
+                    websiteDetails.setTypeface(font);
+                    locationName.setTypeface(font);
+
+                    Button view_details = bottomsheet.findViewById(R.id.btn_location);
+                    view_details.setTypeface(font);
+
+
+                    websiteDetails.setText(item.website);
+                    view_details.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Uri uri = Uri.parse(item.website);
+                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                            startActivity(intent);
+                        }
+                    });
+
+                    bottomSheetDialog.setContentView(bottomsheet);
+                    bottomSheetDialog.show();
+
+
                 }
             });
 

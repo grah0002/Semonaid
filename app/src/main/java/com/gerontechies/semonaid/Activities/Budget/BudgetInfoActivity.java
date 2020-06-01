@@ -88,6 +88,7 @@ public class BudgetInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetInfoActivity.this, MenuActivity.class);
+                intent.putExtra("from_results", "no");
                 startActivity(intent);
             }
         });

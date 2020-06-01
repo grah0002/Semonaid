@@ -86,6 +86,8 @@ public class T2tMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(T2tMenuActivity.this, OpshopListActivity.class);
+                intent.putExtra("from_results", "no");
+
                 startActivity(intent);
             }
         });

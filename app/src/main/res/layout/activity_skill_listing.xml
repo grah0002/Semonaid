@@ -23,10 +23,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:fontFamily="@font/montserrat"
-                android:hint="Search..."
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:hint="Search Job (Ex Teacher)"
+                android:inputType="textPersonName"
+                android:textStyle="italic"
+                app:fontFamily="@font/montserrat" />
 
             <Button
                 android:id="@+id/filter_btn"
@@ -54,6 +55,16 @@
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/no_resTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="No results found!\nPlease update your search entry. "
+            android:textSize="18sp"
+            tools:visibility="gone" />
 
     </LinearLayout>
 

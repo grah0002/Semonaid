@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -15,10 +16,14 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Income.T2T.OpshopListActivity;
 import com.gerontechies.semonaid.R;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class MenuActivity extends AppCompatActivity {
+    String fromRes;
+    Button back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +31,22 @@ public class MenuActivity extends AppCompatActivity {
         setTitle("Saving Tips");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        back = (Button) findViewById(R.id.button_back2);
+
+        fromRes = getIntent().getStringExtra("from_results");
+        if (fromRes.equals("yes")) {
+
+            back.setVisibility(View.VISIBLE);
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MenuActivity.this.finish();
+                }
+            });
+        } else if (fromRes.equals("no")) {
+
+            back.setVisibility(View.GONE);
+        }
         CardView general = (CardView) findViewById(R.id.tip1);
         general.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +85,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     };
 

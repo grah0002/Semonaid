@@ -51,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="TextView"
+                android:textAlignment="textStart"
                 android:textColor="#0E0E0E"
                 android:textSize="18sp"
                 android:visibility="gone"

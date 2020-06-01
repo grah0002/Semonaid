@@ -53,7 +53,7 @@ public class T2tCategoryActivity extends AppCompatActivity {
         } else  if(t2tName.equals("Fabric")){
             catName.setText("Treasure from Fabric");
         } else  if(t2tName.equals("PillBottle")){
-            catName.setText("Treasure from Rx Bottles");
+            catName.setText("Treasure from Pill Bottles Bottles");
         }
         Log.d("T2T",t2tName);
 

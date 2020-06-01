@@ -29,6 +29,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -213,79 +214,6 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
 
     }
 
-
-    //reference - https://stackoverflow.com/questions/3574644/how-can-i-find-the-latitude-and-longitude-from-address/27834110#27834110
-/*    private class PlotData extends AsyncTask<Void, Void, String> {
-        ProgressDialog pd;
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pd = new ProgressDialog(EventsMapsActivity.this);
-            pd.setMessage("Please Wait.. Loading Map..");
-            pd.setCanceledOnTouchOutside(false);
-            pd.show();
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            String status = "";
-            for(int i = 0; i<allItemList.size(); i++){
-
-                //calculating the lat and long for each item
-                EventItem serviceItem = allItemList.get(i);
-                Geocoder coder = new Geocoder(EventsMapsActivity.this);
-                List<Address> address;
-                LatLng p1 = null;
-
-                try {
-
-                    address = coder.getFromLocationName(serviceItem.Address, 1);
-                    if (address != null) {
-                        Address location = address.get(0);
-                        location.getLatitude();
-                        location.getLongitude();
-
-                        p1 = new LatLng(location.getLatitude(), location.getLongitude() );
-                        latLngs.add(p1);
-
-                    }
-
-                } catch (Exception ex) {
-
-                    ex.printStackTrace();
-                }
-
-            }
-            return  status;
-        }
-
-        @Override
-        protected void onPostExecute(String details) {
-
-            //add markers
-            if(latLngs.size()>0){
-
-                //plotting them to the db
-                for(int i=0; i<latLngs.size(); i++){
-                    EventItem eventItem = allItemList.get(i);
-                    Marker marker;
-                    marker =  mMap.addMarker(new MarkerOptions()
-                            .position(latLngs.get(i))
-                            .title(eventItem.getActivity())
-                            .snippet(eventItem.getAddress())
-                    );
-
-                    marker.setTag(eventItem.getId());
-                }
-            }
-
-            if (pd != null)
-            {
-                pd.dismiss();
-            }
-        }
-
-    }*/
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -305,7 +233,10 @@ public class EventsMapsActivity extends FragmentActivity implements OnMapReadyCa
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(melb, 12f));
 
         mMap.setOnInfoWindowClickListener(this);
+
         mMap.setOnMarkerClickListener(this);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

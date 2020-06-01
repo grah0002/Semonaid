@@ -134,7 +134,7 @@
                     android:drawableLeft="@drawable/website"
                     android:drawablePadding="20dp"
                     android:fontFamily="@font/montserrat"
-                    android:text="Open in Browser"
+                    android:text="Website Details"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="18sp" />
 
@@ -229,6 +229,8 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
                     android:paddingLeft="30dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textAllCaps="false"
                     android:paddingRight="30dp"
                     android:text="Open in Google Maps" />
 
