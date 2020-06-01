@@ -3,41 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/budgetInfoActivity">
 
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="com.gerontechies.semonaid.Adapters.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home">
-
-        <action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_home_second" />
-    </fragment>
-    <fragment
-        android:id="@+id/nav_home_second"
-        android:name="com.gerontechies.semonaid.Adapters.ui.home.HomeSecondFragment"
-        android:label="@string/home_second"
-        tools:layout="@layout/fragment_home_second">
-        <action
-            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
-            app:destination="@id/nav_home" />
-
-        <argument
-            android:name="myArg"
-            app:argType="string" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.gerontechies.semonaid.Adapters.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.gerontechies.semonaid.Adapters.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/homeScreenActivity"
+        android:name="com.gerontechies.semonaid.Activities.HomeScreenActivity"
+        android:label="activity_home_screen"
+        tools:layout="@layout/activity_home_screen" />
+    <activity
+        android:id="@+id/budgetInfoActivity"
+        android:name="com.gerontechies.semonaid.Activities.Budget.BudgetInfoActivity"
+        android:label="activity_budget_info"
+        tools:layout="@layout/activity_budget_info" />
+    <activity
+        android:id="@+id/budgetMainMenuActivity"
+        android:name="com.gerontechies.semonaid.Activities.Budget.BudgetMainMenuActivity"
+        android:label="activity_budget_menu"
+        tools:layout="@layout/activity_budget_menu" />
+    <activity
+        android:id="@+id/incomeActivity"
+        android:name="com.gerontechies.semonaid.Activities.Budget.Calculator.IncomeActivity"
+        android:label="activity_income"
+        tools:layout="@layout/activity_income" />
+    <activity
+        android:id="@+id/billsActivity"
+        android:name="com.gerontechies.semonaid.Activities.Budget.Calculator.BillsActivity"
+        android:label="activity_bills"
+        tools:layout="@layout/activity_bills" />
 </navigation>

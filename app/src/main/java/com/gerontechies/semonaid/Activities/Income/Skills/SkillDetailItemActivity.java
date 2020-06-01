@@ -21,6 +21,7 @@ import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,9 +76,9 @@ public class SkillDetailItemActivity extends AppCompatActivity {
         for(int i=0; i< arrOfStr.length; i++)
         {
             if(i==arrOfStr.length-1) {
-                job_desc.append("\u2014 "+arrOfStr[i]);
+                job_desc.append("\u2022 " + arrOfStr[i]);
             } else{
-                job_desc.append("\u2014 "+arrOfStr[i]+"\n\n");
+                job_desc.append("\u2022 " + arrOfStr[i] + "\n\n");
             }
 
         }
@@ -139,27 +140,47 @@ public class SkillDetailItemActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if (id == R.id.homeIcon) {
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("This page shows a quick detail summary of the job. " +
+                                "\n\nTap on the 'View Jobs on Indeed' button to be redirected to Indeed.com with the search " +
+                                "for the selected job" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
-
     public void setTitle(String title) {
         Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 

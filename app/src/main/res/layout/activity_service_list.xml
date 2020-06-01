@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F4F2F2"
     android:orientation="vertical"
+
     tools:context=".Activities.Services.ServicesAllActivity">
 
 
@@ -52,6 +53,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_all_services"
+        style="@style/scrollbar_shape_style"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp" />

@@ -71,31 +71,43 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.MyViewHolder> 
 
         holder.title1.setText(item.getTitle());
 
-        String src = " ";
-        src = item.getImage();
-        Log.d("IMAge", src + "---");
+        String src = item.getName();
         //String uri = "@drawable/" + "mountainpose";
 
-        String uri = "@drawable/" + src;
-/*
-        if (item.equals("Mountain")) {
-             uri = "@drawable/" + "mountainpose";
-        } else if (item.equals("Tree")) {
-             uri = "@drawable/" + "treepose";
-        } else if (item.equals("Sphinx")) {
-             uri = "@drawable/" + "sphinx";
-        } else if (item.equals("Bird")) {
-             uri = "@drawable/" + "birddog";
-        } else if (item.equals("Dog")) {
-             uri = "@drawable/" + "downwarddog";
-        } else if (item.equals("Savasana")) {
-             uri = "@drawable/" + "savasanas";
+//        String uri = "@drawable/" + src;
+
+        if (src.equals("Mountain")) {
+            holder.image1.setImageResource(R.drawable.mountainpose);
+            Log.d("IMAge", src + "---");
         }
-*/
+        if (src.equals("Tree")) {
+            holder.image1.setImageResource(R.drawable.treepose);
+            Log.d("IMAge", src + "---");
+        }
+        if (src.equals("Sphinx")) {
+            holder.image1.setImageResource(R.drawable.sphinx);
+            Log.d("IMAge", src + "---");
+        }
+        if (src.equals("Bird")) {
+            holder.image1.setImageResource(R.drawable.birddog);
+            Log.d("IMAge", src + "---");
+        }
+        if (src.equals("Dog")) {
+            holder.image1.setImageResource(R.drawable.downwarddog);
+            Log.d("IMAge", src + "---");
+        }
+        if (src.equals("Savasana")) {
+            holder.image1.setImageResource(R.drawable.savasanas);
+            Log.d("IMAge", src + "---");
+        }
+        if (src.equals("Cobbler")) {
+            holder.image1.setImageResource(R.drawable.cobblerpose);
+            Log.d("IMAge", src + "---");
+        }
+
 //        int imageResource = (int) this.mContext.getResources().getIdentifier(uri, null, this.mContext.getPackageName());
 //        Drawable res = this.mContext.getResources().getDrawable(imageResource);
 
-//        holder.image1.setImageDrawable(res);
         holder.text1.setText(item.getYoga());
         holder.card_yoga1.setOnClickListener(new View.OnClickListener() {
             @Override

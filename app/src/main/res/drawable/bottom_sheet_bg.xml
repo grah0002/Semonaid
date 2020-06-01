@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <solid android:color="#FFFFFF" />
-    <solid android:background = "@color/white"></solid>
-    <corners android:topLeftRadius="20dp" android:topRightRadius="20dp">
-
-    </corners>
-</selector>
+<!--Reference - https://medium.com/halcyon-mobile/implementing-googles-refreshed-modal-bottom-sheet-4e76cb5de65b-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners
+        android:topLeftRadius="@dimen/bottom_sheet_corner_radius"
+        android:topRightRadius="@dimen/bottom_sheet_corner_radius" />
+    <padding android:top="@dimen/bottom_sheet_top_padding" />
+    <solid android:color="@color/white" />
+</shape>

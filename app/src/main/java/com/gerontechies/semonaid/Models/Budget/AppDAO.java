@@ -7,6 +7,9 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.gerontechies.semonaid.Models.OpshopItem;
+import com.gerontechies.semonaid.Models.T2tItem;
+
 import java.util.List;
 
 import static androidx.room.OnConflictStrategy.REPLACE;
@@ -134,6 +137,44 @@ public interface AppDAO {
 
     @Insert
     long insertJobTipItem(JobTips jobTips);
+
+    //T2T
+
+    @Query("SELECT * FROM T2tItem")
+    List<T2tItem> getAllT2TItems();
+
+    @Query("SELECT * FROM T2tItem WHERE name LIKE :name")
+    List<T2tItem> getNameT2TItem(String name);
+
+    @Query("SELECT * FROM T2tItem WHERE id LIKE :id LIMIT 1")
+   T2tItem getIdT2TItem(int id);
+
+    @Query("SELECT * FROM T2tItem WHERE category LIKE :category")
+    List<T2tItem> getCategoryT2TItem(String category);
+
+    @Insert
+    long insertT2TItem(T2tItem t2titem);
+
+    @Delete
+    void delete(T2tItem t2titem);
+
+    //OP Shop
+    @Query("SELECT * FROM OpshopItem")
+    List<OpshopItem> getAllOpShops();
+
+    @Query("SELECT * FROM opshopitem WHERE id = :id LIMIT 1")
+    OpshopItem findByIDOpPShop(int id);
+
+    @Query("SELECT * FROM OpshopItem WHERE name = :name LIMIT 1")
+    OpshopItem findByNameOpShop(String name);
+
+    @Insert
+    void insertAllOpShop(OpshopItem... opshopitem);
+
+    @Insert
+    long insertOpShop(OpshopItem opshopitem);
+
+
 
 }
 

@@ -1,11 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+
+    <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+
+        <!-- Customize your theme here. -->
+        <item name="material_dialog_background">#FFFFFF</item>
+        <item name="material_dialog_title_text_color">#000000</item>
+        <item name="material_dialog_message_text_color">#5F5F5F</item>
+        <item name="material_dialog_positive_button_color">@color/colorPrimary</item>
+        <item name="material_dialog_positive_button_text_color">#FFFFFF</item>
+        <item name="material_dialog_negative_button_text_color">@color/colorPrimary</item>
+
     </style>
 
     <style name="Material" parent="Theme.MaterialComponents.Light.DarkActionBar">
@@ -30,6 +42,17 @@
         <!--        <item name="android:scrollbarDefaultDelayBeforeFade">1000</item>-->
     </style>
 
+<!--    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">-->
+<!--        <item name="android:background">@drawable/bottom_sheet_bg</item>-->
+<!--    </style>-->
+
+<!--    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">-->
+<!--        <item name="android:windowIsFloating">false</item>-->
+<!--        <item name="bottomSheetStyle">@style/BottomSheet</item>-->
+<!--    </style>-->
+
+    <style name="BottomSheetDialogTheme" parent="BottomSheetStyle" />
+
     <style name="scrollbar_rv">
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:scrollbarStyle">outsideOverlay</item>
@@ -40,12 +63,13 @@
     </style>
 
 
- <style name="BottomSheet" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="BottomSheet" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheet</item>
     </style>
 
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@android:color/white</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:background">@drawable/bottom_sheet_bg</item>
     </style>
 
 

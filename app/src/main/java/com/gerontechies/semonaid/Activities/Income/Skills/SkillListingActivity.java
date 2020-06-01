@@ -12,12 +12,15 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
@@ -25,6 +28,7 @@ import com.gerontechies.semonaid.Adapters.JobAdapter;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.JobItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,6 +50,8 @@ public class SkillListingActivity extends AppCompatActivity {
     boolean isFilterd = false;
     Button filter;
     HashSet<JobItem> allJobItems1 = new HashSet<>();
+    EditText search;
+    TextView searchRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,19 +66,78 @@ public class SkillListingActivity extends AppCompatActivity {
                 .build();
 
 
+        searchRes = (TextView) findViewById(R.id.no_resTxt);
+        searchRes.setVisibility(View.GONE);
+        //Reference - https://www.youtube.com/watch?v=OWwOSLfWboY
+        search = (EditText) findViewById(R.id.search_txt);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                filterText(editable.toString());
+            }
+        });
         filter = (Button) findViewById(R.id.filter_btn);
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SkillListingActivity.this, SkillsFilterActivity.class);
+                SkillListingActivity.this.finish();
                 startActivity(intent);
-                //finish();
+
             }
         });
 
         tipsRV = (RecyclerView) findViewById(R.id.rv);
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
+    }
+
+    private void filterText(String search){
+        List<JobItem> filterList = new ArrayList<>();
+
+        if(isFilterd){
+            for (JobItem jobItem : allJobItems) {
+                if(jobItem.name.toLowerCase().contains(search.toLowerCase())){
+                    filterList.add(jobItem);
+                }
+            }
+        } else{
+            for(JobItem jobItem: allJobItems){
+                if(jobItem.name.toLowerCase().contains(search.toLowerCase())){
+                    filterList.add(jobItem);
+                }
+            }
+        }
+
+
+        if (filterList.size() > 1) {
+
+            JobAdapter adapter = new JobAdapter(SkillListingActivity.this, filterList);
+            RecyclerView.LayoutManager mLayoutManagerIncome = new LinearLayoutManager(SkillListingActivity.this, LinearLayoutManager.VERTICAL, false);
+            tipsRV.setLayoutManager(mLayoutManagerIncome);
+
+            tipsRV.setItemAnimator(new DefaultItemAnimator());
+            tipsRV.setAdapter(adapter);
+            searchRes.setVisibility(View.GONE);
+            tipsRV.setVisibility(View.VISIBLE);
+
+        } else if (filterList.size() == 0) {
+            searchRes.setVisibility(View.VISIBLE);
+            tipsRV.setVisibility(View.GONE);
+        }
+
+
     }
 
     private class ReadDatabase extends AsyncTask<Void, Void, String> {
@@ -190,25 +255,45 @@ public class SkillListingActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if (id == R.id.homeIcon) {
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("The page shows a list of professions you could apply for based on the skills and certifications you have selected. " +
+                                "\n\nTap on 'View Details' to know more about the job.\n\nTap on 'Filter' to edit your skills and certifications selection" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
 
     public void setTitle(String title) {

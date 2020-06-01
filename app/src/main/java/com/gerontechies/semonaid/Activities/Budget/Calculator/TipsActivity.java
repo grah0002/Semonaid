@@ -24,13 +24,17 @@ import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.Budget.Tips.MenuActivity;
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Income.T2T.OpshopListActivity;
 import com.gerontechies.semonaid.Adapters.SavingTipsAdapter;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.TipItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.gerontechies.semonaid.Activities.Budget.Calculator.SummaryActivity.expenseTotal;
 
 public class TipsActivity extends AppCompatActivity {
 
@@ -39,13 +43,16 @@ public class TipsActivity extends AppCompatActivity {
     List<TipItem> item ;
     String tipName;
 
+    Button back, thriftStores;
     ImageView imgIcon;
     String uri;
     List<TipItem> allIatemList = new ArrayList<>();
 
     ImageView noRes;
     TextView searchTxt;
+    String category;
     Button viewTips;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,24 +70,60 @@ public class TipsActivity extends AppCompatActivity {
                 .build();
 
         TextView name = (TextView) findViewById(R.id.txt_category_name);
-        TextView amt = (TextView) findViewById(R.id.txt_amt);
+        TextView amt = (TextView) findViewById(R.id.income_amt);
+        TextView expPercentage = (TextView) findViewById(R.id.exp_amt);
+
         imgIcon = (ImageView) findViewById(R.id.img_icon);
         searchTxt = (TextView) findViewById(R.id.txtSavings);
         noRes = (ImageView) findViewById(R.id.noRes);
         viewTips = (Button) findViewById(R.id.btn_tips);
+        thriftStores = (Button) findViewById(R.id.btn_thrift_shops);
 
         viewTips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TipsActivity.this, MenuActivity.class);
+                intent.putExtra("from_results", "yes");
                 startActivity(intent);
             }
         });
 
+        back = (Button) findViewById(R.id.btn_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TipsActivity.this.finish();
+            }
+        });
+
         tipName = getIntent().getStringExtra("name");
+        category = getIntent().getStringExtra("category");
+
+        Log.d("THIF", "INNNN----" + category);
+        if (tipName.equals("Clothing")) {
+            Log.d("THIF", "INNNN");
+            thriftStores.setVisibility(View.VISIBLE);
+
+            thriftStores.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(TipsActivity.this, OpshopListActivity.class);
+                    intent.putExtra("from_results", "yes");
+                    startActivity(intent);
+                }
+            });
+        } else {
+            thriftStores.setVisibility(View.GONE);
+        }
+
+
         String amtVal = getIntent().getStringExtra("amt");
         name.setText(tipName);
-        amt.setText("$" +amtVal + " spent yearly");
+        amt.setText("$" + amtVal);
+
+        double percentage = (Double.valueOf(amtVal) / expenseTotal) * 100;
+
+        expPercentage.setText(String.format("%.2f", percentage));
 
         ReadDatabase rd = new ReadDatabase();
         rd.execute();
@@ -167,6 +210,15 @@ public class TipsActivity extends AppCompatActivity {
                     allIatemList.add(temp);
                 }
 
+            } else {
+                Log.d("IN", "insie" + category);
+                item = db.AppDAO().getTipCategory(category);
+                if (!(item.isEmpty() || item == null)) {
+                    for (TipItem temp : item) {
+                        allIatemList.add(temp);
+                    }
+
+                }
             }
             return  status;
         }
@@ -184,20 +236,22 @@ public class TipsActivity extends AppCompatActivity {
 
                     tipsRV.setItemAnimator(new DefaultItemAnimator());
                     tipsRV.setAdapter(adapter);
-                    tipsRV.setNestedScrollingEnabled(false);
+                    tipsRV.setNestedScrollingEnabled(true);
 
                 }
                 //if there are no tips, show the no tips image
                else if(allIatemList.size()<=0 ){
 
                    noRes.setVisibility(View.VISIBLE);
-                   searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
+                    searchTxt.setVisibility(View.GONE);
+                    // searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
                 }
             }
             else if(allIatemList.size()<=0 ){
 
                 noRes.setVisibility(View.VISIBLE);
-                searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
+                searchTxt.setVisibility(View.GONE);
+                // searchTxt.setText("Oops, this is embarrassing! \nWe currently do not have any tips for this category! Please check out the general tips to find more Saving Tips!");
             }
 
 
@@ -220,18 +274,37 @@ public class TipsActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("Tap on the tip you are interested in to find more details")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+        }
         return super.onOptionsItemSelected(item);
     }
 

@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener  {
+public class ServicesMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     List<ServiceItem> allItemList = new ArrayList<>();
@@ -49,7 +49,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
     Map<String, String> mMarkerMap = new HashMap<>();
     String ROUTE, NAME;
     ServiceItem selected;
-
+    Typeface font;
 
     ServicesAdapter mAdapter;
 
@@ -60,13 +60,12 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-       // setTitle("Get Assistance");
+        // setTitle("Get Assistance");
         Toolbar myToolbar = null;
 
         mapFragment.getMapAsync(this);
 
         Button list_btn = (Button) findViewById(R.id.list_btn) ;
-        Typeface font = ResourcesCompat.getFont(getApplicationContext(),R.font.montserrat);
         list_btn.setTypeface(font);
         list_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +75,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
                 finish();
             }
         });
+        font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
@@ -108,14 +108,19 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         Button view_details = bottomsheet.findViewById(R.id.btn_location);
 
 
+        locationAddress.setTypeface(font);
+        locationDays.setTypeface(font);
+        locationName.setTypeface(font);
+
+        view_details.setTypeface(font);
         locationName.setText(selected.service_name);
         locationAddress.setText(selected.category_1);
-       // locationDays.setText(selected.suburb);
+        // locationDays.setText(selected.suburb);
         view_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);
-                intent.putExtra("service_id", String.valueOf(selected.id)) ;
+                intent.putExtra("service_id", String.valueOf(selected.id));
                 startActivity(intent);
             }
         });
@@ -163,16 +168,16 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
         @Override
         protected void onPostExecute(String details) {
 
-          //add markers
+            //add markers
 
             for(int i = 0; i<allItemList.size(); i++){
-                 Marker marker;
+                Marker marker;
 
                 ServiceItem serviceItem = allItemList.get(i);
 
                 if(category.equals("none")){
                     LatLng item  = new LatLng(serviceItem.getLatitude(),serviceItem.getLongitude());
-                  //  mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
+                    //  mMap.addMarker(new MarkerOptions().position(item).title(serviceItem.getService_name()));
                     marker =  mMap.addMarker(new MarkerOptions()
                             .position(item)
                             .title(serviceItem.getService_name())
@@ -185,7 +190,7 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
                 else {
                     if(serviceItem.getCategory_1().equals(category) || serviceItem.getCategory_2().equals(category) || serviceItem.getCategory_3().equals(category) || serviceItem.getCategory_4().equals(category)){
                         LatLng item  = new LatLng(serviceItem.getLatitude(),serviceItem.getLongitude());
-                       marker =  mMap.addMarker(new MarkerOptions()
+                        marker = mMap.addMarker(new MarkerOptions()
                                 .position(item)
                                 .title(serviceItem.getService_name())
                                 .snippet(serviceItem.getSuburb())
@@ -206,14 +211,14 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-37.806498, 144.929392);
-      //  mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-       // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //  mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12f));
 
         mMap.setOnInfoWindowClickListener(this);
         mMap.setOnMarkerClickListener(this);
-
+        mMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
     @Override
@@ -247,8 +252,8 @@ public class ServicesMapActivity extends FragmentActivity implements OnMapReadyC
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-       // Toast.makeText(this, "Info window clicked",
-         //       Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Info window clicked",
+        //       Toast.LENGTH_SHORT).show();
         String venueID = mMarkerMap.get(marker.getId());
         String venueName = marker.getTitle();
         Intent intent = new Intent(ServicesMapActivity.this, ServiceItemActivity.class);

@@ -29,6 +29,8 @@ import com.gerontechies.semonaid.Models.Budget.EventItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.chip.Chip;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,7 +63,12 @@ public class EventsListingActivity extends AppCompatActivity {
         if (intent.hasExtra(Intent.EXTRA_TEXT)) {
             //getting the category name for this selection
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
-            setTitle(category);
+            if (category.equals("Lifelong Learning")) {
+                setTitle("Educational");
+            } else {
+                setTitle(category);
+            }
+
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         }
@@ -96,16 +103,29 @@ public class EventsListingActivity extends AppCompatActivity {
                 for (EventItem temp : item) {
 
                     String eventCategory = temp.category;
-                    List<String> cat = Arrays.asList(eventCategory.split(","));
+                    JSONArray categoriesJson = null;
+                    try {
+                        categoriesJson = new JSONArray(eventCategory);
+                        for (int j = 0; j < categoriesJson.length(); j++) {
+                            JSONObject cObj = categoriesJson.getJSONObject(j);
 
-                    //String[] cat = eventCategory.split(",");
-                    for (int i = 0; i < cat.size(); i++) {
-                        //  Log.d("STR", i+"-------"+cat.get(i)+"----"+temp.activity+"----"+ temp.id);
-                        if (cat.get(i).equals(category)) {
-                            allItemList.add(temp);
+                            String c = cObj.getString("category");
+                            if(c.toLowerCase().equals(category.toLowerCase())){
+                                allItemList.add(temp);
+                            }
+                            // adding chips for each of the categories
+//                            Chip chip = new Chip(EventsListingActivity.this);
+//                            chip.setTypeface(font);
+//                            chip.setText(c);
+//                            chip.setTextColor(getResources().getColorStateList(R.color.white));
+//                            chip.setChipBackgroundColor(getResources().getColorStateList(R.color.colorPrimary));
+//                            categories.addView(chip);
 
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+
 
 
                 }
@@ -137,28 +157,49 @@ public class EventsListingActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            this.finish();
-            onBackPressed();
-            return true;
-        } else if (id == R.id.homeIcon) {
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("\"Tap on 'View on Map' button to see the locations of these events on a map. \n" +
+                                "\n\nTap on 'View Details' to know more about the event\"" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
+
 
 
     public void setTitle(String title) {

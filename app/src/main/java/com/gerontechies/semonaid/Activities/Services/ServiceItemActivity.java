@@ -2,24 +2,32 @@ package com.gerontechies.semonaid.Activities.Services;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gerontechies.semonaid.Activities.HomeScreenActivity;
+import com.gerontechies.semonaid.Activities.Income.T2T.OpshopItemActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.ServiceItem;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class ServiceItemActivity extends AppCompatActivity {
 
@@ -28,6 +36,8 @@ public class ServiceItemActivity extends AppCompatActivity {
     TextView cost, tram, train, category1, category2, category3, category4, addressTxt;
     SemonaidDB db = null;
     ServiceItem item;
+    Button map;
+    CardView opening;
     String id, route, serviceName;
     boolean isMap=false;
 
@@ -75,6 +85,10 @@ public class ServiceItemActivity extends AppCompatActivity {
         train = (TextView) findViewById(R.id.txt_train);
         tram = (TextView) findViewById(R.id.txt_tram);
         addressTxt = (TextView) findViewById(R.id.txt_address);
+        website = (TextView) findViewById(R.id.txt_opshop_website);
+        phone = (TextView) findViewById(R.id.txt_opshop_phone);
+        map = (Button) findViewById(R.id.btn_map);
+        opening = (CardView) findViewById(R.id.opening_card);
 
     }
 
@@ -98,6 +112,8 @@ public class ServiceItemActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
+
+            final Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.montserrat);
 
             String nameTxt = item.getService_name();
             String whoTxt =  item.getWho();
@@ -134,6 +150,8 @@ public class ServiceItemActivity extends AppCompatActivity {
                 place = place + a3  ;
             }
 
+            phone.setText(item.getPhone_number());
+
 
            name.setText(item.getService_name());
 
@@ -155,6 +173,7 @@ public class ServiceItemActivity extends AppCompatActivity {
                 what.setText(item.getWhat());
             }
             if(mTxt.equals("n/a")){
+                opening.setVisibility(View.GONE);
                 monday.setVisibility(View.GONE);
             } else{
                 monday.setText("Monday - "+item.getMonday());
@@ -238,6 +257,56 @@ public class ServiceItemActivity extends AppCompatActivity {
 
             }
 
+
+            website.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+                    final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ServiceItemActivity.this, R.style.BottomSheet);
+                    View bottomsheet = LayoutInflater.from(getApplicationContext())
+                            .inflate(R.layout.website_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheet));
+                    TextView locationName = bottomsheet.findViewById(R.id.location_name);
+
+                    TextView websiteDetails = bottomsheet.findViewById(R.id.website_details);
+                    websiteDetails.setTypeface(font);
+                    locationName.setTypeface(font);
+
+                    Button view_details = bottomsheet.findViewById(R.id.btn_location);
+                    view_details.setTypeface(font);
+
+
+                    websiteDetails.setText(item.website);
+                    view_details.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Uri uri = Uri.parse(item.website);
+                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                            startActivity(intent);
+                        }
+                    });
+
+                    bottomSheetDialog.setContentView(bottomsheet);
+                    bottomSheetDialog.show();
+
+
+                }
+            });
+
+
+            final String finalPlace = place;
+            map.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + finalPlace);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(mapIntent);
+                    }
+                }
+            });
+
         }
 
     }
@@ -254,18 +323,37 @@ public class ServiceItemActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("This page shows the details of the location you have selected.\n\nIf you wish to use their services, please refer to the 'How To Get There' section at the bottom of the page")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+        }
         return super.onOptionsItemSelected(item);
     }
 

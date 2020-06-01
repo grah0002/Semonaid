@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gerontechies.semonaid">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -10,16 +9,17 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".Activities.Income.T2T.T2TItemDetailActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -34,7 +34,7 @@
 
         <activity
             android:name=".Activities.MentalWellbeing.Events.EventsMapsActivity"
-            android:label="@string/title_activity_events_maps"></activity>
+            android:label="@string/title_activity_events_maps" />
         <activity
             android:name=".Activities.MentalWellbeing.Events.EventInfoActivity"
             android:theme="@style/Material" />
@@ -56,13 +56,12 @@
             android:label="@string/title_activity_services_map" />
         <activity android:name=".Activities.PasswordActivity">
 
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity android:name=".Activities.Budget.Tips.TipCategoryActivity" />
         <activity android:name=".Activities.Budget.Tips.MenuActivity" />
@@ -80,22 +79,20 @@
         <activity android:name=".Activities.Budget.BudgetMainMenuActivity" />
         <activity android:name=".Activities.Budget.BudgetInfoActivity" />
         <activity android:name=".Activities.HomeScreenActivity" />
-        <activity android:name=".Activities.T2T.OpshopListActivity" />
-        <activity android:name=".Activities.T2T.OpshopItemActivity" />
-        <activity android:name=".Activities.T2T.OpshopMapActivity" />
-        <activity android:name=".Activities.T2T.T2tCategoryActivity" />
-        <activity android:name=".Activities.T2T.T2tCategoryListActivity" />
-        <activity android:name=".Activities.T2T.T2tMenuActivity" />
-        <activity android:name=".Activities.MentalWellbeing.Yoga.YogaList2Activity" />
+        <activity android:name=".Activities.Income.T2T.OpshopListActivity" />
+        <activity android:name=".Activities.Income.T2T.OpshopItemActivity" />
+        <activity android:name=".Activities.Income.T2T.OpshopMapActivity" />
+        <activity android:name=".Activities.Income.T2T.T2tCategoryActivity" />
+        <activity android:name=".Activities.Income.T2T.T2tCategoryListActivity" />
+        <activity android:name=".Activities.Income.T2T.T2tMenuActivity" />
         <activity android:name=".Activities.MentalWellbeing.Yoga.YogaListActivity" />
         <activity android:name=".Activities.SplashActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

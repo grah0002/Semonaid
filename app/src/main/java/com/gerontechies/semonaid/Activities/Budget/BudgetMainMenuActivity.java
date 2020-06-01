@@ -28,6 +28,7 @@ import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.BudgetItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.List;
 
@@ -85,8 +86,9 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetMainMenuActivity.this, IncomeActivity.class);
-                startActivity(intent);
                 BudgetMainMenuActivity.this.finish();
+                startActivity(intent);
+
             }
         });
 
@@ -94,6 +96,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetMainMenuActivity.this, HousingExpensesActivity.class);
+                BudgetMainMenuActivity.this.finish();
                 startActivity(intent);
             }
         });
@@ -102,6 +105,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetMainMenuActivity.this, BillsActivity.class);
+                BudgetMainMenuActivity.this.finish();
                 startActivity(intent);
             }
         });
@@ -110,6 +114,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetMainMenuActivity.this, PersonalActivity.class);
+                BudgetMainMenuActivity.this.finish();
                 startActivity(intent);
             }
         });
@@ -118,6 +123,7 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BudgetMainMenuActivity.this, TransportActivity.class);
+                BudgetMainMenuActivity.this.finish();
                 startActivity(intent);
             }
         });
@@ -228,18 +234,37 @@ public class BudgetMainMenuActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        }
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("Input your income/expenses into the corresponding categories then click on 'Calculate' at the bottom of the page to get the analysis of your budget")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+        }
         return super.onOptionsItemSelected(item);
     }
 

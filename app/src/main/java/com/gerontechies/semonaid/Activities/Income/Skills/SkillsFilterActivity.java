@@ -26,6 +26,8 @@ import com.gerontechies.semonaid.Adapters.SkillListAdapter;
 import com.gerontechies.semonaid.Models.Budget.JobContentItem;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,35 +61,55 @@ public class SkillsFilterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SkillsFilterActivity.this, SkillListingActivity.class);
+                SkillsFilterActivity.this.finish();
                 startActivity(intent);
-                finish();
+
             }
         });
+
+
+
 
         reset_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(SkillsFilterActivity.this);
-                builder.setTitle("Reset");
-                builder.setMessage("Are you sure you want to reset all the values?");
 
-                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        selectedCertfificationsList.clear();
-                        selectedSkillsList.clear();
-                        dialog.dismiss();
-                        finish();
-                        startActivity(getIntent());
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-                        dialog.dismiss();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                MaterialDialog mDialog = new MaterialDialog.Builder(SkillsFilterActivity.this)
+                        .setTitle("Reset")
+                        .setMessage("Are you sure you want to reset all the values?")
+                        .setCancelable(true)
+
+                        .setPositiveButton("Okay", R.drawable.tick, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                selectedCertfificationsList.clear();
+                                selectedSkillsList.clear();
+                                // dialog.dismiss();
+                                finish();
+                                startActivity(getIntent());
+
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+                        .setNegativeButton("Cancel", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+
+
 
             }
         });
@@ -172,26 +194,46 @@ public class SkillsFilterActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item1) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = item1.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            finish();
-            onBackPressed();
-            return true;
-        } else if (id == R.id.homeIcon) {
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
+
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("\"Select/Deselect skills and certifications here\n" +
+                                "\n\nTap on 'Reset' to clear any selections\n" +
+                                "\n\nTap on 'Save' when you are done with your selection\"" )
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item1);
     }
 
     public void setTitle(String title) {

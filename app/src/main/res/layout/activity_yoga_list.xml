@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:orientation="vertical"
-    android:scrollbarStyle="outsideOverlay">
+    style="@style/scrollbar_shape_style"
+
+    >
 
     <FrameLayout
         android:layout_width="match_parent"

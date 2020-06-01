@@ -27,6 +27,7 @@ import com.gerontechies.semonaid.Activities.HomeScreenActivity;
 import com.gerontechies.semonaid.Models.Budget.SemonaidDB;
 import com.gerontechies.semonaid.Models.Budget.BudgetItem;
 import com.gerontechies.semonaid.R;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -212,11 +213,12 @@ public class IncomeActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String details) {
+          //  IncomeActivity.this.finish();
             Intent intent = new Intent(IncomeActivity.this, BudgetMainMenuActivity.class);
-
+            IncomeActivity.this.finish();
 
             startActivity(intent);
-            IncomeActivity.this.finish();
+
 
             Log.d("DB-ITEM","Added the values");
             // textView_insert.setText("Added Record: " + details);
@@ -299,23 +301,39 @@ public class IncomeActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            // finish the activity
-            this.finish();
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.homeIcon:
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.helpIcon:
 
-            onBackPressed();
-            return true;
-        } else if(id == R.id.homeIcon){
-            Intent intent = new Intent(this, HomeScreenActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
+                MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                        .setTitle("Help")
+                        .setMessage("Enter the details in the text box and select from the option on the right whether the value is Weekly, Fortnightly, Monthly, or Yearly. Press 'Save' to continue")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Close", R.drawable.close, new MaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+
+                        })
+
+
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 
 
     public void setTitle(String title){

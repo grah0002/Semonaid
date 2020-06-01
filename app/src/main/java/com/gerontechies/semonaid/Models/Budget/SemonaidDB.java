@@ -7,7 +7,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {BudgetItem.class, ServiceItem.class, TipItem.class, JobContentItem.class, JobItem.class, EventItem.class, JobTips.class}, version = 2, exportSchema = false)
+import com.gerontechies.semonaid.Models.OpshopItem;
+import com.gerontechies.semonaid.Models.T2tItem;
+
+@Database(entities = {BudgetItem.class, ServiceItem.class, OpshopItem.class, TipItem.class, T2tItem.class, JobContentItem.class, JobItem.class, EventItem.class, JobTips.class}, version = 2, exportSchema = false)
 
 public abstract class SemonaidDB extends RoomDatabase {
 

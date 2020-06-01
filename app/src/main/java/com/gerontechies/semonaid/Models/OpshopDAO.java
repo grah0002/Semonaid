@@ -23,7 +23,7 @@ public interface OpshopDAO {
     @Query("SELECT * FROM opshopitem WHERE id = :id LIMIT 1")
     OpshopItem findByID(int id);
 
-    @Query("SELECT * FROM OpshopItem WHERE opshop_name = :opshop_name LIMIT 1")
+    @Query("SELECT * FROM OpshopItem WHERE name = :opshop_name LIMIT 1")
     OpshopItem findByName(String opshop_name);
 
     @Insert

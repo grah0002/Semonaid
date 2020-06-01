@@ -16,18 +16,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/search_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Search Job (Ex Teacher)"
+                android:inputType="textPersonName"
+                android:textStyle="italic"
+                app:fontFamily="@font/montserrat" />
 
             <Button
                 android:id="@+id/filter_btn"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/ovalbtn"
+                android:gravity="center"
+                android:hint="Search "
+                android:text="Filter"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:text="Filter" />
+                android:textSize="18sp"
+                app:fontFamily="@font/montserrat" />
 
 
         </LinearLayout>
@@ -39,6 +55,17 @@
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/no_resTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="No results found!\nPlease update your search entry. "
+            android:textSize="18sp"
+            tools:visibility="gone" />
+
     </LinearLayout>
 
 
