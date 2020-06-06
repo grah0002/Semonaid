@@ -66,21 +66,24 @@ public class OpshopListActivity extends AppCompatActivity  {
         Intent intent = getIntent();
         back = (Button) findViewById(R.id.button_back);
         fromRes = getIntent().getStringExtra("from_results");
-        if (fromRes.equals("yes")) {
-            setTitle("Find Thrift Stores");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            back.setVisibility(View.VISIBLE);
-            back.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    OpshopListActivity.this.finish();
-                }
-            });
-        } else if (fromRes.equals("no")) {
-            setTitle("Sell Treasure");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            back.setVisibility(View.GONE);
+        if (fromRes != null) {
+            if (fromRes.equals("yes")) {
+                setTitle("Find Thrift Stores");
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                back.setVisibility(View.VISIBLE);
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        OpshopListActivity.this.finish();
+                    }
+                });
+            } else if (fromRes.equals("no")) {
+                setTitle("Sell Treasure");
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                back.setVisibility(View.GONE);
+            }
         }
+
 /*        if (intent.hasExtra(Intent.EXTRA_TEXT)){
             category = intent.getStringExtra(Intent.EXTRA_TEXT);
             setTitle(category);

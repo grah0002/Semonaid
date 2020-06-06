@@ -49,14 +49,7 @@ public class OpshopItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_opshop_item);
 
         fromRes = getIntent().getStringExtra("from_results");
-        if (fromRes.equals("yes")) {
-            setTitle("Find Thrift Stores");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        } else if (fromRes.equals("no")) {
-            setTitle("Sell Treasure");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
 
         setTitle("Sell Treasure");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
